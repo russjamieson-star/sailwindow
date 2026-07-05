@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SailWindow Partner Discounts — For Sailors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased}
+body{font-family:'DM Sans',system-ui,sans-serif;font-size:15px;color:#1a1a18;background:#fff;line-height:1.65}
+
+/* ── Layout ── */
+.page{max-width:660px;margin:0 auto;padding:44px 40px 64px}
+
+/* ── Header ── */
+.header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:20px;border-bottom:2px solid #01696f;margin-bottom:32px}
+.logo-block{display:flex;align-items:center;gap:10px}
+.logo-word{font-size:21px;font-weight:700;letter-spacing:-.03em}
+.logo-word span{color:#01696f}
+.logo-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:#aaa;margin-top:1px}
+.header-pill{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;background:#e8f5f4;color:#01696f;padding:5px 13px;border-radius:999px}
+
+/* ── Hero ── */
+.hero{text-align:center;padding:32px 20px 36px;margin-bottom:32px;background:linear-gradient(160deg,#0d2828 0%,#0a1e1e 100%);border-radius:20px;color:#fff}
+.hero-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(79,152,163,.8);margin-bottom:12px}
+.hero-title{font-size:28px;font-weight:700;letter-spacing:-.03em;line-height:1.2;margin-bottom:12px}
+.hero-title em{color:#4f98a3;font-style:normal}
+.hero-sub{font-size:14.5px;color:rgba(255,255,255,.65);max-width:440px;margin:0 auto}
+
+/* ── Section ── */
+.section{margin-bottom:32px}
+.section-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#01696f;margin-bottom:7px}
+.section h2{font-size:17px;font-weight:700;letter-spacing:-.02em;color:#1a1a18;margin-bottom:10px}
+.section p{font-size:14px;color:#444;margin-bottom:9px;line-height:1.65}
+
+/* ── How-to steps ── */
+.steps{display:flex;flex-direction:column;gap:14px;margin:14px 0}
+.step{display:flex;gap:14px;align-items:flex-start}
+.step-num{width:30px;height:30px;border-radius:50%;background:#01696f;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.step-body{}
+.step-title{font-size:14px;font-weight:700;color:#1a1a18;margin-bottom:2px}
+.step-desc{font-size:13.5px;color:#555;line-height:1.6}
+
+/* ── Phone mock ── */
+.phone-wrap{display:flex;justify-content:center;margin:24px 0}
+.phone{width:260px;background:#111110;border-radius:36px;padding:20px 16px;border:2px solid #2a2a28;box-shadow:0 24px 48px rgba(0,0,0,.25)}
+.phone-notch{width:80px;height:8px;background:#1c1c1a;border-radius:999px;margin:0 auto 16px}
+.phone-screen{background:#171614;border-radius:20px;overflow:hidden}
+.ps-ashore-bar{background:#1c1b19;padding:10px 14px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#4f98a3;display:flex;align-items:center;gap:6px}
+.ps-card{background:#1c1b19;margin:8px;border-radius:14px;overflow:hidden;border:1px solid #2d2c2a}
+.ps-card-header{background:#01696f;padding:14px 16px}
+.ps-card-badge{font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:5px}
+.ps-card-name{font-size:14px;font-weight:700;color:#fff;margin-bottom:1px}
+.ps-card-rating{font-size:10px;color:rgba(255,255,255,.5)}
+.ps-card-body{padding:12px 14px}
+.ps-offer-lbl{font-size:7.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#797876;margin-bottom:3px}
+.ps-offer{font-size:12.5px;font-weight:700;color:#4f98a3;margin-bottom:11px;line-height:1.3}
+.ps-show{background:rgba(79,152,163,.08);border:1.5px dashed #4f98a3;border-radius:8px;padding:8px 10px;text-align:center;margin-bottom:10px}
+.ps-show-main{font-size:11px;font-weight:700;color:#4f98a3}
+.ps-show-sub{font-size:9px;color:#797876;margin-top:2px}
+.ps-btns{display:flex;gap:6px}
+.ps-btn{flex:1;padding:7px;border-radius:8px;font-size:10px;font-weight:700;text-align:center}
+.ps-btn-phone{background:#4f98a3;color:#111}
+.ps-btn-dir{background:#2a2a28;color:#aaa}
+.ps-close{background:#2a2a28;margin:8px;border-radius:10px;padding:9px;text-align:center;font-size:11px;font-weight:700;color:#888}
+
+/* ── Callout ── */
+.callout{background:#f2fafa;border-left:3px solid #01696f;border-radius:10px;padding:16px 20px;margin:14px 0}
+.callout p{font-size:13.5px;color:#0c4e54;line-height:1.65;margin-bottom:0}
+.callout strong{color:#01696f}
+
+/* ── FAQ ── */
+.faq{display:flex;flex-direction:column;gap:14px;margin:12px 0}
+.faq-item{}
+.faq-q{font-size:13.5px;font-weight:700;color:#1a1a18;margin-bottom:3px}
+.faq-a{font-size:13px;color:#555;line-height:1.65}
+
+/* ── Divider ── */
+hr{border:none;border-top:1px solid #e8e8e4;margin:28px 0}
+
+/* ── Footer ── */
+.footer{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;padding-top:18px;border-top:1px solid #e0e0dc}
+.footer-contact p{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#aaa;margin-bottom:8px}
+.footer-contact-item{font-size:12.5px;color:#444;display:flex;align-items:center;gap:6px;margin-bottom:4px}
+.footer-right{text-align:right;font-size:11.5px;color:#aaa;line-height:1.75}
+
+/* ── Print ── */
+@media print{
+  body{font-size:13px}
+  .page{padding:16px 22px 28px;max-width:100%}
+  .hero,.phone,.callout,.ps-card,.ps-card-header,.ps-show,.ps-btn-phone{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  a{color:#01696f;text-decoration:none}
+  .phone-wrap{page-break-inside:avoid}
+}
+@media(max-width:560px){
+  .page{padding:20px 16px 48px}
+  .header{flex-direction:column;align-items:flex-start;gap:8px}
+  .footer{flex-direction:column}
+  .footer-right{text-align:left}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo-block">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="16" r="16" fill="#01696f" opacity=".12"/>
+        <line x1="16" y1="22" x2="16" y2="8" stroke="#01696f" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M16 8 L24 21 L16 22 Z" fill="#01696f" opacity=".85"/>
+        <path d="M16 12 L10 21 L16 22 Z" fill="#01696f" opacity=".4"/>
+        <path d="M7 25.5 Q10 23.5 13 25.5 Q16 27.5 19 25.5 Q22 23.5 25 25.5" stroke="#01696f" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".6"/>
+      </svg>
+      <div>
+        <div class="logo-word">Sail<span>Window</span></div>
+        <div class="logo-tag">sailwindow.com</div>
+      </div>
+    </div>
+    <div class="header-pill">Sailor Benefits</div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-label">For SailWindow Subscribers</div>
+    <div class="hero-title">Sail in. Eat well.<br><em>Save something, too.</em></div>
+    <div class="hero-sub">SailWindow Partner restaurants offer exclusive discounts to subscribers — no coupons, no codes. Just show the app.</div>
+  </div>
+
+  <!-- What it is -->
+  <div class="section">
+    <div class="section-label">What the Partner Program Is</div>
+    <h2>Subscriber discounts at dockside restaurants</h2>
+    <p>SailWindow has partnered with select restaurants near participating marinas. Each Partner has agreed to offer SailWindow subscribers an exclusive discount — displayed directly in the app when you dock.</p>
+    <p>Partners are vetted by SailWindow and featured prominently in the Ashore panel, above general dining listings. Every Partner has agreed to the offer you see — there is nothing to negotiate at the table.</p>
+    <div class="callout">
+      <p><strong>The discount is confirmed before you walk in.</strong> What's shown in the app is exactly what the restaurant has agreed to. Present the screen, receive the discount.</p>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- How to use it -->
+  <div class="section">
+    <div class="section-label">How to Use It</div>
+    <h2>Three steps from dock to table</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Dock and open SailWindow</div>
+          <div class="step-desc">Tap the Ashore tab. Partner restaurants appear at the top of your marina's dining list, marked with a tag icon and the word PARTNER.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Tap the Partner listing</div>
+          <div class="step-desc">Your Partner Discount Screen opens — showing the restaurant's name, your specific offer, and a "Show this to your server" panel. Keep this screen open when you arrive.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Show the screen to your server</div>
+          <div class="step-desc">Mention SailWindow when you arrive or present the screen to your server. The discount will be applied to your check — no coupon code or printed voucher needed.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phone mockup -->
+    <div class="phone-wrap">
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="ps-ashore-bar">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#4f98a3" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Ashore · Partners nearby
+          </div>
+          <div class="ps-card">
+            <div class="ps-card-header">
+              <div class="ps-card-badge">&#127991; SailWindow Sailor Discount</div>
+              <div class="ps-card-name">The Dockside Grille</div>
+              <div class="ps-card-rating">&#9733; 4.7 &nbsp;&middot;&nbsp; 0.2 mi from dock</div>
+            </div>
+            <div class="ps-card-body">
+              <div class="ps-offer-lbl">Your offer</div>
+              <div class="ps-offer">10% off your meal for SailWindow sailors</div>
+              <div class="ps-show">
+                <div class="ps-show-main">&#128241; Show this to your server</div>
+                <div class="ps-show-sub">Mention SailWindow when you arrive</div>
+              </div>
+              <div class="ps-btns">
+                <div class="ps-btn ps-btn-phone">&#128222; Call</div>
+                <div class="ps-btn ps-btn-dir">&#128506; Directions</div>
+              </div>
+            </div>
+          </div>
+          <div class="ps-close">Close</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- FAQ -->
+  <div class="section">
+    <div class="section-label">Common Questions</div>
+    <h2>What to know before you go</h2>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-q">Does every restaurant in the Ashore list offer a discount?</div>
+        <div class="faq-a">No. Only restaurants labeled PARTNER have agreed to a subscriber discount. The full Ashore list includes all nearby dining — Partners are featured at the top.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I need cell service at the dock?</div>
+        <div class="faq-a">No. Once you've opened the Partner Discount Screen, you can take a screenshot. A screenshot is acceptable — Partners know this.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if the restaurant is unfamiliar with the program?</div>
+        <div class="faq-a">Ask for a manager and show them this page or the app screen. If the issue persists, contact SailWindow at 404-585-1950 and we will follow up with the restaurant directly.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Does the discount apply to the whole table?</div>
+        <div class="faq-a">Yes — the offer applies to your dining party. Refer to the specific offer text in the app for any limits.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I suggest a restaurant for the program?</div>
+        <div class="faq-a">Absolutely. Email ahoy@sailwindow.com with the restaurant name and marina. We actively expand the Partner network based on subscriber feedback.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-contact">
+      <p>SailWindow Support</p>
+      <div class="footer-contact-item">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#01696f" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.59 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6 6l.93-.93a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+        404-585-1950
+      </div>
+      <div class="footer-contact-item">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#01696f" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        ahoy@sailwindow.com
+      </div>
+      <div class="footer-contact-item">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#01696f" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        sailwindow.com/partners
+      </div>
+    </div>
+    <div class="footer-right">
+      SailWindow Subscriber Benefit<br>
+      Partner Discounts &middot; June 2026<br>
+      &copy; 2026 SailWindow LLC
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

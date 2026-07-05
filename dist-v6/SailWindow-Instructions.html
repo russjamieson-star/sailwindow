@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SailWindow — User Guide & Documentation</title>
+<meta name="description" content="Learn how to use SailWindow: sailability scoring, wind forecasts, tide predictions, marina mapping, fuel & food ashore, drawbridge schedules, and live Gulf Coast sailing conditions.">
+<meta property="og:title" content="SailWindow — User Guide">
+<meta property="og:description" content="Complete guide to SailWindow's sailing conditions dashboard and features.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sailwindow.com/SailWindow-Instructions">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root,[data-theme="light"]{
+  --bg:#f7f6f2;--surface:#f9f8f5;--surface2:#fbfbf9;--offset:#f3f0ec;
+  --dynamic:#e6e4df;--divider:#dcd9d5;--border:#d4d1ca;
+  --text:#28251d;--muted:#7a7974;--faint:#bab9b4;--inverse:#f9f8f4;
+  --primary:#01696f;--primary-h:#0c4e54;--primary-hl:#cedcd8;
+  --success:#437a22;--success-hl:#d4dfcc;
+  --warn:#964219;--warn-hl:#ddcfc6;
+  --error:#a12c7b;--error-hl:#e0ced7;
+  --gold:#b07a00;--gold-hl:#e9e0c6;
+  --sh-sm:0 1px 2px rgba(0,0,0,.06);
+  --sh-md:0 4px 12px rgba(0,0,0,.08);
+  --r-sm:.375rem;--r-md:.5rem;--r-lg:.75rem;--r-xl:1rem;--r-2xl:1.5rem;--r-full:9999px;
+  --body:'DM Sans',system-ui,sans-serif;--mono:'DM Mono',monospace;
+}
+[data-theme="dark"]{
+  --bg:#171614;--surface:#1c1b19;--surface2:#201f1d;--offset:#1d1c1a;
+  --dynamic:#2d2c2a;--divider:#262523;--border:#393836;
+  --text:#cdccca;--muted:#797876;--faint:#5a5957;--inverse:#2b2a28;
+  --primary:#4f98a3;--primary-h:#227f8b;--primary-hl:#313b3b;
+  --success:#6daa45;--success-hl:#3a4435;
+  --warn:#bb653b;--warn-hl:#564942;
+  --error:#d163a7;--error-hl:#4c3d46;
+  --gold:#e8af34;--gold-hl:#4d4332;
+  --sh-sm:0 1px 2px rgba(0,0,0,.2);--sh-md:0 4px 12px rgba(0,0,0,.3);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:none;-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{font-family:var(--body);font-size:1rem;color:var(--text);background:var(--bg);line-height:1.6}
+a{color:var(--primary);text-decoration:none}
+a:hover{text-decoration:underline}
+img,svg{display:block;max-width:100%}
+button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
+
+.page{max-width:800px;margin:0 auto;padding:2rem 1.5rem 5rem}
+
+.topbar{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--divider);padding:.75rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;color:var(--text)}
+.logo-word{font-size:.9rem;font-weight:600;letter-spacing:-.01em}.logo-word span{color:var(--primary)}
+.top-actions{display:flex;gap:.5rem;align-items:center}
+.icon-btn{width:36px;height:36px;border-radius:9999px;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:.18s ease}
+.icon-btn:hover{background:var(--dynamic);color:var(--text)}
+.pdf-btn{display:inline-flex;align-items:center;gap:.4rem;background:var(--primary);color:var(--inverse);padding:.5rem 1.1rem;border-radius:9999px;font-size:.85rem;font-weight:600;transition:.18s ease;white-space:nowrap}
+.pdf-btn:hover{background:var(--primary-h);text-decoration:none}
+
+.hero{padding:2.5rem 0 1.5rem;border-bottom:1px solid var(--divider);margin-bottom:2.5rem}
+.hero-label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--primary);margin-bottom:.5rem}
+.hero h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:.75rem}
+.hero-sub{font-size:1.05rem;color:var(--muted);max-width:560px;line-height:1.6}
+
+.toc{background:var(--surface);border:1px solid var(--divider);border-radius:var(--r-xl);padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-title{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.75rem}
+.toc ol{padding-left:1.25rem;display:grid;grid-template-columns:1fr 1fr;gap:.2rem .5rem}
+.toc li{font-size:.875rem}
+.toc a{color:var(--muted)}.toc a:hover{color:var(--primary);text-decoration:none}
+@media(max-width:540px){.toc ol{grid-template-columns:1fr}}
+
+.section{margin-bottom:3rem;scroll-margin-top:80px}
+.section-num{display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--primary);background:var(--primary-hl);padding:.15rem .55rem;border-radius:var(--r-full);margin-bottom:.5rem}
+.section h2{font-size:1.35rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.75rem;line-height:1.25}
+.section h3{font-size:1rem;font-weight:700;margin:1.25rem 0 .4rem;color:var(--text)}
+.section p{color:var(--muted);margin-bottom:.75rem;font-size:.9375rem}
+.section ul,.section ol{padding-left:1.4rem;color:var(--muted);font-size:.9375rem;display:flex;flex-direction:column;gap:.35rem;margin-bottom:.75rem}
+.section li::marker{color:var(--primary)}
+
+.card{background:var(--surface);border:1px solid var(--divider);border-radius:var(--r-xl);padding:1.25rem 1.5rem;margin:1rem 0;box-shadow:var(--sh-sm)}
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1rem 0}
+@media(max-width:480px){.card-grid{grid-template-columns:1fr}}
+.mini-card{background:var(--surface);border:1px solid var(--divider);border-radius:var(--r-lg);padding:.9rem 1.1rem}
+.mini-card .icon{font-size:1.3rem;margin-bottom:.35rem}
+.mini-card .label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:.2rem}
+.mini-card .val{font-size:.875rem;font-weight:600}
+.mini-card .status{display:inline-flex;align-items:center;font-size:.75rem;font-weight:600;padding:2px .5rem;border-radius:9999px;margin-top:.3rem}
+.s-ideal{background:var(--success-hl);color:var(--success)}.s-fav{background:var(--primary-hl);color:var(--primary)}.s-moderate{background:var(--gold-hl);color:var(--gold)}.s-high{background:var(--error-hl);color:var(--error)}
+
+.score-mock{background:var(--surface);border-radius:var(--r-xl);padding:1.5rem;border:1px solid var(--divider);position:relative;overflow:hidden;margin:1rem 0}
+.score-mock::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--primary);border-radius:var(--r-xl) var(--r-xl) 0 0}
+.score-big{font-size:3.5rem;font-weight:700;letter-spacing:-.04em;line-height:1}
+.score-denom{font-size:1.4rem;font-weight:400;color:var(--muted)}
+.q-badge{display:inline-flex;align-items:center;gap:.35rem;font-size:.875rem;font-weight:600;padding:.2rem .75rem;border-radius:9999px;margin-top:.6rem}
+.q-excellent{background:var(--success-hl);color:var(--success)}
+.win-row{display:flex;align-items:center;justify-content:space-between;background:var(--offset);border-radius:var(--r-lg);padding:.9rem 1.1rem;margin-top:.9rem;gap:.75rem}
+.win-lbl{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:.2rem}
+.win-time{font-size:1.15rem;font-weight:700}
+.win-dur{font-size:.75rem;color:var(--muted);background:var(--dynamic);padding:.2rem .5rem;border-radius:9999px;font-weight:500;white-space:nowrap}
+
+.tip,.warn-box,.new-box{border-radius:var(--r-lg);padding:.9rem 1.1rem;font-size:.875rem;margin:1rem 0;display:flex;gap:.65rem;align-items:flex-start}
+.tip{background:var(--primary-hl);color:var(--primary)}
+.warn-box{background:var(--warn-hl);color:var(--warn)}
+.new-box{background:var(--success-hl);color:var(--success)}
+.tip-icon,.warn-icon,.new-icon{font-size:1.1rem;flex-shrink:0;margin-top:.05rem}
+
+.tag{display:inline-block;font-size:.75rem;color:var(--muted);background:var(--dynamic);padding:.2rem .6rem;border-radius:9999px;border:1px solid var(--divider);margin:.15rem}
+
+hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
+
+.score-table{width:100%;border-collapse:collapse;font-size:.875rem;margin:.75rem 0}
+.score-table th{text-align:left;padding:.5rem .75rem;font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);border-bottom:1px solid var(--divider)}
+.score-table td{padding:.6rem .75rem;font-variant-numeric:tabular-nums}
+.score-table tr:not(:last-child) td{border-bottom:1px solid var(--divider)}
+
+.nav-mock{display:flex;background:var(--surface);border:1px solid var(--divider);border-radius:var(--r-xl);overflow:hidden;margin:1rem 0}
+.nav-mock-item{flex:1;display:flex;flex-direction:column;align-items:center;padding:.65rem .5rem;font-size:.75rem;color:var(--faint);gap:3px;border-right:1px solid var(--divider)}
+.nav-mock-item:last-child{border-right:none}
+.nav-mock-item.active{color:var(--primary)}
+
+.footer{text-align:center;color:var(--faint);font-size:.8rem;padding-top:2rem;border-top:1px solid var(--divider)}
+.back-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--primary);font-weight:600;font-size:.875rem}
+
+@media print{
+  .topbar,.pdf-btn,.icon-btn,.top-actions{display:none!important}
+  .page{padding:0;max-width:100%}
+  body{font-size:11pt;color:#111;background:#fff}
+  .section h2{break-after:avoid}
+  .card,.mini-card,.score-mock,.card-grid{break-inside:avoid}
+  a{color:#01696f;text-decoration:none}
+  .hero{padding-top:.5rem}
+  [data-theme="dark"]{
+    --bg:#fff;--surface:#f5f5f5;--surface2:#fafafa;--offset:#ebebeb;
+    --dynamic:#e0e0e0;--divider:#ccc;--border:#ccc;
+    --text:#111;--muted:#555;--faint:#888;--inverse:#f5f5f5;
+    --primary:#01696f;--primary-h:#0c4e54;--primary-hl:#d8eeec;
+    --success:#437a22;--success-hl:#d4dfcc;
+    --warn:#964219;--warn-hl:#f5e5da;
+    --error:#a12c7b;--error-hl:#f0d8e7;
+    --gold:#7a5500;--gold-hl:#f0e8cc;
+  }
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a href="index.html" class="logo">
+    <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+      <circle cx="16" cy="16" r="16" fill="var(--primary)" opacity=".12"/>
+      <line x1="16" y1="22" x2="16" y2="8" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M16 8 L24 21 L16 22 Z" fill="var(--primary)" opacity=".85"/>
+      <path d="M16 12 L10 21 L16 22 Z" fill="var(--primary)" opacity=".4"/>
+      <path d="M7 25.5 Q10 23.5 13 25.5 Q16 27.5 19 25.5 Q22 23.5 25 25.5" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".6"/>
+    </svg>
+    <span class="logo-word">Sail<span>Window</span> <span style="font-weight:300;opacity:.5">V6</span></span>
+  </a>
+  <div class="top-actions">
+    <button class="icon-btn" id="theme-btn" aria-label="Toggle theme" onclick="toggleTheme()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="pdf-btn" onclick="window.print()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download PDF
+    </button>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="hero">
+    <div class="hero-label">User Guide</div>
+    <h1>SailWindow V6 · Gulf Coast Edition</h1>
+    <p class="hero-sub">A live sailing conditions dashboard covering the entire Gulf Coast — from the Texas border to the Florida Keys — with real-time wind forecasts, tide predictions, a 7-day outlook, marina mapping, fuel &amp; food ashore, drawbridge opening schedules, and a Navigation Advisory for hurricane-affected facilities.</p>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <ol>
+      <li><a href="#s1">Overview</a></li>
+      <li><a href="#s2">Sailability Score</a></li>
+      <li><a href="#s3">Best Sailing Window</a></li>
+      <li><a href="#s4">Conditions Panel</a></li>
+      <li><a href="#s5">Wind Forecast Chart</a></li>
+      <li><a href="#s6">Tide Charts &amp; Table</a></li>
+      <li><a href="#s7">7-Day Forecast</a></li>
+      <li><a href="#s8">Sailing Preferences</a></li>
+      <li><a href="#s9">Changing Location</a></li>
+      <li><a href="#s10">Marina Map View</a></li>
+      <li><a href="#s11">Navigation Advisory</a></li>
+      <li><a href="#s12">Custom Location</a></li>
+      <li><a href="#s13">Feedback Tab</a></li>
+      <li><a href="#s14">Subscription &amp; Free Trial</a></li>
+      <li><a href="#s15">Scoring Algorithm</a></li>
+      <li><a href="#s16">Tips &amp; Troubleshooting</a></li>
+    </ol>
+  </div>
+
+  <!-- ─── 1. Overview ─── -->
+  <section class="section" id="s1">
+    <div class="section-num">01</div>
+    <h2>Overview</h2>
+    <p>SailWindow is a single-page web app that runs entirely in your browser — no app store, no install. Each time you open it or tap <strong>Refresh Live Data</strong>, it fetches two live data sources:</p>
+    <ul>
+      <li><strong>NWS (National Weather Service)</strong> — hourly wind speed, gust speed, wind direction, and precipitation probability for the next 24 hours, from <code>api.weather.gov</code>.</li>
+      <li><strong>NOAA Tides &amp; Currents</strong> — hourly tide height predictions and high/low tide events for today at your chosen station, from <code>api.tidesandcurrents.noaa.gov</code>.</li>
+    </ul>
+    <p>V6 covers the entire Gulf Coast with <strong>35 verified NOAA stations</strong> spanning Texas, Louisiana, Mississippi, Alabama, and Florida. It runs those datasets through a scoring model calibrated to your preferences and presents everything on one clean screen.</p>
+    <div class="new-box"><span class="new-icon">✦</span><div><strong>New in V6:</strong> three Choctawhatchee Bay stations (Niceville — Rocky Bayou, Niceville — Valparaiso, and Destin — East Pass), the <strong>⛽🍴 Ashore</strong> button showing fuel &amp; food near every marina with live Google-sourced restaurant listings, a <strong>🏷️ Partner Discount card</strong> — tap any featured partner to pull up a full-screen "Show to your server" discount screen, a <strong>🌉 Drawbridges</strong> panel with Coast Guard opening schedules, and smart connection nudges for marina Wi-Fi or onboard Starlink.</div></div>
+    <div class="tip"><span class="tip-icon">ℹ</span><div>No account or login is required for the free tier. Your preferences are saved locally in your browser. Marina map data is cached for 24 hours so the map loads instantly on return visits.</div></div>
+  </section>
+
+  <!-- ─── 2. Sailability Score ─── -->
+  <section class="section" id="s2">
+    <div class="section-num">02</div>
+    <h2>Sailability Score</h2>
+    <p>The large number at the top of the screen is today's <strong>Sailability Score</strong> — a single 0–10 rating that summarizes how good conditions are during the best available window.</p>
+
+    <div class="score-mock">
+      <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.5rem">Today's Sailability</div>
+      <div class="score-big">8.4<span class="score-denom">/10</span></div>
+      <div class="q-badge" style="background:var(--primary-hl);color:var(--primary)">✦ Good</div>
+      <div class="win-row">
+        <div><div class="win-lbl">Best Departure</div><div class="win-time">10:00 AM</div></div>
+        <span style="color:var(--primary);font-size:1.3rem">→</span>
+        <div style="text-align:right"><div class="win-lbl">Best Return</div><div class="win-time">2:00 PM</div></div>
+        <span class="win-dur">4 hr</span>
+      </div>
+    </div>
+
+    <p>The score is accompanied by a <strong>quality badge</strong>:</p>
+    <table class="score-table">
+      <thead><tr><th>Score</th><th>Label</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td><strong>9.0 – 10</strong></td><td><span class="q-badge q-excellent" style="padding:.15rem .6rem">🟢 Excellent</span></td><td style="color:var(--muted)">Prime conditions — go sailing</td></tr>
+        <tr><td><strong>7.0 – 8.9</strong></td><td><span class="q-badge" style="background:var(--primary-hl);color:var(--primary);padding:.15rem .6rem">✦ Good</span></td><td style="color:var(--muted)">Solid day — conditions comfortably in range</td></tr>
+        <tr><td><strong>5.0 – 6.9</strong></td><td><span class="q-badge" style="background:var(--gold-hl);color:var(--gold);padding:.15rem .6rem">🟡 Marginal</span></td><td style="color:var(--muted)">Sail with awareness — something is off</td></tr>
+        <tr><td><strong>0 – 4.9</strong></td><td><span class="q-badge" style="background:var(--error-hl);color:var(--error);padding:.15rem .6rem">🔴 No-Go</span></td><td style="color:var(--muted)">Not recommended — stay ashore</td></tr>
+      </tbody>
+    </table>
+    <p>Beneath the score, a row of <strong>reason tags</strong> gives a plain-English summary: wind range, gust status, rain chance, storm risk, and wind direction during the window.</p>
+  </section>
+
+  <!-- ─── 3. Best Window ─── -->
+  <section class="section" id="s3">
+    <div class="section-num">03</div>
+    <h2>Best Sailing Window</h2>
+    <p>SailWindow scans every daylight departure time (7 AM – 6 PM) in the next 24 hours of forecast that fits your <strong>Trip Duration</strong> preference, scores each block, and surfaces the best one. The departure and return times shown are the start and end of that block — if you check in the evening, the best window may fall tomorrow morning.</p>
+    <p>The window is also highlighted as a <strong>green shaded band</strong> on both the Wind and Tide charts so you can see at a glance how conditions look across the day.</p>
+    <div class="tip"><span class="tip-icon">ℹ</span><div>If the best window still scores below 5, the badge shows "Marginal" or "No-Go" — this means no truly good block exists today, but the app still shows you the least-bad option.</div></div>
+  </section>
+
+  <!-- ─── 4. Conditions Panel ─── -->
+  <section class="section" id="s4">
+    <div class="section-num">04</div>
+    <h2>Conditions Panel</h2>
+    <p>Below the score card, four tiles show the key metrics measured <em>during</em> the best window:</p>
+    <div class="card-grid">
+      <div class="mini-card">
+        <div class="icon">💨</div>
+        <div class="label">Wind</div>
+        <div class="val">10–14 kt SW</div>
+        <div class="status s-ideal">✔ Ideal</div>
+        <p style="margin-top:.5rem;font-size:.8rem;color:var(--muted)">Range of sustained wind speed (knots) and direction during the window. <strong>Ideal</strong> means it falls within your preferred wind range.</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">⚡</div>
+        <div class="label">Gusts</div>
+        <div class="val">19 kt peak</div>
+        <div class="status s-fav">✔ Below limit</div>
+        <p style="margin-top:.5rem;font-size:.8rem;color:var(--muted)">Peak gust during the window vs. your max-gust preference. Turns amber at "Near limit" and red at "Exceeds limit."</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">🌊</div>
+        <div class="label">Tide</div>
+        <div class="val">Incoming ↑</div>
+        <div class="status s-fav">✔ Favorable</div>
+        <p style="margin-top:.5rem;font-size:.8rem;color:var(--muted)">Whether the tide is rising or falling during the window, compared to your tide preference.</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">⛈</div>
+        <div class="label">Storm Risk</div>
+        <div class="val">Rain 12%</div>
+        <div class="status s-ideal">✔ Low</div>
+        <p style="margin-top:.5rem;font-size:.8rem;color:var(--muted)">Average precipitation probability during the window. Turns amber above 30% and red if thunderstorms appear in the forecast.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 5. Wind Chart ─── -->
+  <section class="section" id="s5">
+    <div class="section-num">05</div>
+    <h2>Wind Forecast Chart</h2>
+    <p>The first chart shows 24 hours of hourly wind data starting from the current hour:</p>
+    <ul>
+      <li><strong style="color:var(--primary)">Teal line (Sustained)</strong> — steady wind speed in knots.</li>
+      <li><strong style="color:var(--warn)">Amber dashed line (Gusts)</strong> — peak gust speed in knots.</li>
+      <li><strong style="color:var(--success)">Green shaded band</strong> — the best sailing window.</li>
+    </ul>
+    <p>Tap anywhere on the chart to see the exact sustained and gust values for that hour. The note below the chart states the window start and end times.</p>
+    <div class="tip"><span class="tip-icon">ℹ</span><div>The Y-axis always extends to at least 35 kt so the scale stays consistent and doesn't exaggerate light-wind days.</div></div>
+  </section>
+
+  <!-- ─── 6. Tide Charts ─── -->
+  <section class="section" id="s6">
+    <div class="section-num">06</div>
+    <h2>Tide Charts &amp; Table</h2>
+    <h3>Tide Prediction Curve</h3>
+    <p>The second chart shows the full-day tide height curve in <strong>feet above MLLW</strong> (Mean Lower Low Water), with the best window shaded in green. Tap to read the exact tide height at any hour.</p>
+    <h3>Tide Events Table</h3>
+    <p>Below the chart, a table lists each <strong>high and low tide event</strong> for the day with its local time and height in feet. High tides appear in teal; low tides appear in muted grey.</p>
+    <div class="card">
+      <table class="score-table" style="margin:0">
+        <thead><tr><th>Time</th><th>Height (ft)</th><th>Type</th></tr></thead>
+        <tbody>
+          <tr><td style="color:var(--primary);font-weight:600">6:14 AM</td><td style="color:var(--primary);font-weight:600">2.6 ft</td><td><span style="display:inline-flex;font-size:.75rem;padding:2px .5rem;border-radius:9999px;background:var(--primary-hl);color:var(--primary);font-weight:600">↑ High</span></td></tr>
+          <tr><td style="color:var(--muted)">12:31 PM</td><td style="color:var(--muted)">0.4 ft</td><td><span style="display:inline-flex;font-size:.75rem;padding:2px .5rem;border-radius:9999px;background:var(--dynamic);color:var(--muted);font-weight:600">↓ Low</span></td></tr>
+          <tr><td style="color:var(--primary);font-weight:600">7:05 PM</td><td style="color:var(--primary);font-weight:600">2.1 ft</td><td><span style="display:inline-flex;font-size:.75rem;padding:2px .5rem;border-radius:9999px;background:var(--primary-hl);color:var(--primary);font-weight:600">↑ High</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>All times are displayed in local time as reported by NOAA.</p>
+  </section>
+
+  <!-- ─── 7. 7-Day Forecast ─── -->
+  <section class="section" id="s7">
+    <div class="section-num">07</div>
+    <h2>7-Day Forecast</h2>
+    <div class="new-box"><span class="new-icon">✦</span><div>New in V5 — powered by the ECMWF IFS model via Open-Meteo.</div></div>
+    <p>Tap <strong>7-Day</strong> in the bottom navigation to open the full-screen 7-day outlook. Each day card shows:</p>
+    <ul>
+      <li>Day sailability score (0–10) with quality badge</li>
+      <li>Best departure and return window for that day</li>
+      <li>Wind range and peak gust</li>
+      <li>Precipitation probability</li>
+      <li>Dominant wind direction</li>
+    </ul>
+    <p>The 7-day view uses the same scoring engine and preferences as the Today view, so a day that scores green here will score green on the main screen when that day arrives.</p>
+    <div class="tip"><span class="tip-icon">ℹ</span><div>7-day wind data comes from the ECMWF IFS 0.25° model — a high-resolution European forecast model well-suited for coastal marine conditions. Tide data is pulled from the same NOAA station as your active location.</div></div>
+  </section>
+
+  <!-- ─── 8. Preferences ─── -->
+  <section class="section" id="s8">
+    <div class="section-num">08</div>
+    <h2>Sailing Preferences</h2>
+    <p>Tap the <strong>⚙</strong> gear icon or the preferences row at the bottom of the dashboard to open the <strong>Preferences modal</strong>. You can set:</p>
+    <ul>
+      <li><strong>Location / Marina</strong> — choose from 32 Gulf Coast preset stations, a custom GPS location, or "Current Location" to use your device's GPS. Stations are grouped by state in the dropdown.</li>
+      <li><strong>Wind Min / Max (kt)</strong> — your ideal sustained wind range. Hours inside this band are rewarded; hours outside are penalized.</li>
+      <li><strong>Max Gust (kt)</strong> — any hour with gusts above this value is scored 0 (automatic no-go).</li>
+      <li><strong>Duration (hrs)</strong> — how long your sail will be (1–12 hrs in half-hour steps). Determines the width of the window the app searches for.</li>
+      <li><strong>Tide Preference</strong> — <em>Any</em>, <em>Incoming (flood)</em>, or <em>Outgoing (ebb)</em>.</li>
+    </ul>
+    <p>Tap <strong>Save &amp; Refresh</strong> to apply the changes and immediately reload live data.</p>
+    <div class="tip"><span class="tip-icon">ℹ</span><div>All preferences are saved automatically to your browser's local storage. They persist across page reloads and browser restarts on the same device.</div></div>
+  </section>
+
+  <!-- ─── 9. Changing Location ─── -->
+  <section class="section" id="s9">
+    <div class="section-num">09</div>
+    <h2>Changing Location</h2>
+    <p>The <strong>location bar</strong> at the top shows your active marina and NOAA station. Tap <strong>Change</strong> to open the quick-chooser:</p>
+    <div class="card">
+      <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:.5rem">
+        <li>🛰 <strong>Use GPS Location</strong> — your device's position auto-selects the nearest NOAA station from all 35 built-in stations and immediately loads data.</li>
+        <li>📍 <strong>Select a station dropdown</strong> — 35 preset stations grouped by state (Texas → Louisiana → Mississippi → Alabama → Florida).</li>
+        <li>🗺 <strong>Open Map</strong> — opens the full Marina map view to browse and select by pin.</li>
+      </ul>
+    </div>
+
+    <h3>All 35 Gulf Coast Stations</h3>
+    <table class="score-table">
+      <thead><tr><th>Marina / Location</th><th>NOAA Station</th></tr></thead>
+      <tbody>
+        <tr><td colspan="2" style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;color:var(--primary);padding-top:.9rem">Florida — Keys &amp; SW</td></tr>
+        <tr><td>Key West, FL</td><td style="color:var(--muted);font-family:var(--mono)">8724580</td></tr>
+        <tr><td>Naples, FL</td><td style="color:var(--muted);font-family:var(--mono)">8725110</td></tr>
+        <tr><td>Fort Myers, FL</td><td style="color:var(--muted);font-family:var(--mono)">8725520</td></tr>
+        <tr><td colspan="2" style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;color:var(--primary);padding-top:.9rem">Florida — Tampa Bay</td></tr>
+        <tr><td>Clearwater Beach, FL</td><td style="color:var(--muted);font-family:var(--mono)">8726724</td></tr>
+        <tr><td>St. Petersburg, FL</td><td style="color:var(--muted);font-family:var(--mono)">8726520</td></tr>
+        <tr><td>Tampa — Hooker Point</td><td style="color:var(--muted);font-family:var(--mono)">8726667</td></tr>
+        <tr><td>Tampa — Egmont Key</td><td style="color:var(--muted);font-family:var(--mono)">8726347</td></tr>
+        <tr><td>Tampa — Gandy Bridge</td><td style="color:var(--muted);font-family:var(--mono)">8726607</td></tr>
+        <tr><td colspan="2" style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;color:var(--primary);padding-top:.9rem">Florida — Gulf Coast &amp; Panhandle</td></tr>
+        <tr><td>Cedar Key, FL</td><td style="color:var(--muted);font-family:var(--mono)">8727520</td></tr>
+        <tr><td>Apalachicola, FL</td><td style="color:var(--muted);font-family:var(--mono)">8728690</td></tr>
+        <tr><td>Panama City, FL</td><td style="color:var(--muted);font-family:var(--mono)">8729108</td></tr>
+        <tr><td>Niceville — Rocky Bayou <span style="color:var(--primary);font-size:.7rem;font-weight:700">NEW</span></td><td style="color:var(--muted);font-family:var(--mono)">8729479</td></tr>
+        <tr><td>Niceville — Valparaiso <span style="color:var(--primary);font-size:.7rem;font-weight:700">NEW</span></td><td style="color:var(--muted);font-family:var(--mono)">8729501</td></tr>
+        <tr><td>Destin — East Pass <span style="color:var(--primary);font-size:.7rem;font-weight:700">NEW</span></td><td style="color:var(--muted);font-family:var(--mono)">8729511</td></tr>
+        <tr><td>Pensacola, FL</td><td style="color:var(--muted);font-family:var(--mono)">8729840</td></tr>
+        <tr><td>Pensacola Beach Pier</td><td style="color:var(--muted);font-family:var(--mono)">8729807</td></tr>
+        <tr><td colspan="2" style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;color:var(--primary);padding-top:.9rem">Alabama</td></tr>
+        <tr><td>Dauphin Island, AL</td><td style="color:var(--muted);font-family:var(--mono)">8735180</td></tr>
+        <tr><td>Mobile State Docks, AL</td><td style="color:var(--muted);font-family:var(--mono)">8737048</td></tr>
+        <tr><td colspan="2" style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;color:var(--primary);padding-top:.9rem">Mississippi</td></tr>
+        <tr><td>Pascagoula, MS</td><td style="color:var(--muted);font-family:var(--mono)">8741533</td></tr>
+        <tr><td>Biloxi, MS</td><td style="color:var(--muted);font-family:var(--mono)">8744117</td></tr>
+        <tr><td>Bay Waveland, MS</td><td style="color:var(--muted);font-family:var(--mono)">8747437</td></tr>
+        <tr><td colspan="2" style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;color:var(--primary);padding-top:.9rem">Louisiana</td></tr>
+        <tr><td>SW Pass, LA</td><td style="color:var(--muted);font-family:var(--mono)">8760922</td></tr>
+        <tr><td>Grand Isle, LA</td><td style="color:var(--muted);font-family:var(--mono)">8761724</td></tr>
+        <tr><td>Port Fourchon, LA</td><td style="color:var(--muted);font-family:var(--mono)">8762075</td></tr>
+        <tr><td>New Orleans, LA</td><td style="color:var(--muted);font-family:var(--mono)">8761927</td></tr>
+        <tr><td>Calcasieu Pass, LA</td><td style="color:var(--muted);font-family:var(--mono)">8768094</td></tr>
+        <tr><td colspan="2" style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;color:var(--primary);padding-top:.9rem">Texas</td></tr>
+        <tr><td>Sabine Pass, TX</td><td style="color:var(--muted);font-family:var(--mono)">8770570</td></tr>
+        <tr><td>Port Arthur, TX</td><td style="color:var(--muted);font-family:var(--mono)">8770475</td></tr>
+        <tr><td>Galveston Pier 21, TX</td><td style="color:var(--muted);font-family:var(--mono)">8771450</td></tr>
+        <tr><td>Freeport, TX</td><td style="color:var(--muted);font-family:var(--mono)">8772447</td></tr>
+        <tr><td>Matagorda City, TX</td><td style="color:var(--muted);font-family:var(--mono)">8773146</td></tr>
+        <tr><td>Rockport, TX</td><td style="color:var(--muted);font-family:var(--mono)">8774770</td></tr>
+        <tr><td>Aransas Pass, TX</td><td style="color:var(--muted);font-family:var(--mono)">8775241</td></tr>
+        <tr><td>Corpus Christi, TX</td><td style="color:var(--muted);font-family:var(--mono)">8775870</td></tr>
+        <tr><td>Port Isabel, TX</td><td style="color:var(--muted);font-family:var(--mono)">8779770</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ─── 10. Marina Map ─── -->
+  <section class="section" id="s10">
+    <div class="section-num">10</div>
+    <h2>Marina Map View</h2>
+    <p>Tap the <strong>Marina</strong> tab in the bottom navigation to open the full-screen Marina view.</p>
+
+    <h3>On Mobile (phones)</h3>
+    <p>The view opens in <strong>full-screen list mode</strong>. A map/list toggle button (🗺) appears in the top-right of the header. Tap it to switch between the marina list and the full-screen map. Tapping <strong>Focus Map</strong> on any marina card automatically switches to the map and centers on that marina.</p>
+
+    <h3>On Tablet / Desktop</h3>
+    <p>The view shows a <strong>side-by-side split</strong>: marina list on the left, live map on the right.</p>
+
+    <h3>Marina List</h3>
+    <ul>
+      <li>Shows all 35 built-in stations <em>plus</em> nearby marinas pulled live from OpenStreetMap within a 30-mile radius, sorted by distance.</li>
+      <li>Every card has an <strong>⛽🍴 Ashore</strong> button — fuel and food within walking distance (see below).</li>
+      <li>Use the <strong>search bar</strong> to filter by marina name or region.</li>
+      <li>Each card shows name, star rating, distance, address (tappable → Google Maps), phone (tappable → dials), and operating hours.</li>
+      <li>Cards with a <span style="background:var(--warn-hl);color:var(--warn);font-size:.75rem;font-weight:700;padding:2px 7px;border-radius:9999px;display:inline-block">⚠ Advisory</span> badge indicate facilities with hurricane damage or construction — see the <a href="#s11">Navigation Advisory</a> section.</li>
+      <li>Tap <strong>Set Active</strong> to make a marina the active location and reload weather/tide data for it.</li>
+      <li>Tap <strong>Focus Map</strong> to pan the map to that marina.</li>
+    </ul>
+
+    <h3>Map Panel</h3>
+    <ul>
+      <li>An interactive map (OpenStreetMap) shows all marinas as pins that cluster at lower zoom levels.</li>
+      <li>Tap a pin to see a pop-up with address, phone, hours, and a "Set Active" button.</li>
+      <li>Use the GPS icon in the top bar to snap your current position onto the map.</li>
+    </ul>
+
+    <h3>Fuel &amp; Food Ashore</h3>
+    <div class="new-box"><span class="new-icon">✦</span><div>New in V6 — because the two things every crew wants to know before the dock are fuel and food.</div></div>
+    <p>Every marina card has an <strong>⛽🍴 Ashore</strong> button. Tap it and the card expands with what's within walking distance of that dock:</p>
+    <ul>
+      <li><strong>Fuel first</strong> — a marine fuel dock if one is mapped, the marina's own fuel listing, or the nearest road gas station as an honest fallback. If nothing is mapped, the app says so plainly: call ahead.</li>
+      <li><strong>Eat ashore</strong> — the five nearest restaurants, bars, and cafés within about ¾ mile, with cuisine and distance. Many boats don't have a galley; this is for crews who tie up hungry.</li>
+    </ul>
+    <div class="tip"><span class="tip-icon">ℹ</span><div>Ashore data comes from OpenStreetMap and is cached for 24 hours per marina. Distances are straight-line — verify before you tie up.</div></div>
+
+    <h3>Featured Partner Listings &amp; Digital Discount Card</h3>
+    <div class="new-box"><span class="new-icon">✦</span><div>New in V6 — a fully digital partner discount experience, no paper required.</div></div>
+    <p>Some Ashore panels feature a <strong>🏷️ PARTNER</strong> restaurant — a local waterfront spot that has agreed to offer SailWindow sailors a special discount. These appear highlighted at the top of the restaurant list with the offer clearly stated.</p>
+    <p><strong>How to use it:</strong> Tap the partner card and a full-screen <em>"Show to your server"</em> screen slides up. It shows the restaurant name, the exact discount offer, and a prominent dashed box you flash at your table — the same way you'd show a digital coupon. The screen also has one-tap calling and directions.</p>
+    <p>No code word, no paper, no app download. Just show the screen when you arrive and mention SailWindow.</p>
+    <div class="tip"><span class="tip-icon">ℹ</span><div>Restaurant staff are briefed by Russ directly when they sign up, so they know what the screen means. If there's any confusion, just say "SailWindow sailor discount" — every partner has agreed to it.</div></div>
+    <div class="tip"><span class="tip-icon">ℹ</span><div>Run a waterfront restaurant near a marina? Partner spots are free — no cost, no contract. Email <strong>ahoy@sailwindow.com</strong> or call <strong>404-585-1950</strong>.</div></div>
+
+    <h3>Drawbridges Nearby</h3>
+    <div class="new-box"><span class="new-icon">✦</span><div>New in V6 — opening schedules straight from the Coast Guard's drawbridge regulations (33 CFR Part 117).</div></div>
+    <p>A collapsible <strong>🌉 Drawbridges nearby</strong> panel sits above the marina list, showing every drawbridge within 60 miles of your active location, nearest first. Each entry gives:</p>
+    <ul>
+      <li>The bridge name, waterway, and Gulf ICW mile marker.</li>
+      <li>Its opening schedule in plain English — e.g. <em>"Daily 6a–7p: at :15 &amp; :45 only."</em></li>
+      <li>The VHF hail channel (Florida bridges monitor channel 09) and the federal regulation citation.</li>
+    </ul>
+    <p>If your stretch has no drawbridges — like the entire Panhandle GIWW — the panel says that too, so you can stop wondering.</p>
+    <div class="warn-box"><span class="warn-icon">⚠</span><div>Schedules are the standing federal regulations. Temporary changes (construction, malfunctions) are announced via the Coast Guard's Local Notice to Mariners — always hail the tender on VHF before approach. US public vessels and tugs with tows pass at any time.</div></div>
+
+    <div class="tip"><span class="tip-icon">ℹ</span><div>Marina location data from OpenStreetMap is cached in your browser for 24 hours. On your first visit to a new area it fetches live; on return visits the map loads instantly without any network call.</div></div>
+    <div class="warn-box"><span class="warn-icon">⚠</span><div>Live marinas discovered via OpenStreetMap may not have a NOAA station ID. If you set one as active, tide data is estimated from the nearest built-in station. Use <strong>Custom Location</strong> in preferences to assign a specific station ID.</div></div>
+  </section>
+
+  <!-- ─── 11. Navigation Advisory ─── -->
+  <section class="section" id="s11">
+    <div class="section-num">11</div>
+    <h2>Navigation Advisory</h2>
+    <div class="new-box"><span class="new-icon">✦</span><div>New in V5 — crowd-sourced and staff-verified hurricane damage status.</div></div>
+    <p>A collapsible <strong>Navigation Advisory</strong> banner appears at the top of the Marina list. It covers facilities that are technically listed as "open" but have suspended transient docking, fueling, or shore power due to hurricane damage or ongoing reconstruction.</p>
+    <p>Tap the banner to expand the full advisory. It is organized by storm event:</p>
+    <ul>
+      <li><strong>Panhandle — Hurricane Michael:</strong> Panama City Downtown Marina remains non-operational; Tyndall AFB Marina has been fully rebuilt; Mexico Beach Marina is fully open.</li>
+      <li><strong>West Coast &amp; Tampa Bay — Helene &amp; Milton:</strong> Clearwater Beach Marina, Dunedin Marina, and Safety Harbor Marina &amp; Pier are under reconstruction through 2026.</li>
+      <li><strong>Southwest Florida — Hurricane Ian:</strong> Fort Myers/Fort Myers Beach — large corporate-backed marinas have rebuilt; smaller operators may still be limited. Call ahead.</li>
+    </ul>
+    <div class="warn-box"><span class="warn-icon">⚠</span><div><strong>"Open" can be misleading.</strong> Many marinas are operational for monthly slip holders but have suspended all transient docking, high-capacity fueling, or shore-power hookups. Always confirm transient availability by phone before arriving.</div></div>
+    <p>Marina cards for affected facilities display an <span style="background:var(--warn-hl);color:var(--warn);font-size:.75rem;font-weight:700;padding:2px 7px;border-radius:9999px;display:inline-block">⚠ Advisory</span> pill badge and show current status in the hours field.</p>
+  </section>
+
+  <!-- ─── 12. Custom Location ─── -->
+  <section class="section" id="s12">
+    <div class="section-num">12</div>
+    <h2>Custom Location</h2>
+    <p>For marinas not in the built-in list, open <strong>Sailing Preferences → Location → Custom GPS / NOAA Station</strong>.</p>
+    <ul>
+      <li><strong>Custom Marina Name</strong> — a display label, e.g. "Clearwater Marina."</li>
+      <li><strong>Latitude &amp; Longitude</strong> — decimal degrees (e.g. 27.9759, -82.8001). Passed to NWS to fetch the wind forecast grid for that exact location.</li>
+      <li><strong>NOAA Station ID</strong> — a 7-digit number from <a href="https://tidesandcurrents.noaa.gov/map/" target="_blank" rel="noopener">tidesandcurrents.noaa.gov/map</a>. Used to fetch hourly tide predictions.</li>
+      <li>Tap <strong>Use Current GPS</strong> inside the modal to fill in latitude and longitude automatically from your device.</li>
+    </ul>
+    <div class="tip"><span class="tip-icon">ℹ</span><div>To find your NOAA station ID: visit tidesandcurrents.noaa.gov, search for the nearest water body, open the station detail page, and copy the 7-digit ID from the URL or page header.</div></div>
+  </section>
+
+  <!-- ─── 13. Feedback Tab ─── -->
+  <section class="section" id="s13">
+    <div class="section-num">13</div>
+    <h2>Feedback Tab</h2>
+    <div class="new-box"><span class="new-icon">✦</span><div>New in V5 — help keep marina data current for every sailor on the Gulf Coast.</div></div>
+    <p>Tap <strong>Feedback</strong> in the bottom navigation (the speech bubble icon) to open the feedback form. You can report:</p>
+    <div class="card-grid">
+      <div class="mini-card">
+        <div class="icon">✅</div>
+        <div class="label">Marina back online</div>
+        <p style="font-size:.8rem;color:var(--muted);margin-top:.4rem">Report a previously closed or damaged marina that has reopened for transient or general use.</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">⚠️</div>
+        <div class="label">Marina closed</div>
+        <p style="font-size:.8rem;color:var(--muted);margin-top:.4rem">Flag a marina that has newly closed or sustained damage not yet reflected in the advisory.</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">📋</div>
+        <div class="label">Wrong info</div>
+        <p style="font-size:.8rem;color:var(--muted);margin-top:.4rem">Correct a phone number, address, hours, or other metadata shown on a marina card.</p>
+      </div>
+      <div class="mini-card">
+        <div class="icon">💬</div>
+        <div class="label">App feedback</div>
+        <p style="font-size:.8rem;color:var(--muted);margin-top:.4rem">Feature requests, bugs, or general comments about SailWindow.</p>
+      </div>
+    </div>
+    <p>Select a category, fill in the marina name and details, and tap <strong>Send Report →</strong>. Your email app opens with the report pre-filled and addressed to the SailWindow team. An optional email field lets us follow up if we need to verify the report.</p>
+  </section>
+
+  <!-- ─── 14. Subscription & Trial ─── -->
+  <section class="section" id="s14">
+    <div class="section-num">14</div>
+    <h2>Subscription &amp; Free Trial</h2>
+    <div class="new-box"><span class="new-icon">✦</span><div>New in V5.</div></div>
+
+    <h3>7-Day Free Trial</h3>
+    <p>When you first open SailWindow, a <strong>7-day free trial</strong> begins automatically — no credit card required. A countdown banner at the top of the screen shows how many days remain. You have full access to all 32 Gulf Coast stations during the trial.</p>
+
+    <h3>Free Tier (after trial)</h3>
+    <p>After the trial ends, SailWindow remains free with access to <strong>5 Tampa Bay &amp; Pensacola stations</strong>:</p>
+    <ul>
+      <li>Tampa — Hooker Point</li>
+      <li>Tampa — Egmont Key</li>
+      <li>Tampa — Gandy Bridge</li>
+      <li>Pensacola</li>
+      <li>Pensacola Beach Pier</li>
+    </ul>
+    <p>Locked stations are marked with 🔒 in the location dropdown and on marina cards. The 7-Day forecast, Custom Location, and GPS location also require an active trial or subscription.</p>
+
+    <h3>Paid Subscription</h3>
+    <p>A subscription unlocks all 32 Gulf Coast stations plus every future coast expansion (East Coast, West Coast). Plans are <strong>$5.99/month</strong> or <strong>$49/year</strong> (save 32%). Tap <strong>Upgrade →</strong> in the trial banner or select a plan in the subscribe screen — checkout opens in a new tab via Stripe. When your payment is complete, return to SailWindow and tap <strong>I've paid — Activate ✓</strong> to unlock everything.</p>
+
+    <div class="tip"><span class="tip-icon">ℹ</span><div>Subscriptions are managed through Stripe. To cancel or update your billing, use the Customer Portal linked in your confirmation email.</div></div>
+  </section>
+
+  <!-- ─── 15. Scoring ─── -->
+  <section class="section" id="s15">
+    <div class="section-num">15</div>
+    <h2>Scoring Algorithm</h2>
+    <p>Each hourly period is scored on a 0–10 scale, then the best consecutive block matching your trip duration is selected.</p>
+
+    <h3>Hard disqualifiers — score becomes 0</h3>
+    <ul>
+      <li>Wind below 4 kt or above 26 kt</li>
+      <li>Gusts above your <strong>Max Gust</strong> preference</li>
+      <li>Precipitation probability ≥ 70%</li>
+      <li>Forecast text contains "thunder," "severe," or "tropical"</li>
+    </ul>
+
+    <h3>Scoring deductions (starting from 10)</h3>
+    <table class="score-table">
+      <thead><tr><th>Factor</th><th>Effect</th></tr></thead>
+      <tbody>
+        <tr><td>Wind below preferred minimum</td><td style="color:var(--muted)">−0.5 per kt short</td></tr>
+        <tr><td>Wind above preferred maximum</td><td style="color:var(--muted)">−0.6 per kt over</td></tr>
+        <tr><td>Gust spread &gt; 7 kt over sustained</td><td style="color:var(--muted)">Up to −2.5 pts</td></tr>
+        <tr><td>Gusts within 3 kt of your max limit</td><td style="color:var(--muted)">−1.5 pts</td></tr>
+        <tr><td>Precipitation probability</td><td style="color:var(--muted)">−1 pt per 25% chance (max −2.8 just under the 70% no-go)</td></tr>
+        <tr><td>Tide mismatched with preference</td><td style="color:var(--muted)">−0.3 pts</td></tr>
+        <tr><td>Tide matched with preference</td><td style="color:var(--muted)">+0.5 pts</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Window selection</h3>
+    <p>For each candidate departure time, the app averages hourly scores across the full duration and also considers the minimum score in that block (70/30 weighted blend). This guards against windows that look good on average but contain one dangerously bad hour.</p>
+  </section>
+
+  <!-- ─── 16. Tips ─── -->
+  <section class="section" id="s16">
+    <div class="section-num">16</div>
+    <h2>Tips &amp; Troubleshooting</h2>
+
+    <h3>Data won't load</h3>
+    <ul>
+      <li>Check your internet connection — the app requires live access to NWS and NOAA APIs.</li>
+      <li>NWS occasionally returns HTTP 500 errors. Wait a few minutes and tap <strong>Refresh Live Data</strong>.</li>
+      <li>If a banner warning appears, the app continues showing the last successfully loaded data until you refresh.</li>
+      <li><strong>Weak signal at the dock?</strong> If a load drags or fails, a 📶 banner suggests the fix most boaters already have aboard: marina Wi-Fi or your boat's Starlink. When the connection returns, the app refreshes itself automatically.</li>
+    </ul>
+
+    <h3>GPS location not working</h3>
+    <ul>
+      <li>Your browser must have location permissions granted. Check your browser or phone settings and allow location access, then try again.</li>
+      <li>GPS auto-selects the nearest of the 35 built-in NOAA stations — coverage spans the full Gulf Coast from Brownsville, TX to Key West, FL.</li>
+    </ul>
+
+    <h3>Score seems unexpectedly low</h3>
+    <ul>
+      <li>Check your Wind Range in preferences — a very narrow range (e.g. 12–14 kt) will score most days poorly.</li>
+      <li>A "No-Go" on gusts overrides everything. If today is gusty, no window will score above 0.</li>
+      <li>Verify you have the correct location — tide and weather data are highly location-specific.</li>
+    </ul>
+
+    <h3>Refreshing data</h3>
+    <p>Tap the <strong>↻ Refresh</strong> button at the bottom of the main screen, or the circular arrow icon in the top bar. NWS updates its hourly forecast grids roughly every hour. Weather data is always fetched live; marina map data is cached for 24 hours.</p>
+
+    <h3>Dark / Light mode</h3>
+    <p>Tap the moon/sun icon in the top-right corner to toggle between dark and light themes. Your preference is saved automatically. Note: the Navigation Advisory uses high-contrast colors in both modes for legibility in bright sunlight.</p>
+
+    <h3>Navigation tabs</h3>
+    <div class="nav-mock">
+      <div class="nav-mock-item active">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        Today
+      </div>
+      <div class="nav-mock-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        7-Day
+      </div>
+      <div class="nav-mock-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+        Marina
+      </div>
+      <div class="nav-mock-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Feedback
+      </div>
+    </div>
+    <ul>
+      <li><strong>Today</strong> — the main dashboard with live score, best window, and charts.</li>
+      <li><strong>7-Day</strong> — ECMWF-powered 7-day sailability outlook.</li>
+      <li><strong>Marina</strong> — full-screen marina list and interactive map.</li>
+      <li><strong>Feedback</strong> — report marina status changes, corrections, or app feedback.</li>
+    </ul>
+  </section>
+
+  <hr>
+
+  <div class="footer">
+    <p style="margin-bottom:.75rem">Data provided by <strong>NWS api.weather.gov</strong>, <strong>NOAA Tides &amp; Currents</strong>, and <strong>ECMWF via Open-Meteo</strong>. For use as a planning aid only — always check official forecasts before sailing.</p>
+    <a href="index.html" class="back-link">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to SailWindow
+    </a>
+  </div>
+
+</div>
+
+<script>
+const THEME_ICONS = {
+  dark:  '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>',
+  light: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+};
+function applyTheme(theme){
+  document.documentElement.setAttribute('data-theme', theme);
+  document.getElementById('theme-btn').innerHTML = THEME_ICONS[theme] || THEME_ICONS.dark;
+}
+function toggleTheme(){
+  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  applyTheme(next);
+  try {
+    // shared with the main app — merge, don't overwrite other preferences
+    const prefs = JSON.parse(localStorage.getItem('sailwindow.preferences.v1') || '{}');
+    prefs.theme = next;
+    localStorage.setItem('sailwindow.preferences.v1', JSON.stringify(prefs));
+  } catch(e){}
+}
+try {
+  const saved = JSON.parse(localStorage.getItem('sailwindow.preferences.v1') || '{}');
+  if(saved.theme) applyTheme(saved.theme);
+} catch(e){}
+</script>
+</body>
+</html>

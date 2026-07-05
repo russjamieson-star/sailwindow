@@ -1,0 +1,4243 @@
+{
+  "Kemah Boardwalk Marina": {
+    "lat": 29.5443,
+    "lng": -95.0191,
+    "restaurants": [
+      {
+        "name": "Eculent",
+        "address": "709 Harris Avenue, Kemah",
+        "phone": "(713) 429-4311",
+        "website": "https://www.eculent.com/",
+        "rating": 4.7,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "429-4311eat@eculent.commake",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Kemah Steak Company",
+        "address": "707 Bradford Avenue, Kemah",
+        "phone": "(281) 334-9463",
+        "website": "http://www.kemahsteak.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "office@kemahsteak.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Skallywag Suds N' Grub",
+        "address": "600 6th Street, Kemah",
+        "phone": "(281) 538-8877",
+        "website": "http://skallywag-kemah.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "-538-8877skallywag@yahoo.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "T-Bone Tom's",
+        "address": "707 Texas 146, Kemah",
+        "phone": "(281) 334-2133",
+        "website": "http://www.tbonetoms.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "email@domain.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Clear Lake Marina": {
+    "lat": 29.558,
+    "lng": -95.0872,
+    "restaurants": [
+      {
+        "name": "Farmer's Fridge",
+        "address": "Located on the vending area in, 11 East Nasa Parkway building 11, Houston",
+        "phone": "(312) 229-0177",
+        "website": "https://www.farmersfridge.com/",
+        "rating": "",
+        "google_maps": "https://maps.google.com/?place_id=ChIJY6nu1XWdQIYRRFaoW3y6blU",
+        "partner": false,
+        "discount_offer": ""
+      },
+      {
+        "name": "Farmer's Fridge",
+        "address": "Located on the first floor in the vending area, 2101 East Nasa Parkway Building 12, Houston",
+        "phone": "(312) 229-0178",
+        "website": "https://www.farmersfridge.com/",
+        "rating": "",
+        "google_maps": "https://maps.google.com/?place_id=ChIJ_QWCFCOdQIYRmDX4ePN4wEc",
+        "partner": false,
+        "discount_offer": ""
+      },
+      {
+        "name": "Farmer's Fridge",
+        "address": "Located at the entrance of the cafe, 18300 Houston Methodist Drive, Houston",
+        "phone": "(312) 229-0099",
+        "website": "https://www.farmersfridge.com/",
+        "rating": "",
+        "google_maps": "https://maps.google.com/?place_id=ChIJKYJVgRm7QIYRxhz-ZNliQso",
+        "partner": false,
+        "discount_offer": ""
+      }
+    ]
+  },
+  "Galveston Yacht Basin": {
+    "lat": 29.3013,
+    "lng": -94.7977,
+    "restaurants": [
+      {
+        "name": "Huli Huli Hut",
+        "address": "504 25th Street, Galveston",
+        "phone": "(409) 443-5525",
+        "website": "http://hulihulihut.site/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "support@hulihulihut.githubdesktop.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "La Michoacana Meat Market",
+        "address": "3301 Broadway Avenue J, Galveston",
+        "phone": "(409) 765-5231",
+        "website": "http://www.lamichoacanameatmarket.com/3301-broadway-st-ste-b-galveston/",
+        "rating": 4.1,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@lmmm.net",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Star Drug Store",
+        "address": "510 23rd Street, Galveston",
+        "phone": "(409) 766-7719",
+        "website": "http://galvestonstardrug.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "galvestonsds@sbcglobal.net",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Yaga's Cafe",
+        "address": "2314 The Strand, Galveston",
+        "phone": "(409) 762-6676",
+        "website": "http://www.yagascafe.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@yagasevents.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Galveston Island Marina": {
+    "lat": 29.2657,
+    "lng": -94.8624,
+    "restaurants": [
+      {
+        "name": "Moody Gardens Golf Course - Driving Range & Restaurant",
+        "address": "1700 Sydnor Lane, Galveston",
+        "phone": "(409) 683-4653",
+        "website": "http://www.moodygardensgolf.com/",
+        "rating": 4.2,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "ccaldwell@moodygardens.org",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Port Bolivar Marina": {
+    "lat": 29.3671,
+    "lng": -94.5997,
+    "restaurants": []
+  },
+  "Sabine Pass Marina": {
+    "lat": 29.7271,
+    "lng": -93.8747,
+    "restaurants": []
+  },
+  "Port Arthur Yacht Club": {
+    "lat": 29.8849,
+    "lng": -93.9341,
+    "restaurants": [
+      {
+        "name": "J&J Wings and Seafood",
+        "address": "1600 Bluebonnet Avenue, Port Arthur",
+        "phone": "(409) 985-8880",
+        "website": "https://jandjwingsandseafoodtx.com/",
+        "rating": 4.2,
+        "google_maps": "https://maps.google.com/?place_id=ChIJ213ph-66PoYRZTAnP0HzAU4",
+        "partner": false,
+        "discount_offer": ""
+      },
+      {
+        "name": "Krispy Krunchy Chicken",
+        "address": "1200 Gulfway Drive, Port Arthur",
+        "phone": "(409) 548-4529",
+        "website": "https://www.krispykrunchy.com/",
+        "rating": "",
+        "google_maps": "https://maps.google.com/?place_id=ChIJ3dxlYBq7PoYRcdNi51fWJkE",
+        "partner": false,
+        "discount_offer": ""
+      }
+    ]
+  },
+  "South Shore Harbor Marina": {
+    "lat": 30.0199,
+    "lng": -89.9398,
+    "restaurants": []
+  },
+  "Orleans Marina": {
+    "lat": 30.0316,
+    "lng": -90.0701,
+    "restaurants": [
+      {
+        "name": "The Galley Buffett",
+        "address": "2000 Lakeshore Drive University Computing and Communications, New Orleans",
+        "phone": "",
+        "website": "https://dineoncampus.com/nola",
+        "rating": 5,
+        "google_maps": "https://maps.google.com/?place_id=ChIJSYFlRQCpIIYRYb4rlX7Fw8Y",
+        "partner": false,
+        "discount_offer": ""
+      },
+      {
+        "name": "Subway",
+        "address": "Student Union Building, 2000 Lakeshore Drive, New Orleans",
+        "phone": "(800) 888-4848",
+        "website": "https://restaurants.subway.com/united-states/la/new-orleans/2000-lakeshore-drive?utm_source=yxt-goog&utm_medium=local&utm_term=acq&utm_content=70180&utm_campaign=evergreen-2020&y_source=1_MTUzNzE0MDAtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
+        "rating": 4.2,
+        "google_maps": "https://maps.google.com/?place_id=ChIJE_8N2S6pIIYRe8ingq_RrjA",
+        "partner": false,
+        "discount_offer": ""
+      },
+      {
+        "name": "Chick-fil-A",
+        "address": "University Center, Lakeshore Drive Room 250, New Orleans",
+        "phone": "(504) 280-6370",
+        "website": "https://www.chick-fil-a.com/locations/la/university-of-new-orleans?utm_source=google&utm_medium=gmb",
+        "rating": 3.2,
+        "google_maps": "https://maps.google.com/?place_id=ChIJ6SpOdyWpIIYR6C9B2KNBIqk",
+        "partner": false,
+        "discount_offer": ""
+      }
+    ]
+  },
+  "West End Marina New Orleans": {
+    "lat": 30.0302,
+    "lng": -90.1224,
+    "restaurants": []
+  },
+  "Fontainebleau Marina": {
+    "lat": 30.3699,
+    "lng": -90.0304,
+    "restaurants": []
+  },
+  "Slidell Marina": {
+    "lat": 30.3364,
+    "lng": -89.7817,
+    "restaurants": []
+  },
+  "Harbour Oaks Marina": {
+    "lat": 29.8833,
+    "lng": -89.9263,
+    "restaurants": []
+  },
+  "Gulfport Municipal Marina": {
+    "lat": 30.3593,
+    "lng": -89.0817,
+    "restaurants": []
+  },
+  "Biloxi Small Craft Harbor": {
+    "lat": 30.3949,
+    "lng": -88.8836,
+    "restaurants": [
+      {
+        "name": "Half Shell Oyster House",
+        "address": "125 Lameuse Street, Biloxi",
+        "phone": "(228) 432-5050",
+        "website": "http://halfshelloysterhouse.com/biloxi",
+        "rating": 4.7,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "devin.spayde@halfshelloysterhouse.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Half Shell Oyster House",
+        "address": "777 Beach Boulevard, Biloxi",
+        "phone": "(228) 207-3330",
+        "website": "https://www.halfshelloysterhouse.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "dino.mirando@gcrginc.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Mugshots Grill & Bar - Biloxi, MS",
+        "address": "130 Main Street, Biloxi",
+        "phone": "(228) 385-4626",
+        "website": "https://www.mugshotsgrillandbar.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "pictures@mugshotsgrillandbar.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Pass Christian Harbor": {
+    "lat": 30.3244,
+    "lng": -89.2507,
+    "restaurants": []
+  },
+  "Ocean Springs Harbor": {
+    "lat": 30.401,
+    "lng": -88.8197,
+    "restaurants": []
+  },
+  "Dauphin Island Marina": {
+    "lat": 30.2513,
+    "lng": -88.1122,
+    "restaurants": [
+      {
+        "name": "Krispy Krunchy Chicken",
+        "address": "1000 Bienville Boulevard, Dauphin Island",
+        "phone": "(251) 861-2320",
+        "website": "https://www.krispykrunchy.com/",
+        "rating": 5,
+        "google_maps": "https://maps.google.com/?place_id=ChIJ21XtI8QtmogRwClV8BjC9xs",
+        "partner": false,
+        "discount_offer": ""
+      },
+      {
+        "name": "Lighthouse Bakery",
+        "address": "919 Chaumont Avenue, Dauphin Island",
+        "phone": "(251) 861-2253",
+        "website": "https://www.facebook.com/LighthouseBakery/",
+        "rating": 4.7,
+        "google_maps": "https://maps.google.com/?place_id=ChIJNynlcmssmogRcSGkYvlcZRU",
+        "partner": false,
+        "discount_offer": ""
+      },
+      {
+        "name": "Foxy's Waffle Bar and Sugar Den",
+        "address": "202 Lemoyne Drive, Dauphin Island",
+        "phone": "(251) 861-5683",
+        "website": "https://www.facebook.com/foxyswafflebar/",
+        "rating": 4.6,
+        "google_maps": "https://maps.google.com/?place_id=ChIJT6dvKZQtmogRcigJ6zYgI9s",
+        "partner": false,
+        "discount_offer": ""
+      },
+      {
+        "name": "Dority's",
+        "address": "1010 Bienville Boulevard, Dauphin Island",
+        "phone": "",
+        "website": "https://www.facebook.com/Doritys-Bar-Grill-1590265334608407/about/",
+        "rating": 4.5,
+        "google_maps": "https://maps.google.com/?place_id=ChIJAQdhDGwsmogRfXUmATNHw9A",
+        "partner": false,
+        "discount_offer": ""
+      },
+      {
+        "name": "Pirate's",
+        "address": "Lighthouse building at the T, 918 Bienville Boulevard, Dauphin Island",
+        "phone": "(251) 861-2969",
+        "website": "http://www.piratesbarandgrill.com/",
+        "rating": 4.3,
+        "google_maps": "https://maps.google.com/?place_id=ChIJJYGKunEsmogRzUSqgFdxjks",
+        "partner": false,
+        "discount_offer": ""
+      },
+      {
+        "name": "Dockside Seafood Restaurant",
+        "address": "1102 De Soto Avenue, Dauphin Island",
+        "phone": "(251) 861-0114",
+        "website": "https://www.facebook.com/docksidedi",
+        "rating": 4.2,
+        "google_maps": "https://maps.google.com/?place_id=ChIJE5kp9wotmogRPrpsFZp1JoA",
+        "partner": false,
+        "discount_offer": ""
+      },
+      {
+        "name": "Subway",
+        "address": "411 Lemoyne Drive, Dauphin Island",
+        "phone": "(251) 861-2199",
+        "website": "https://restaurants.subway.com/united-states/al/dauphin-island/411-lemoyne-dr?utm_source=yxt-goog&utm_medium=local&utm_term=acq&utm_content=50003&utm_campaign=evergreen-2020&y_source=1_MTQ5MTE0NDUtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
+        "rating": 3.6,
+        "google_maps": "https://maps.google.com/?place_id=ChIJ94QSumssmogRXSwd-hfY4t0",
+        "partner": false,
+        "discount_offer": ""
+      }
+    ]
+  },
+  "Dog River Marina Mobile": {
+    "lat": 30.6207,
+    "lng": -88.1261,
+    "restaurants": []
+  },
+  "Battleship Memorial Park Marina": {
+    "lat": 30.6867,
+    "lng": -88.0158,
+    "restaurants": []
+  },
+  "Orange Beach Marina": {
+    "lat": 30.2799,
+    "lng": -87.5811,
+    "restaurants": []
+  },
+  "Perdido Key Marina": {
+    "lat": 30.2963,
+    "lng": -87.4381,
+    "restaurants": [
+      {
+        "name": "The Jellyfish - Seafood Restaurant and Bar",
+        "address": "13700 Perdido Key Drive, Pensacola",
+        "phone": "(850) 332-6532",
+        "website": "https://thejellyfishbar.com/?utm_source=google&utm_medium=gmb&utm_campaign=websiteclick",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@thejellyfishbar.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Pensacola Marina": {
+    "lat": 30.4055,
+    "lng": -87.2163,
+    "restaurants": [
+      {
+        "name": "Jaco's Bayfront Bar & Grille",
+        "address": "997 South Palafox Street, Pensacola",
+        "phone": "(850) 432-5226",
+        "website": "https://www.jacosbayfrontbarandgrille.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@jacosbayfront.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Khon's on Palafox",
+        "address": "34 South Palafox Street, Pensacola",
+        "phone": "(850) 857-8354",
+        "website": "https://khonsonpalafox.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "palafoxpartners@gmail.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Lucy's In The Square",
+        "address": "301 South Adams Street, Pensacola",
+        "phone": "(850) 378-8475",
+        "website": "https://www.lucysinthesquare.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "32502lucysinthesquare@gmail.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "O'Riley's Irish Pub Downtown",
+        "address": "321 South Palafox Street, Pensacola",
+        "phone": "(850) 912-4001",
+        "website": "http://www.orileyspub.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "912-4001orileysirishpub@gmail.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "V Paul's Italian Ristorante",
+        "address": "29 Palafox Place, Pensacola",
+        "phone": "(850) 466-5855",
+        "website": "https://www.vpauls.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "events@vpauls.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Palafox Pier & Yacht Harbor": {
+    "lat": 30.4041,
+    "lng": -87.2179,
+    "restaurants": [
+      {
+        "name": "Chester’s Pensacola",
+        "address": "501 South Palafox Street, Pensacola",
+        "phone": "(850) 346-8165",
+        "website": "https://www.chesterspensacola.com/",
+        "rating": 4.7,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "chesterspensacola@gmail.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Eurasian Bistro Express",
+        "address": "501 South Palafox Street, Pensacola",
+        "phone": "(850) 786-3452",
+        "website": "https://eurasianbistro.com/?utm_source=google&utm_medium=organic&utm_campaign=gbp-website-link",
+        "rating": 4.8,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@eurasianbistro.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Destin Harbor": {
+    "lat": 30.3932,
+    "lng": -86.4958,
+    "restaurants": [
+      {
+        "name": "Burrito del Sol- Destin",
+        "address": "517 Harbor Boulevard, Destin",
+        "phone": "(850) 424-6269",
+        "website": "http://burritodelsol.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "homekeys.darrell@gmail.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "East Pass Coffee Co.",
+        "address": "121 Benning Drive, Destin",
+        "phone": "(850) 353-2906",
+        "website": "http://www.eastpasscoffeeco.com/",
+        "rating": 4.8,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "careerseastpass@gmail.comseven",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Shrimp Basket",
+        "address": "711 U.S. 98, Destin",
+        "phone": "(386) 204-0882",
+        "website": "https://shrimpbasket.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "marketing@shrimpbasket.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Taste of India Destin",
+        "address": "385 Harbor Boulevard, Destin",
+        "phone": "(850) 353-2890",
+        "website": "http://www.destintasteofindia.com/",
+        "rating": 4.7,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "newtasteofindia9@gmail.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Fort Walton Beach Marina": {
+    "lat": 30.4149,
+    "lng": -86.6278,
+    "restaurants": [
+      {
+        "name": "Julie's Southern Joy Homestyle",
+        "address": "105 Hollywood Boulevard Northwest, Fort Walton Beach",
+        "phone": "(850) 243-0221",
+        "website": "https://www.facebook.com/juliessouthernjoy/",
+        "rating": 4.5,
+        "google_maps": "https://maps.google.com/?place_id=ChIJsZ7AFZ8-kYgRqhSpsRfRTxI",
+        "partner": false,
+        "discount_offer": ""
+      }
+    ]
+  },
+  "Panama City Marina": {
+    "lat": 30.1572,
+    "lng": -85.6602,
+    "restaurants": [
+      {
+        "name": "Atelier",
+        "address": "100 Harrison Avenue, Panama City",
+        "phone": "",
+        "website": "https://www.ateliercandlebar.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "filler@godaddy.comhomecaf",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "El Weirdo",
+        "address": "24 Oak Avenue, Panama City",
+        "phone": "(850) 842-7685",
+        "website": "http://www.elweirdodowntown.com/",
+        "rating": 4.7,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "friends@historyclass.beer",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Maddie's La Casita",
+        "address": "561 Harrison Avenue, Panama City",
+        "phone": "(850) 784-6817",
+        "website": "http://maddieslacasita.net/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "mlc@serversonwheels.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Somethin's Cookin' Downtown",
+        "address": "32 Oak Avenue, Panama City",
+        "phone": "(850) 769-8979",
+        "website": "https://somethinscookin.com/",
+        "rating": 4.7,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "filler@godaddy.combookingsmy",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Sunrise Cafe & Bakery Downtown",
+        "address": "319 Magnolia Avenue, Panama City",
+        "phone": "(850) 640-1156",
+        "website": "https://sunrisecafebakery.com/",
+        "rating": 4.8,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "sunrisecafeandbakerybaker@gmail.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Tom's Hot Dogs",
+        "address": "416 Harrison Avenue, Panama City",
+        "phone": "(850) 769-8890",
+        "website": "http://www.tomsdowntown.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "contact416toms@gmail.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Yard Bar Smoked Meats",
+        "address": "445 Grace Avenue, Panama City",
+        "phone": "(850) 481-1078",
+        "website": "https://www.yardbarbecue.com/?utm_source=google&utm_medium=wix_google_business_profile&utm_campaign=17909065523412364243",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@yardbarbecue.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Apalachicola Municipal Marina": {
+    "lat": 29.7244,
+    "lng": -84.9913,
+    "restaurants": [
+      {
+        "name": "The Franklin Café",
+        "address": "The Gibson Inn, 51 Avenue C, Apalachicola",
+        "phone": "(850) 270-2150",
+        "website": "https://www.gibsoninn.com/franklin-cafe-parlor-bar/?utm_medium=organic&utm_source=yext&utm_campaign=website",
+        "rating": 3.8,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@gibsoninn.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "St. Marks Marina": {
+    "lat": 30.1566,
+    "lng": -84.203,
+    "restaurants": [
+      {
+        "name": "Riverside Cafe",
+        "address": "69 Riverside Drive, Saint Marks",
+        "phone": "(850) 925-5668",
+        "website": "https://riversidecafe.shop/",
+        "rating": 4.1,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "placejoys.com@gmail.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Tallahassee Sailing Club": {
+    "lat": 30.3935,
+    "lng": -84.3521,
+    "restaurants": [
+      {
+        "name": "Dunkin'",
+        "address": "3300 Capital Circle Southwest, Tallahassee",
+        "phone": "(850) 694-0823",
+        "website": "https://locations.dunkindonuts.com/en/fl/tallahassee/3300-capital-circle-southwest/362745?utm_source=google&utm_medium=local&utm_campaign=localmaps&utm_content=362745&y_source=1_MTAxNTA3MzM5Ny03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D",
+        "rating": 3.6,
+        "google_maps": "https://maps.google.com/?place_id=ChIJKe3oGWSL7IgRAT0c98Z2ZX4",
+        "partner": false,
+        "discount_offer": ""
+      }
+    ]
+  },
+  "Steinhatchee Marina": {
+    "lat": 29.6727,
+    "lng": -83.387,
+    "restaurants": [
+      {
+        "name": "Vargo's Buffalo Style Pizza",
+        "address": "806 Riverside Drive, Steinhatchee",
+        "phone": "(352) 915-2011",
+        "website": "https://www.vargospizzeria.com/",
+        "rating": 4.6,
+        "google_maps": "https://maps.google.com/?place_id=ChIJwZXnagBD6YgREFJQaQ57X0I",
+        "partner": false,
+        "discount_offer": ""
+      },
+      {
+        "name": "Who Dat Bar & Grill",
+        "address": "7022 Southwest Highway 358, Steinhatchee",
+        "phone": "(352) 498-8088",
+        "website": "http://www.goodtimesmotelandmarina.com/",
+        "rating": 4,
+        "google_maps": "https://maps.google.com/?place_id=ChIJw4gtwR1D6YgRIdr1ls0BUAc",
+        "partner": false,
+        "discount_offer": ""
+      }
+    ]
+  },
+  "Cedar Key Marina": {
+    "lat": 29.1341,
+    "lng": -83.0321,
+    "restaurants": [
+      {
+        "name": "83 West & 29 North at 83 West",
+        "address": "310 Dock Street, Cedar Key",
+        "phone": "(352) 543-5070",
+        "website": "http://www.83westcedarkey.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "83westck@gmail.comcurrently",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Tony's Restaurant",
+        "address": "597 2nd Street, Cedar Key",
+        "phone": "(352) 543-0022",
+        "website": "http://www.tonyschowder.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "tonysckchowder@gmail.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Crystal River Marina": {
+    "lat": 28.9026,
+    "lng": -82.5927,
+    "restaurants": [
+      {
+        "name": "The Crab Plant",
+        "address": "201 Northwest 5th Street, Crystal River",
+        "phone": "(352) 795-4700",
+        "website": "https://www.crabplant.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "thecrabplant@gmail.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Vintage On 5th",
+        "address": "114 Northeast 5th Street, Crystal River",
+        "phone": "(352) 794-0004",
+        "website": "https://www.vintageon5th.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "794-0004vintageon5th@tampabay.rr.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Hernando Beach Marina": {
+    "lat": 28.4702,
+    "lng": -82.6477,
+    "restaurants": []
+  },
+  "Anclote River Marina": {
+    "lat": 28.1769,
+    "lng": -82.738,
+    "restaurants": [
+      {
+        "name": "Orbit 19",
+        "address": "1542 U.S. 19, Holiday",
+        "phone": "(727) 937-8330",
+        "website": "http://orbit19lounge.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "booking@orbit19lounge.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Tico's Wood Fired Pizza",
+        "address": "1415 U.S. 19, Holiday",
+        "phone": "(727) 484-5967",
+        "website": "http://ticoswfp.com/",
+        "rating": 5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "robertoespinosa11@yahoo.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Clearwater Marina": {
+    "lat": 27.9782,
+    "lng": -82.829,
+    "restaurants": [
+      {
+        "name": "Bob Heilman's Beachcomber",
+        "address": "447 Mandalay Avenue, Clearwater Beach",
+        "phone": "(727) 442-4144",
+        "website": "http://www.heilmansbeachcomber.com/",
+        "rating": 4.2,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@bobheilmans.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Coco's Crush Bar North Beach - Clearwater",
+        "address": "423 Poinsettia Avenue, Clearwater Beach",
+        "phone": "(727) 462-2668",
+        "website": "https://cocoscrushbar.com/north",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "filler@godaddy.comhomelocationsmercheventsabout",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Pier House 60 Clearwater Beach Marina Hotel",
+        "address": "101 Coronado Drive, Clearwater",
+        "phone": "(727) 683-0002",
+        "website": "https://www.pierhouse60.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "fd@pierhouse60.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Toucans Bar & Grill",
+        "address": "431 Mandalay Avenue, Clearwater",
+        "phone": "(727) 461-4500",
+        "website": "https://toucansbarandgrill.com/",
+        "rating": 4.1,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "-461-4500toucans666@gmail.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "St. Pete Municipal Marina": {
+    "lat": 27.77,
+    "lng": -82.6271,
+    "restaurants": [
+      {
+        "name": "Dracula's Legacy Wine Bar & Bistro",
+        "address": "111 2nd Avenue Northeast Suite 102, St. Petersburg",
+        "phone": "(727) 289-7257",
+        "website": "http://www.draculaslegacywinebar.com/",
+        "rating": 4.9,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "draculaslegacy@gmail.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "HELYX™ Sourdough Pizza + Pasta + Wine Restaurant",
+        "address": "in TRY WINE at Bayfront Tower, 1 Beach Drive Southeast Suite 101, St. Petersburg",
+        "phone": "(727) 897-9463",
+        "website": "https://www.helyxrestaurant.com/",
+        "rating": 5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@helyxrestaurant.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Island Flavors and Tings",
+        "address": "800 2nd Avenue Northeast, St. Petersburg",
+        "phone": "(727) 804-1849",
+        "website": "https://islandflavorsandtings.com/",
+        "rating": "",
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@islandflavorsandtings.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Sab Cafe",
+        "address": "111 2nd Avenue Northeast Unit 100, St. Petersburg",
+        "phone": "(727) 822-2100",
+        "website": "http://www.sabcafe.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "sabcafe@gmail.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Sonata Restaurant",
+        "address": "400 1st Street South, St. Petersburg",
+        "phone": "(727) 892-5857",
+        "website": "http://www.sonatastpete.com/",
+        "rating": 4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@sonatarestaurant.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Teak",
+        "address": "800 2nd Avenue Northeast 4th Floor, St. Petersburg",
+        "phone": "(727) 513-8325",
+        "website": "https://teakstpete.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "marketing@thebirchwood.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Tryst Gastro Lounge",
+        "address": "240 Beach Drive Northeast, St. Petersburg",
+        "phone": "(727) 821-4567",
+        "website": "http://dinetryst.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "-821-4567info@trystgastrolounge.com",
+        "outreach_status": "EMAIL_SENT",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Sarasota City Island Marina": {
+    "lat": 27.3364,
+    "lng": -82.5588,
+    "restaurants": []
+  },
+  "Venice Yacht Club": {
+    "lat": 27.0993,
+    "lng": -82.4488,
+    "restaurants": [
+      {
+        "name": "Bodrum Restaurant",
+        "address": "225 Miami Avenue West, Venice",
+        "phone": "(941) 412-0090",
+        "website": "http://www.bodrumfl.com/",
+        "rating": 4.7,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "bodrumfl@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Burgundy Square Cafe",
+        "address": "227 Miami Avenue West, Venice",
+        "phone": "(941) 451-8261",
+        "website": "http://burgundysquarecafe.website/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "cyrbriana@yahoo.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Côte France",
+        "address": "218 Tampa Avenue West, Venice",
+        "phone": "(941) 220-7189",
+        "website": "http://cotefrancevenice.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "7189ftfoodvenice@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "T J Carney's",
+        "address": "231 West Venice Avenue, Venice",
+        "phone": "(941) 480-9244",
+        "website": "http://tjcarneys.com/",
+        "rating": 4.2,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "tjcarneys@aol.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Trattoria Da Mino",
+        "address": "335 West Venice Avenue, Venice",
+        "phone": "(941) 800-4466",
+        "website": "https://trattoriadamino.com/?utm_source=omg-gbp&utm_medium=webclick",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "eat@trattoriadamino.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Charlotte Harbor Marina": {
+    "lat": 26.9782,
+    "lng": -82.0727,
+    "restaurants": []
+  },
+  "Cape Coral Yacht Club": {
+    "lat": 26.6244,
+    "lng": -81.9913,
+    "restaurants": [
+      {
+        "name": "Checkers",
+        "address": "1624 Skyline Boulevard, Cape Coral",
+        "phone": "(239) 922-1070",
+        "website": "https://checkersandrallys.com/location/-25122307?y_source=1_MTAzMTQ2Mzk1MS03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D",
+        "rating": 3.8,
+        "google_maps": "https://maps.google.com/?place_id=ChIJNfshbABH24gRtlBFupoOYWc",
+        "partner": false,
+        "discount_offer": ""
+      },
+      {
+        "name": "7-Eleven",
+        "address": "1606 Skyline Boulevard, Cape Coral",
+        "phone": "(239) 573-8711",
+        "website": "https://www.7-eleven.com/locations/fl/cape-coral/1606-skyline-blvd-34588?utm_source=G&utm_medium=local&utm_campaign=google-local",
+        "rating": 2.8,
+        "google_maps": "https://maps.google.com/?place_id=ChIJe54jnv5G24gRpb9dGoyx5_0",
+        "partner": false,
+        "discount_offer": ""
+      }
+    ]
+  },
+  "Fort Myers City Marina": {
+    "lat": 26.6351,
+    "lng": -81.8684,
+    "restaurants": [
+      {
+        "name": "Edison Lunch Box",
+        "address": "1700 Monroe Street, Fort Myers",
+        "phone": "(239) 318-0094",
+        "website": "https://www.edisonlunchbox.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@menufy.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "The Veranda",
+        "address": "2122 Second Street, Fort Myers",
+        "phone": "(239) 332-2065",
+        "website": "https://verandarestaurant.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "communications@verandarestaurant.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Naples City Dock": {
+    "lat": 26.1417,
+    "lng": -81.8052,
+    "restaurants": [
+      {
+        "name": "BiCE Ristorante - Naples",
+        "address": "300 5th Avenue South, Naples",
+        "phone": "(239) 262-4044",
+        "website": "http://www.bice-naples.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@bice-naples.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "CASA NERI",
+        "address": "382 5th Avenue South, Naples",
+        "phone": "(239) 963-9060",
+        "website": "http://www.casanerinaples.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@casanerinaples.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "La Pescheria",
+        "address": "474 5th Avenue South, Naples",
+        "phone": "(239) 316-7322",
+        "website": "http://www.lapescherianaples.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "34102info@lapescherianaples.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Molto Trattoria",
+        "address": "368 5th Avenue South, Naples",
+        "phone": "(239) 261-5853",
+        "website": "http://www.moltonaples.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@moltonaples.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Osteria Tulia",
+        "address": "466 5th Avenue South, Naples",
+        "phone": "(239) 213-2073",
+        "website": "http://www.osteriatulia.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@tulianaples.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Ottimo on 5th - Cucina & Bar",
+        "address": "409 5th Avenue South, Naples",
+        "phone": "(239) 234-6390",
+        "website": "https://www.ottimonaples.com/",
+        "rating": 4.8,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "6390ottimonaples@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "The Vine Room Naples",
+        "address": "465 5th Avenue South, Naples",
+        "phone": "(239) 316-1202",
+        "website": "https://www.vineroom.com/",
+        "rating": 4.1,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@vineroom.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Truluck's Ocean's Finest Seafood and Crab",
+        "address": "698 4th Avenue South, Naples",
+        "phone": "(239) 530-3131",
+        "website": "https://trulucks.com/locations/naples-florida",
+        "rating": 4.7,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "naplesevents@trulucks.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Tulia Italian Steak",
+        "address": "365 5th Avenue South, Naples",
+        "phone": "(239) 315-4019",
+        "website": "https://tuliaitaliansteak.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@tuliaitaliansteak.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Veranda E",
+        "address": "290 5th Avenue South, Naples",
+        "phone": "(239) 659-3466",
+        "website": "http://hotelescalante.com/veranda-e/about/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "guestservices@hotelescalante.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Everglades City Marina": {
+    "lat": 25.8577,
+    "lng": -81.3846,
+    "restaurants": [
+      {
+        "name": "Everglades Fishing Co",
+        "address": "201 Collier Avenue, Everglades City",
+        "phone": "(239) 695-4222",
+        "website": "http://www.evergladesfishingco.com/",
+        "rating": 4.8,
+        "google_maps": "https://maps.google.com/?place_id=ChIJMXah4-Rd2ogRXuXKEJ-XEhU",
+        "partner": false,
+        "discount_offer": ""
+      },
+      {
+        "name": "Wildman's pizza, pasta and pythons",
+        "address": "104 Buckner Avenue South, Everglades City",
+        "phone": "(239) 426-9453",
+        "website": "http://pythonwildman.com/",
+        "rating": 4.7,
+        "google_maps": "https://maps.google.com/?place_id=ChIJMZNpJ4Nd2ogRIMjooEbMnt4",
+        "partner": false,
+        "discount_offer": ""
+      },
+      {
+        "name": "Captain Morgan's Seafood Grill Corp",
+        "address": "102 South Copeland Avenue, Everglades City",
+        "phone": "(239) 232-0041",
+        "website": "https://qr.imenupro.com/1hxz-1?mode=embed",
+        "rating": 4.5,
+        "google_maps": "https://maps.google.com/?place_id=ChIJ0SEeke1d2ogRV80dwKzFVQQ",
+        "partner": false,
+        "discount_offer": ""
+      },
+      {
+        "name": "Island Cafe",
+        "address": "305 Collier Avenue, Everglades City",
+        "phone": "(239) 695-0003",
+        "website": "https://www.islandcafeecity.com/",
+        "rating": 4.4,
+        "google_maps": "https://maps.google.com/?place_id=ChIJNfn0GYpc2ogRBG1wlvRq-TU",
+        "partner": false,
+        "discount_offer": ""
+      },
+      {
+        "name": "Everglades Rod & Gun Club",
+        "address": "200 West Broadway, Everglades City",
+        "phone": "(239) 695-2101",
+        "website": "http://rodandguneverglades.com/",
+        "rating": 4.2,
+        "google_maps": "https://maps.google.com/?place_id=ChIJs2ByF15c2ogRW7xqDBTLbL4",
+        "partner": false,
+        "discount_offer": ""
+      }
+    ]
+  },
+  "Key Largo Harbor Marina": {
+    "lat": 25.1021,
+    "lng": -80.4228,
+    "restaurants": []
+  },
+  "Marathon Marina": {
+    "lat": 24.7115,
+    "lng": -81.0928,
+    "restaurants": [
+      {
+        "name": "Barracuda Grill Restaurant",
+        "address": "4290 Overseas Hwy, Mile Marker 49, Florida 5, Marathon",
+        "phone": "(305) 743-3314",
+        "website": "https://barracudagrillflorida.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "barracudacfl@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Keys Fisheries",
+        "address": "3502 Gulfview Avenue, Marathon",
+        "phone": "(305) 743-4353",
+        "website": "http://www.keysfisheries.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "keysfisheries@comcast.net",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Paradise Cuban Restaurant",
+        "address": "2603 Overseas Highway, Marathon",
+        "phone": "(305) 735-4051",
+        "website": "https://www.paradisecubanrestaurant.com/",
+        "rating": 4.2,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "jpcubancafe@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Garrison Bight Marina Key West": {
+    "lat": 24.5625,
+    "lng": -81.7822,
+    "restaurants": [
+      {
+        "name": "Smoked BBQ",
+        "address": "1801 North Roosevelt Boulevard, Key West",
+        "phone": "(305) 741-7409",
+        "website": "http://smokedbbqkw.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "mmiles@keysnews.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Key West Bight Marina": {
+    "lat": 24.5584,
+    "lng": -81.8005,
+    "restaurants": [
+      {
+        "name": "A&B Lobster House",
+        "address": "700 Front Street, Key West",
+        "phone": "(305) 294-5880",
+        "website": "https://aandblobsterhouse.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@aandblobsterhouse.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Blue Heaven",
+        "address": "729 Thomas Street, Key West",
+        "phone": "(305) 296-8666",
+        "website": "https://blueheavenkw.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "blueheaven729@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Conch Republic Seafood Company",
+        "address": "631 Greene Street, Key West",
+        "phone": "(305) 294-4403",
+        "website": "http://www.conchrepublicseafood.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "33040305-294-4403conchfarm@outlook.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Irish Kevin's",
+        "address": "211 Duval Street, Key West",
+        "phone": "(305) 292-1262",
+        "website": "http://www.irishkevins.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "events@irishkevins.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Margaritaville - Key West",
+        "address": "500 Duval Street, Key West",
+        "phone": "(305) 292-1435",
+        "website": "https://www.margaritavillekeywest.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "customerservice@margaritavillekeywest.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Pepe's Cafe",
+        "address": "806 Caroline Street, Key West",
+        "phone": "(305) 294-7192",
+        "website": "http://www.pepeskeywest.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@pepeskeywest.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Schooner Wharf Bar",
+        "address": "202 William Street, Key West",
+        "phone": "(305) 292-9520",
+        "website": "http://www.schoonerwharf.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "schoonerwb@aol.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Stock Island Marina Village": {
+    "lat": 24.5603,
+    "lng": -81.7473,
+    "restaurants": [
+      {
+        "name": "Cheekie Hut",
+        "address": "Key West",
+        "phone": "",
+        "website": "https://www.hilton.com/en/hotels/eywkkhx-hampton-key-west/dining/",
+        "rating": 4.5,
+        "google_maps": "https://maps.google.com/?place_id=ChIJJ2epWXCx0YgRjV1OjAz3ZDg",
+        "partner": false,
+        "discount_offer": ""
+      },
+      {
+        "name": "Palm Haven Restaurant",
+        "address": "3990 South Roosevelt Boulevard, Key West",
+        "phone": "(305) 293-1818",
+        "website": "http://doubletree3.hilton.com/en/hotels/florida/doubletree-resort-by-hilton-hotel-grand-key-key-west-EYWDTDT/dining/index.html",
+        "rating": 4.2,
+        "google_maps": "https://maps.google.com/?place_id=ChIJrZSQV2ux0YgRKA_mApm2iw0",
+        "partner": false,
+        "discount_offer": ""
+      }
+    ]
+  },
+  "Homestead Bayfront Marina": {
+    "lat": 25.3428,
+    "lng": -80.3326,
+    "restaurants": []
+  },
+  "Miami Beach Marina": {
+    "lat": 25.7704,
+    "lng": -80.1358,
+    "restaurants": [
+      {
+        "name": "Forte dei Marmi",
+        "address": "150 Ocean Drive, Miami Beach",
+        "phone": "(786) 276-3095",
+        "website": "http://fdmmiami.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "cimmino@reitanofood.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Joe's Stone Crab",
+        "address": "11 Washington Avenue, Miami Beach",
+        "phone": "(305) 673-0365",
+        "website": "http://joesstonecrab.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "eventsinfo@joesstonecrab.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Las Olas Cafe",
+        "address": "644 6th Street, Miami Beach",
+        "phone": "(305) 534-9333",
+        "website": "https://lasolascafe.net/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "jnrlrestogroup@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Monty's Sunset - South Beach",
+        "address": "300 Alton Road, Miami Beach",
+        "phone": "(305) 672-1148",
+        "website": "http://www.montyssobe.com/",
+        "rating": 4.2,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "-672-1148hostmontyssobe@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Nikki Beach Miami Beach",
+        "address": "1 Ocean Drive, Miami Beach",
+        "phone": "(305) 538-1111",
+        "website": "https://nikkibeach.com/miami-beach/",
+        "rating": 4.2,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "reservations.miamibeach@nikkibeach.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Pura Vida Miami",
+        "address": "110 Washington Avenue #2, Miami Beach",
+        "phone": "(305) 535-4142",
+        "website": "https://www.puravidamiami.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "orders@puravidamiami.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Santorini by Georgios",
+        "address": "101 Ocean Drive #101, Miami Beach",
+        "phone": "(305) 672-6624",
+        "website": "https://santorinibygeorgios.com/",
+        "rating": 4.7,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "groups@santorinibygeorgios.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Dinner Key Marina Miami": {
+    "lat": 25.7271,
+    "lng": -80.2384,
+    "restaurants": [
+      {
+        "name": "Ariete",
+        "address": "3540 Main Highway, Coconut Grove",
+        "phone": "(305) 363-7993",
+        "website": "https://arietecoconutgrove.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "contactinfo@arietecoconutgrove.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Jaguar Restaurant - Coconut Grove - Miami",
+        "address": "3067 Grand Avenue, Miami",
+        "phone": "(305) 444-0216",
+        "website": "http://jaguarrestaurant.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@jaguarrestaurant.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "New York Roma Pizza Grove",
+        "address": "2985 McFarlane Road, Miami",
+        "phone": "(786) 876-9373",
+        "website": "https://www.newyorkromapizza.com/",
+        "rating": 3.9,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "tomaseuvind@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Oasis Lounge and Hookah bar",
+        "address": "2977 McFarlane Road, Miami",
+        "phone": "(305) 446-6565",
+        "website": "http://www.oasisloungeandhookahbar.com/",
+        "rating": 4.1,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "-446-6565thepfohcompany@aol.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Sapore di Mare Italian Seafood - Coconut Grove",
+        "address": "3433 Main Highway, Miami",
+        "phone": "(305) 476-8292",
+        "website": "http://www.saporedimaremiami.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "saporedimaremiami@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Haulover Marina Miami": {
+    "lat": 25.9019,
+    "lng": -80.1217,
+    "restaurants": [
+      {
+        "name": "Food trucks Tuesdays at Haulover Park",
+        "address": "10800 Collins Avenue, Miami Beach",
+        "phone": "(786) 287-6688",
+        "website": "http://miamifoodtrucksevents.com/",
+        "rating": 4.6,
+        "google_maps": "https://maps.google.com/?place_id=ChIJsw8vPmGt2YgRPXXbsJhcBCA",
+        "partner": false,
+        "discount_offer": ""
+      },
+      {
+        "name": "Artisan Beach House",
+        "address": "10295 Collins Avenue, Bal Harbour",
+        "phone": "(305) 455-5460",
+        "website": "https://www.ritzcarlton.com/en/hotels/miazl-the-ritz-carlton-bal-harbour-miami/dining/",
+        "rating": 4.4,
+        "google_maps": "https://maps.google.com/?place_id=ChIJJeLI1Wat2YgR73ON9XmX8EM",
+        "partner": false,
+        "discount_offer": ""
+      },
+      {
+        "name": "Water's Edge",
+        "address": "10295 Collins Avenue, Bal Harbour",
+        "phone": "(305) 455-5460",
+        "website": "https://www.ritzcarlton.com/en/hotels/miazl-the-ritz-carlton-bal-harbour-miami/overview/",
+        "rating": "",
+        "google_maps": "https://maps.google.com/?place_id=ChIJxRwTjaWt2YgRednNC-fk8a4",
+        "partner": false,
+        "discount_offer": ""
+      }
+    ]
+  },
+  "Bahia Mar Marina Fort Lauderdale": {
+    "lat": 26.115,
+    "lng": -80.1035,
+    "restaurants": [
+      {
+        "name": "411 South Bar & Grill",
+        "address": "411 South Fort Lauderdale Beach Boulevard, Fort Lauderdale",
+        "phone": "",
+        "website": "https://www.411southbarandgrill.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@411southbarandgrill.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Beach House Las Olas",
+        "address": "239 South Fort Lauderdale Beach Boulevard, Fort Lauderdale",
+        "phone": "(954) 376-6384",
+        "website": "http://www.beachhouseflb.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@beachhouseflb.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Jungle Queen Riverboat",
+        "address": "801 Seabreeze Boulevard, Fort Lauderdale",
+        "phone": "(954) 462-5596",
+        "website": "http://www.junglequeen.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@junglequeen.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Port Everglades Marina": {
+    "lat": 26.0966,
+    "lng": -80.1136,
+    "restaurants": [
+      {
+        "name": "Calusso",
+        "address": "2301 Southeast 17th Street, Fort Lauderdale",
+        "phone": "(754) 318-6997",
+        "website": "https://www.calussorestaurant.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "calusso@piersixtysixresort.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Garni Café",
+        "address": "2301 Southeast 17th Street, Fort Lauderdale",
+        "phone": "(754) 318-6951",
+        "website": "https://piersixtysix.com/best-new-restaurant-fort-lauderdale?utm_source=google&utm_medium=organic&utm_campaign=business_listing",
+        "rating": 5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "elate@piersixtysixresort.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Pier Top",
+        "address": "2301 Southeast 17th Street, Fort Lauderdale",
+        "phone": "(754) 318-6991",
+        "website": "https://www.piertoplounge.com/",
+        "rating": 3.9,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "piertop@piersixtysixresort.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Sotogrande",
+        "address": "2301 Southeast 17th Street, Fort Lauderdale",
+        "phone": "(754) 318-6998",
+        "website": "https://www.sotogranderestaurant.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "sotogrande@piersixtysixresort.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Boca Raton Marine Center": {
+    "lat": 26.3483,
+    "lng": -80.0783,
+    "restaurants": [
+      {
+        "name": "Casa D'Angelo Ristorante",
+        "address": "171 East Palmetto Park Road, Boca Raton",
+        "phone": "(561) 996-1234",
+        "website": "http://www.casa-d-angelo.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@casa-d-angelo.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Casimir French Bistro",
+        "address": "416 Via De Palmas, Boca Raton",
+        "phone": "(561) 955-6001",
+        "website": "http://www.casimirbistro.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "bonjour@casimirbistro.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Downtown Grille",
+        "address": "61 Southeast 1st Avenue, Boca Raton",
+        "phone": "(561) 419-8289",
+        "website": "http://downtowngrille.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "930-1485dine@downtowngrille.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "TwentyTwenty Grille",
+        "address": "Royal Palm Place, 141 Via Naranjas, Boca Raton",
+        "phone": "(561) 990-7969",
+        "website": "https://twentytwentygrille.com/",
+        "rating": 4.8,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "rhondatwentytwentygrille@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Palm Beach Sailing Club": {
+    "lat": 26.7277,
+    "lng": -80.0438,
+    "restaurants": [
+      {
+        "name": "Meat Market Steakhouse Palm Beach",
+        "address": "191 Bradley Place, Palm Beach",
+        "phone": "(561) 354-9800",
+        "website": "https://www.meatmarket.net/location/meat-market-palm-beach/",
+        "rating": 4.4,
+        "google_maps": "https://maps.google.com/?place_id=ChIJx47eZ5vW2IgRsKgaVBNvsYk",
+        "partner": false,
+        "discount_offer": ""
+      }
+    ]
+  },
+  "Fort Pierce City Marina": {
+    "lat": 27.4488,
+    "lng": -80.3184,
+    "restaurants": [
+      {
+        "name": "2nd Street Bistro",
+        "address": "122 North 2nd Street, Fort Pierce",
+        "phone": "(772) 293-9191",
+        "website": "https://2ndstreetbistro.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "contact@2ndstreetbistro.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Casa Pasta",
+        "address": "100 South 2nd Street, Fort Pierce",
+        "phone": "(772) 882-4984",
+        "website": "https://fortcasapasta.com/",
+        "rating": 4.9,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "34950usacontact@fortcasapasta.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Cobb's Landing",
+        "address": "200 North Indian River Drive #4424, Fort Pierce",
+        "phone": "(772) 460-9014",
+        "website": "https://www.cobbs-landing.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "management@cobbs-landing.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Importico's Bakery Cafe Fort Pierce",
+        "address": "134 South Indian River Drive, Fort Pierce",
+        "phone": "(772) 429-3435",
+        "website": "http://www.importicosbakery.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "importico@importicosbakery.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Sailfish Brewing Company",
+        "address": "130 North 2nd Street, Fort Pierce",
+        "phone": "(772) 577-4382",
+        "website": "http://www.sailfishbrewingco.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "taylor@sailfishbrewingco.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Taco Dive",
+        "address": "208 North 2nd Street, Fort Pierce",
+        "phone": "(772) 242-8635",
+        "website": "https://tacodive.com/locations/fort-pierce/",
+        "rating": 4.7,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "curious@tacodive.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "The Boston House Restaurant",
+        "address": "239 South Indian River Drive, Fort Pierce",
+        "phone": "(772) 242-6780",
+        "website": "http://www.bostonhouserestaurant.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "gm@bostonhouserestaurant.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "The Fort Steakhouse",
+        "address": "106 South 2nd Street, Fort Pierce",
+        "phone": "(772) 882-9131",
+        "website": "https://www.thefortsteakhouse.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@thefortsteakhouse.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "The Galleria of Pierce Harbor",
+        "address": "100 South 2nd Street, Fort Pierce",
+        "phone": "(772) 801-5729",
+        "website": "http://galleriaofpierceharbor.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "34950info@pierceharbor.combottom",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Sebastian Inlet Marina": {
+    "lat": 27.8603,
+    "lng": -80.4527,
+    "restaurants": []
+  },
+  "Melbourne Harbor Marina": {
+    "lat": 28.0706,
+    "lng": -80.6115,
+    "restaurants": []
+  },
+  "Cocoa Village Marina": {
+    "lat": 28.359,
+    "lng": -80.7418,
+    "restaurants": [
+      {
+        "name": "Jerk Flavas Restaurant",
+        "address": "935 School Street, Cocoa",
+        "phone": "(321) 208-8467",
+        "website": "http://jerkflavasrestaurant.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "jerkflavasrestaurant@gmail.comhours",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Port Canaveral Marina": {
+    "lat": 28.4072,
+    "lng": -80.6085,
+    "restaurants": [
+      {
+        "name": "Seafood Atlantic",
+        "address": "520 Glen Cheek Drive, Cape Canaveral",
+        "phone": "(321) 784-1963",
+        "website": "http://www.seafoodatlantic.net/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "freshseafoodatlantic@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "New Smyrna Beach Marina": {
+    "lat": 29.0249,
+    "lng": -80.9271,
+    "restaurants": [
+      {
+        "name": "Bricks European Café",
+        "address": "421 Canal Street Suite 102, New Smyrna Beach",
+        "phone": "(386) 402-4710",
+        "website": "https://www.brickseuropeancafe.com/",
+        "rating": 4.7,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "brickseuropeancafe@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Corkscrew Bar and Grille",
+        "address": "235 Canal Street, New Smyrna Beach",
+        "phone": "(386) 957-3955",
+        "website": "http://www.corkscrewbarandgrille.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "ross.w@corkscrewbarandgrille.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Panheads Pizzeria",
+        "address": "113 South Orange Street, New Smyrna Beach",
+        "phone": "(386) 428-8738",
+        "website": "http://www.panheadspizzeria.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "593-3771panheadscatering@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Riverpark Terrace",
+        "address": "302 South Riverside Drive, New Smyrna Beach",
+        "phone": "(386) 427-2903",
+        "website": "http://www.riverparkterrace.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "2903info@riverparkterrace.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Yellow Dog Eats",
+        "address": "147 Canal Street, New Smyrna Beach",
+        "phone": "(386) 410-4824",
+        "website": "http://yellowdogeats.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "yellowdogeats@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Ponce Inlet Marina": {
+    "lat": 29.1005,
+    "lng": -80.9373,
+    "restaurants": [
+      {
+        "name": "7-Eleven",
+        "address": "4618 S Atlantic Ave @, Harbour Village Boulevard, Ponce Inlet",
+        "phone": "(386) 265-4613",
+        "website": "https://www.7-eleven.com/locations/fl/ponce-inlet/4600-s-atlantic-ave-34039?utm_source=G&utm_medium=local&utm_campaign=google-local",
+        "rating": 3.3,
+        "google_maps": "https://maps.google.com/?place_id=ChIJ150uPtMp54gRc7EDf5yk0SE",
+        "partner": false,
+        "discount_offer": ""
+      }
+    ]
+  },
+  "Daytona Beach Marina": {
+    "lat": 29.2085,
+    "lng": -81.0124,
+    "restaurants": [
+      {
+        "name": "Cinematique Theater",
+        "address": "242 South Beach Street, Daytona Beach",
+        "phone": "(386) 252-3118",
+        "website": "http://www.cinematique.org/",
+        "rating": 4.8,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "manager@cinematique.org",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Dancing Avocado Kitchen (daK)",
+        "address": "110 South Beach Street, Daytona Beach",
+        "phone": "(386) 947-2022",
+        "website": "https://www.dancingavocadokitchen.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "dancingavocadokitchen@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Hatfield's Hideaway",
+        "address": "garden, 116 Magnolia Avenue, Daytona Beach",
+        "phone": "(386) 253-8737",
+        "website": "http://hatfieldshideaway.com/",
+        "rating": 5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "hatfieldshideaway@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Mama Foo Foo",
+        "address": "125 Basin Street, Daytona Beach",
+        "phone": "(386) 287-0180",
+        "website": "http://mffdaytona.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "events@mffdaytona.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Senorita Mexican Kitchen & Tequila Bar",
+        "address": "114 South Beach Street, Daytona Beach",
+        "phone": "(386) 238-9051",
+        "website": "https://linktr.ee/SenoritamexicanKitchen",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "absoulute_beauty@brynlea.nicole",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "The Porch Health Bar",
+        "address": "212 South Beach Street Suite 110, Daytona Beach",
+        "phone": "(386) 675-6468",
+        "website": "https://theporchhealthbar.com/",
+        "rating": 4.8,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "shopcolby@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "St. Augustine Municipal Marina": {
+    "lat": 29.8865,
+    "lng": -81.3127,
+    "restaurants": [
+      {
+        "name": "Cordova Coastal Chophouse & Bar",
+        "address": "Casa Monica Resort and Spa, 95 Cordova Street, St. Augustine",
+        "phone": "(904) 827-1888",
+        "website": "https://www.cordovachophouse.com/",
+        "rating": 4.1,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "cmh.foodandbeverage@kesslercollection.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Forgotten Tonic",
+        "address": "6 Aviles Street, St. Augustine",
+        "phone": "(904) 827-9055",
+        "website": "https://forgottentonic.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "827-9055emailinfo@forgottentonic.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "La Nouvelle Bistro",
+        "address": "102 Bridge Street, St. Augustine",
+        "phone": "(904) 217-8551",
+        "website": "https://lanousta.com/",
+        "rating": 4.8,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "hello@lanousta.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "O C White's Seafood & Spirits",
+        "address": "118 Avenida Menendez, St. Augustine",
+        "phone": "(904) 824-0808",
+        "website": "http://ocwhitesrestaurant.com/",
+        "rating": 4.2,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "ocwhitemanager@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Old City House Inn & Restaurant",
+        "address": "115 Cordova Street, St. Augustine",
+        "phone": "(904) 826-0113",
+        "website": "http://www.oldcityhouseinn.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "oldcityhouse115@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Peace Pie",
+        "address": "8 Aviles Street, St. Augustine",
+        "phone": "(904) 295-8232",
+        "website": "http://peacepieworld.com/",
+        "rating": 4.2,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "contact@peacepieworld.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Fernandina Beach City Marina": {
+    "lat": 30.6699,
+    "lng": -81.4634,
+    "restaurants": [
+      {
+        "name": "Amelia Island Coffee",
+        "address": "207 Centre Street, Fernandina Beach",
+        "phone": "(904) 321-2111",
+        "website": "http://ameliaislandcoffee.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "owners@ameliaislandcoffee.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Arte Pizza",
+        "address": "109 North 3rd Street, Fernandina Beach",
+        "phone": "(904) 277-1515",
+        "website": "https://www.artepizzaandpasta.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "artepizzafl@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Cafe Karibo",
+        "address": "27 North 3rd Street, Fernandina Beach",
+        "phone": "(904) 277-5269",
+        "website": "https://www.cafekaribo.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "t.meredith@cafekaribo.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "David's Restaurant & Lounge",
+        "address": "802 Ash Street, Fernandina Beach",
+        "phone": "(904) 310-6049",
+        "website": "http://ameliaislanddavids.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "-310-6049davids802ash@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "España Restaurant & Tapas",
+        "address": "22 South 4th Street, Fernandina Beach",
+        "phone": "(904) 261-7700",
+        "website": "https://www.espanaamelia.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "32034info@espanaamelia.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Florida House Inn",
+        "address": "22 South 3rd Street, Fernandina Beach",
+        "phone": "(904) 491-3322",
+        "website": "http://www.floridahouseinn.com/",
+        "rating": 4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "pmthefloridahouseinn@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Pepper's Cocina Mexicana & Tequila Bar",
+        "address": "530 Centre Street, Fernandina Beach",
+        "phone": "(904) 277-2011",
+        "website": "http://www.pepperscocina.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "-277-2011info@pepperscocina.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Pizza Street Kitchen",
+        "address": "105 South 3rd Street Suite c, Fernandina Beach",
+        "phone": "(904) 468-8160",
+        "website": "http://pizzastreetkitchen.com/",
+        "rating": 4.8,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@mysite.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "The Happy Tomato Courtyard Café & BBQ",
+        "address": "7 South 3rd Street, Fernandina Beach",
+        "phone": "(904) 321-0707",
+        "website": "http://www.thehappytomatocafe.com/",
+        "rating": 4.7,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "richard@thehappytomatocafe.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Brunswick Landing Marina": {
+    "lat": 31.1499,
+    "lng": -81.5002,
+    "restaurants": [
+      {
+        "name": "1509 Brunswick",
+        "address": "1509 Newcastle Street, Brunswick",
+        "phone": "(912) 275-8909",
+        "website": "https://www.1509brunswick.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@1509brunswick.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Arte Pizza - Downtown",
+        "address": "1518 Newcastle Street, Brunswick",
+        "phone": "(912) 265-7878",
+        "website": "http://artepizzabrunswick.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "-265-7878artepizzabrunswickga@outlook.compowered",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Basil Thai and Sushi | Pan-Asian",
+        "address": "1401 Newcastle Street, Brunswick",
+        "phone": "(912) 342-7625",
+        "website": "http://basilthaiandsushi.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@basilthaiandsushi.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Hootenanny’s at the Yard—Craft Barbecue Restaurant in Downtown Brunswick, Georgia",
+        "address": "1708 Ellis Street, Brunswick",
+        "phone": "(912) 222-1019",
+        "website": "http://www.hootenannysbbq.com/",
+        "rating": 4.8,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@hootenannysbbq.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Reid's Apothecary",
+        "address": "1618 Newcastle Street, Brunswick",
+        "phone": "(912) 689-3076",
+        "website": "http://www.reidsapothecary.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@reidsapothecary.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Silver Bluff Brewing Company",
+        "address": "1325 Newcastle Street, Brunswick",
+        "phone": "(912) 275-7024",
+        "website": "https://silverbluff.com/",
+        "rating": 4.8,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "social@silverbluff.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Jekyll Island Marina": {
+    "lat": 31.07,
+    "lng": -81.4193,
+    "restaurants": [
+      {
+        "name": "Tribuzio's Grille",
+        "address": "322 Captain Wylly Road, Jekyll Island",
+        "phone": "(912) 319-2562",
+        "website": "https://tribuziosgrille.com/",
+        "rating": 4.3,
+        "google_maps": "https://maps.google.com/?place_id=ChIJjW9CfOjb5IgRh-xNMuK88Z0",
+        "partner": false,
+        "discount_offer": ""
+      }
+    ]
+  },
+  "Savannah City Marina": {
+    "lat": 32.0785,
+    "lng": -81.0912,
+    "restaurants": [
+      {
+        "name": "17Hundred90 Inn and Restaurant",
+        "address": "307 East President Street, Savannah",
+        "phone": "(912) 236-7122",
+        "website": "http://1790restaurant.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "reservation@1790inn.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Alligator Soul Restaurant",
+        "address": "114 Barnard Street, Savannah",
+        "phone": "(912) 232-7899",
+        "website": "http://alligatorsoul.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "alligatorsoulevents@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Goose Feathers Cafe & Bakery",
+        "address": "39 Barnard Street, Savannah",
+        "phone": "(912) 233-4683",
+        "website": "http://www.goosefeatherscafe.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@goosefeatherscafe.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Huey's",
+        "address": "115 East River Street, Savannah",
+        "phone": "(912) 234-7385",
+        "website": "http://hueysontheriver.net/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "hueysontheriver@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "J. Christopher's",
+        "address": "122 East Liberty, Savannah",
+        "phone": "(912) 236-7494",
+        "website": "http://jchristophers.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "office@jchristophers.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Jazz'd Tapas Bar",
+        "address": "52 Barnard Street, Savannah",
+        "phone": "(912) 236-7777",
+        "website": "http://www.jazzdtapasbar.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@jazzdsavannah.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Lulu's Chocolate Bar",
+        "address": "42 Martin Luther King Junior Boulevard, Savannah",
+        "phone": "(912) 480-4564",
+        "website": "http://luluschocolatebar.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "-480-4564info@luluschocolatebar.netpowered",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Zunzibar",
+        "address": "236 Drayton Street, Savannah",
+        "phone": "(912) 298-6761",
+        "website": "https://www.zunzibar.com/",
+        "rating": 4.8,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "events@zunzibar.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Thunderbolt Marina Savannah": {
+    "lat": 32.0471,
+    "lng": -81.0558,
+    "restaurants": [
+      {
+        "name": "Rinconcito Latino",
+        "address": "2308 Skidaway Road, Savannah",
+        "phone": "(912) 344-4066",
+        "website": "https://rinconcitosav.com/",
+        "rating": 4.1,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "filler@godaddy.comhomecontactmenueventsorder",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Hilton Head Harbour Town Marina": {
+    "lat": 32.1364,
+    "lng": -80.8044,
+    "restaurants": [
+      {
+        "name": "Honey & Thistle",
+        "address": "149 Lighthouse Road Suite A, Hilton Head Island",
+        "phone": "(843) 715-3391",
+        "website": "http://honeyandthistlehhi.com/",
+        "rating": 5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@partout.wine",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "The Shops at Sea Pines Center",
+        "address": "71 Lighthouse Road, Hilton Head Island",
+        "phone": "(843) 363-5699",
+        "website": "https://theshopsatseapinescenter.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "shelly@cglhhi.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Skull Creek Marina Hilton Head": {
+    "lat": 32.226,
+    "lng": -80.755,
+    "restaurants": [
+      {
+        "name": "41 Up On The Roof",
+        "address": "75 SHRIMPERS ROW, Hilton Head Island",
+        "phone": "(843) 715-2202",
+        "website": "https://www.bennyshiltonhead.com/41-up-on-the-roof/",
+        "rating": 5,
+        "google_maps": "https://maps.google.com/?place_id=ChIJATjApTJ3_IgRu-OO14bDNTw",
+        "partner": false,
+        "discount_offer": ""
+      },
+      {
+        "name": "Benny's Coastal Kitchen",
+        "address": "75 SHRIMPERS ROW, Hilton Head Island",
+        "phone": "(843) 715-2202",
+        "website": "https://bennyshiltonhead.com/",
+        "rating": 4.5,
+        "google_maps": "https://maps.google.com/?place_id=ChIJg-t_17tx_IgR-l6hGYxXfN4",
+        "partner": false,
+        "discount_offer": ""
+      }
+    ]
+  },
+  "Beaufort Downtown Marina": {
+    "lat": 32.431,
+    "lng": -80.6686,
+    "restaurants": [
+      {
+        "name": "Plums Restaurant",
+        "address": "904 Bay Street, Beaufort",
+        "phone": "(843) 525-1946",
+        "website": "https://plumsrestaurant.com/",
+        "rating": 4.1,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "hello@plumsrestaurant.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Q on Bay - Beaufort, SC",
+        "address": "822 Bay Street, Beaufort",
+        "phone": "(843) 524-7771",
+        "website": "http://www.qonbay.com/",
+        "rating": 4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "524-7771qonbay@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Rhett House Inn",
+        "address": "1009 Craven Street, Beaufort",
+        "phone": "(843) 524-9030",
+        "website": "http://www.rhetthouseinn.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@rhetthouseinn.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Sister Sister Deli & Market",
+        "address": "403 Carteret Street, Beaufort",
+        "phone": "(843) 379-0118",
+        "website": "https://sistersisterdeli.com/",
+        "rating": 4.8,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "admin@sistersisterdeli.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Charleston City Marina": {
+    "lat": 32.7766,
+    "lng": -79.9311,
+    "restaurants": [
+      {
+        "name": "82 Queen",
+        "address": "82 Queen Street, Charleston",
+        "phone": "(843) 723-7591",
+        "website": "https://www.82queen.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "-723-759182queen@queenstreethospitality.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Anson Restaurant",
+        "address": "12 Anson Street, Charleston",
+        "phone": "(843) 577-0551",
+        "website": "http://www.ansonrestaurant.com/",
+        "rating": 4.7,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "577-0551info@ansonrestaurant.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Blind Tiger Pub",
+        "address": "36-38 Broad Street, Charleston",
+        "phone": "(843) 872-6700",
+        "website": "http://blindtigerchs.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "-872-6700info@blindtigerchs.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Charleston Grill",
+        "address": "224 King Street, Charleston",
+        "phone": "(843) 751-4017",
+        "website": "https://charlestonplace.com/dining/?utm_source=google-gbp&utm_medium=organic&utm_campaign=gbp",
+        "rating": 4.8,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@charlestonplace.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "FIG",
+        "address": "232 Meeting Street, Charleston",
+        "phone": "(843) 805-5900",
+        "website": "http://eatatfig.com/",
+        "rating": 4.7,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "hello@eatatfig.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Hank's Seafood Restaurant",
+        "address": "10 Hayne Street, Charleston",
+        "phone": "(843) 723-3474",
+        "website": "https://www.hanksseafoodrestaurant.com/location/charleston/?utm_source=google-gbp&utm_medium=organic&utm_campaign=gbp",
+        "rating": 4.7,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@hanksseafoodrestaurant.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "High Cotton Charleston Restaurant",
+        "address": "199 East Bay Street, Charleston",
+        "phone": "(843) 724-3815",
+        "website": "http://highcottoncharleston.com/",
+        "rating": 4.7,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "-724-3815contactus4@hallmanagementgroup.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Hyman's Seafood",
+        "address": "215 Meeting Street, Charleston",
+        "phone": "(843) 723-6000",
+        "website": "https://www.hymanseafood.com/",
+        "rating": 4.9,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "hymansseafood@aol.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Slightly North of Broad Restaurant",
+        "address": "192 East Bay Street, Charleston",
+        "phone": "(843) 723-3424",
+        "website": "https://www.snobcharleston.com/",
+        "rating": 4.7,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "ali@southcitypr.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Tommy Condon's Irish Pub & Restaurant",
+        "address": "160 Church Street, Charleston",
+        "phone": "(843) 577-3818",
+        "website": "http://tommycondons.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "-577-3818info@tommycondons.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Charleston Maritime Center": {
+    "lat": 32.7827,
+    "lng": -79.9254,
+    "restaurants": [
+      {
+        "name": "Henry's On The Market",
+        "address": "54 North Market Street, Charleston",
+        "phone": "(843) 723-4363",
+        "website": "http://www.henrysonthemarket.com/",
+        "rating": 4.2,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "-723-4363info@henrysonthemarket.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Isle of Palms Marina": {
+    "lat": 32.7977,
+    "lng": -79.7933,
+    "restaurants": []
+  },
+  "Georgetown Landing Marina": {
+    "lat": 33.3677,
+    "lng": -79.286,
+    "restaurants": [
+      {
+        "name": "Eve's Caribbean Soul Food",
+        "address": "132 South Fraser Street, Georgetown",
+        "phone": "(843) 325-2725",
+        "website": "http://evessoulfood.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "lemonade3info@evessoulfood.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Georgetown Corner Tavern",
+        "address": "815 Front Street, Georgetown",
+        "phone": "(843) 461-9539",
+        "website": "https://www.thecornertavern.com/location/the-corner-tavern-georgetown/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "gm.gtct@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Myrtle Beach Yacht Club": {
+    "lat": 33.6891,
+    "lng": -78.8986,
+    "restaurants": [
+      {
+        "name": "Hunt Brothers Pizza",
+        "address": "900 Highway 15, Myrtle Beach",
+        "phone": "(843) 448-2234",
+        "website": "http://www.huntbrotherspizza.com/",
+        "rating": 5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "support@hbpizza.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Thorny's",
+        "address": "600 South Kings Highway, Myrtle Beach",
+        "phone": "(843) 448-2333",
+        "website": "http://thornys.com/",
+        "rating": 4.1,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "thornysmyrtlebeach@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Southport Marina": {
+    "lat": 33.9196,
+    "lng": -78.0175,
+    "restaurants": [
+      {
+        "name": "Fishy Fishy Cafe",
+        "address": "106 Yacht Basin Drive, Southport",
+        "phone": "(910) 457-1881",
+        "website": "http://www.fishyfishycafe.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@fishyfishycafe.comhours",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Gourmet to Go & Catered Affairs",
+        "address": "105 West Saint George Street, Southport",
+        "phone": "(910) 477-1082",
+        "website": "http://www.gourmettogosouthport.com/",
+        "rating": 4.7,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "catered.gourmettogo@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Mr. P's Bistro",
+        "address": "309 North Howe Street, Southport",
+        "phone": "(910) 457-0801",
+        "website": "http://mrpsbistro.com/",
+        "rating": 4.8,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "mrpsbistro@bellsouth.net",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Southport Coffee Co. & Kitchen",
+        "address": "130 East Moore Street, Southport",
+        "phone": "(910) 363-4203",
+        "website": "http://southportcoffeeco.com/",
+        "rating": 4.7,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "inquiriessouthportcoffeeco@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Wrightsville Beach Marina": {
+    "lat": 34.2124,
+    "lng": -77.7969,
+    "restaurants": [
+      {
+        "name": "22 North",
+        "address": "22 North Lumina Avenue, Wrightsville Beach",
+        "phone": "(910) 509-0177",
+        "website": "http://22northwb.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "28480info@22northwb.comnameaddressemailphonesubjectmessagesubmitthanks",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Adapt Kitchen and Juice Bar",
+        "address": "32 North Lumina Avenue, Wrightsville Beach",
+        "phone": "(910) 679-8125",
+        "website": "http://www.adaptkitchenjuicebar.com/",
+        "rating": 4.8,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "chris@adaptkitchenjuicebar.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Johnnie Mercers Fishing Pier",
+        "address": "23 East Salisbury Street, Wrightsville Beach",
+        "phone": "(910) 256-2743",
+        "website": "http://www.johnniemercersfishingpier.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "jmpier34@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Kohl's Frozen Custard & Kitchen",
+        "address": "92 South Lumina Avenue, Wrightsville Beach",
+        "phone": "(910) 256-3955",
+        "website": "http://kohlscustard.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "kohlscustard@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Shark Bar and Kitchen",
+        "address": "13 East Salisbury Street, Wrightsville Beach",
+        "phone": "(910) 239-9036",
+        "website": "http://shark-bar.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "reservations@shark-bar.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Zeke's Beans and Bowls",
+        "address": "534 Causeway Drive, Wrightsville Beach",
+        "phone": "(910) 945-9314",
+        "website": "https://www.zekes.net/wrightsvillebeach",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "zekeswb@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Wilmington City Docks": {
+    "lat": 34.2357,
+    "lng": -77.9478,
+    "restaurants": [
+      {
+        "name": "Circa 1922",
+        "address": "8 North Front Street, Wilmington",
+        "phone": "(910) 762-1922",
+        "website": "http://www.circa1922.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "circa1922nc@gmail.comevents",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Fat Tony's Italian Pub",
+        "address": "131 North Front Street, Wilmington",
+        "phone": "(910) 343-8881",
+        "website": "http://www.fatpub.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "edodge@fattonysitalianpub.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Front Street Brewery",
+        "address": "9 North Front Street, Wilmington",
+        "phone": "(910) 251-1935",
+        "website": "https://www.frontstreetbrewery.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@frontstreetbrewery.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Graystone Inn",
+        "address": "100 South 3rd Street, Wilmington",
+        "phone": "(910) 763-2000",
+        "website": "http://staygraystone.com/?utm_source=google&utm_medium=wix_google_business_profile&utm_campaign=2817913620820331246",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "hello@staygraystone.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Islands Fresh Mex Grill",
+        "address": "310 North Front Street #1, Wilmington",
+        "phone": "(910) 338-2032",
+        "website": "http://www.islandsfreshmexgrill.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@islandsfreshmexgrill.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Little Dipper Fondue",
+        "address": "138 South Front Street, Wilmington",
+        "phone": "(910) 251-0433",
+        "website": "https://www.littledipperfondue.com/",
+        "rating": 4.7,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "28401info@littledipperfondue.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Paddy's Hollow Restaurant & Pub",
+        "address": "Cotton Exchange Free Parking, 10 Walnut Street, Wilmington",
+        "phone": "(910) 762-4354",
+        "website": "http://www.paddyshollow.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "emailpaddyshollow@yahoo.comphone",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "River 128 Restaurant",
+        "address": "128 South Water Street, Wilmington",
+        "phone": "(910) 763-2052",
+        "website": "http://river128.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@river128.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Slice of Life Pizzeria & Pub Downtown",
+        "address": "125 Market Street, Wilmington",
+        "phone": "(910) 251-9444",
+        "website": "http://grabslice.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "slice@hotmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Tarantelli's",
+        "address": "102 South 2nd Street, Wilmington",
+        "phone": "(910) 763-3806",
+        "website": "http://www.tarantellis.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@tarantellis.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "The Basics",
+        "address": "319 North Front Street, Wilmington",
+        "phone": "(910) 343-1050",
+        "website": "http://www.thebasicsilm.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "thebasicsreservations@outlook.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "The Copper Penny",
+        "address": "109 Chestnut Street, Wilmington",
+        "phone": "(910) 762-1373",
+        "website": "http://www.copperpennync.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "copperpennync@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "The Pilot House",
+        "address": "2 Ann Street, Wilmington",
+        "phone": "(910) 343-0200",
+        "website": "http://pilothouserest.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@pilothouserest.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Swansboro Town Docks": {
+    "lat": 34.6877,
+    "lng": -77.1144,
+    "restaurants": [
+      {
+        "name": "By The Bridge",
+        "address": "108-3 West Corbett Avenue, Swansboro",
+        "phone": "(910) 708-1020",
+        "website": "http://bythebridge-swansboro.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "e-mailicehousewaterfront@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "il Cigno Italiano",
+        "address": "206 West Corbett Avenue, Swansboro",
+        "phone": "(910) 325-7845",
+        "website": "http://theitalianswan.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "%20ilcignoitaliano@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Preston's Corner Bar & Grill | Southern",
+        "address": "106 Front Street, Swansboro",
+        "phone": "(910) 708-1305",
+        "website": "https://www.prestons-corner.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "solaventuresllc@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Saltwater Grill",
+        "address": "99 West Church Street, Swansboro",
+        "phone": "(910) 326-7300",
+        "website": "https://saltwatergrillswansboro.com/swansboro/",
+        "rating": 4.2,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "326-7300saltwatergrill@yahoo.common",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Morehead City Yacht Basin": {
+    "lat": 34.7229,
+    "lng": -76.7238,
+    "restaurants": [
+      {
+        "name": "Casa San Carlo",
+        "address": "913 Arendell Street, Morehead City",
+        "phone": "(252) 773-4218",
+        "website": "http://www.casasancarlorestaurant.com/",
+        "rating": 4.4,
+        "google_maps": "https://maps.google.com/?place_id=ChIJv2Tv6WuRqIkRllUpY5dycgk",
+        "partner": false,
+        "discount_offer": ""
+      }
+    ]
+  },
+  "Beaufort NC Town Docks": {
+    "lat": 34.7179,
+    "lng": -76.663,
+    "restaurants": [
+      {
+        "name": "Beach Bowls",
+        "address": "816 Cedar Street, Beaufort",
+        "phone": "(252) 838-1581",
+        "website": "http://www.beachbowlsnc.com/",
+        "rating": 4.7,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "ncinfo.beachbowlsnc@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Beaufort Grocery",
+        "address": "117 Queen Street, Beaufort",
+        "phone": "(252) 728-3899",
+        "website": "http://www.beaufortgrocery.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@beaugro.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "MOONRAKERS",
+        "address": "326 Front Street, Beaufort",
+        "phone": "(252) 838-0083",
+        "website": "http://moonrakersbeaufort.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "28516252.838.0083info@moonrakersbeaufort.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "the periwinkle",
+        "address": "110 Middle Lane, Beaufort",
+        "phone": "(252) 220-0140",
+        "website": "https://www.periwinklenc.com/",
+        "rating": 4.8,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "28516theperiwinklenc@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Ocracoke Marina": {
+    "lat": 35.1077,
+    "lng": -75.9856,
+    "restaurants": [
+      {
+        "name": "Stockroom Street Food",
+        "address": "294 Irvin Garrish Highway, Ocracoke",
+        "phone": "(252) 928-0627",
+        "website": "https://www.stockroomstreetfood.com/",
+        "rating": 4.9,
+        "google_maps": "https://maps.google.com/?place_id=ChIJu1XcBrvZpYkR20C3fzn5B0o",
+        "partner": false,
+        "discount_offer": ""
+      },
+      {
+        "name": "Dajio",
+        "address": "305 Irvin Garrish Highway, Ocracoke",
+        "phone": "(252) 928-7119",
+        "website": "http://www.dajiorestaurant.com/",
+        "rating": 4.5,
+        "google_maps": "https://maps.google.com/?place_id=ChIJHyMOa7fYpYkRd4CUm8U0mwc",
+        "partner": false,
+        "discount_offer": ""
+      },
+      {
+        "name": "Sorellas",
+        "address": "659 Irvin Garrish Highway, Ocracoke",
+        "phone": "(252) 928-7777",
+        "website": "https://sorellasocracoke.com/",
+        "rating": 4.5,
+        "google_maps": "https://maps.google.com/?place_id=ChIJGaHJR7rYpYkRN0OqThFxYzQ",
+        "partner": false,
+        "discount_offer": ""
+      },
+      {
+        "name": "Ocracoke Oyster Company",
+        "address": "621 Irvin Garrish Highway, Ocracoke",
+        "phone": "(252) 928-0200",
+        "website": "https://ocracokeoystercompany.com/",
+        "rating": 4.4,
+        "google_maps": "https://maps.google.com/?place_id=ChIJ_wMfebvYpYkRfp65c32JJ_g",
+        "partner": false,
+        "discount_offer": ""
+      }
+    ]
+  },
+  "Oriental Marina": {
+    "lat": 35.0261,
+    "lng": -76.6972,
+    "restaurants": [
+      {
+        "name": "Gretchen's Bistro",
+        "address": "807 Broad Street, Oriental",
+        "phone": "(252) 249-6098",
+        "website": "https://gretchensbistro.com/",
+        "rating": 4.8,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "249-6098info@gretchensbistro.comprivate",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Harbour Hospitality",
+        "address": "807 Broad Street Suite B, Oriental",
+        "phone": "(252) 670-1735",
+        "website": "https://www.harbourhospitalitync.com/",
+        "rating": "",
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@harbourhospitality.comto",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "M & M's",
+        "address": "205 Water Street, Oriental",
+        "phone": "(252) 249-2000",
+        "website": "https://mmscafeoriental.com/",
+        "rating": 4.2,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "dave@mmscafeoriental.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Mariposa Bakery & Wine Bar",
+        "address": "401 Broad Street, Oriental",
+        "phone": "(252) 249-6060",
+        "website": "https://www.mariposaoriental.com/",
+        "rating": 4.8,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "filler@godaddy.comhomebakerywine",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "The New Village Brewery & Taproom",
+        "address": "702 Broad Street, Oriental",
+        "phone": "(252) 249-6132",
+        "website": "http://www.newvillagebrewery.com/",
+        "rating": 4.9,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "emailthenewvillagebrewery@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Toucan Grill & Fresh Bar",
+        "address": "101 Wall Street, Oriental",
+        "phone": "(252) 249-2204",
+        "website": "http://toucanoriental.com/",
+        "rating": 4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@toucangrill.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Manteo Waterfront Marina": {
+    "lat": 35.9072,
+    "lng": -75.6709,
+    "restaurants": [
+      {
+        "name": "NouVines",
+        "address": "105 Budleigh Street, Manteo",
+        "phone": "(252) 339-1634",
+        "website": "http://nouvines.com/",
+        "rating": 4.9,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "filler@godaddy.comhomemenueventscontactshopaccountordersmy",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Virginia Beach Rudee Inlet Marina": {
+    "lat": 36.8321,
+    "lng": -75.9786,
+    "restaurants": [
+      {
+        "name": "Big Sam's Inlet Cafe & Raw Bar",
+        "address": "300 Winston Salem Avenue, Virginia Beach",
+        "phone": "(757) 428-4858",
+        "website": "http://bigsamsrawbar.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "bigsamsrawbar@cox.net",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Cafe Atlantic",
+        "address": "706 Atlantic Avenue, Virginia Beach",
+        "phone": "(757) 417-7590",
+        "website": "http://www.cafeatlanticvb.com/",
+        "rating": 4.1,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "amagriplis3@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Gringo's Taqueria",
+        "address": "612 Norfolk Avenue #109, Virginia Beach",
+        "phone": "(757) 961-2987",
+        "website": "http://www.gringos757.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "gringos757@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Shadowlawn Eats",
+        "address": "918 Mediterranean Avenue, Virginia Beach",
+        "phone": "(757) 937-0546",
+        "website": "http://shadowlawn-eats.com/",
+        "rating": 4.7,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "fox.restaurant.group@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "The Shack",
+        "address": "712 Atlantic Avenue, Virginia Beach",
+        "phone": "(757) 319-5146",
+        "website": "http://www.theshackvb.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info.theshackvb@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Waterman's Surfside Grille",
+        "address": "415 Atlantic Avenue, Virginia Beach",
+        "phone": "(757) 428-3644",
+        "website": "http://www.watermans.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "charity@trifectagroupvb.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Zeke's",
+        "address": "616 Norfolk Avenue, Virginia Beach",
+        "phone": "(757) 963-5155",
+        "website": "http://zekes.net/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "zekes@outlook.comvirginia",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Chesapeake Marina Portsmouth": {
+    "lat": 36.8243,
+    "lng": -76.2961,
+    "restaurants": [
+      {
+        "name": "Subway",
+        "address": "This Is A Secured Facility, Bldg #403, Portsmouth",
+        "phone": "(757) 800-3130",
+        "website": "https://restaurants.subway.com/united-states/va/portsmouth/bldg-403?utm_source=yxt-goog&utm_medium=local&utm_term=acq&utm_content=22076&utm_campaign=evergreen-2020&y_source=1_MTQ5MTAyMzgtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
+        "rating": 4.2,
+        "google_maps": "https://maps.google.com/?place_id=ChIJnxbuEpWiuokRW_ZtU1njkek",
+        "partner": false,
+        "discount_offer": ""
+      }
+    ]
+  },
+  "Norfolk Waterside Marina": {
+    "lat": 36.8476,
+    "lng": -76.2908,
+    "restaurants": [
+      {
+        "name": "219 Bistro",
+        "address": "219 Granby Street, Norfolk",
+        "phone": "(757) 416-6219",
+        "website": "https://www.219bistro.com/",
+        "rating": 4.2,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "manager@219bistro.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "4 5 6 Fish",
+        "address": "456 Granby Street, Norfolk",
+        "phone": "(757) 625-4444",
+        "website": "https://www.456fish.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "625-4444manager@456fish.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Byrd & Baldwin Bros Steakhouse",
+        "address": "116 Brooke Avenue, Norfolk",
+        "phone": "(757) 222-9191",
+        "website": "https://www.byrdbaldwin.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "222-9191manager@byrdbaldwin.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "D'egg Diner",
+        "address": "204 East Main Street, Norfolk",
+        "phone": "(757) 626-3447",
+        "website": "http://www.deggnorfolk.com/",
+        "rating": 4.1,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "deggorf@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Freemason Abbey Restaurant",
+        "address": "209 West Freemason Street, Norfolk",
+        "phone": "(757) 622-3966",
+        "website": "http://freemasonabbey.com/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "-622-3966info@freemasonabbey.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Jack Brown's Beer & Burger Joint Norfolk",
+        "address": "131 Granby Street, Norfolk",
+        "phone": "(757) 937-2040",
+        "website": "https://www.jackbrownsjoint.com/locations/norfolk/",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "norfolk@jackbrownsjoint.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Norfolk Seafood Company & Oyster Bar",
+        "address": "111 West Tazewell Street, Norfolk",
+        "phone": "(757) 227-6222",
+        "website": "https://www.norfolkseafoodco.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "227-6222manager@norfolkseafoodco.comdress",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Selden Market",
+        "address": "208 East Main Street, Norfolk",
+        "phone": "",
+        "website": "http://www.seldenmarket.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "seldenmarket@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Todd Jurich's Bistro",
+        "address": "150 West Main Street Suite 100, Norfolk",
+        "phone": "(757) 622-3210",
+        "website": "https://toddjurichsbistro.com/",
+        "rating": 4.1,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "23510757-622-3210info@toddjurichsbistro.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Town Point Club",
+        "address": "101 West Main Street Suite 300, Norfolk",
+        "phone": "(757) 625-6606",
+        "website": "https://www.invitedclubs.com/clubs/town-point-club",
+        "rating": 4.6,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "dathon.compton@invitedclubs.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  },
+  "Ocean City Inlet Marina": {
+    "lat": 38.3257,
+    "lng": -75.0908,
+    "restaurants": [
+      {
+        "name": "Harrison's Harbor Watch",
+        "address": "806 South Atlantic Avenue #5915, Ocean City",
+        "phone": "(410) 289-5121",
+        "website": "http://www.harborwatchrestaurant.com/",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@harborwatchrestaurant.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Soriano's Restaurant & Coffee Shop",
+        "address": "306 South Baltimore Avenue, Ocean City",
+        "phone": "(410) 289-6656",
+        "website": "http://www.sorianoscoffeeshop.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@sorianoscoffeeshop.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "The Kitchen",
+        "address": "106 Wicomico Street, Ocean City",
+        "phone": "(410) 289-2226",
+        "website": "https://www.shulerone.com/restaurant",
+        "rating": 4.3,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "410-289-2220shulerone0@gmail.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "The Wedge Bar",
+        "address": "806 South Atlantic Avenue, Ocean City",
+        "phone": "(443) 664-6051",
+        "website": "https://www.thewedgeoc.com/",
+        "rating": 4.1,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@thewedgeoc.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Thrasher's French Fries",
+        "address": "401 South Atlantic Avenue #1, Ocean City",
+        "phone": "(410) 289-7232",
+        "website": "https://thrashersfries.com/",
+        "rating": 4.5,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@thrashersfries.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      },
+      {
+        "name": "Trimper Rides of Ocean City",
+        "address": "700 South Atlantic Avenue, Ocean City",
+        "phone": "(410) 289-8617",
+        "website": "https://www.trimperrides.com/",
+        "rating": 4.4,
+        "google_maps": "",
+        "partner": false,
+        "discount_offer": "",
+        "email": "info@trimperrides.com",
+        "outreach_status": "SENDING",
+        "offer_confirmed_at": "",
+        "offer_notes": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,2465 @@
+<!DOCTYPE html>
+<!-- SailWindow V6 · Subscription Build -->
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#171614">
+<title>Rockport, TX Sailing Conditions Today | SailWindow</title>
+<meta name="description" content="Live wind, tide, and sailability score for Rockport, TX. Best sailing window updated hourly from NWS and NOAA data.">
+<meta property="og:title" content="SailWindow — Gulf Coast Sailing Conditions">
+<meta property="og:description" content="Live wind, tide, and sailability score for Rockport, TX. Best sailing window updated hourly from NWS and NOAA data.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sailwindow.com/locations/rockport">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+<style>
+:root,[data-theme="light"]{
+  --bg:#f7f6f2;--surface:#f9f8f5;--surface2:#fbfbf9;--offset:#f3f0ec;
+  --dynamic:#e6e4df;--divider:#dcd9d5;--border:#d4d1ca;
+  --text:#28251d;--muted:#7a7974;--faint:#bab9b4;--inverse:#f9f8f4;
+  --primary:#01696f;--primary-h:#0c4e54;--primary-hl:#cedcd8;
+  --success:#437a22;--success-hl:#d4dfcc;
+  --warn:#964219;--warn-hl:#ddcfc6;
+  --error:#a12c7b;--error-hl:#e0ced7;
+  --gold:#b07a00;--gold-hl:#e9e0c6;
+  --sh-sm:0 1px 2px oklch(0.2 0.01 80/.06);
+  --sh-md:0 4px 12px oklch(0.2 0.01 80/.08);
+  --sh-lg:0 12px 32px oklch(0.2 0.01 80/.12);
+  --r-sm:.375rem;--r-md:.5rem;--r-lg:.75rem;--r-xl:1rem;--r-2xl:1.5rem;--r-full:9999px;
+  --sp1:.25rem;--sp2:.5rem;--sp3:.75rem;--sp4:1rem;--sp5:1.25rem;--sp6:1.5rem;--sp8:2rem;--sp10:2.5rem;--sp12:3rem;
+  --xs:clamp(.75rem,.7rem + .25vw,.875rem);--sm:clamp(.875rem,.8rem + .35vw,1rem);
+  --base:clamp(1rem,.95rem + .25vw,1.125rem);--lg:clamp(1.125rem,1rem + .75vw,1.5rem);
+  --xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);--2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);
+  --body:'DM Sans',system-ui,sans-serif;--mono:'DM Mono',monospace;
+  --tr:180ms cubic-bezier(.16,1,.3,1);
+}
+[data-theme="dark"]{
+  --bg:#171614;--surface:#1c1b19;--surface2:#201f1d;--offset:#1d1c1a;
+  --dynamic:#2d2c2a;--divider:#262523;--border:#393836;
+  --text:#cdccca;--muted:#797876;--faint:#5a5957;--inverse:#2b2a28;
+  --primary:#4f98a3;--primary-h:#227f8b;--primary-hl:#313b3b;
+  --success:#6daa45;--success-hl:#3a4435;
+  --warn:#bb653b;--warn-hl:#564942;
+  --error:#d163a7;--error-hl:#4c3d46;
+  --gold:#e8af34;--gold-hl:#4d4332;
+  --sh-sm:0 1px 2px oklch(0 0 0/.2);--sh-md:0 4px 12px oklch(0 0 0/.3);--sh-lg:0 12px 32px oklch(0 0 0/.4);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:none;text-size-adjust:none;-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{min-height:100dvh;font-family:var(--body);font-size:var(--base);color:var(--text);background:var(--bg);line-height:1.5;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--primary);outline-offset:3px;border-radius:var(--r-sm)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+.shell{max-width:480px;margin:0 auto;min-height:100dvh;display:flex;flex-direction:column;padding-bottom:env(safe-area-inset-bottom)}
+.topbar{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--divider);padding:var(--sp3) var(--sp4);padding-top:calc(var(--sp3) + env(safe-area-inset-top));display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:var(--sp2);text-decoration:none;color:var(--text)}
+.logo-word{font-size:var(--sm);font-weight:600;letter-spacing:-.01em}.logo-word span{color:var(--primary)}
+.bar-actions{display:flex;gap:var(--sp2);align-items:center}
+.icon-btn{width:36px;height:36px;border-radius:var(--r-full);display:flex;align-items:center;justify-content:center;color:var(--muted);transition:color var(--tr),background var(--tr)}
+.icon-btn:hover{background:var(--dynamic);color:var(--text)}.icon-btn:active{transform:scale(.94)}
+.banner{padding:var(--sp2) var(--sp4);font-size:var(--xs);font-weight:600;text-align:center;display:none}
+.banner.info{background:var(--primary-hl);color:var(--primary);display:block}.banner.warn{background:var(--warn-hl);color:var(--warn);display:block}.banner.err{background:var(--error-hl);color:var(--error);display:block}
+.main{flex:1;overflow-y:auto;padding:var(--sp4);display:flex;flex-direction:column;gap:var(--sp4)}
+.loc-bar{display:flex;align-items:center;justify-content:space-between;background:var(--surface);border-radius:var(--r-xl);padding:var(--sp3) var(--sp4);border:1px solid oklch(from var(--text) l c h/.08)}
+.loc-left{display:flex;align-items:center;gap:var(--sp2)}.loc-name{font-size:var(--sm);font-weight:600}.loc-sub{font-size:var(--xs);color:var(--muted)}
+.loc-btn{font-size:var(--xs);color:var(--primary);background:var(--primary-hl);padding:var(--sp1) var(--sp3);border-radius:var(--r-full);font-weight:600;transition:opacity var(--tr)}.loc-btn:hover{opacity:.7}
+.score-card{background:var(--surface);border-radius:var(--r-2xl);padding:var(--sp6);border:1px solid oklch(from var(--text) l c h/.06);box-shadow:var(--sh-md);display:flex;flex-direction:column;gap:var(--sp4);position:relative;overflow:hidden}
+.score-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--stripe-a,var(--success)),var(--stripe-b,var(--primary)));border-radius:var(--r-2xl) var(--r-2xl) 0 0}
+.score-top{display:flex;align-items:flex-start;justify-content:space-between;gap:var(--sp4)}
+.score-lbl{font-size:var(--xs);font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:var(--sp2)}
+.score-num{font-size:clamp(3.5rem,12vw,5rem);font-weight:700;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums lining-nums}.score-num .denom{font-size:.38em;font-weight:400;color:var(--muted)}
+.quality-badge{display:inline-flex;align-items:center;gap:var(--sp2);font-size:var(--sm);font-weight:600;padding:var(--sp1) var(--sp3);border-radius:var(--r-full);margin-top:var(--sp3)}
+.q-excellent{background:var(--success-hl);color:var(--success)}.q-good{background:var(--primary-hl);color:var(--primary)}.q-marginal{background:var(--gold-hl);color:var(--gold)}.q-nogo{background:var(--error-hl);color:var(--error)}
+.score-right{text-align:right}.upd-lbl{font-size:var(--xs);color:var(--faint)}.upd-time{font-size:var(--xs);color:var(--muted);font-weight:500;font-family:var(--mono)}
+.win-block{background:var(--offset);border-radius:var(--r-lg);padding:var(--sp4);display:flex;align-items:center;justify-content:space-between;gap:var(--sp3)}
+.win-lbl{font-size:var(--xs);font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:var(--sp1)}.win-time{font-size:var(--lg);font-weight:700;letter-spacing:-.02em}.win-dur{font-size:var(--xs);color:var(--muted);background:var(--dynamic);padding:var(--sp1) var(--sp2);border-radius:var(--r-full);font-weight:500;white-space:nowrap}.win-arrow{color:var(--primary);font-size:1.4rem;flex-shrink:0}
+.reasons{display:flex;flex-wrap:wrap;gap:var(--sp2)}.rtag{font-size:var(--xs);color:var(--muted);background:var(--dynamic);padding:var(--sp1) var(--sp3);border-radius:var(--r-full);border:1px solid var(--divider)}
+.sec-title{font-size:var(--xs);font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:var(--sp3)}
+.gonogo{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp3)}.gocell{background:var(--surface);border-radius:var(--r-xl);padding:var(--sp4);border:1px solid oklch(from var(--text) l c h/.07);box-shadow:var(--sh-sm)}
+.cell-icon{font-size:1.25rem;margin-bottom:var(--sp2)}.cell-lbl{font-size:var(--xs);color:var(--muted);margin-bottom:var(--sp1)}.cell-val{font-size:var(--sm);font-weight:600;font-variant-numeric:tabular-nums lining-nums}
+.cstatus{display:inline-flex;align-items:center;gap:4px;font-size:var(--xs);font-weight:600;padding:2px var(--sp2);border-radius:var(--r-full);margin-top:var(--sp2)}
+.s-ideal{background:var(--success-hl);color:var(--success)}.s-moderate{background:var(--gold-hl);color:var(--gold)}.s-fav{background:var(--primary-hl);color:var(--primary)}.s-low{background:var(--success-hl);color:var(--success)}.s-high{background:var(--error-hl);color:var(--error)}.s-neutral{background:var(--dynamic);color:var(--muted)}
+.chart-card{background:var(--surface);border-radius:var(--r-xl);border:1px solid oklch(from var(--text) l c h/.06);box-shadow:var(--sh-sm);overflow:hidden}
+.chart-hd{padding:var(--sp4) var(--sp4) var(--sp2)}.chart-title{font-size:var(--sm);font-weight:600}.chart-sub{font-size:var(--xs);color:var(--muted);margin-top:2px}.chart-leg{display:flex;gap:var(--sp4);margin-top:var(--sp2)}.leg-item{display:flex;align-items:center;gap:var(--sp1);font-size:var(--xs);color:var(--muted)}.leg-dot{width:8px;height:8px;border-radius:var(--r-full);flex-shrink:0}
+.chart-body{padding:var(--sp2) var(--sp4) var(--sp4)}.chart-body canvas{width:100%!important}.chart-note{font-size:var(--xs);color:var(--faint);padding:0 var(--sp4) var(--sp3);display:flex;align-items:center;gap:var(--sp2)}.win-dot{width:10px;height:10px;border-radius:var(--r-full);background:var(--success);opacity:.5;flex-shrink:0}
+.tide-tbl{width:100%;border-collapse:collapse;font-size:var(--xs)}.tide-tbl th{text-align:left;padding:var(--sp2) var(--sp3);font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:1px solid var(--divider)}.tide-tbl td{padding:var(--sp3);font-variant-numeric:tabular-nums lining-nums}.tide-tbl tr:not(:last-child) td{border-bottom:1px solid var(--divider)}.t-high{color:var(--primary);font-weight:600}.t-low{color:var(--muted)}
+.prefs-card{background:var(--surface);border-radius:var(--r-xl);border:1px solid oklch(from var(--text) l c h/.06);box-shadow:var(--sh-sm);overflow:hidden}
+.prefs-hd{padding:var(--sp4);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--divider);cursor:pointer}.prefs-hd-l{display:flex;align-items:center;gap:var(--sp2)}.prefs-arrow{transition:transform 300ms ease;color:var(--muted)}.prefs-arrow.open{transform:rotate(180deg)}.prefs-body{padding:var(--sp4);flex-direction:column;gap:var(--sp3);display:none}.pref-row{display:flex;align-items:center;justify-content:space-between}.pref-lbl{font-size:var(--sm);color:var(--muted)}.pref-val{font-size:var(--sm);font-weight:600;font-family:var(--mono)}.pref-edit{font-size:var(--xs);color:var(--primary);padding:var(--sp1) var(--sp2);border-radius:var(--r-sm);transition:background var(--tr)}.pref-edit:hover{background:var(--primary-hl)}
+.refresh-footer{padding:var(--sp4);display:flex;flex-direction:column;align-items:center;gap:var(--sp2)}.refresh-btn{width:100%;max-width:360px;background:var(--primary);color:var(--inverse);padding:var(--sp4);border-radius:var(--r-xl);font-size:var(--sm);font-weight:600;display:flex;align-items:center;justify-content:center;gap:var(--sp2);transition:background var(--tr),transform var(--tr);box-shadow:0 2px 12px oklch(from var(--primary) l c h/.3)}.refresh-btn:hover{background:var(--primary-h)}.refresh-btn:active{transform:scale(.97)}.refresh-btn:disabled{opacity:.55;cursor:not-allowed}.data-note{font-size:var(--xs);color:var(--faint);text-align:center}
+.bot-nav{position:sticky;bottom:0;background:var(--bg);border-top:1px solid var(--divider);display:flex;padding-bottom:env(safe-area-inset-bottom)}.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:var(--sp3) var(--sp2);color:var(--faint);font-size:var(--xs);transition:color var(--tr);text-decoration:none}.nav-item.active{color:var(--primary)}.nav-item:hover{color:var(--muted)}
+.overlay{position:fixed;inset:0;z-index:200;background:oklch(0 0 0/.6);display:flex;align-items:flex-end;opacity:0;pointer-events:none;transition:opacity 250ms ease}.overlay.open{opacity:1;pointer-events:all}.sheet.open{transform:translateY(0)}.sheet{width:100%;max-width:480px;margin:0 auto;background:var(--surface);border-radius:var(--r-2xl) var(--r-2xl) 0 0;padding:var(--sp6);padding-bottom:calc(var(--sp8) + env(safe-area-inset-bottom));transform:translateY(20px);transition:transform 250ms cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column;gap:var(--sp5)}.overlay.open .sheet{transform:translateY(0)}.sheet-handle{width:36px;height:4px;background:var(--border);border-radius:var(--r-full);margin:0 auto calc(-1*var(--sp2))}.sheet-title{font-size:var(--lg);font-weight:700;text-align:center}.fg{display:flex;flex-direction:column;gap:var(--sp2)}.flbl{font-size:var(--xs);font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}.finput,.fselect{background:var(--offset);border:1px solid var(--border);border-radius:var(--r-lg);padding:var(--sp3) var(--sp4);font-size:var(--sm);color:var(--text);font-family:var(--body);width:100%;transition:border-color var(--tr),box-shadow var(--tr)}.finput:focus,.fselect:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px oklch(from var(--primary) l c h/.15)}.frow{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp3)}.save-btn{background:var(--primary);color:var(--inverse);padding:var(--sp4);border-radius:var(--r-xl);font-size:var(--sm);font-weight:600;width:100%;text-align:center;transition:background var(--tr),transform var(--tr)}.save-btn:hover{background:var(--primary-h)}.save-btn:active{transform:scale(.97)}.cancel-btn{font-size:var(--sm);color:var(--muted);text-align:center;padding:var(--sp2)}
+@keyframes spin{to{transform:rotate(360deg)}}.spinning{animation:spin 1s linear infinite}
+#toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--surface);color:var(--text);border-radius:var(--r-full);padding:var(--sp3) var(--sp6);font-size:var(--sm);font-weight:600;font-family:var(--body);box-shadow:var(--sh-lg);border:1px solid var(--border);z-index:500;opacity:0;transition:opacity 200ms ease,transform 300ms cubic-bezier(.16,1,.3,1);white-space:nowrap;pointer-events:none}
+
+/* Marina view */
+#marina-results::-webkit-scrollbar{width:10px}
+#marina-results::-webkit-scrollbar-thumb{background:oklch(from var(--text) l c h/.18);border-radius:999px}
+.marina-card{display:flex;gap:12px;padding:12px;border:1px solid var(--divider);border-radius:18px;background:var(--bg);cursor:pointer;transition:transform .15s ease,border-color .15s ease,background .15s ease}
+.marina-card:hover{transform:translateY(-1px);border-color:var(--primary)}
+.marina-card.marina-active{border-color:var(--primary);background:var(--primary-hl)}
+.marina-thumb{width:72px;height:72px;border-radius:14px;object-fit:cover;background:var(--offset);flex:0 0 auto}
+.marina-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+.marina-title{font-size:16px;font-weight:700;line-height:1.15}
+.marina-meta{font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.marina-actions{display:flex;gap:8px;flex-wrap:wrap}
+.marina-mini{font-size:12px;padding:6px 10px;border-radius:999px;background:var(--primary-hl);color:var(--primary);border:0;cursor:pointer}
+.marina-mini.secondary{background:var(--offset);color:var(--text)}
+.ashore-section{margin-top:8px;padding-top:8px;border-top:1px dashed var(--divider);font-size:12.5px;line-height:1.7}
+.ashore-partner{margin-top:6px;padding:7px 10px;border-radius:10px;background:var(--primary-hl)}
+.marina-selected-bar{padding:12px 16px;background:var(--primary-hl);border-bottom:1px solid var(--primary);font-size:13px;color:var(--primary);font-weight:600;display:none}
+.marina-selected-bar.visible{display:block}
+
+/* 7-Day cards */
+.day-card{background:var(--surface);border-radius:var(--r-xl);border:1px solid var(--divider);box-shadow:var(--sh-sm);overflow:hidden;position:relative}
+.day-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--stripe-a,var(--primary)),var(--stripe-b,var(--primary)));border-radius:var(--r-xl) var(--r-xl) 0 0}
+.day-inner{padding:var(--sp4);display:flex;flex-direction:column;gap:var(--sp3)}
+.day-top{display:flex;align-items:flex-start;justify-content:space-between;gap:var(--sp3)}
+.day-label{font-size:var(--xs);font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.day-date{font-size:var(--sm);font-weight:600;margin-top:2px}
+.day-score-block{text-align:right;flex-shrink:0}
+.day-score-num{font-size:clamp(1.75rem,7vw,2.25rem);font-weight:700;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums lining-nums}
+.day-score-num span{font-size:.45em;font-weight:400;color:var(--muted)}
+.day-window{display:flex;align-items:center;justify-content:space-between;background:var(--offset);border-radius:var(--r-lg);padding:var(--sp2) var(--sp3)}
+/* Navigation advisory — scrollable body */
+#advisory-body{max-height:52vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+/* Navigation advisory — light mode: bright yellow, high contrast for sunlight */
+#marina-advisory{background:#ffe033!important;border-color:#b8900a!important}
+#marina-advisory button,#advisory-body{color:#1a0d00!important}
+#advisory-arrow{stroke:#1a0d00!important}
+/* Navigation advisory — dark mode: dark amber bg, white text */
+[data-theme="dark"] #marina-advisory{background:#2b2008!important;border-color:#7a5510!important}
+[data-theme="dark"] #marina-advisory button,[data-theme="dark"] #advisory-body{color:#ffffff!important}
+[data-theme="dark"] #advisory-arrow{stroke:#ffca3a!important}
+/* ── Trial countdown banner ──────────────────────────────── */
+.trial-bar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px var(--sp4);font-size:var(--xs);font-weight:500}
+.trial-bar-p{background:var(--primary-hl);color:var(--primary)}
+.trial-bar-w{background:var(--gold-hl);color:var(--gold)}
+.trial-bar-e{background:var(--error-hl);color:var(--error)}
+.trial-sub-btn{font-size:var(--xs);font-weight:700;padding:3px 11px;border-radius:var(--r-full);border:1.5px solid currentColor;background:transparent;color:inherit;cursor:pointer;white-space:nowrap;transition:opacity var(--tr)}
+.trial-sub-btn:hover{opacity:.75}
+/* ── Subscribe / paywall overlay ─────────────────────────── */
+#subscribe-overlay{position:fixed;inset:0;z-index:400;background:oklch(0 0 0/.72);display:none;align-items:center;justify-content:center;padding:var(--sp4)}
+.sub-card{background:var(--surface);border-radius:var(--r-2xl);padding:var(--sp8) var(--sp6);max-width:420px;width:100%;display:flex;flex-direction:column;gap:var(--sp4);box-shadow:var(--sh-lg);max-height:90dvh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.sub-feature{display:flex;align-items:flex-start;gap:var(--sp3);font-size:var(--sm);color:var(--muted)}
+.sub-check{color:var(--success);font-weight:700;flex-shrink:0;margin-top:1px}
+.price-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp3)}
+.price-card{border:2px solid var(--border);border-radius:var(--r-xl);padding:var(--sp4);text-align:center;cursor:pointer;transition:border-color var(--tr),background var(--tr)}
+.price-card.selected{border-color:var(--primary);background:var(--primary-hl)}
+.price-amount{font-size:var(--xl);font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.price-per{font-size:var(--xs);color:var(--muted);margin-top:3px}
+.price-save{font-size:var(--xs);font-weight:700;color:var(--success);margin-top:4px}
+.sub-divider{height:1px;background:var(--divider)}
+/* ── Marina view — mobile full-width, desktop side-by-side ── */
+.marina-view-row{display:flex;flex:1;min-height:0}
+#marina-map-toggle{display:none}
+@media(max-width:599px){
+  #marina-map-toggle{display:flex !important}
+  #marina-sidebar{width:100% !important;min-width:0 !important;border-right:none !important}
+  #marina-map{display:none !important}
+  .marina-view-row.show-map #marina-sidebar{display:none !important}
+  .marina-view-row.show-map #marina-map{display:block !important;height:100%}
+}
+/* ── Feedback view ── */
+.fb-cat{border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:20px;padding:7px 14px;font-size:13px;cursor:pointer;transition:all .15s;white-space:nowrap}
+.fb-cat.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+#feedback-view label{display:block;font-size:11px;font-weight:700;color:var(--muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em}
+#feedback-view input,#feedback-view textarea{width:100%;background:var(--offset);border:1px solid var(--border);border-radius:10px;padding:11px 13px;font-size:14px;color:var(--text);font-family:inherit;box-sizing:border-box;outline:none}
+#feedback-view textarea{resize:vertical;min-height:100px}
+#feedback-view input:focus,#feedback-view textarea:focus{border-color:var(--primary)}
+.fb-submit{width:100%;background:var(--primary);color:#fff;border:none;border-radius:12px;padding:14px;font-size:15px;font-weight:700;cursor:pointer;letter-spacing:.02em;margin-top:4px}
+</style>
+<script>
+  window.PRESELECT_LOCATION = "rockport";
+</script>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <a href="javascript:void(0)" class="logo" aria-label="SailWindow" onclick="return false;">
+      <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="16" r="16" fill="var(--primary)" opacity=".12"/>
+        <line x1="16" y1="22" x2="16" y2="8" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M16 8 L24 21 L16 22 Z" fill="var(--primary)" opacity=".85"/>
+        <path d="M16 12 L10 21 L16 22 Z" fill="var(--primary)" opacity=".4"/>
+        <path d="M7 25.5 Q10 23.5 13 25.5 Q16 27.5 19 25.5 Q22 23.5 25 25.5" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".6"/>
+      </svg>
+      <span class="logo-word">Sail<span>Window</span> <span style="font-weight:300;opacity:.5">V6</span></span>
+    </a>
+    <div class="bar-actions">
+      <button onclick="openHelp()" style="font-size:var(--xs);font-weight:600;color:var(--primary);background:var(--primary-hl);padding:var(--sp1) var(--sp3);border-radius:var(--r-full);border:none;cursor:pointer;white-space:nowrap">Help</button>
+      <button class="icon-btn" id="theme-btn" aria-label="Toggle theme">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="icon-btn" id="mini-refresh" aria-label="Refresh" onclick="loadAll()">
+        <svg id="mini-spin" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M23 4v6h-6"/><path d="M1 20v-6h6"/>
+          <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+  <!-- Trial countdown banner -->
+  <div id="trial-banner" style="display:none">
+    <div id="trial-bar-inner" class="trial-bar trial-bar-p">
+      <div style="display:flex;align-items:center;gap:6px">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span><strong id="trial-days-text">7 days</strong> left in your free trial</span>
+      </div>
+      <button class="trial-sub-btn" onclick="openSubscribeModal('upgrade')">Upgrade →</button>
+    </div>
+  </div>
+  <div class="banner" id="banner" role="status"></div>
+  <main class="main" id="main">
+    <div class="loc-bar">
+      <div class="loc-left">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div>
+          <div class="loc-name" id="loc-name">Tampa — Hooker Point</div>
+          <div class="loc-sub" id="loc-sub">NOAA 8726667 · Loading…</div>
+          <div class="loc-sub" id="loc-station-lbl" style="display:none;margin-top:2px;font-weight:500;color:var(--primary)">Auto-selected station: <span id="loc-station-name">—</span></div>
+        </div>
+      </div>
+      <button class="loc-btn" id="change-btn" onclick="openChooser()" aria-label="Change location">Change</button>
+    </div>
+    <div class="score-card" id="score-card">
+      <div class="score-top">
+        <div>
+          <div class="score-lbl">Today's Sailability</div>
+          <div class="score-num" id="score-num">—<span class="denom">/10</span></div>
+          <div class="quality-badge q-good" id="q-badge"><span id="q-emoji">⋯</span><span id="q-lbl">Loading…</span></div>
+        </div>
+        <div class="score-right">
+          <div class="upd-lbl">Updated</div>
+          <div class="upd-time" id="upd-time">—</div>
+        </div>
+      </div>
+      <div class="win-block">
+        <div><div class="win-lbl">Best Departure</div><div class="win-time" id="win-depart">—</div></div>
+        <span class="win-arrow">→</span>
+        <div style="text-align:right"><div class="win-lbl">Best Return</div><div class="win-time" id="win-return">—</div></div>
+        <span class="win-dur" id="win-dur">— hr</span>
+      </div>
+      <div class="reasons" id="reasons"><span class="rtag">Fetching NWS + NOAA data…</span></div>
+    </div>
+    <div>
+      <div class="sec-title">Conditions — Best Window</div>
+      <div class="gonogo" id="gonogo">
+        <div class="gocell"><div class="cell-icon">💨</div><div class="cell-lbl">Wind</div><div class="cell-val" id="c-wind">—</div><span class="cstatus s-neutral" id="cs-wind">Loading</span></div>
+        <div class="gocell"><div class="cell-icon">⚡</div><div class="cell-lbl">Gusts</div><div class="cell-val" id="c-gust">—</div><span class="cstatus s-neutral" id="cs-gust">Loading</span></div>
+        <div class="gocell"><div class="cell-icon">🌊</div><div class="cell-lbl">Tide</div><div class="cell-val" id="c-tide">—</div><span class="cstatus s-neutral" id="cs-tide">Loading</span></div>
+        <div class="gocell"><div class="cell-icon">⛈</div><div class="cell-lbl">Storm Risk</div><div class="cell-val" id="c-storm">—</div><span class="cstatus s-neutral" id="cs-storm">Loading</span></div>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-hd">
+        <div class="chart-title">Wind Forecast · Knots</div>
+        <div class="chart-sub" id="wind-chart-sub">Hourly sustained + gusts · NWS live data</div>
+        <div class="chart-leg">
+          <div class="leg-item"><div class="leg-dot" style="background:var(--primary)"></div>Sustained</div>
+          <div class="leg-item"><div class="leg-dot" style="background:var(--warn);opacity:.7"></div>Gusts</div>
+          <div class="leg-item"><div class="leg-dot" style="background:var(--success);opacity:.4;width:16px;border-radius:2px"></div>Best window</div>
+        </div>
+      </div>
+      <div class="chart-body"><canvas id="wind-canvas" height="200"></canvas></div>
+      <div class="chart-note" id="wind-note"><div class="win-dot"></div><span id="wind-note-txt">—</span></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-hd">
+        <div class="chart-title">Tide Prediction · Feet MLLW</div>
+        <div class="chart-sub" id="tide-chart-sub">NOAA Tides &amp; Currents · live data</div>
+      </div>
+      <div class="chart-body"><canvas id="tide-canvas" height="180"></canvas></div>
+      <div class="chart-note" id="tide-note"><div class="win-dot"></div><span id="tide-note-txt">—</span></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-hd"><div class="chart-title">Tide Events Today</div><div class="chart-sub">High &amp; low water — local time</div></div>
+      <div class="chart-body" style="padding-top:var(--sp2)">
+        <table class="tide-tbl" aria-label="Tide events">
+          <thead><tr><th>Time</th><th>Height (ft)</th><th>Type</th></tr></thead>
+          <tbody id="tide-tbody"><tr><td colspan="3" style="color:var(--muted);padding:var(--sp4)">Loading tide events…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="prefs-card">
+      <div class="prefs-hd" id="prefs-toggle" onclick="togglePrefs()" role="button" tabindex="0" aria-expanded="false">
+        <div class="prefs-hd-l">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+          <span style="font-size:var(--sm);font-weight:600">Sailing Preferences</span>
+        </div>
+        <svg class="prefs-arrow" id="prefs-arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="prefs-body" id="prefs-body">
+        <div class="pref-row"><span class="pref-lbl">Wind Range</span><span class="pref-val" id="pv-wind">8–18 kt</span><button class="pref-edit" onclick="openModal()">Edit</button></div>
+        <div class="pref-row"><span class="pref-lbl">Max Gusts</span><span class="pref-val" id="pv-gust">22 kt</span><button class="pref-edit" onclick="openModal()">Edit</button></div>
+        <div class="pref-row"><span class="pref-lbl">Trip Duration</span><span class="pref-val" id="pv-dur">4 hrs</span><button class="pref-edit" onclick="openModal()">Edit</button></div>
+        <div class="pref-row"><span class="pref-lbl">Tide Preference</span><span class="pref-val" id="pv-tide">Any</span><button class="pref-edit" onclick="openModal()">Edit</button></div>
+        <div class="pref-row"><span class="pref-lbl">Saved in Browser</span><span class="pref-val" id="pv-storage">Pending</span><button class="pref-edit" onclick="resetPrefs()">Reset</button></div>
+      </div>
+    </div>
+    <div class="refresh-footer">
+      <button class="refresh-btn" id="refresh-btn" onclick="loadAll()">
+        <svg id="refresh-spin" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M23 4v6h-6"/><path d="M1 20v-6h6"/>
+          <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+        </svg>
+        Refresh Live Data
+      </button>
+      <div class="data-note">Live: NWS api.weather.gov + NOAA Tides &amp; Currents API</div>
+    </div>
+  </main>
+  <nav class="bot-nav" aria-label="Navigation">
+    <a href="javascript:void(0)" class="nav-item active" data-tab="today" aria-current="page" onclick="close7DayView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>Today</a>
+    <a href="javascript:void(0)" class="nav-item" id="nav-7day" onclick="open7DayView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>7-Day</a>
+    <a href="#" class="nav-item" onclick="openMarinaView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>Marina</a>
+    <a href="javascript:void(0)" class="nav-item" id="nav-feedback" onclick="openFeedbackView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Feedback</a>
+  </nav>
+</div>
+
+<!-- Help / User Guide overlay -->
+<div id="help-view" style="position:fixed;inset:0;z-index:150;background:var(--bg);display:none;flex-direction:column">
+  <div class="topbar">
+    <div class="logo">
+      <svg width="24" height="24" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="var(--primary)" opacity=".12"/><line x1="16" y1="22" x2="16" y2="8" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"/><path d="M16 8 L24 21 L16 22 Z" fill="var(--primary)" opacity=".85"/><path d="M16 12 L10 21 L16 22 Z" fill="var(--primary)" opacity=".4"/><path d="M7 25.5 Q10 23.5 13 25.5 Q16 27.5 19 25.5 Q22 23.5 25 25.5" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".6"/></svg>
+      <span class="logo-word">User <span>Guide</span></span>
+    </div>
+    <div class="bar-actions">
+      <a href="SailWindow-Instructions.html" target="_blank" rel="noopener" style="font-size:var(--xs);font-weight:600;color:var(--primary);background:var(--primary-hl);padding:var(--sp1) var(--sp3);border-radius:var(--r-full);text-decoration:none;white-space:nowrap">↓ PDF</a>
+      <button class="icon-btn" onclick="closeHelp()" aria-label="Close guide">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="help-body" style="flex:1;overflow-y:auto;padding:var(--sp5) var(--sp4) var(--sp12);display:flex;flex-direction:column;gap:var(--sp6);max-width:600px;width:100%;margin:0 auto">
+
+    <section>
+      <div class="sec-title">Overview</div>
+      <p style="font-size:var(--sm);color:var(--muted)">SailWindow V6 — Gulf Coast Edition. Fetches live hourly wind forecasts from <strong style="color:var(--text)">NWS</strong> and tide predictions from <strong style="color:var(--text)">NOAA Tides &amp; Currents</strong>, scores every possible time block against your preferences, and shows the best sailing window for today. Covers <strong style="color:var(--text)">35 verified NOAA stations</strong> from Port Isabel, TX to Key West, FL. No login required — preferences are saved in your browser.</p>
+    </section>
+
+    <section>
+      <div class="sec-title">Sailability Score</div>
+      <p style="font-size:var(--sm);color:var(--muted)">The large number (0–10) rates conditions during the best available window. The colour badge describes it in plain English:</p>
+      <div style="display:flex;flex-direction:column;gap:var(--sp2);margin-top:var(--sp3)">
+        <div style="display:flex;align-items:center;gap:var(--sp3)"><span class="quality-badge q-excellent" style="min-width:115px;justify-content:center">🟢 Excellent</span><span style="font-size:var(--sm);color:var(--muted)">9–10 · Prime conditions, go sailing</span></div>
+        <div style="display:flex;align-items:center;gap:var(--sp3)"><span class="quality-badge q-good" style="min-width:115px;justify-content:center">✦ Good</span><span style="font-size:var(--sm);color:var(--muted)">7–8.9 · Solid day, comfortably in range</span></div>
+        <div style="display:flex;align-items:center;gap:var(--sp3)"><span class="quality-badge q-marginal" style="min-width:115px;justify-content:center">🟡 Marginal</span><span style="font-size:var(--sm);color:var(--muted)">5–6.9 · Sail with awareness</span></div>
+        <div style="display:flex;align-items:center;gap:var(--sp3)"><span class="quality-badge q-nogo" style="min-width:115px;justify-content:center">🔴 No-Go</span><span style="font-size:var(--sm);color:var(--muted)">0–4.9 · Stay ashore</span></div>
+      </div>
+      <p style="font-size:var(--sm);color:var(--muted);margin-top:var(--sp3)">The <strong style="color:var(--text)">reason tags</strong> below the score summarise wind, gusts, rain, storm risk, and wind direction during the window.</p>
+    </section>
+
+    <section>
+      <div class="sec-title">Best Sailing Window</div>
+      <p style="font-size:var(--sm);color:var(--muted)">SailWindow scans all daylight blocks (7 AM – 6 PM) matching your <strong style="color:var(--text)">Trip Duration</strong>, scores each, and shows the best departure and return time. A <strong style="color:var(--success)">green shaded band</strong> on both the Wind and Tide charts marks the same window visually.</p>
+    </section>
+
+    <section>
+      <div class="sec-title">Conditions Panel</div>
+      <p style="font-size:var(--sm);color:var(--muted)">Four tiles show key metrics measured <em>during</em> the best window:</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp3);margin-top:var(--sp3)">
+        <div class="gocell"><div class="cell-lbl">💨 Wind</div><div style="font-size:var(--xs);color:var(--muted);margin-top:var(--sp1)">Speed range (kt) + direction. <em>Ideal</em> = inside your preferred range.</div></div>
+        <div class="gocell"><div class="cell-lbl">⚡ Gusts</div><div style="font-size:var(--xs);color:var(--muted);margin-top:var(--sp1)">Peak gust vs. your limit. Amber = near limit. Red = exceeds limit.</div></div>
+        <div class="gocell"><div class="cell-lbl">🌊 Tide</div><div style="font-size:var(--xs);color:var(--muted);margin-top:var(--sp1)"><em>Favorable</em> = tide direction matches your preference (or you chose Any).</div></div>
+        <div class="gocell"><div class="cell-lbl">⛈ Storm Risk</div><div style="font-size:var(--xs);color:var(--muted);margin-top:var(--sp1)">Average rain probability. Red if thunderstorms appear in the forecast.</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-title">Wind &amp; Tide Charts</div>
+      <p style="font-size:var(--sm);color:var(--muted)"><strong style="color:var(--text)">Wind chart</strong> — 24-hour hourly view. Teal = sustained wind (kt), amber dashed = gusts, green band = best window. Tap to read exact values for any hour.</p>
+      <p style="font-size:var(--sm);color:var(--muted)"><strong style="color:var(--text)">Tide chart</strong> — full-day tide curve in feet MLLW, best window shaded. The <strong style="color:var(--text)">Tide Events table</strong> below it lists each high/low with local time and height.</p>
+    </section>
+
+    <section>
+      <div class="sec-title">7-Day Forecast</div>
+      <p style="font-size:var(--sm);color:var(--muted)">Tap <strong style="color:var(--text)">7-Day</strong> in the bottom nav to see a full week of sailability scores and best windows, powered by the <strong style="color:var(--text)">ECMWF IFS model</strong> via Open-Meteo — a high-resolution European forecast model well-suited for Gulf Coast marine conditions.</p>
+    </section>
+
+    <section>
+      <div class="sec-title">Sailing Preferences</div>
+      <p style="font-size:var(--sm);color:var(--muted)">Open the settings sheet to adjust:</p>
+      <div style="display:flex;flex-direction:column;gap:var(--sp2);margin-top:var(--sp2)">
+        <div style="font-size:var(--sm);padding:var(--sp3);background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--divider)"><strong>Wind Min / Max (kt)</strong> <span style="color:var(--muted)">— ideal sustained range. Hours outside it are penalised.</span></div>
+        <div style="font-size:var(--sm);padding:var(--sp3);background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--divider)"><strong>Max Gust (kt)</strong> <span style="color:var(--muted)">— any hour above this scores 0 (automatic no-go).</span></div>
+        <div style="font-size:var(--sm);padding:var(--sp3);background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--divider)"><strong>Duration (hrs)</strong> <span style="color:var(--muted)">— length of your sail (0.5–12 hrs). Sets the window width searched.</span></div>
+        <div style="font-size:var(--sm);padding:var(--sp3);background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--divider)"><strong>Tide Preference</strong> <span style="color:var(--muted)">— Any, Incoming (flood), or Outgoing (ebb). Matching hours get a small scoring bonus.</span></div>
+      </div>
+      <p style="font-size:var(--sm);color:var(--muted);margin-top:var(--sp3)">Tap <strong style="color:var(--text)">Save &amp; Refresh</strong> to apply and reload live data immediately.</p>
+    </section>
+
+    <section>
+      <div class="sec-title">Location &amp; Marina Map</div>
+      <p style="font-size:var(--sm);color:var(--muted)">Tap <strong style="color:var(--text)">Change</strong> on the location bar to use device GPS, pick from <strong style="color:var(--text)">32 Gulf Coast preset stations</strong> (Texas → Louisiana → Mississippi → Alabama → Florida), or open the Marina Map. For unlisted locations use <strong style="color:var(--text)">Preferences → Custom GPS / NOAA Station</strong>.</p>
+      <p style="font-size:var(--sm);color:var(--muted)">The <strong style="color:var(--text)">Marina tab</strong> shows a searchable list and interactive map. On phones, tap the 🗺 icon to toggle between the list and the map. Marina data is cached for 24 hours — the map loads instantly on return visits.</p>
+    </section>
+
+    <section>
+      <div class="sec-title">Navigation Advisory</div>
+      <p style="font-size:var(--sm);color:var(--muted)">The amber advisory banner at the top of the Marina list covers hurricane-damaged facilities — Panama City, Clearwater, Fort Myers, and others — that are technically listed as open but have suspended transient docking or fueling. Tap the banner to expand the full status by storm. Marina cards for affected facilities show an <strong style="color:var(--text)">⚠ Advisory</strong> badge.</p>
+      <p style="font-size:var(--sm);color:var(--warn)">"Open" can be misleading. Always confirm transient availability by phone before arriving.</p>
+    </section>
+
+    <section>
+      <div class="sec-title">Feedback</div>
+      <p style="font-size:var(--sm);color:var(--muted)">Tap <strong style="color:var(--text)">Feedback</strong> in the bottom nav to report a marina that has reopened, newly closed, has wrong contact info, or to share app ideas. Select a category, add details, and tap Send — your email app opens with the report pre-filled.</p>
+    </section>
+
+    <section>
+      <div class="sec-title">How the Score is Calculated</div>
+      <p style="font-size:var(--sm);color:var(--muted)">Each hour starts at 10. <strong style="color:var(--text)">Hard disqualifiers</strong> drop it to 0: wind below 4 kt or above 26 kt, gusts over your max, rain ≥ 70%, or thunderstorms in the forecast. Otherwise points are deducted for wind outside your preferred range, gusty spread, rain probability, and mismatched tide direction. The best block is selected using a 70/30 blend of average and minimum score, so one dangerous hour can't hide inside an otherwise good window.</p>
+    </section>
+
+    <section>
+      <div class="sec-title">Troubleshooting</div>
+      <div style="display:flex;flex-direction:column;gap:var(--sp2)">
+        <div style="background:var(--surface);border-radius:var(--r-lg);padding:var(--sp3) var(--sp4);border:1px solid var(--divider)"><div style="font-size:var(--sm);font-weight:600;margin-bottom:4px">Data won't load</div><div style="font-size:var(--xs);color:var(--muted)">Check your internet connection. NWS occasionally returns 500 errors — wait a minute and tap Refresh Live Data.</div></div>
+        <div style="background:var(--surface);border-radius:var(--r-lg);padding:var(--sp3) var(--sp4);border:1px solid var(--divider)"><div style="font-size:var(--sm);font-weight:600;margin-bottom:4px">Score seems too low</div><div style="font-size:var(--xs);color:var(--muted)">Check your wind range — a narrow range penalises most days. Also verify the correct location is active.</div></div>
+        <div style="background:var(--surface);border-radius:var(--r-lg);padding:var(--sp3) var(--sp4);border:1px solid var(--divider)"><div style="font-size:var(--sm);font-weight:600;margin-bottom:4px">GPS not working</div><div style="font-size:var(--xs);color:var(--muted)">Allow location access in your browser settings. GPS auto-selects the nearest of the 32 built-in NOAA stations — full Gulf Coast coverage from Brownsville, TX to Key West, FL.</div></div>
+      </div>
+    </section>
+
+    <div style="text-align:center;padding-top:var(--sp2)">
+      <a href="SailWindow-Instructions.html" target="_blank" rel="noopener" class="refresh-btn" style="display:inline-flex;width:auto;padding:var(--sp3) var(--sp6);gap:var(--sp2);text-decoration:none">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        View Full Guide &amp; Download PDF
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- 7-Day Forecast overlay -->
+<div id="sevenday-view" style="position:fixed;inset:0;z-index:150;background:var(--bg);display:none;flex-direction:column">
+  <div class="topbar">
+    <div class="logo" onclick="close7DayView()" style="cursor:pointer">
+      <svg width="24" height="24" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="var(--primary)" opacity=".12"/><line x1="16" y1="22" x2="16" y2="8" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"/><path d="M16 8 L24 21 L16 22 Z" fill="var(--primary)" opacity=".85"/><path d="M16 12 L10 21 L16 22 Z" fill="var(--primary)" opacity=".4"/><path d="M7 25.5 Q10 23.5 13 25.5 Q16 27.5 19 25.5 Q22 23.5 25 25.5" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".6"/></svg>
+      <span class="logo-word">← <span>7-Day</span> Forecast</span>
+    </div>
+    <div class="bar-actions">
+      <button class="icon-btn" onclick="close7DayView()" aria-label="Close 7-day view">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+  <div style="padding:var(--sp2) var(--sp4);background:var(--surface);border-bottom:1px solid var(--divider)">
+    <div id="sevenday-loc" style="font-size:var(--xs);color:var(--muted)">Loading…</div>
+  </div>
+  <div id="sevenday-body" style="flex:1;overflow-y:auto;padding:var(--sp4);display:flex;flex-direction:column;gap:var(--sp3)">
+    <div style="padding:2rem;text-align:center;color:var(--muted)">Loading 7-day forecast…</div>
+  </div>
+</div>
+
+<!-- Location chooser dialog -->
+<div id="choose-location" style="display:none;position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,.6);align-items:center;justify-content:center;padding:16px">
+  <div style="background:var(--surface);border-radius:24px;max-width:460px;width:100%;padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.35)">
+    <div style="font-size:20px;font-weight:700;margin-bottom:8px">Change Location</div>
+    <div style="color:var(--muted);margin-bottom:16px">Choose GPS, pick a marina from the dropdown, or open the marina map.</div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <button class="refresh-btn" onclick="useGpsFromChooser()">Use GPS Location</button>
+      <div style="display:flex;gap:10px;align-items:center">
+        <select id="chooser-marina-select" class="fselect" style="flex:1">
+          <option value="">Select a marina…</option>
+          <optgroup label="Florida — Keys &amp; SW">
+            <option value="key-west">Key West</option>
+            <option value="naples">Naples</option>
+            <option value="fort-myers">Fort Myers</option>
+          </optgroup>
+          <optgroup label="Florida — Tampa Bay">
+            <option value="clearwater">Clearwater Beach</option>
+            <option value="st-pete">St. Petersburg</option>
+            <option value="tampa-hooker">Tampa — Hooker Point</option>
+            <option value="tampa-egmont">Tampa — Egmont Key</option>
+            <option value="tampa-gandy">Tampa — Gandy Bridge</option>
+          </optgroup>
+          <optgroup label="Florida — Gulf Coast">
+            <option value="cedar-key">Cedar Key</option>
+            <option value="apalachicola">Apalachicola</option>
+          </optgroup>
+          <optgroup label="Florida — Panhandle">
+            <option value="panama-city">Panama City</option>
+            <option value="pensacola">Pensacola</option>
+            <option value="pensacola-beach">Pensacola Beach Pier</option>
+          </optgroup>
+          <optgroup label="Alabama">
+            <option value="dauphin-island">Dauphin Island</option>
+            <option value="mobile">Mobile State Docks</option>
+          </optgroup>
+          <optgroup label="Mississippi">
+            <option value="pascagoula">Pascagoula</option>
+            <option value="biloxi">Biloxi</option>
+            <option value="bay-waveland">Bay Waveland</option>
+          </optgroup>
+          <optgroup label="Louisiana">
+            <option value="sw-pass">SW Pass (Mississippi River)</option>
+            <option value="grand-isle">Grand Isle</option>
+            <option value="port-fourchon">Port Fourchon</option>
+            <option value="new-orleans">New Orleans</option>
+            <option value="calcasieu-pass">Calcasieu Pass</option>
+          </optgroup>
+          <optgroup label="Texas">
+            <option value="sabine-pass">Sabine Pass</option>
+            <option value="port-arthur">Port Arthur</option>
+            <option value="galveston">Galveston Pier 21</option>
+            <option value="freeport">Freeport</option>
+            <option value="matagorda">Matagorda City</option>
+            <option value="rockport">Rockport</option>
+            <option value="aransas-pass">Aransas Pass</option>
+            <option value="corpus-christi">Corpus Christi</option>
+            <option value="port-isabel">Port Isabel</option>
+          </optgroup>
+        </select>
+        <button class="refresh-btn" style="width:auto;min-width:110px;flex-shrink:0" onclick="setMarinaFromChooser()">Set Marina</button>
+      </div>
+      <button class="refresh-btn" onclick="openMarinaView();closeChooser()">Open Map</button>
+      <button class="refresh-btn" style="background:transparent;color:var(--text);border:1px solid var(--divider)" onclick="closeChooser()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- Feedback overlay -->
+<div id="feedback-view" style="position:fixed;inset:0;z-index:150;background:var(--bg);display:none;flex-direction:column">
+  <div class="topbar">
+    <div class="logo" onclick="closeFeedbackView()" style="cursor:pointer">
+      <svg width="24" height="24" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="var(--primary)" opacity=".12"/><line x1="16" y1="22" x2="16" y2="8" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"/><path d="M16 8 L24 21 L16 22 Z" fill="var(--primary)" opacity=".85"/><path d="M16 12 L10 21 L16 22 Z" fill="var(--primary)" opacity=".4"/><path d="M7 25.5 Q10 23.5 13 25.5 Q16 27.5 19 25.5 Q22 23.5 25 25.5" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".6"/></svg>
+      <span class="logo-word">← <span>Feedback</span></span>
+    </div>
+    <div class="bar-actions"></div>
+  </div>
+  <div style="flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:20px 16px 40px">
+    <div style="max-width:480px;margin:0 auto">
+      <h2 style="font-size:18px;font-weight:700;margin:0 0 6px">Help us keep marina data current</h2>
+      <p style="font-size:14px;color:var(--muted);margin:0 0 20px;line-height:1.5">Report a status change, wrong info, or share ideas with the SailWindow crew.</p>
+
+      <!-- category pills -->
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px">
+        <button class="fb-cat active" data-cat="back"   onclick="selectFbCat(this)">✅ Marina back online</button>
+        <button class="fb-cat"        data-cat="closed" onclick="selectFbCat(this)">⚠️ Marina closed</button>
+        <button class="fb-cat"        data-cat="info"   onclick="selectFbCat(this)">📋 Wrong info</button>
+        <button class="fb-cat"        data-cat="app"    onclick="selectFbCat(this)">💬 App feedback</button>
+      </div>
+
+      <!-- form -->
+      <form id="feedback-form" onsubmit="submitFeedback(event)">
+        <div id="fb-marina-row" style="margin-bottom:14px">
+          <label>Marina name</label>
+          <input id="fb-marina" type="text" placeholder="e.g. Panama City Downtown Marina">
+        </div>
+        <div style="margin-bottom:14px">
+          <label>Details</label>
+          <textarea id="fb-details" placeholder="e.g. Fuel dock is back open as of this week — called ahead and confirmed."></textarea>
+        </div>
+        <div style="margin-bottom:22px">
+          <label>Your email <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+          <input id="fb-email" type="email" placeholder="captain@boat.com">
+          <div style="font-size:11px;color:var(--muted);margin-top:5px">We may follow up to verify — never shared or sold.</div>
+        </div>
+        <button type="submit" class="fb-submit">Send Report →</button>
+      </form>
+
+      <!-- confirmation -->
+      <div id="fb-confirm" style="display:none;text-align:center;padding:32px 0">
+        <div style="font-size:40px;margin-bottom:12px">✅</div>
+        <div style="font-size:17px;font-weight:700;margin-bottom:8px">Report received — thank you!</div>
+        <div style="font-size:14px;color:var(--muted);line-height:1.5">We'll verify the update and reflect it in the app.</div>
+        <button onclick="resetFeedbackForm()" style="margin-top:20px;background:transparent;border:1px solid var(--border);border-radius:10px;padding:10px 20px;font-size:14px;color:var(--text);cursor:pointer">Submit another →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Marina full-screen view -->
+<div id="marina-view" style="position:fixed;inset:0;z-index:150;background:var(--bg);display:none;flex-direction:column">
+  <div class="topbar">
+    <div class="logo" onclick="closeMarinaView()" style="cursor:pointer">
+      <svg width="24" height="24" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="var(--primary)" opacity=".12"/><line x1="16" y1="22" x2="16" y2="8" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"/><path d="M16 8 L24 21 L16 22 Z" fill="var(--primary)" opacity=".85"/><path d="M16 12 L10 21 L16 22 Z" fill="var(--primary)" opacity=".4"/><path d="M7 25.5 Q10 23.5 13 25.5 Q16 27.5 19 25.5 Q22 23.5 25 25.5" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".6"/></svg>
+      <span class="logo-word">← Back</span>
+    </div>
+    <div class="bar-actions">
+      <button class="icon-btn" onclick="useCurrentLocationForMarina()" aria-label="Use current GPS">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v2M2 12h2M20 12h2M4.93 4.93l1.42 1.42M17.66 17.66l1.42 1.42M4.93 19.07l1.42-1.42M17.66 6.34l1.42-1.42"/></svg>
+      </button>
+      <button id="marina-map-toggle" class="icon-btn" onclick="toggleMarinaPanel()" aria-label="Toggle list/map" title="Toggle map">
+        <svg id="marina-toggle-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+      </button>
+      <button class="icon-btn" onclick="closeMarinaView()" aria-label="Close marina view">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+  <!-- Active marina banner -->
+  <div class="marina-selected-bar" id="marina-selected-bar">
+    Active: <span id="marina-selected-name">—</span>
+  </div>
+  <div class="marina-view-row">
+    <div id="marina-sidebar" style="width:min(420px,44vw);min-width:320px;border-right:1px solid var(--divider);background:var(--surface);display:flex;flex-direction:column;min-height:0">
+      <div style="padding:16px;border-bottom:1px solid var(--divider)">
+        <div style="font-size:20px;font-weight:700;margin-bottom:10px">Marinas</div>
+        <div style="display:flex;gap:10px;align-items:center">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <input id="marina-search-input" type="text" placeholder="Search marinas by name or region" style="flex:1;background:var(--offset);border:1px solid var(--border);border-radius:14px;padding:12px 14px;font-size:14px;color:var(--text);outline:none" oninput="buildMarinaCards()">
+        </div>
+      </div>
+      <!-- Navigation Advisory -->
+      <div id="marina-advisory" style="margin:8px 10px 0;border-radius:12px;border:1px solid var(--warn);overflow:hidden;background:var(--warn-hl)">
+        <button onclick="toggleAdvisory()" style="width:100%;display:flex;align-items:flex-start;gap:8px;padding:10px 12px;background:none;border:none;cursor:pointer;text-align:left">
+          <span style="font-size:14px;flex-shrink:0">⚠️</span>
+          <div style="flex:1">
+            <div style="font-size:11px;font-weight:700;color:var(--warn);text-transform:uppercase;letter-spacing:.07em;margin-bottom:2px">Navigation Advisory</div>
+            <div style="font-size:12px;color:var(--warn);opacity:.85">St. Andrews Marina (Panama City) reopened to transients · downtown Panama City Marina still non-operational · Clearwater, Dunedin &amp; Safety Harbor under reconstruction. Tap for details.</div>
+          </div>
+          <svg id="advisory-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--warn)" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;transition:transform 200ms ease"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div id="advisory-body" style="display:none;padding:0 12px 12px;font-size:12px;color:var(--warn);line-height:1.65">
+          <p style="margin-bottom:10px">If you are navigating the Intracoastal or the Gulf Coast, <strong>"open"</strong> can be a deceptive word. Many marinas across Southwest Florida and the Tampa Bay region are technically operational for local slip holders but have suspended all transient docking, high-capacity fueling, or shore-power hookups due to ongoing grid and dock maintenance.</p>
+
+          <p style="font-weight:700;margin-bottom:3px;text-transform:uppercase;font-size:10px;letter-spacing:.07em;opacity:.7">Panhandle — Hurricane Michael</p>
+          <p style="margin-bottom:6px;opacity:.85">The vast majority of Panhandle marinas successfully rebuilt or upgraded after Michael. One prominent public facility remains the exception:</p>
+          <ul style="margin-left:14px;display:flex;flex-direction:column;gap:7px;margin-bottom:10px">
+            <li><strong>Panama City Downtown Marina</strong> ⚠ — Still non-operational for transient and slip-holder use. Hurricane Michael delivered catastrophic damage to seawalls, docks, utilities, and upland buildings — including the permanent loss of its ship's store. Rather than a patch repair, the City has launched a full waterfront revitalization: public design charrettes are complete, a multi-million dollar master plan for modernized slips, expanded boardwalks, and new dining is approved, but full vertical construction remains in progress.</li>
+            <li><strong>St. Andrews Marina (Panama City)</strong> ✓ Reopened — Welcoming transient boaters again under new management (Coastal Marina Management, April 2026). Fuel dock pumping; bulkhead reconstruction adding 44 slips approved and underway, with plans for 150+. Harbormaster: (850) 872-7240.</li>
+            <li><strong>Tyndall AFB Marina</strong> ✓ Rebuilt — Completely destroyed by Michael, then rebuilt as a brand-new 42,000+ sq ft marina complex (restaurant, boat slips, recreational storage) as part of the $4.7B base-wide reconstruction. Targeted completion: early 2025.</li>
+            <li><strong>Mexico Beach Marina</strong> ✓ Open — Took the direct Category 5 eyewall hit but was successfully rebuilt as a private commercial facility. Fully open with operational fuel docks, ship's store, and regular hours.</li>
+          </ul>
+
+          <p style="font-weight:700;margin-bottom:3px;text-transform:uppercase;font-size:10px;letter-spacing:.07em;opacity:.7">West Coast &amp; Tampa Bay — Helene &amp; Milton</p>
+          <ul style="margin-left:14px;display:flex;flex-direction:column;gap:7px;margin-bottom:10px">
+            <li><strong>Clearwater Beach Marina</strong> ⚠ — Fuel dock permanently closed. Full facility reconstruction underway through late summer 2026; Harbormaster's office destroyed, staff operating off-site.</li>
+            <li><strong>Dunedin Marina</strong> ⚠ — Heavy structural reconstruction through mid-to-late 2026; public boat ramp closed to general public.</li>
+            <li><strong>Safety Harbor Marina &amp; Pier</strong> ⚠ — Entire basin, boat ramp, and pier closed through December 2026. Complete reconstruction contract awarded to Shoreline Foundation.</li>
+          </ul>
+
+          <p style="font-weight:700;margin-bottom:3px;text-transform:uppercase;font-size:10px;letter-spacing:.07em;opacity:.7">Southwest Florida — Hurricane Ian</p>
+          <ul style="margin-left:14px;display:flex;flex-direction:column;gap:7px">
+            <li><strong>Fort Myers / Fort Myers Beach</strong> ⚠ — Post-Ian recovery ongoing. Large corporate-backed marinas (Safe Harbor properties) have rebuilt and expanded; smaller operators may still have compromised seawalls or remain closed. Call ahead before arriving for transient availability.</li>
+          </ul>
+
+          <p style="margin-top:10px;opacity:.8;font-style:italic">Always confirm transient availability by phone before arriving. Conditions change frequently.</p>
+        </div>
+      </div>
+      <div id="bridge-block" style="margin:8px 10px 0"></div>
+      <div id="marina-results" style="flex:1;overflow:auto;padding:12px;display:flex;flex-direction:column;gap:12px"></div>
+    </div>
+    <div id="marina-map" style="flex:1;min-width:0"></div>
+  </div>
+</div>
+
+<!-- Preferences modal -->
+<div class="overlay" id="modal" role="dialog" aria-modal="true" aria-label="Sailing preferences" style="display:none;opacity:0;pointer-events:none;z-index:9999">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <h2 class="sheet-title">Sailing Preferences</h2>
+    <div class="fg">
+      <label class="flbl" for="p-loc">Location / Marina</label>
+      <select class="fselect" id="p-loc" onchange="toggleCustomFields()">
+        <optgroup label="Florida — Keys &amp; SW">
+          <option value="key-west">Key West (8724580)</option>
+          <option value="naples">Naples (8725110)</option>
+          <option value="fort-myers">Fort Myers (8725520)</option>
+        </optgroup>
+        <optgroup label="Florida — Tampa Bay">
+          <option value="clearwater">Clearwater Beach (8726724)</option>
+          <option value="st-pete">St. Petersburg (8726520)</option>
+          <option value="tampa-hooker">Tampa — Hooker Point (8726667)</option>
+          <option value="tampa-egmont">Tampa — Egmont Key (8726347)</option>
+          <option value="tampa-gandy">Tampa — Gandy Bridge (8726607)</option>
+        </optgroup>
+        <optgroup label="Florida — Gulf Coast">
+          <option value="cedar-key">Cedar Key (8727520)</option>
+          <option value="apalachicola">Apalachicola (8728690)</option>
+        </optgroup>
+        <optgroup label="Florida — Panhandle">
+          <option value="panama-city">Panama City (8729108)</option>
+          <option value="rocky-bayou">Niceville — Rocky Bayou (8729479)</option>
+          <option value="niceville">Niceville — Valparaiso (8729501)</option>
+          <option value="destin">Destin — East Pass (8729511)</option>
+          <option value="pensacola">Pensacola (8729840)</option>
+          <option value="pensacola-beach">Pensacola Beach Pier (8729807)</option>
+        </optgroup>
+        <optgroup label="Alabama">
+          <option value="dauphin-island">Dauphin Island (8735180)</option>
+          <option value="mobile">Mobile State Docks (8737048)</option>
+        </optgroup>
+        <optgroup label="Mississippi">
+          <option value="pascagoula">Pascagoula (8741533)</option>
+          <option value="biloxi">Biloxi (8744117)</option>
+          <option value="bay-waveland">Bay Waveland (8747437)</option>
+        </optgroup>
+        <optgroup label="Louisiana">
+          <option value="sw-pass">SW Pass — Mississippi River (8760922)</option>
+          <option value="grand-isle">Grand Isle (8761724)</option>
+          <option value="port-fourchon">Port Fourchon (8762075)</option>
+          <option value="new-orleans">New Orleans (8761927)</option>
+          <option value="calcasieu-pass">Calcasieu Pass (8768094)</option>
+        </optgroup>
+        <optgroup label="Texas">
+          <option value="sabine-pass">Sabine Pass (8770570)</option>
+          <option value="port-arthur">Port Arthur (8770475)</option>
+          <option value="galveston">Galveston Pier 21 (8771450)</option>
+          <option value="freeport">Freeport (8772447)</option>
+          <option value="matagorda">Matagorda City (8773146)</option>
+          <option value="rockport">Rockport (8774770)</option>
+          <option value="aransas-pass">Aransas Pass (8775241)</option>
+          <option value="corpus-christi">Corpus Christi (8775870)</option>
+          <option value="port-isabel">Port Isabel (8779770)</option>
+        </optgroup>
+        <option value="custom">Custom GPS / NOAA Station</option>
+        <option value="current">Current Location (boat at sea)</option>
+      </select>
+    </div>
+    <div id="custom-fields" style="display:none;flex-direction:column;gap:var(--sp3)">
+      <div class="fg">
+        <button class="refresh-btn" type="button" style="padding:var(--sp3);width:100%" onclick="useCurrentLocation()">Use Current GPS</button>
+      </div>
+      <div class="fg">
+        <label class="flbl" for="p-cname">Custom Marina Name</label>
+        <input class="finput" type="text" id="p-cname" value="My Marina" placeholder="My Marina">
+      </div>
+      <div class="frow">
+        <div class="fg"><label class="flbl" for="p-lat">Latitude</label><input class="finput" type="number" step="0.0001" id="p-lat" value="27.9060" placeholder="27.9060"></div>
+        <div class="fg"><label class="flbl" for="p-lon">Longitude</label><input class="finput" type="number" step="0.0001" id="p-lon" value="-82.4167" placeholder="-82.4167"></div>
+      </div>
+      <div class="fg">
+        <label class="flbl" for="p-station">NOAA Station ID</label>
+        <input class="finput" type="text" id="p-station" value="8726667" placeholder="8726667">
+      </div>
+    </div>
+    <div class="frow">
+      <div class="fg"><label class="flbl" for="p-wmin">Wind Min (kt)</label><input class="finput" type="number" id="p-wmin" value="8" min="0" max="30"></div>
+      <div class="fg"><label class="flbl" for="p-wmax">Wind Max (kt)</label><input class="finput" type="number" id="p-wmax" value="18" min="0" max="35"></div>
+    </div>
+    <div class="frow">
+      <div class="fg"><label class="flbl" for="p-gust">Max Gust (kt)</label><input class="finput" type="number" id="p-gust" value="22" min="0" max="40"></div>
+      <div class="fg"><label class="flbl" for="p-dur">Duration (hrs)</label><input class="finput" type="number" id="p-dur" value="4" min="1" max="12" step="0.5"></div>
+    </div>
+    <div class="fg">
+      <label class="flbl" for="p-tide">Tide Preference</label>
+      <select class="fselect" id="p-tide">
+        <option value="any">Any / No preference</option>
+        <option value="incoming">Incoming (flood)</option>
+        <option value="outgoing">Outgoing (ebb)</option>
+      </select>
+    </div>
+    <button class="save-btn" onclick="savePrefs()">Save &amp; Refresh</button>
+    <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+// ─────────────────────────────────────────────
+// CONSTANTS & STATE
+// ─────────────────────────────────────────────
+const STORAGE_KEY = "sailwindow.preferences.v1";
+
+const LOCATIONS = {
+  // Florida — Keys & Southwest
+  "key-west":        { name:"Key West, FL",                 sub:"NOAA 8724580", lat:24.5557, lon:-81.8079, stationId:"8724580" },
+  "naples":          { name:"Naples, FL",                   sub:"NOAA 8725110", lat:26.1317, lon:-81.8075, stationId:"8725110" },
+  "fort-myers":      { name:"Fort Myers, FL",               sub:"NOAA 8725520", lat:26.6478, lon:-81.8711, stationId:"8725520" },
+  // Florida — Tampa Bay
+  "clearwater":      { name:"Clearwater Beach, FL",         sub:"NOAA 8726724", lat:27.9783, lon:-82.8317, stationId:"8726724" },
+  "st-pete":         { name:"St. Petersburg, FL",           sub:"NOAA 8726520", lat:27.7606, lon:-82.6269, stationId:"8726520" },
+  "tampa-hooker":    { name:"Tampa — Hooker Point",         sub:"NOAA 8726667", lat:27.9060, lon:-82.4167, stationId:"8726667" },
+  "tampa-egmont":    { name:"Tampa — Egmont Key",           sub:"NOAA 8726347", lat:27.6017, lon:-82.7633, stationId:"8726347" },
+  "tampa-gandy":     { name:"Tampa — Gandy Bridge",         sub:"NOAA 8726607", lat:27.8867, lon:-82.5100, stationId:"8726607" },
+  // Florida — Gulf Coast
+  "cedar-key":       { name:"Cedar Key, FL",                sub:"NOAA 8727520", lat:29.1350, lon:-83.0317, stationId:"8727520" },
+  "apalachicola":    { name:"Apalachicola, FL",             sub:"NOAA 8728690", lat:29.7244, lon:-84.9806, stationId:"8728690" },
+  // Florida — Panhandle
+  "panama-city":     { name:"Panama City, FL",              sub:"NOAA 8729108", lat:30.1497, lon:-85.6644, stationId:"8729108" },
+  "rocky-bayou":     { name:"Niceville — Rocky Bayou",      sub:"NOAA 8729479", lat:30.5070, lon:-86.4470, stationId:"8729479" },
+  "niceville":       { name:"Niceville — Valparaiso",       sub:"NOAA 8729501", lat:30.5030, lon:-86.4930, stationId:"8729501" },
+  "destin":          { name:"Destin — East Pass",           sub:"NOAA 8729511", lat:30.3950, lon:-86.5130, stationId:"8729511" },
+  "pensacola":       { name:"Pensacola, FL",                sub:"NOAA 8729840", lat:30.4033, lon:-87.2117, stationId:"8729840" },
+  "pensacola-beach": { name:"Pensacola Beach Pier",         sub:"NOAA 8729807", lat:30.3317, lon:-87.1550, stationId:"8729807" },
+  // Alabama
+  "dauphin-island":  { name:"Dauphin Island, AL",           sub:"NOAA 8735180", lat:30.2500, lon:-88.0750, stationId:"8735180" },
+  "mobile":          { name:"Mobile State Docks, AL",       sub:"NOAA 8737048", lat:30.7046, lon:-88.0396, stationId:"8737048" },
+  // Mississippi
+  "pascagoula":      { name:"Pascagoula, MS",               sub:"NOAA 8741533", lat:30.3678, lon:-88.5631, stationId:"8741533" },
+  "biloxi":          { name:"Biloxi, MS",                   sub:"NOAA 8744117", lat:30.4117, lon:-88.9033, stationId:"8744117" },
+  "bay-waveland":    { name:"Bay Waveland, MS",             sub:"NOAA 8747437", lat:30.3263, lon:-89.3258, stationId:"8747437" },
+  // Louisiana
+  "sw-pass":         { name:"SW Pass, LA",                  sub:"NOAA 8760922", lat:28.9322, lon:-89.4075, stationId:"8760922" },
+  "grand-isle":      { name:"Grand Isle, LA",               sub:"NOAA 8761724", lat:29.2633, lon:-89.9567, stationId:"8761724" },
+  "port-fourchon":   { name:"Port Fourchon, LA",            sub:"NOAA 8762075", lat:29.1142, lon:-90.1993, stationId:"8762075" },
+  "new-orleans":     { name:"New Orleans, LA",              sub:"NOAA 8761927", lat:30.0272, lon:-90.1133, stationId:"8761927" },
+  "calcasieu-pass":  { name:"Calcasieu Pass, LA",           sub:"NOAA 8768094", lat:29.7682, lon:-93.3429, stationId:"8768094" },
+  // Texas
+  "sabine-pass":     { name:"Sabine Pass, TX",              sub:"NOAA 8770570", lat:29.7284, lon:-93.8701, stationId:"8770570" },
+  "port-arthur":     { name:"Port Arthur, TX",              sub:"NOAA 8770475", lat:29.8667, lon:-93.9300, stationId:"8770475" },
+  "galveston":       { name:"Galveston Pier 21, TX",        sub:"NOAA 8771450", lat:29.3100, lon:-94.7933, stationId:"8771450" },
+  "freeport":        { name:"Freeport, TX",                 sub:"NOAA 8772447", lat:28.9433, lon:-95.3025, stationId:"8772447" },
+  "matagorda":       { name:"Matagorda City, TX",           sub:"NOAA 8773146", lat:28.7100, lon:-95.9139, stationId:"8773146" },
+  "rockport":        { name:"Rockport, TX",                 sub:"NOAA 8774770", lat:28.0217, lon:-97.0467, stationId:"8774770" },
+  "aransas-pass":    { name:"Aransas Pass, TX",             sub:"NOAA 8775241", lat:27.8366, lon:-97.0391, stationId:"8775241" },
+  "corpus-christi":  { name:"Corpus Christi, TX",           sub:"NOAA 8775870", lat:27.5800, lon:-97.2167, stationId:"8775870" },
+  "port-isabel":     { name:"Port Isabel, TX",              sub:"NOAA 8779770", lat:26.0612, lon:-97.2155, stationId:"8779770" }
+};
+
+let prefs = {
+  locKey:"tampa-hooker", windMin:8, windMax:18, gustMax:22, durationHrs:4, tidePref:"any", theme:null,
+  custom:{ enabled:false, name:"My Marina", lat:27.9060, lon:-82.4167, stationId:"8726667" },
+  current:{ enabled:false, name:"Current Location", lat:null, lon:null, stationId:"" }
+};
+
+let windChart = null, tideChart = null, lastHourlyData = [], lastTideData = [];
+
+// ─────────────────────────────────────────────
+// STORAGE
+// ─────────────────────────────────────────────
+function storageAvailable(){
+  try{ const k="__sw_test__"; localStorage.setItem(k,"1"); localStorage.removeItem(k); return true; }
+  catch(e){ return false; }
+}
+function savePrefsToStorage(){
+  if(!storageAvailable()) return;
+  try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(prefs)); updateStorageBadge(true); }
+  catch(e){ console.warn("Could not save preferences:", e); updateStorageBadge(false); }
+}
+function loadPrefsFromStorage(){
+  if(!storageAvailable()){ updateStorageBadge(false); return; }
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(!raw){ updateStorageBadge(true, false); return; }
+    prefs = { ...prefs, ...JSON.parse(raw) };
+    updateStorageBadge(true, true);
+  }catch(e){ console.warn("Could not load preferences:", e); updateStorageBadge(false); }
+}
+function clearSavedPrefs(){ if(storageAvailable()) localStorage.removeItem(STORAGE_KEY); }
+
+// ─────────────────────────────────────────────
+// MARINA CACHE  (localStorage, 24-hour TTL)
+// ─────────────────────────────────────────────
+function saveMarinaCacheLs(lat, lon, data){
+  if(!storageAvailable()) return;
+  try{
+    localStorage.setItem(MARINA_CACHE_KEY, JSON.stringify({
+      lat: Math.round(lat * 100) / 100,
+      lon: Math.round(lon * 100) / 100,
+      savedAt: Date.now(), data
+    }));
+  }catch(e){ /* quota exceeded — silently skip */ }
+}
+function loadMarinaCacheLs(lat, lon){
+  if(!storageAvailable()) return null;
+  try{
+    const raw = localStorage.getItem(MARINA_CACHE_KEY);
+    if(!raw) return null;
+    const c = JSON.parse(raw);
+    if(c.lat !== Math.round(lat * 100) / 100) return null; // different area
+    if(c.lon !== Math.round(lon * 100) / 100) return null;
+    if(Date.now() - c.savedAt > MARINA_CACHE_TTL) return null; // stale (>24h)
+    return c.data;
+  }catch(e){ return null; }
+}
+function updateStorageBadge(ok, hasSaved=true){
+  const el = document.getElementById("pv-storage");
+  if(!el) return;
+  el.textContent = !ok ? "Unavailable" : hasSaved ? "Saved" : "Ready";
+}
+
+// ─────────────────────────────────────────────
+// UI UTILITIES
+// ─────────────────────────────────────────────
+function toast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.style.opacity = "1";
+  t.style.transform = "translateX(-50%) translateY(0)";
+  setTimeout(()=>{ t.style.opacity="0"; t.style.transform="translateX(-50%) translateY(10px)"; }, 2500);
+}
+function showBanner(msg, type="info"){ const b=document.getElementById("banner"); b.textContent=msg; b.className="banner "+type; }
+function hideBanner(){ document.getElementById("banner").className="banner"; }
+function setLoading(on){
+  const s1=document.getElementById("mini-spin"), s2=document.getElementById("refresh-spin"), btn=document.getElementById("refresh-btn");
+  if(on){ s1.classList.add("spinning"); s2.classList.add("spinning"); btn.disabled=true; }
+  else  { s1.classList.remove("spinning"); s2.classList.remove("spinning"); btn.disabled=false; }
+}
+function fmtTime(isoStr){ return new Date(isoStr).toLocaleTimeString([], {hour:"numeric", minute:"2-digit"}); }
+function nowTimeStr(){ return new Date().toLocaleTimeString([], {hour:"numeric", minute:"2-digit"}); }
+function todayDateStr(){ const d=new Date(), y=d.getFullYear(), m=String(d.getMonth()+1).padStart(2,"0"), dd=String(d.getDate()).padStart(2,"0"); return y+m+dd; }
+function parseWindKts(s){ if(!s) return 0; const m=s.match(/(\d+)/); return m ? parseInt(m[1],10) : 0; }
+
+// ─────────────────────────────────────────────
+// PREFERENCES MODAL
+// ─────────────────────────────────────────────
+function openModal(){
+  const modal = document.getElementById("modal");
+  updateLockState();
+  document.getElementById("p-loc").value = prefs.locKey;
+  document.getElementById("p-wmin").value = prefs.windMin;
+  document.getElementById("p-wmax").value = prefs.windMax;
+  document.getElementById("p-gust").value = prefs.gustMax;
+  document.getElementById("p-dur").value  = prefs.durationHrs;
+  document.getElementById("p-tide").value = prefs.tidePref;
+  document.getElementById("p-cname").value   = prefs.custom?.name || "My Marina";
+  document.getElementById("p-lat").value     = prefs.custom?.lat ?? 27.9060;
+  document.getElementById("p-lon").value     = prefs.custom?.lon ?? -82.4167;
+  document.getElementById("p-station").value = prefs.custom?.stationId || "8726667";
+  toggleCustomFields();
+  modal.style.cssText = "display:flex;opacity:1;pointer-events:all;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999";
+  const sheet = modal.querySelector('.sheet');
+  if(sheet) sheet.style.transform = 'translateY(0)';
+}
+function closeModal(){
+  const modal = document.getElementById("modal");
+  modal.style.opacity = "0";
+  modal.style.pointerEvents = "none";
+  modal.style.display = "none";
+  const sheet = modal.querySelector('.sheet');
+  if(sheet) sheet.style.transform = 'translateY(20px)';
+}
+document.getElementById("modal").addEventListener("click", e => { if(e.target === document.getElementById("modal")) closeModal(); });
+
+function toggleCustomFields(){
+  const v = document.getElementById("p-loc").value;
+  const isCustom = v === "custom", isCurrent = v === "current";
+  document.getElementById("custom-fields").style.display = (isCustom || isCurrent) ? "flex" : "none";
+  ["p-cname","p-lat","p-lon","p-station"].forEach(id => {
+    const el = document.getElementById(id); if(el) el.disabled = isCurrent;
+  });
+  const btn = document.querySelector('#custom-fields button');
+  if(btn) btn.textContent = isCurrent ? "Using device GPS" : "Use Current GPS";
+}
+
+function syncPrefsUI(){
+  document.getElementById("p-loc").value     = prefs.locKey;
+  document.getElementById("p-wmin").value    = prefs.windMin;
+  document.getElementById("p-wmax").value    = prefs.windMax;
+  document.getElementById("p-gust").value    = prefs.gustMax;
+  document.getElementById("p-dur").value     = prefs.durationHrs;
+  document.getElementById("p-tide").value    = prefs.tidePref;
+  document.getElementById("p-cname").value   = prefs.custom?.name || "My Marina";
+  document.getElementById("p-lat").value     = prefs.custom?.lat ?? 27.9060;
+  document.getElementById("p-lon").value     = prefs.custom?.lon ?? -82.4167;
+  document.getElementById("p-station").value = prefs.custom?.stationId || "8726667";
+  toggleCustomFields();
+  document.getElementById("pv-wind").textContent = prefs.windMin + "–" + prefs.windMax + " kt";
+  document.getElementById("pv-gust").textContent = prefs.gustMax + " kt";
+  document.getElementById("pv-dur").textContent  = prefs.durationHrs + " hrs";
+  const sel = document.getElementById("p-tide");
+  document.getElementById("pv-tide").textContent = sel.options[sel.selectedIndex].text;
+}
+
+function savePrefs(){
+  prefs.locKey      = document.getElementById("p-loc").value;
+  prefs.windMin     = +document.getElementById("p-wmin").value;
+  prefs.windMax     = +document.getElementById("p-wmax").value;
+  prefs.gustMax     = +document.getElementById("p-gust").value;
+  prefs.durationHrs = +document.getElementById("p-dur").value;
+  prefs.tidePref    = document.getElementById("p-tide").value;
+  if(prefs.locKey === "custom"){
+    prefs.custom = {
+      enabled:true,
+      name: (document.getElementById("p-cname").value || "My Marina").trim(),
+      lat:  parseFloat(document.getElementById("p-lat").value),
+      lon:  parseFloat(document.getElementById("p-lon").value),
+      stationId: (document.getElementById("p-station").value || "").trim()
+    };
+    if(isNaN(prefs.custom.lat) || isNaN(prefs.custom.lon) || !prefs.custom.stationId){
+      toast("Enter valid custom GPS and NOAA station ID"); return;
+    }
+  } else if(prefs.locKey === "current"){
+    if(prefs.current?.lat == null || !prefs.current?.stationId){
+      toast("Tap Use Current GPS first"); return;
+    }
+  } else {
+    prefs.custom = { ...prefs.custom, enabled:false };
+  }
+  syncPrefsUI();
+  savePrefsToStorage();
+  closeModal();
+  loadAll();
+}
+
+function resetPrefs(){
+  prefs = { locKey:"tampa-hooker", windMin:8, windMax:18, gustMax:22, durationHrs:4, tidePref:"any", theme:null,
+    custom:{ enabled:false, name:"My Marina", lat:27.9060, lon:-82.4167, stationId:"8726667" },
+    current:{ enabled:false, name:"Current Location", lat:null, lon:null, stationId:"" }
+  };
+  clearSavedPrefs();
+  syncPrefsUI();
+  applySavedTheme();
+  toast("Preferences reset");
+  loadAll();
+}
+
+function togglePrefs(){
+  const b=document.getElementById("prefs-body"), a=document.getElementById("prefs-arr"), h=document.getElementById("prefs-toggle");
+  const open = b.style.display === "none" || b.style.display === "";
+  b.style.display = open ? "flex" : "none";
+  a.classList.toggle("open", open);
+  h.setAttribute("aria-expanded", open);
+}
+document.getElementById("prefs-toggle").addEventListener("keydown", e=>{
+  if(e.key==="Enter"||e.key===" "){ e.preventDefault(); togglePrefs(); }
+});
+
+// ─────────────────────────────────────────────
+// THEME
+// ─────────────────────────────────────────────
+(function(){
+  const btn = document.getElementById("theme-btn");
+  let dark = true;
+  function setTheme(d){
+    dark = d;
+    document.documentElement.setAttribute("data-theme", d ? "dark" : "light");
+    btn.innerHTML = d
+      ? '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'
+      : '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+    prefs.theme = d ? "dark" : "light";
+    savePrefsToStorage();
+    rebuildCharts();
+  }
+  window.applySavedTheme = function(){
+    const savedDark = prefs.theme ? prefs.theme === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    setTheme(savedDark);
+  };
+  btn.addEventListener("click", () => setTheme(!dark));
+})();
+
+// ─────────────────────────────────────────────
+// DATA FETCHING
+// ─────────────────────────────────────────────
+async function fetchNWS(lat, lon){
+  const UA = "(sailwindow.app, sailor@sailwindow.app)";
+  const pRes = await fetch(`https://api.weather.gov/points/${lat.toFixed(4)},${lon.toFixed(4)}`, { headers:{"User-Agent":UA,"Accept":"application/geo+json"} });
+  if(!pRes.ok) throw new Error(`NWS /points failed: ${pRes.status}`);
+  const pJson = await pRes.json();
+  const hourlyUrl = pJson.properties.forecastHourly;
+  if(!hourlyUrl) throw new Error("NWS did not return forecastHourly URL");
+  const hRes = await fetch(hourlyUrl, { headers:{"User-Agent":UA,"Accept":"application/geo+json"} });
+  if(!hRes.ok) throw new Error(`NWS hourly failed: ${hRes.status}`);
+  return (await hRes.json()).properties.periods;
+}
+
+function degToCardinal(deg){
+  if(deg==null) return '—';
+  const d=['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'];
+  return d[Math.round(((deg%360)+360)%360/22.5)%16];
+}
+function wmoToForecast(code){
+  if(code===0)  return 'Clear Sky';
+  if(code<=3)   return 'Partly Cloudy';
+  if(code<=48)  return 'Fog';
+  if(code<=67)  return 'Rainy';
+  if(code<=77)  return 'Snow';
+  if(code<=82)  return 'Rain Showers';
+  if(code<=99)  return 'Thunderstorm';
+  return 'Overcast';
+}
+async function fetchOpenMeteo(lat, lon){
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat.toFixed(4)}&longitude=${lon.toFixed(4)}&hourly=windspeed_10m,windgusts_10m,winddirection_10m,precipitation_probability,weathercode&wind_speed_unit=kn&timezone=auto&forecast_days=7&models=ecmwf_ifs025`;
+  const res = await fetch(url);
+  if(!res.ok) throw new Error(`Open-Meteo ECMWF failed: ${res.status}`);
+  const json = await res.json();
+  if(json.error) throw new Error('Open-Meteo: '+json.error.reason);
+  const h = json.hourly;
+  return h.time.map((t,i)=>({
+    startTime: t,
+    windSpeed:    `${Math.round(h.windspeed_10m[i]??0)} kt`,
+    windGust:     `${Math.round(h.windgusts_10m[i]??h.windspeed_10m[i]??0)} kt`,
+    windDirection: degToCardinal(h.winddirection_10m[i]??0),
+    probabilityOfPrecipitation:{ value: h.precipitation_probability[i]??0 },
+    shortForecast: wmoToForecast(h.weathercode[i]??0)
+  }));
+}
+
+async function fetchTides(stationId){
+  const date = todayDateStr();
+  const url = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?product=predictions&application=sailwindow&begin_date=${date}&end_date=${date}&datum=MLLW&station=${stationId}&time_zone=lst_ldt&units=english&interval=h&format=json`;
+  const res = await fetch(url); if(!res.ok) throw new Error(`NOAA tides failed: ${res.status}`);
+  const json = await res.json(); if(json.error) throw new Error("NOAA: " + json.error.message);
+  return json.predictions;
+}
+
+async function fetchTideHiLo(stationId){
+  const date = todayDateStr();
+  const url = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?product=predictions&application=sailwindow&begin_date=${date}&end_date=${date}&datum=MLLW&station=${stationId}&time_zone=lst_ldt&units=english&interval=hilo&format=json`;
+  const res = await fetch(url); if(!res.ok) throw new Error(`NOAA hilo failed: ${res.status}`);
+  const json = await res.json(); if(json.error) throw new Error("NOAA hilo: " + json.error.message);
+  return json.predictions;
+}
+
+async function fetchNearbyMarinas(lat, lon, radiusMeters=48280){
+  const query = `[out:json][timeout:25];(node["amenity"="marina"](around:${radiusMeters},${lat},${lon});way["amenity"="marina"](around:${radiusMeters},${lat},${lon});relation["amenity"="marina"](around:${radiusMeters},${lat},${lon}););out center tags;`;
+  const res = await fetch('https://overpass-api.de/api/interpreter', { method:'POST', body:'data='+encodeURIComponent(query) });
+  if(!res.ok) throw new Error('Overpass '+res.status);
+  const data = await res.json();
+  return (data.elements||[]).map(el=>({
+    name: el.tags?.name || 'Unnamed Marina',
+    lat: el.lat ?? el.center?.lat,
+    lon: el.lon ?? el.center?.lon,
+    sub: el.tags?.operator || el.tags?.brand || 'OSM marina',
+    tags: el.tags || {}
+  })).filter(m => m.lat != null && m.lon != null);
+}
+
+// ─────────────────────────────────────────────
+// ASHORE — fuel & food near a marina (OSM)
+// ─────────────────────────────────────────────
+const ASHORE_CACHE_KEY = "sailwindow.ashore.v1";
+
+// Featured dock-and-dine partners — hand-managed for now, Cloudflare KV in Phase 1.
+// A partner renders at the top of the Ashore panel within 1.2 mi of the marina.
+// Crew redeems by showing the screen or saying the code word; the restaurant tallies.
+const ASHORE_PARTNERS = [
+  { name:"Doc's Oyster Bar", lat:30.5038786, lon:-86.4944173, sample:true,
+    offer:"Example: 10% off entrées for SailWindow crews", code:"SAILWINDOW",
+    note:"Example listing", validThru:"2026-12-31" },
+  { name:"Jaco's Bayfront Bar & Grille", lat:30.4025569, lon:-87.2134236, sample:true,
+    offer:"Example: free appetizer with two entrées for SailWindow crews", code:"SAILWINDOW",
+    note:"Example listing", validThru:"2026-12-31" }
+];
+
+function findAshorePartners(lat, lon){
+  const today = new Date();
+  return ASHORE_PARTNERS.filter(p => {
+    if(p.validThru && new Date(p.validThru + "T23:59:59") < today) return false;
+    return distMiles(lat, lon, p.lat, p.lon) <= 1.2;
+  }).sort((a,b) => distMiles(lat,lon,a.lat,a.lon) - distMiles(lat,lon,b.lat,b.lon));
+}
+
+function loadAshoreCache(lat, lon){
+  try{
+    const all = JSON.parse(localStorage.getItem(ASHORE_CACHE_KEY) || "{}");
+    const hit = all[lat.toFixed(4) + "," + lon.toFixed(4)];
+    if(hit && (Date.now() - hit.at) < MARINA_CACHE_TTL) return hit.data;
+  }catch(e){}
+  return null;
+}
+
+function saveAshoreCache(lat, lon, data){
+  try{
+    let all = JSON.parse(localStorage.getItem(ASHORE_CACHE_KEY) || "{}");
+    if(Object.keys(all).length > 30) all = {};
+    all[lat.toFixed(4) + "," + lon.toFixed(4)] = { at: Date.now(), data };
+    localStorage.setItem(ASHORE_CACHE_KEY, JSON.stringify(all));
+  }catch(e){}
+}
+
+async function fetchAshore(lat, lon){
+  const cached = loadAshoreCache(lat, lon);
+  if(cached) return cached;
+  const query = `[out:json][timeout:25];(nwr["amenity"~"^(restaurant|fast_food|cafe|bar|pub)$"](around:1200,${lat},${lon});nwr["waterway"="fuel"](around:1600,${lat},${lon});nwr["amenity"="fuel"](around:1600,${lat},${lon}););out center tags;`;
+  const res = await fetch('https://overpass-api.de/api/interpreter', { method:'POST', body:'data='+encodeURIComponent(query) });
+  if(!res.ok) throw new Error('Overpass '+res.status);
+  const data = await res.json();
+  const items = (data.elements||[]).map(el=>{
+    const la = el.lat ?? el.center?.lat, lo = el.lon ?? el.center?.lon, t = el.tags || {};
+    return {
+      name: t.name || null, lat: la, lon: lo,
+      kind: t.waterway === 'fuel' ? 'fuel-dock' : (t.amenity === 'fuel' ? 'fuel-road' : 'food'),
+      cuisine: (t.cuisine || '').split(';')[0].replace(/_/g,' '),
+      dist: (la != null && lo != null) ? distMiles(lat, lon, la, lo) : null
+    };
+  }).filter(x => x.dist != null).sort((a,b) => a.dist - b.dist);
+  saveAshoreCache(lat, lon, items);
+  return items;
+}
+
+function marinaHasFuelTag(tags){
+  if(!tags) return false;
+  return Object.keys(tags).some(k => (k === 'fuel' || k.indexOf('fuel:') === 0) && tags[k] !== 'no')
+      || /fuel/i.test(tags['seamark:small_craft_facility:category'] || '');
+}
+
+function escHtml(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+function fmtAshoreDist(mi){ return mi < 0.1 ? Math.round(mi*5280) + ' ft' : mi.toFixed(1) + ' mi'; }
+
+async function toggleAshore(btn, lat, lon, marinaFuel){
+  const card = btn.closest('.marina-card');
+  if(!card) return;
+  let sec = card.querySelector('.ashore-section');
+  if(sec){ sec.remove(); btn.textContent = '⛽🍴 Ashore'; return; }
+  sec = document.createElement('div');
+  sec.className = 'ashore-section';
+  sec.innerHTML = '<span style="color:var(--muted)">Checking what\'s ashore…</span>';
+  card.querySelector('.marina-main').appendChild(sec);
+  btn.textContent = 'Hide';
+  let items = [];
+  try{ items = await fetchAshore(lat, lon); }
+  catch(e){ sec.innerHTML = '<span style="color:var(--warn)">Couldn\'t reach OpenStreetMap — try again in a minute.</span>'; return; }
+  const partners  = findAshorePartners(lat, lon);
+  const pNames    = new Set(partners.map(p => p.name.toLowerCase()));
+  const fuelDocks = items.filter(i => i.kind === 'fuel-dock');
+  const fuelRoad  = items.filter(i => i.kind === 'fuel-road');
+  const food      = items.filter(i => i.kind === 'food' && !(i.name && pNames.has(i.name.toLowerCase())));
+  let html = '';
+  if(marinaFuel)            html += `<div>⛽ <strong>Fuel at this marina</strong></div>`;
+  else if(fuelDocks.length) html += `<div>⛽ Fuel dock: <strong>${escHtml(fuelDocks[0].name || 'unnamed')}</strong> · ${fmtAshoreDist(fuelDocks[0].dist)}</div>`;
+  else if(fuelRoad.length)  html += `<div>⛽ Nearest fuel is a road station: ${escHtml(fuelRoad[0].name || 'unnamed')} · ${fmtAshoreDist(fuelRoad[0].dist)}</div>`;
+  else                      html += `<div>⛽ No fuel mapped nearby — call ahead.</div>`;
+  for(const p of partners){
+    const redeem = p.sample
+      ? `Restaurant owner? This featured spot is open: <a href="mailto:marketing@sailwindow.com" style="color:inherit;font-weight:600">marketing@sailwindow.com</a>`
+      : `show this screen or say &ldquo;${escHtml(p.code)}&rdquo;`;
+    html += `<div class="ashore-partner">★ <strong>${escHtml(p.name)}</strong>${p.note ? ` <span style="font-size:10.5px;font-weight:600;color:var(--warn)">${escHtml(p.note)}</span>` : ''}<br>${escHtml(p.offer)} · ${redeem} · ${fmtAshoreDist(distMiles(lat, lon, p.lat, p.lon))}</div>`;
+  }
+  if(food.length){
+    html += `<div style="margin-top:4px">🍴 Eat ashore:</div>`;
+    html += food.slice(0,5).map(f => `<div style="padding-left:14px">• ${escHtml(f.name || 'unnamed')}${f.cuisine ? ` <span style="color:var(--muted)">(${escHtml(f.cuisine)})</span>` : ''} · ${fmtAshoreDist(f.dist)}</div>`).join('');
+    if(food.length > 5) html += `<div style="padding-left:14px;color:var(--muted)">+ ${food.length - 5} more within a walk</div>`;
+  } else {
+    html += `<div style="margin-top:4px">🍴 Nothing mapped within walking distance.</div>`;
+  }
+  html += `<div style="margin-top:5px;font-size:10.5px;color:var(--muted)">OpenStreetMap · straight-line distances · verify before you tie up</div>`;
+  sec.innerHTML = html;
+}
+
+// ─────────────────────────────────────────────
+// DRAWBRIDGES — schedules from 33 CFR Part 117
+// (public-domain federal regs; verified 2026-06-12 via eCFR.
+//  Unlisted drawbridges open on signal per §117.5.)
+// ─────────────────────────────────────────────
+const DRAWBRIDGES = [
+  { name:"Boca Grande Swing Bridge",      waterway:"Gulf ICW", mile:"34.3",  lat:26.7945, lon:-82.2840, vhf:"09", cfr:"§117.287(a)", phone:"(941) 697-2271",
+    sched:"Opens on signal. Mon–Fri 7a–6p: hour & half-hour only. Weekends/holidays 7a–6p: every quarter-hour. Tender on duty 24 hrs (GIBA)." },
+  { name:"Venice Avenue Bridge",          waterway:"Gulf ICW", mile:"56.6",  lat:27.0995, lon:-82.4445, vhf:"09", cfr:"§117.287(b)",
+    sched:"Opens on signal. Mon–Fri 7a–4:30p: at :10, :30 & :50 only. Closed 4:35–5:35p." },
+  { name:"Hatchett Creek (US 41) Bridge", waterway:"Gulf ICW", mile:"56.9",  lat:27.1040, lon:-82.4395, vhf:"09", cfr:"§117.287(c)",
+    sched:"Opens on signal. Mon–Fri 7a–4:20p: at :00, :20 & :40; closed 4:25–5:25p. Weekends/holidays 7:30a–6p: every quarter-hour." },
+  { name:"Blackburn Point Swing Bridge",  waterway:"Gulf ICW", mile:"63.1",  lat:27.1799, lon:-82.4945, vhf:"09", cfr:"§117.287(d)",
+    sched:"Opens on signal. Mon–Fri 7a–7p: at :00, :20 & :40 only." },
+  { name:"Stickney Point Bridge",         waterway:"Gulf ICW", mile:"68.6",  lat:27.2723, lon:-82.5490, vhf:"09", cfr:"§117.287(e)",
+    sched:"Opens on signal. Daily 6a–7p: hour & half-hour only." },
+  { name:"Siesta Drive Bridge",           waterway:"Gulf ICW", mile:"71.6",  lat:27.3117, lon:-82.5565, vhf:"09", cfr:"§117.287(f)",
+    sched:"Opens on signal. Daily 6a–7p: hour & half-hour only." },
+  { name:"Cortez (SR 684) Bridge",        waterway:"Gulf ICW", mile:"87.4",  lat:27.4685, lon:-82.6860, vhf:"09", cfr:"§117.287(g)",
+    sched:"Opens on signal. Daily 6a–7p: at :15 & :45 only." },
+  { name:"Anna Maria (SR 64) Bridge",     waterway:"Gulf ICW", mile:"89.2",  lat:27.4995, lon:-82.6920, vhf:"09", cfr:"§117.287(h)",
+    sched:"Opens on signal. Daily 6a–7p: at :15 & :45 only." },
+  { name:"Corey Causeway (SR 693) Bridge",waterway:"Gulf ICW", mile:"117.7", lat:27.7479, lon:-82.7453, vhf:"09", cfr:"§117.287(i)",
+    sched:"Opens on signal. Mon–Fri 8a–7p & weekends/holidays 10a–7p: at :00, :20 & :40 only." },
+  { name:"Treasure Island Causeway Bridge",waterway:"Gulf ICW", mile:"119.0", lat:27.7707, lon:-82.7588, vhf:"09", cfr:"§117.287(j)",
+    sched:"Opens on signal. 7a–7p: Mon–Fri at :00, :20 & :40; weekends/holidays at :15 & :45." },
+  { name:"Welch Causeway (SR 699) Bridge",waterway:"Gulf ICW", mile:"122.8", lat:27.7960, lon:-82.7820, vhf:"09", cfr:"§117.287(k)",
+    sched:"Opens on signal. Daily 7a–7p (except federal holidays): hour & half-hour only." },
+  { name:"Tarpon Dock Bascule Bridge",    waterway:"Massalina Bayou, Panama City", mile:"0.0", lat:30.1545, lon:-85.6525, vhf:"09", cfr:"§117.301",
+    sched:"Opens on signal (except the evening of July 4). Opens anytime for a vessel in distress." },
+  { name:"CSX Railroad Bridge",           waterway:"Blackwater River, Milton", mile:"2.8", lat:30.6300, lon:-87.0395, vhf:null, cfr:"§117.271",
+    sched:"Opens on signal. 8p–4a: requires 8 hours' advance notice." }
+];
+
+function renderBridges(center){
+  const el = document.getElementById('bridge-block');
+  if(!el) return;
+  const near = DRAWBRIDGES
+    .map(b => ({ ...b, dist: distMiles(center.lat, center.lon, b.lat, b.lon) }))
+    .filter(b => b.dist <= 60)
+    .sort((a,b) => a.dist - b.dist)
+    .slice(0, 8);
+  if(!near.length){
+    el.innerHTML = `<div style="padding:8px 12px;border:1px solid var(--divider);border-radius:12px;font-size:12px;color:var(--muted)">🌉 No drawbridges within 60 mi — fixed spans only on this stretch.</div>`;
+    return;
+  }
+  el.innerHTML = `
+    <div style="border:1px solid var(--divider);border-radius:12px;overflow:hidden;background:var(--bg)">
+      <button onclick="toggleBridges()" style="all:unset;cursor:pointer;display:flex;justify-content:space-between;align-items:center;width:100%;box-sizing:border-box;padding:9px 12px;font-size:13px;font-weight:700">🌉 Drawbridges nearby (${near.length}) <span id="bridge-arrow" style="font-size:11px;transition:transform .15s">▼</span></button>
+      <div id="bridge-list" style="display:none;padding:0 12px 10px;font-size:12px;line-height:1.65">
+        ${near.map(b => `
+          <div style="padding:7px 0;border-top:1px dashed var(--divider)">
+            <strong>${b.name}</strong> <span style="color:var(--muted)">· ${b.waterway}${b.mile ? ' mi ' + b.mile : ''} · ${Math.round(b.dist)} mi away</span><br>
+            ${b.sched}${b.vhf ? ' · hail VHF ' + b.vhf : ''}${b.phone ? ' · <a href="tel:+1' + String(b.phone).replace(/[^0-9]/g,'') + '" style="color:var(--primary);font-weight:600;text-decoration:none">📞 ' + b.phone + '</a>' : ''} <span style="color:var(--muted)">· 33 CFR ${b.cfr}</span>
+          </div>`).join('')}
+        <div style="margin-top:6px;font-size:10.5px;color:var(--muted)">Most Florida tenders publish no phone — VHF 09 is the official hail · US public vessels &amp; tugs with tows pass anytime · schedules are federal regulations (33 CFR 117); temporary changes go out via Local Notice to Mariners · always hail before approach</div>
+      </div>
+    </div>`;
+}
+
+function toggleBridges(){
+  const l = document.getElementById('bridge-list'), a = document.getElementById('bridge-arrow');
+  if(!l) return;
+  const open = l.style.display === 'none';
+  l.style.display = open ? 'block' : 'none';
+  if(a) a.style.transform = open ? 'rotate(180deg)' : '';
+}
+
+// ─────────────────────────────────────────────
+// SCORING
+// ─────────────────────────────────────────────
+function scorePeriod(period, tideFt, prevTideFt){
+  const wind=parseWindKts(period.windSpeed), gust=parseWindKts(period.windGust||"")||wind,
+        precip=period.probabilityOfPrecipitation?.value ?? 0,
+        fc=(period.shortForecast||"").toLowerCase(),
+        isThunder=/thunder|severe|tropical/i.test(fc);
+  if(wind < 4 || wind > 26 || gust > prefs.gustMax || precip >= 70 || isThunder) return 0;
+  let s = 10;
+  if(wind < prefs.windMin) s -= (prefs.windMin - wind) * .5;
+  else if(wind > prefs.windMax) s -= (wind - prefs.windMax) * .6;
+  const gustSpread = gust - wind;
+  if(gustSpread > 7) s -= Math.min(2.5, (gustSpread - 7) * .4);
+  if(gust > prefs.gustMax - 3) s -= 1.5;
+  s -= Math.min(3, precip / 25);
+  if(prefs.tidePref !== "any" && prevTideFt !== null && tideFt !== null){
+    const rising = tideFt > prevTideFt;
+    if((prefs.tidePref==="incoming"&&rising)||(prefs.tidePref==="outgoing"&&!rising)) s += .5;
+    else s -= .3;
+  }
+  return Math.max(0, Math.min(10, s));
+}
+
+function buildTideMap(nwsPeriods, tideArr){
+  return nwsPeriods.map(p => {
+    const target = new Date(p.startTime).getTime();
+    let best = null, bestDiff = Infinity;
+    for(const t of tideArr){ const ts=new Date(t.t).getTime(), d=Math.abs(ts-target); if(d<bestDiff){bestDiff=d; best=parseFloat(t.v);} }
+    return best;
+  });
+}
+
+function findBestWindow(hourlyData, tideMap){
+  const DUR = Math.max(1, Math.ceil(prefs.durationHrs));
+  const NO_WINDOW = { score:0, slice:[], startTime:null, endTime:null, startHour:null, endHour:null };
+  const candidates = hourlyData.filter(p => { const h=new Date(p.startTime).getHours(); return h>=7 && h<=18; });
+  if(!candidates.length || candidates.length < DUR) return NO_WINDOW;
+  let best = -1, bestStart = -1;
+  for(let i=0; i<=candidates.length-DUR; i++){
+    const slice = candidates.slice(i, i+DUR);
+    // the 24-h forecast can jump from this evening to tomorrow morning — only contiguous hours form a real window
+    let contiguous = true;
+    for(let j=1; j<slice.length; j++){
+      if(new Date(slice[j].startTime) - new Date(slice[j-1].startTime) !== 3600000){ contiguous = false; break; }
+    }
+    if(!contiguous) continue;
+    const scores = slice.map((p,j)=>scorePeriod(p, tideMap[i+j]??null, tideMap[i+j-1]??null));
+    const avg = scores.reduce((a,b)=>a+b,0)/scores.length, min = Math.min(...scores), ws = .7*avg + .3*min;
+    if(ws > best){ best=ws; bestStart=i; }
+  }
+  if(bestStart < 0) return NO_WINDOW;
+  const bestSlice = candidates.slice(bestStart, bestStart+DUR);
+  const startDate = new Date(bestSlice[0].startTime);
+  const endDate   = new Date(startDate.getTime() + prefs.durationHrs*3600000);
+  return { score:best, slice:bestSlice, startTime:bestSlice[0].startTime, endTime:endDate.toISOString(),
+           startHour:startDate.getHours(), endHour:startDate.getHours() + prefs.durationHrs };
+}
+
+function qualityLabel(score){
+  if(score>=9) return {lbl:"Excellent",cls:"q-excellent",emoji:"🟢",stripe:["var(--success)","var(--primary)"]};
+  if(score>=7) return {lbl:"Good",cls:"q-good",emoji:"✦",stripe:["var(--primary)","var(--primary)"]};
+  if(score>=5) return {lbl:"Marginal",cls:"q-marginal",emoji:"🟡",stripe:["var(--gold)","var(--warn)"]};
+  return {lbl:"No-Go",cls:"q-nogo",emoji:"🔴",stripe:["var(--error)","var(--error)"]};
+}
+
+// ─────────────────────────────────────────────
+// UI UPDATES
+// ─────────────────────────────────────────────
+function updateScoreCard(score, win){
+  const q = qualityLabel(score);
+  document.getElementById("score-num").innerHTML = score.toFixed(1) + `<span class="denom">/10</span>`;
+  const badge = document.getElementById("q-badge");
+  badge.className = "quality-badge " + q.cls;
+  document.getElementById("q-emoji").textContent = q.emoji;
+  document.getElementById("q-lbl").textContent   = q.lbl;
+  document.getElementById("upd-time").textContent  = nowTimeStr();
+  document.getElementById("win-depart").textContent = win.startTime ? fmtTime(win.startTime) : "—";
+  document.getElementById("win-return").textContent = win.endTime ? fmtTime(win.endTime) : "—";
+  document.getElementById("win-dur").textContent    = prefs.durationHrs + " hr";
+  const card = document.getElementById("score-card");
+  card.style.setProperty("--stripe-a", q.stripe[0]);
+  card.style.setProperty("--stripe-b", q.stripe[1]);
+}
+
+function buildReasons(slice){
+  const winds=slice.map(p=>parseWindKts(p.windSpeed)), gusts=slice.map(p=>parseWindKts(p.windGust||"0")||parseWindKts(p.windSpeed)),
+        precips=slice.map(p=>p.probabilityOfPrecipitation?.value??0), fc=slice.map(p=>(p.shortForecast||"").toLowerCase());
+  const minW=Math.min(...winds), maxW=Math.max(...winds), maxG=Math.max(...gusts), avgP=Math.round(precips.reduce((a,b)=>a+b,0)/precips.length);
+  const reasons = [];
+  if(maxW<=prefs.windMax && minW>=prefs.windMin) reasons.push(`Wind ${minW}–${maxW} kt in your range ✓`);
+  else if(minW<prefs.windMin) reasons.push(`Wind a bit light (${minW}–${maxW} kt)`);
+  else reasons.push(`Wind above preferred range (${minW}–${maxW} kt)`);
+  if(maxG<=prefs.gustMax) reasons.push(`Gusts ${maxG} kt — below your ${prefs.gustMax} kt limit ✓`);
+  else reasons.push(`Gusts ${maxG} kt — near your ${prefs.gustMax} kt limit ⚠`);
+  if(avgP<=20) reasons.push(`Rain chance ${avgP}% — very low ✓`);
+  else if(avgP<=40) reasons.push(`Rain chance ${avgP}% — light`);
+  else reasons.push(`Rain chance ${avgP}% — elevated ⚠`);
+  if(fc.some(f=>/thunder|severe/.test(f))) reasons.push("Storm risk present ⚠");
+  else reasons.push("No storms or severe weather forecast ✓");
+  const dirs=[...new Set(slice.map(p=>p.windDirection))].join(", ");
+  if(dirs) reasons.push(`Wind from ${dirs}`);
+  document.getElementById("reasons").innerHTML = reasons.map(r=>`<span class="rtag">${r}</span>`).join("");
+}
+
+function updateConditions(slice, tideArr, wIdx, wEndIdx){
+  const winds=slice.map(p=>parseWindKts(p.windSpeed)), gusts=slice.map(p=>parseWindKts(p.windGust||"")||parseWindKts(p.windSpeed)),
+        precips=slice.map(p=>p.probabilityOfPrecipitation?.value??0), dirs=[...new Set(slice.map(p=>p.windDirection||""))].filter(Boolean).join("/"),
+        minW=Math.min(...winds), maxW=Math.max(...winds), maxG=Math.max(...gusts),
+        avgP=Math.round(precips.reduce((a,b)=>a+b,0)/precips.length),
+        fcs=slice.map(p=>(p.shortForecast||"").toLowerCase()), thunder=fcs.some(f=>/thunder|severe/.test(f));
+  document.getElementById("c-wind").textContent = `${minW}–${maxW} kt ${dirs}`;
+  const windOk = maxW<=prefs.windMax && minW>=prefs.windMin;
+  document.getElementById("cs-wind").textContent = windOk ? "✔ Ideal" : "~ Off range";
+  document.getElementById("cs-wind").className   = "cstatus " + (windOk ? "s-ideal" : "s-moderate");
+  document.getElementById("c-gust").textContent  = `${maxG} kt peak`;
+  const gustOk = maxG <= prefs.gustMax - 2;
+  document.getElementById("cs-gust").textContent = gustOk ? "✔ Below limit" : maxG>prefs.gustMax ? "✖ Exceeds limit" : "~ Near limit";
+  document.getElementById("cs-gust").className   = "cstatus " + (gustOk ? "s-ideal" : maxG>prefs.gustMax ? "s-high" : "s-moderate");
+  if(tideArr && tideArr.length > 1){
+    const tStart=parseFloat(tideArr[Math.max(0,wIdx)]?.v||0), tEnd=parseFloat(tideArr[Math.min(tideArr.length-1,wEndIdx)]?.v||0),
+          tideDir=tEnd>tStart?"Incoming ↑":"Outgoing ↓", pref=prefs.tidePref,
+          fav=pref==="any"||(pref==="incoming"&&tEnd>tStart)||(pref==="outgoing"&&tEnd<=tStart);
+    document.getElementById("c-tide").textContent  = tideDir;
+    document.getElementById("cs-tide").textContent = fav ? "✔ Favorable" : "~ Less ideal";
+    document.getElementById("cs-tide").className   = "cstatus " + (fav ? "s-fav" : "s-moderate");
+  }
+  document.getElementById("c-storm").textContent  = thunder ? "⚠ Storm risk" : `Rain ${avgP}%`;
+  document.getElementById("cs-storm").textContent = thunder ? "✖ High" : avgP<30 ? "✔ Low" : "~ Moderate";
+  document.getElementById("cs-storm").className   = "cstatus " + (thunder ? "s-high" : avgP<30 ? "s-low" : "s-moderate");
+}
+
+function updateTideTable(hiloArr){
+  const tbody = document.getElementById("tide-tbody");
+  if(!hiloArr || !hiloArr.length){
+    tbody.innerHTML = '<tr><td colspan="3" style="color:var(--muted);padding:var(--sp4)">No tide event data.</td></tr>'; return;
+  }
+  tbody.innerHTML = hiloArr.map(ev => {
+    const timeStr = new Date(ev.t).toLocaleTimeString([], {hour:"numeric", minute:"2-digit"});
+    const isH = ev.type==="H", cls = isH?"t-high":"t-low";
+    const badge = isH ? '<span class="cstatus s-fav">↑ High</span>' : '<span class="cstatus s-neutral">↓ Low</span>';
+    return `<tr><td class="${cls}">${timeStr}</td><td class="${cls}">${parseFloat(ev.v).toFixed(1)} ft</td><td>${badge}</td></tr>`;
+  }).join("");
+}
+
+// ─────────────────────────────────────────────
+// CHARTS
+// ─────────────────────────────────────────────
+function getColors(){
+  const dark = document.documentElement.getAttribute("data-theme") === "dark";
+  return {
+    text:dark?"#cdccca":"#28251d", muted:dark?"#797876":"#7a7974",
+    grid:dark?"rgba(255,255,255,0.05)":"rgba(0,0,0,0.06)",
+    primary:dark?"#4f98a3":"#01696f", warn:dark?"#bb653b":"#964219",
+    success:dark?"#6daa45":"#437a22", tide:dark?"#4f98a3":"#01696f",
+    surface:dark?"#1c1b19":"#f9f8f5", window:dark?"rgba(109,170,69,0.13)":"rgba(67,122,34,0.10)"
+  };
+}
+function buildWindowPlugin(xStart, xEnd){
+  return { id:"winShade", beforeDraw(chart){
+    if(xStart==null || xEnd==null) return;
+    const {ctx,chartArea:{left,right,top,bottom},scales:{x}} = chart;
+    if(!x) return;
+    const c = getColors();
+    const xs = x.getPixelForValue(Math.max(0,xStart)), xe = x.getPixelForValue(Math.min(23,xEnd));
+    ctx.save(); ctx.fillStyle=c.window; ctx.fillRect(xs,top,xe-xs,bottom-top); ctx.restore();
+  }};
+}
+function buildWindChart(periods, win){
+  const el = document.getElementById("wind-canvas");
+  if(windChart){ windChart.destroy(); windChart=null; }
+  const c = getColors();
+  const shown = periods.slice(0,24);
+  const pretty = shown.map(p=>{ const h=new Date(p.startTime).getHours(); return h===0?"12A":h<12?h+"A":h===12?"12P":(h-12)+"P"; });
+  const winds = shown.map(p=>parseWindKts(p.windSpeed));
+  const gusts = shown.map(p=>parseWindKts(p.windGust||"")||parseWindKts(p.windSpeed));
+  // this chart is indexed from the current hour, not midnight — locate the window by timestamp
+  const wIdx = win.startTime ? shown.findIndex(p=>p.startTime===win.startTime) : -1;
+  const wp = wIdx < 0 ? buildWindowPlugin(null, null)
+                      : buildWindowPlugin(wIdx, wIdx + (win.endHour - win.startHour));
+  windChart = new Chart(el, { type:"line", plugins:[wp], data:{ labels:shown.map((p,i)=>String(i)),
+    datasets:[
+      {label:"Gusts",data:gusts,borderColor:c.warn,backgroundColor:"transparent",borderWidth:1.5,borderDash:[4,3],pointRadius:0,pointHoverRadius:4,tension:.4,order:2},
+      {label:"Sustained",data:winds,borderColor:c.primary,backgroundColor:(ctx)=>{ const g=ctx.chart.ctx.createLinearGradient(0,0,0,180); g.addColorStop(0,c.primary+"30"); g.addColorStop(1,c.primary+"00"); return g; },borderWidth:2,pointRadius:0,pointHoverRadius:4,fill:true,tension:.4,order:1}
+    ]},
+    options:{ responsive:true, animation:{duration:700,easing:"easeInOutQuart"}, interaction:{mode:"index",intersect:false},
+      plugins:{ legend:{display:false}, tooltip:{ backgroundColor:c.surface,borderColor:c.grid,borderWidth:1,titleColor:c.text,bodyColor:c.muted,padding:10,
+        callbacks:{ title:(items)=>pretty[items[0].dataIndex], label:item=>` ${item.dataset.label}: ${item.parsed.y} kt` } } },
+      scales:{ x:{ grid:{color:c.grid}, ticks:{color:c.muted,font:{family:"DM Sans",size:11},callback:(v,idx)=>pretty[idx],maxTicksLimit:12}, border:{color:c.grid} },
+               y:{ min:0,max:Math.max(35,Math.max(...gusts)+5), grid:{color:c.grid}, ticks:{color:c.muted,font:{family:"DM Sans",size:11},callback:v=>v+"kt",stepSize:5}, border:{color:c.grid} } } }
+  });
+}
+function buildTideChart(tideArr, win){
+  const el = document.getElementById("tide-canvas");
+  if(tideChart){ tideChart.destroy(); tideChart=null; }
+  const c = getColors();
+  const pretty = tideArr.map(t=>{ const h=new Date(t.t).getHours(); return h===0?"12A":h<12?h+"A":h===12?"12P":(h-12)+"P"; });
+  const vals = tideArr.map(t=>parseFloat(t.v));
+  // tide curve covers today only — skip the band when the best window falls on another day
+  const sameDay = win.startTime && tideArr.length && new Date(win.startTime).toDateString() === new Date(tideArr[0].t).toDateString();
+  const tp = sameDay ? buildWindowPlugin(win.startHour, win.endHour) : buildWindowPlugin(null, null);
+  tideChart = new Chart(el, { type:"line", plugins:[tp], data:{ labels:tideArr.map((_,i)=>String(i)),
+    datasets:[{ label:"Tide (ft)",data:vals,borderColor:c.tide,backgroundColor:(ctx)=>{ const g=ctx.chart.ctx.createLinearGradient(0,0,0,160); g.addColorStop(0,c.tide+"40"); g.addColorStop(1,c.tide+"00"); return g; },borderWidth:2,pointRadius:0,pointHoverRadius:4,fill:true,tension:.5 }]},
+    options:{ responsive:true, animation:{duration:700,easing:"easeInOutQuart"}, interaction:{mode:"index",intersect:false},
+      plugins:{ legend:{display:false}, tooltip:{ backgroundColor:c.surface,borderColor:c.grid,borderWidth:1,titleColor:c.text,bodyColor:c.muted,padding:10,
+        callbacks:{ title:(items)=>pretty[items[0].dataIndex], label:item=>` Tide: ${item.parsed.y.toFixed(1)} ft` } } },
+      scales:{ x:{ grid:{color:c.grid}, ticks:{color:c.muted,font:{family:"DM Sans",size:11},callback:(v,idx)=>pretty[idx],maxTicksLimit:8}, border:{color:c.grid} },
+               y:{ grid:{color:c.grid}, ticks:{color:c.muted,font:{family:"DM Sans",size:11},callback:v=>v+" ft",stepSize:1}, border:{color:c.grid} } } }
+  });
+}
+function rebuildCharts(){
+  if(!lastHourlyData.length || !lastTideData.length) return;
+  const w = findBestWindow(lastHourlyData.slice(0,24), buildTideMap(lastHourlyData.slice(0,24), lastTideData));
+  buildWindChart(lastHourlyData.slice(0,24), w);
+  buildTideChart(lastTideData, w);
+}
+
+// MAIN LOAD
+// ─────────────────────────────────────────────
+async function loadAll(){
+  // only show paywall if: (1) locked AND (2) NOT first visit (we have last data)
+  // this prevents paywall from appearing if connectivity failed on first try
+  if(prefs.locKey && isLocked(prefs.locKey) && lastHourlyData.length > 0){
+    openSubscribeModal('locked'); return;
+  }
+  setLoading(true); hideBanner(); showBanner("Fetching live NWS + NOAA data…", "info");
+  const slowTimer = setTimeout(() => showBanner("📶 Slow connection — if you're at a marina or have Starlink aboard, hop on the Wi-Fi for fresher data…", "info"), 8000);
+  let loc;
+  if(prefs.locKey === "custom"){
+    loc = { name:prefs.custom?.name||"My Marina", sub:"NOAA "+(prefs.custom?.stationId||"—"), lat:Number(prefs.custom?.lat), lon:Number(prefs.custom?.lon), stationId:String(prefs.custom?.stationId||"") };
+  } else if(prefs.locKey === "current"){
+    loc = { name:prefs.current?.name||"Current Location", sub:prefs.current?.lat!=null?`GPS ${prefs.current.lat.toFixed(4)}, ${prefs.current.lon.toFixed(4)} · NOAA ${prefs.current.stationId||"—"}`:"GPS pending", lat:Number(prefs.current?.lat), lon:Number(prefs.current?.lon), stationId:String(prefs.current?.stationId||"") };
+  } else {
+    loc = LOCATIONS[prefs.locKey];
+  }
+  document.getElementById("loc-name").textContent = loc.name;
+  document.getElementById("loc-sub").textContent  = loc.sub + " · loading…";
+  try{
+    if(prefs.locKey === "current" && !loc.stationId){
+      const nearest = nearestStationId(loc.lat, loc.lon);
+      loc.stationId = nearest.id;
+      prefs.current.stationId = nearest.id;
+      prefs.current.stationName = nearest.name;
+      savePrefsToStorage();
+    }
+    const [nwsPeriods, tideArr, hiloArr] = await Promise.all([
+      fetchNWS(loc.lat, loc.lon),
+      fetchTides(loc.stationId),
+      fetchTideHiLo(loc.stationId)
+    ]);
+    clearTimeout(slowTimer);
+    lastHourlyData = nwsPeriods; lastTideData = tideArr;
+    const tideMap = buildTideMap(nwsPeriods.slice(0,24), tideArr);
+    const win = findBestWindow(nwsPeriods.slice(0,24), tideMap);
+    const scoreRounded = Math.round(win.score * 10) / 10;
+    document.getElementById("loc-sub").textContent = loc.sub + " · updated " + nowTimeStr();
+    updateScoreCard(scoreRounded, win);
+    if(win.slice.length) buildReasons(win.slice);
+    else document.getElementById("reasons").innerHTML = '<span class="rtag">No daylight sailing window in the next 24 hrs</span>';
+    const stationLabelEl = document.getElementById("loc-station-lbl");
+    const stationNameEl  = document.getElementById("loc-station-name");
+    if(prefs.locKey === "current" && prefs.current?.stationName){
+      stationNameEl.textContent = prefs.current.stationName;
+      stationLabelEl.style.display = "block";
+    } else {
+      stationLabelEl.style.display = "none";
+    }
+    if(win.slice.length){
+      const wStartIdx = tideArr.findIndex(t=>new Date(t.t).getHours()===win.startHour);
+      const wEndIdx   = tideArr.findIndex(t=>new Date(t.t).getHours()===Math.min(23,Math.round(win.endHour)));
+      updateConditions(win.slice, tideArr, wStartIdx, wEndIdx);
+    }
+    buildWindChart(nwsPeriods.slice(0,24), win);
+    buildTideChart(tideArr, win);
+    const noteTxt = win.startTime ? `Best window shaded: ${fmtTime(win.startTime)} – ${fmtTime(win.endTime)}` : "No daylight sailing window in the next 24 hrs";
+    document.getElementById("wind-note-txt").textContent = noteTxt;
+    document.getElementById("tide-note-txt").textContent = noteTxt;
+    updateTideTable(hiloArr);
+    syncPrefsUI();
+    hideBanner();
+    toast("✦ Live data loaded — " + loc.name);
+  }catch(err){
+    clearTimeout(slowTimer);
+    console.error(err);
+    showBanner(navigator.onLine === false
+      ? "📶 You're offline — showing last loaded data. Marina Wi-Fi or your boat's Starlink will get you fresh forecasts; tap Refresh once connected."
+      : "⚠ " + err.message + " — weak signal? Marina Wi-Fi or onboard Starlink usually loads faster. Tap Refresh to retry.", "warn");
+    if(!lastHourlyData.length){
+      document.getElementById("score-num").innerHTML = '—<span class="denom">/10</span>';
+      document.getElementById("q-lbl").textContent   = "Data unavailable";
+      document.getElementById("reasons").innerHTML   = '<span class="rtag">Could not load live data. Check your connection and try again.</span>';
+    }
+  }
+  setLoading(false);
+}
+
+window.addEventListener("offline", () => showBanner("📶 No connection — showing last loaded data. Marina Wi-Fi or your boat's Starlink will get you fresh forecasts.", "warn"));
+window.addEventListener("online",  () => { toast("📶 Back online — refreshing"); loadAll(); });
+
+// ─────────────────────────────────────────────
+// NEAREST STATION
+// ─────────────────────────────────────────────
+function nearestStationId(lat, lon){
+  const stations = [
+    // Florida — Keys & Southwest
+    { id:"8724580", name:"Key West, FL",              lat:24.5557, lon:-81.8079 },
+    { id:"8725110", name:"Naples, FL",                lat:26.1317, lon:-81.8075 },
+    { id:"8725520", name:"Fort Myers, FL",            lat:26.6478, lon:-81.8711 },
+    // Florida — Tampa Bay
+    { id:"8726724", name:"Clearwater Beach, FL",      lat:27.9783, lon:-82.8317 },
+    { id:"8726520", name:"St. Petersburg, FL",        lat:27.7606, lon:-82.6269 },
+    { id:"8726667", name:"Tampa — Hooker Point",      lat:27.9060, lon:-82.4167 },
+    { id:"8726347", name:"Tampa — Egmont Key",        lat:27.6017, lon:-82.7633 },
+    { id:"8726607", name:"Tampa — Gandy Bridge",      lat:27.8867, lon:-82.5100 },
+    // Florida — Gulf Coast
+    { id:"8727520", name:"Cedar Key, FL",             lat:29.1350, lon:-83.0317 },
+    { id:"8728690", name:"Apalachicola, FL",          lat:29.7244, lon:-84.9806 },
+    // Florida — Panhandle
+    { id:"8729108", name:"Panama City, FL",           lat:30.1497, lon:-85.6644 },
+    { id:"8729479", name:"Niceville — Rocky Bayou",   lat:30.5070, lon:-86.4470 },
+    { id:"8729501", name:"Niceville — Valparaiso",    lat:30.5030, lon:-86.4930 },
+    { id:"8729511", name:"Destin — East Pass",        lat:30.3950, lon:-86.5130 },
+    { id:"8729840", name:"Pensacola, FL",             lat:30.4033, lon:-87.2117 },
+    { id:"8729807", name:"Pensacola Beach Pier",      lat:30.3317, lon:-87.1550 },
+    // Alabama
+    { id:"8735180", name:"Dauphin Island, AL",        lat:30.2500, lon:-88.0750 },
+    { id:"8737048", name:"Mobile State Docks, AL",    lat:30.7046, lon:-88.0396 },
+    // Mississippi
+    { id:"8741533", name:"Pascagoula, MS",            lat:30.3678, lon:-88.5631 },
+    { id:"8744117", name:"Biloxi, MS",                lat:30.4117, lon:-88.9033 },
+    { id:"8747437", name:"Bay Waveland, MS",          lat:30.3263, lon:-89.3258 },
+    // Louisiana
+    { id:"8760922", name:"SW Pass, LA",               lat:28.9322, lon:-89.4075 },
+    { id:"8761724", name:"Grand Isle, LA",            lat:29.2633, lon:-89.9567 },
+    { id:"8762075", name:"Port Fourchon, LA",         lat:29.1142, lon:-90.1993 },
+    { id:"8761927", name:"New Orleans, LA",           lat:30.0272, lon:-90.1133 },
+    { id:"8768094", name:"Calcasieu Pass, LA",        lat:29.7682, lon:-93.3429 },
+    // Texas
+    { id:"8770570", name:"Sabine Pass, TX",           lat:29.7284, lon:-93.8701 },
+    { id:"8770475", name:"Port Arthur, TX",           lat:29.8667, lon:-93.9300 },
+    { id:"8771450", name:"Galveston Pier 21, TX",     lat:29.3100, lon:-94.7933 },
+    { id:"8772447", name:"Freeport, TX",              lat:28.9433, lon:-95.3025 },
+    { id:"8773146", name:"Matagorda City, TX",        lat:28.7100, lon:-95.9139 },
+    { id:"8774770", name:"Rockport, TX",              lat:28.0217, lon:-97.0467 },
+    { id:"8775241", name:"Aransas Pass, TX",          lat:27.8366, lon:-97.0391 },
+    { id:"8775870", name:"Corpus Christi, TX",        lat:27.5800, lon:-97.2167 },
+    { id:"8779770", name:"Port Isabel, TX",           lat:26.0612, lon:-97.2155 }
+  ];
+  let best = stations[0], bestD = Infinity;
+  for(const s of stations){ const d=Math.hypot(lat-s.lat,lon-s.lon); if(d<bestD){bestD=d; best=s;} }
+  return best;
+}
+
+// ─────────────────────────────────────────────
+// LOCATION CHOOSER
+// ─────────────────────────────────────────────
+function openChooser(){
+  const el = document.getElementById('choose-location');
+  el.style.display = 'flex';
+  const sel = document.getElementById('chooser-marina-select');
+  if(sel) sel.value = LOCATIONS[prefs.locKey] ? prefs.locKey : '';
+}
+function closeChooser(){
+  document.getElementById('choose-location').style.display = 'none';
+}
+function setMarinaFromChooser(){
+  const val = document.getElementById('chooser-marina-select').value;
+  if(!val){ toast('Pick a marina first'); return; }
+  const loc = LOCATIONS[val];
+  if(!loc){ toast('Unknown marina'); return; }
+  prefs.locKey = val;
+  prefs.custom = { ...prefs.custom, enabled:false };
+  savePrefsToStorage();
+  syncPrefsUI();
+  closeChooser();
+  loadAll();
+  toast('Marina selected: ' + loc.name);
+}
+function useGpsFromChooser(){
+  closeChooser();
+  useCurrentLocationForMarina();
+}
+async function useCurrentLocation(){
+  if(!('geolocation' in navigator)){ toast('Geolocation not available'); return; }
+  toast('Requesting current GPS…');
+  navigator.geolocation.getCurrentPosition(pos => {
+    const lat = +pos.coords.latitude.toFixed(4), lon = +pos.coords.longitude.toFixed(4);
+    const nearest = nearestStationId(lat, lon);
+    prefs.locKey = 'current';
+    prefs.current = { enabled:true, name:'Current Location', lat, lon, stationId:nearest.id, stationName:nearest.name };
+    prefs.custom = { ...prefs.custom, enabled:false };
+    savePrefsToStorage(); syncPrefsUI();
+    document.getElementById('p-loc').value     = 'current';
+    document.getElementById('p-cname').value   = 'Current Location';
+    document.getElementById('p-lat').value     = lat;
+    document.getElementById('p-lon').value     = lon;
+    document.getElementById('p-station').value = nearest.id;
+    toggleCustomFields();
+    toast(`GPS saved: ${lat}, ${lon} · ${nearest.name}`);
+  }, err => { toast(`GPS failed: ${err.message}`); }, { enableHighAccuracy:true, timeout:10000, maximumAge:0 });
+}
+
+// ─────────────────────────────────────────────
+// MARINA VIEW
+// ─────────────────────────────────────────────
+var marinaMap = null;
+var marinaCluster = null;
+var marinaLiveCache = [];
+var marinaLiveAt = 0;
+
+const MARINA_META = {
+  // ── Florida — Keys & Southwest ──────────────────────────────────────────
+  "key-west":        { rating:"4.7", reviews:"", hours:"Open · 24 hours",       area:"Key West Bight, FL",                phone:"",               address:"Key West Harbor, Key West, FL 33040" },
+  "naples":          { rating:"4.5", reviews:"", hours:"Open · 7 AM–7 PM",      area:"Naples Bay, FL",                    phone:"(239) 213-7066", address:"880 12th Ave S, Naples, FL 34102" },
+  "fort-myers":      { rating:"4.4", reviews:"", hours:"⚠ Post-Ian repairs ongoing · Call ahead for transient", area:"Fort Myers City Yacht Basin, FL", phone:"(239) 321-7080", address:"1300 Lee St, Fort Myers, FL 33901", warn:true },
+  // ── Florida — Tampa Bay (existing + two new) ─────────────────────────────
+  "clearwater":      { rating:"4.4", reviews:"", hours:"⚠ Fuel dock closed · Reconstruction thru late 2026", area:"Clearwater Municipal Marina, FL", phone:"(727) 462-6954", address:"25 Causeway Blvd, Clearwater Beach, FL 33767", warn:true },
+  "st-pete":         { rating:"4.6", reviews:"", hours:"Open · 24 hours",       area:"St. Petersburg Municipal Marina",   phone:"(727) 893-7329", address:"300 2nd Ave SE, St. Petersburg, FL 33701" },
+  "tampa-hooker":    { rating:"4.6", reviews:"88",  hours:"Closed · Opens 8 AM Mon", area:"Hooker Point, Tampa, FL",      phone:"(813) 905-5131", address:"1402 S 22nd St, Tampa, FL 33605" },
+  "tampa-egmont":    { rating:"4.4", reviews:"61",  hours:"Open · 24 hours",    area:"Egmont Key, Tampa Bay",             phone:"(813) 864-1500", address:"Egmont Key State Park, Tampa, FL" },
+  "tampa-gandy":     { rating:"4.3", reviews:"49",  hours:"Open · 24 hours",    area:"Gandy Bridge, Tampa",               phone:"(813) 839-5980", address:"4830 W Gandy Blvd, Tampa, FL 33611" },
+  // ── Florida — Gulf Coast ──────────────────────────────────────────────────
+  "cedar-key":       { rating:"4.2", reviews:"", hours:"Call ahead",            area:"Cedar Key Marina, FL",              phone:"(352) 543-5132", address:"Cedar Key Marina, Cedar Key, FL 32625" },
+  "apalachicola":    { rating:"4.3", reviews:"", hours:"Call ahead",            area:"Apalachicola Bay, FL",              phone:"(850) 653-9419", address:"132 Water St, Apalachicola, FL 32320" },
+  // ── Florida — Panhandle ───────────────────────────────────────────────────
+  "panama-city":     { rating:"4.4", reviews:"", hours:"⚠ Non-operational for transient · $10M rebuild Phase 1 underway", area:"St. Andrews Bay, Panama City, FL", phone:"", address:"Panama City Downtown Marina, Panama City, FL 32401", warn:true },
+  "pensacola":       { rating:"4.7", reviews:"112", hours:"Closed · Opens 9 AM Sat", area:"Pensacola Harbor, FL",         phone:"(850) 436-5050", address:"600 S Barracks St, Pensacola, FL 32502" },
+  "pensacola-beach": { rating:"4.5", reviews:"76",  hours:"Closed · Opens 7 AM Mon", area:"Pensacola Beach, FL",          phone:"(850) 932-0304", address:"655 Pensacola Beach Blvd, Gulf Breeze, FL 32561" },
+  // ── Alabama ───────────────────────────────────────────────────────────────
+  "dauphin-island":  { rating:"4.3", reviews:"", hours:"Call ahead",            area:"Dauphin Island Marina, AL",         phone:"(251) 861-4501", address:"1527 Bienville Blvd, Dauphin Island, AL 36528" },
+  "mobile":          { rating:"4.4", reviews:"", hours:"Open · 8 AM–5 PM",      area:"Mobile Bay Marina, AL",            phone:"(251) 208-7468", address:"301 Water St, Mobile, AL 36602" },
+  // ── Mississippi ───────────────────────────────────────────────────────────
+  "pascagoula":      { rating:"4.1", reviews:"", hours:"Call ahead",            area:"Pascagoula, MS",                   phone:"",               address:"Pascagoula, MS 39567" },
+  "biloxi":          { rating:"4.2", reviews:"", hours:"Call ahead",            area:"Biloxi Small Craft Harbor, MS",    phone:"(228) 435-6395", address:"135 Back Bay Blvd, Biloxi, MS 39530" },
+  "bay-waveland":    { rating:"4.4", reviews:"", hours:"Call ahead",            area:"Bay St. Louis, MS",                phone:"",               address:"Bay St. Louis, MS 39520" },
+  // ── Louisiana ─────────────────────────────────────────────────────────────
+  "sw-pass":         { rating:"",    reviews:"", hours:"Commercial only",       area:"Mississippi River SW Pass, LA",    phone:"",               address:"Pilottown, LA 70040" },
+  "grand-isle":      { rating:"4.1", reviews:"", hours:"Call ahead",            area:"Grand Isle, LA",                   phone:"(985) 787-2202", address:"Grand Isle, LA 70358" },
+  "port-fourchon":   { rating:"3.9", reviews:"", hours:"Primarily commercial",  area:"Port Fourchon, LA",                phone:"(985) 632-6701", address:"17442 LA-3235, Cut Off, LA 70345" },
+  "new-orleans":     { rating:"4.6", reviews:"", hours:"Open · 24 hours",       area:"Lake Pontchartrain, New Orleans",  phone:"(504) 288-2351", address:"Orleans Marina, New Orleans, LA 70124" },
+  "calcasieu-pass":  { rating:"4.0", reviews:"", hours:"Call ahead",            area:"Lake Charles, LA",                 phone:"",               address:"Calcasieu Pass, LA 70607" },
+  // ── Texas ────────────────────────────────────────────────────────────────
+  "sabine-pass":     { rating:"3.8", reviews:"", hours:"Call ahead",            area:"Sabine Pass, TX",                  phone:"",               address:"Sabine Pass, TX 77655" },
+  "port-arthur":     { rating:"3.9", reviews:"", hours:"Call ahead",            area:"Port Arthur, TX",                  phone:"",               address:"Port Arthur, TX 77640" },
+  "galveston":       { rating:"4.5", reviews:"", hours:"Open · 7 AM–7 PM",      area:"Galveston Harbor, TX",             phone:"(409) 763-3556", address:"2100 Harborside Dr (Pier 21), Galveston, TX 77550" },
+  "freeport":        { rating:"4.0", reviews:"", hours:"Call ahead",            area:"Freeport, TX",                     phone:"",               address:"Freeport, TX 77541" },
+  "matagorda":       { rating:"3.9", reviews:"", hours:"Call ahead",            area:"Matagorda Bay, TX",                phone:"",               address:"Matagorda, TX 77457" },
+  "rockport":        { rating:"4.5", reviews:"", hours:"Open · 8 AM–6 PM",      area:"Rockport–Fulton, TX",              phone:"(361) 729-7525", address:"Municipal Marina, Rockport, TX 78382" },
+  "aransas-pass":    { rating:"4.3", reviews:"", hours:"Open · 7 AM–5 PM",      area:"Aransas Pass, TX",                 phone:"(361) 758-5301", address:"Conn Brown Harbor, Aransas Pass, TX 78336" },
+  "corpus-christi":  { rating:"4.6", reviews:"", hours:"Open · 7 AM–7 PM",      area:"Corpus Christi Bay, TX",           phone:"(361) 826-3980", address:"Lawrence St T-Head, Corpus Christi, TX 78401" },
+  "port-isabel":     { rating:"4.4", reviews:"", hours:"Open · 7 AM–5 PM",      area:"Port Isabel, TX",                  phone:"(956) 943-8030", address:"100 Champion Way, Port Isabel, TX 78578" }
+};
+
+const MARINA_PHOTOS = {
+  "tampa-hooker":    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=60",
+  "tampa-egmont":    "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=400&q=60",
+  "tampa-gandy":     "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=60",
+  "pensacola":       "https://images.unsplash.com/photo-1544551763-cedf7c0a1c5d?auto=format&fit=crop&w=400&q=60",
+  "pensacola-beach": "https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=400&q=60"
+};
+
+function marinaPhoto(id){ return MARINA_PHOTOS[id] || MARINA_PHOTOS["tampa-hooker"]; }
+
+function distMiles(lat1, lon1, lat2, lon2){
+  const R=3958.8, toRad=d=>d*Math.PI/180, dLat=toRad(lat2-lat1), dLon=toRad(lon2-lon1);
+  const a=Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
+  return 2*R*Math.asin(Math.sqrt(a));
+}
+
+function activeSearchCenter(){
+  if(prefs.locKey && LOCATIONS[prefs.locKey]) return { lat:LOCATIONS[prefs.locKey].lat, lon:LOCATIONS[prefs.locKey].lon };
+  if(prefs.custom?.lat != null) return { lat:Number(prefs.custom.lat), lon:Number(prefs.custom.lon) };
+  if(prefs.current?.lat != null) return { lat:Number(prefs.current.lat), lon:Number(prefs.current.lon) };
+  return { lat:27.9, lon:-82.5 };
+}
+
+function openMarinaView(){
+  const view = document.getElementById("marina-view");
+  view.style.display = "flex";
+  // Always open on the list on mobile
+  document.querySelector('.marina-view-row').classList.remove('show-map');
+  _setMarinaToggleIcon(false);
+  updateMarinaSelectedBar();
+  if(!marinaMap){ setTimeout(initMarinaMap, 100); }
+  else { setTimeout(()=>marinaMap.invalidateSize(), 100); }
+  setTimeout(buildMarinaCards, 150);
+}
+
+function toggleMarinaPanel(){
+  const row = document.querySelector('.marina-view-row');
+  const showMap = !row.classList.contains('show-map');
+  row.classList.toggle('show-map', showMap);
+  _setMarinaToggleIcon(showMap);
+  if(showMap && marinaMap) setTimeout(()=>marinaMap.invalidateSize(), 50);
+}
+function _setMarinaToggleIcon(showingMap){
+  const ic = document.getElementById('marina-toggle-icon');
+  if(!ic) return;
+  // Showing map → icon is "list" (switch back to list). Showing list → icon is "map" (switch to map).
+  ic.innerHTML = showingMap
+    ? '<line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>'
+    : '<polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/>';
+}
+
+function closeMarinaView(){
+  document.getElementById("marina-view").style.display = "none";
+}
+
+function toggleAdvisory(){
+  const body = document.getElementById("advisory-body");
+  const arrow = document.getElementById("advisory-arrow");
+  const open = body.style.display === "none";
+  body.style.display = open ? "block" : "none";
+  arrow.style.transform = open ? "rotate(180deg)" : "";
+}
+
+function updateMarinaSelectedBar(){
+  const bar  = document.getElementById("marina-selected-bar");
+  const name = document.getElementById("marina-selected-name");
+  let activeName = "";
+  if(prefs.locKey === "custom" && prefs.custom?.name) activeName = prefs.custom.name;
+  else if(prefs.locKey === "current") activeName = prefs.current?.name || "Current Location";
+  else if(LOCATIONS[prefs.locKey]) activeName = LOCATIONS[prefs.locKey].name;
+  if(activeName){ name.textContent = activeName; bar.classList.add("visible"); }
+  else { bar.classList.remove("visible"); }
+}
+
+async function buildMarinaCards(){
+  const wrap = document.getElementById('marina-results');
+  if(!wrap) return;
+  wrap.innerHTML = '<div style="padding:14px;color:var(--muted)">Loading marinas…</div>';
+  const center = activeSearchCenter();
+  renderBridges(center);
+  const q = (document.getElementById('marina-search-input')?.value || '').toLowerCase().trim();
+
+  // Build base entries from LOCATIONS
+  const base = Object.entries(LOCATIONS).map(([id, loc]) => ({
+    id, ...loc, source:'saved',
+    meta: MARINA_META[id] || {},
+    dist: Math.round(distMiles(center.lat, center.lon, loc.lat, loc.lon))
+  }));
+
+  // Fetch live nearby marinas (localStorage 24h → in-memory 2min fallback)
+  let live = [];
+  try{
+    if(!marinaLiveAt || (Date.now()-marinaLiveAt) > 120000 || !marinaLiveCache.length){
+      const lsCached = loadMarinaCacheLs(center.lat, center.lon);
+      if(lsCached){
+        marinaLiveCache = lsCached;
+      } else {
+        marinaLiveCache = await fetchNearbyMarinas(center.lat, center.lon, 48280);
+        saveMarinaCacheLs(center.lat, center.lon, marinaLiveCache);
+      }
+      marinaLiveAt = Date.now();
+    }
+    live = marinaLiveCache.map((m,i) => ({
+      id:'live-'+i, ...m, source:'live',
+      meta:{ rating:'', reviews:'', hours:'', area:'', phone:m.tags.phone||m.tags['contact:phone']||'' },
+      dist:Math.round(distMiles(center.lat, center.lon, m.lat, m.lon))
+    }));
+  }catch(e){ console.warn('Nearby marina fetch failed', e); }
+
+  // Deduplicate and sort by distance
+  const seen = new Set();
+  const entries = [...base, ...live].filter(m=>{
+    const key = (m.name+'|'+m.lat.toFixed(5)+'|'+m.lon.toFixed(5)).toLowerCase();
+    if(seen.has(key)) return false; seen.add(key); return true;
+  }).sort((a,b)=>(a.dist??99999)-(b.dist??99999));
+
+  wrap.innerHTML = '';
+  for(const m of entries){
+    const hay = `${m.name} ${m.sub||''} ${m.id} ${m.meta?.area||''} ${m.meta?.hours||''}`.toLowerCase();
+    if(q && !hay.includes(q)) continue;
+    const isLive = m.source === 'live';
+    const isActive = prefs.locKey === m.id;
+    const div = document.createElement('div');
+    div.className = 'marina-card' + (isActive ? ' marina-active' : '');
+    div.onclick = () => selectMarinaFromCard(m.id, m);
+    const phoneHref = m.meta?.phone ? String(m.meta.phone).replace(/[^0-9+]/g,'') : '';
+    const mapsQuery = encodeURIComponent(m.meta?.address || m.name);
+    div.innerHTML = `
+      <img class="marina-thumb" src="${marinaPhoto(isLive ? 'tampa-hooker' : m.id)}" alt="${m.name}" loading="lazy">
+      <div class="marina-main">
+        <div class="marina-title">${m.name}${m.meta?.warn ? ' <span style="font-size:11px;font-weight:700;color:var(--warn);background:var(--warn-hl);padding:1px 6px;border-radius:99px;vertical-align:middle">⚠ Advisory</span>' : ''}</div>
+        <div class="marina-meta">
+          ${isLive ? '<span>Nearby marina</span>' : (m.meta.rating ? `<span>★ ${m.meta.rating}${m.meta.reviews ? ' ('+m.meta.reviews+')' : ''}</span>` : '<span>Saved station</span>')}
+          ${m.dist != null ? `<span>• ${m.dist} mi</span>` : ''}
+        </div>
+        ${m.meta?.address ? `<div class="marina-meta" style="margin-top:2px"><a href="https://www.google.com/maps/search/?api=1&query=${mapsQuery}" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:none;font-size:12px" onclick="event.stopPropagation()">📍 ${m.meta.address}</a></div>` : ''}
+        ${m.meta?.phone
+          ? `<div class="marina-meta" style="margin-top:2px"><a href="tel:${phoneHref}" style="color:var(--primary);text-decoration:none;font-weight:600;font-size:13px" onclick="event.stopPropagation()">📞 ${m.meta.phone}</a></div>`
+          : !isLive ? `<div class="marina-meta" style="margin-top:2px"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(m.meta?.area||m.name)}" target="_blank" rel="noopener" style="color:var(--primary);text-decoration:none;font-size:12px" onclick="event.stopPropagation()">🔍 Find marinas nearby</a></div>` : ''}
+        ${m.meta?.hours ? `<div class="marina-meta" style="margin-top:2px;font-size:11px;${m.meta?.warn ? 'color:var(--warn);font-weight:600;opacity:1' : 'opacity:.75'}">${m.meta?.warn ? '' : '🕐 '}${m.meta.hours}</div>` : ''}
+        <div class="marina-actions">
+          <button class="marina-mini" onclick="event.stopPropagation();selectMarinaFromCard('${m.id}',null)">Set Active</button>
+          <button class="marina-mini secondary" onclick="event.stopPropagation();toggleAshore(this,${m.lat},${m.lon},${marinaHasFuelTag(m.tags)})">⛽🍴 Ashore</button>
+          <button class="marina-mini secondary" onclick="event.stopPropagation();focusMarina(${m.lat},${m.lon})">Focus Map</button>
+        </div>
+      </div>`;
+    wrap.appendChild(div);
+  }
+  if(!wrap.children.length){
+    wrap.innerHTML = '<div style="padding:14px;color:var(--muted)">No marinas found.</div>';
+  }
+}
+
+function focusMarina(lat, lon){
+  if(!marinaMap || lat == null || lon == null) return;
+  marinaMap.setView([lat, lon], 14);
+  // On mobile, auto-switch to map panel so the user sees it
+  if(window.innerWidth < 600){
+    document.querySelector('.marina-view-row').classList.add('show-map');
+    _setMarinaToggleIcon(true);
+    setTimeout(()=>marinaMap.invalidateSize(), 50);
+  }
+}
+
+function selectMarinaFromCard(id, liveData){
+  const saved = id && LOCATIONS[id] ? LOCATIONS[id] : null;
+  const live = (!saved && liveData && typeof liveData === 'object') ? liveData : null;
+  const loc = saved || live;
+  if(!loc){ toast('Unknown marina'); return; }
+
+  if(live){
+    prefs.locKey = 'custom';
+    prefs.custom = { enabled:true, name:loc.name, lat:loc.lat, lon:loc.lon, stationId:'' };
+    toast('Live marina set — add a NOAA station ID in preferences for tide data');
+  } else {
+    prefs.locKey = id;
+    prefs.custom = { ...prefs.custom, enabled:false };
+    toast('Selected: ' + loc.name);
+  }
+  savePrefsToStorage();
+  syncPrefsUI();
+  updateMarinaSelectedBar();
+  document.getElementById('loc-name').textContent = loc.name;
+  document.getElementById('loc-sub').textContent  = (saved?.sub || loc.sub || '') + ' · loading…';
+  if(marinaMap) focusMarina(loc.lat, loc.lon);
+  buildMarinaCards(); // refresh to show active highlight
+  loadAll();
+}
+
+function initMarinaMap(){
+  const mapEl = document.getElementById("marina-map");
+  if(marinaMap){ marinaMap.invalidateSize(); return; }
+  marinaMap = L.map(mapEl);
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", { maxZoom:19, attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>', subdomains:'abcd' }).addTo(marinaMap);
+  marinaCluster = L.markerClusterGroup({ spiderfyOnMaxZoom:true, showCoverageOnHover:true, zoomToBoundsOnClick:true });
+  marinaMap.addLayer(marinaCluster);
+  loadMarinaMarkers();
+  setTimeout(() => {
+    const layers = marinaCluster.getLayers();
+    if(layers.length > 0){
+      const group = L.featureGroup(layers);
+      marinaMap.fitBounds(group.getBounds(), { padding:[50,50] });
+    } else {
+      marinaMap.setView([27.9, -82.5], 9);
+    }
+    marinaMap.invalidateSize();
+  }, 200);
+}
+
+function loadMarinaMarkers(){
+  if(!marinaCluster) return;
+  marinaCluster.clearLayers();
+  const marinas = [];
+  for(const [key, loc] of Object.entries(LOCATIONS)){
+    marinas.push({ id:key, name:loc.name, lat:loc.lat, lon:loc.lon, stationId:loc.stationId, type:"saved" });
+  }
+  if(prefs.custom?.enabled && prefs.custom?.lat != null){
+    marinas.push({ id:"custom", name:prefs.custom.name, lat:prefs.custom.lat, lon:prefs.custom.lon, stationId:prefs.custom.stationId, type:"custom" });
+  }
+  if(prefs.current?.enabled && prefs.current?.lat != null){
+    marinas.push({ id:"current", name:prefs.current.name||"Current Location", lat:prefs.current.lat, lon:prefs.current.lon, stationId:prefs.current.stationId, type:"boat" });
+  }
+  const boatLat = prefs.current?.lat ?? null;
+  const boatLon = prefs.current?.lon ?? null;
+  for(const m of marinas){
+    const marker = L.marker([m.lat, m.lon]);
+    marker._marinaName = m.name;
+    const meta = MARINA_META[m.id] || {};
+    const phoneHref = meta.phone ? String(meta.phone).replace(/[^0-9+]/g,'') : '';
+    const mapsQuery = encodeURIComponent(meta.address || m.name);
+    let distLine = '';
+    if(boatLat != null && boatLon != null){
+      const distM = marinaMap.distance([boatLat, boatLon], [m.lat, m.lon]);
+      distLine = `<div style="color:#888;font-size:12px;margin-bottom:6px">${distM < 1000 ? distM.toFixed(0)+' m' : (distM/1000).toFixed(2)+' km'} from boat</div>`;
+    }
+    const popup = `
+      <div style="min-width:200px;font-family:sans-serif;line-height:1.5">
+        <div style="font-weight:700;font-size:15px;margin-bottom:4px">${m.name}</div>
+        ${distLine}
+        ${meta.address ? `<div style="font-size:12px;margin-bottom:4px"><a href="https://www.google.com/maps/search/?api=1&query=${mapsQuery}" target="_blank" rel="noopener" style="color:#4f98a3;text-decoration:none">📍 ${meta.address}</a></div>` : ''}
+        ${meta.phone
+          ? `<div style="font-size:13px;margin-bottom:4px"><a href="tel:${phoneHref}" style="color:#4f98a3;font-weight:600;text-decoration:none">📞 ${meta.phone}</a></div>`
+          : m.type !== "boat" ? `<div style="font-size:12px;margin-bottom:4px"><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(meta.area||m.name)}" target="_blank" rel="noopener" style="color:#4f98a3;text-decoration:none">🔍 Find marinas nearby</a></div>` : ''}
+        ${meta.hours ? `<div style="font-size:11px;color:#888;margin-bottom:6px">🕐 ${meta.hours}</div>` : ''}
+        ${m.type === "boat" ? '<div style="font-style:italic;font-size:12px;color:#888">Your current location</div>' : `<button onclick="selectMarinaFromCard('${m.id}',null)" style="margin-top:4px;background:#4f98a3;color:#fff;border:none;border-radius:8px;padding:5px 12px;cursor:pointer;font-size:12px">Set Active</button>`}
+      </div>`;
+    marker.bindPopup(popup, { maxWidth: 260 });
+    marker.on("click", () => marker.openPopup());
+    marinaCluster.addLayer(marker);
+  }
+}
+
+function useCurrentLocationForMarina(){
+  if(!("geolocation" in navigator)){ toast("Geolocation not available"); return; }
+  toast("Requesting current GPS…");
+  navigator.geolocation.getCurrentPosition(pos => {
+    const lat = +pos.coords.latitude.toFixed(4), lon = +pos.coords.longitude.toFixed(4);
+    const nearest = nearestStationId(lat, lon);
+    prefs.locKey = "current";
+    prefs.current = { enabled:true, name:"Current Location", lat, lon, stationId:nearest.id, stationName:nearest.name };
+    savePrefsToStorage(); syncPrefsUI();
+    document.getElementById("p-loc").value = "current"; toggleCustomFields();
+    toast(`GPS: ${lat}, ${lon} · ${nearest.name}`);
+    if(marinaMap){ loadMarinaMarkers(); marinaMap.setView([lat, lon], 12); }
+    updateMarinaSelectedBar();
+  }, err => { toast(`GPS failed: ${err.message}`); }, { enableHighAccuracy:true, timeout:10000, maximumAge:0 });
+}
+
+// ─────────────────────────────────────────────
+// 7-DAY FORECAST
+// ─────────────────────────────────────────────
+async function fetch7DayTides(stationId){
+  const today = new Date();
+  const end = new Date(today); end.setDate(end.getDate()+6);
+  const fmt = d => `${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}`;
+  const url = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?product=predictions&application=sailwindow&begin_date=${fmt(today)}&end_date=${fmt(end)}&datum=MLLW&station=${stationId}&time_zone=lst_ldt&units=english&interval=h&format=json`;
+  const res = await fetch(url); if(!res.ok) throw new Error(`NOAA 7-day failed: ${res.status}`);
+  const json = await res.json(); if(json.error) throw new Error('NOAA 7-day: '+json.error.message);
+  return json.predictions;
+}
+
+function groupPeriodsByDay(periods){
+  const groups = {};
+  for(const p of periods){
+    const d = new Date(p.startTime);
+    const key = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+    if(!groups[key]) groups[key] = { key, date:new Date(d.getFullYear(),d.getMonth(),d.getDate()), periods:[] };
+    groups[key].periods.push(p);
+  }
+  return Object.values(groups).sort((a,b)=>a.date-b.date);
+}
+
+function groupTidesByDay(tideArr){
+  const groups = {};
+  for(const t of tideArr){
+    const d = new Date(t.t);
+    const key = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+    if(!groups[key]) groups[key]=[];
+    groups[key].push(t);
+  }
+  return groups;
+}
+
+function score7Days(dayGroups, tidesByDay){
+  const DAY_NAMES  = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const MON_NAMES  = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const td = new Date();
+  const todayKey = `${td.getFullYear()}-${String(td.getMonth()+1).padStart(2,'0')}-${String(td.getDate()).padStart(2,'0')}`;
+  return dayGroups.slice(0,7).map((dayData,i)=>{
+    const { key, date, periods } = dayData;
+    const tideArr = tidesByDay[key] || [];
+    const tideMap = buildTideMap(periods, tideArr);
+    const win = findBestWindow(periods, tideMap);
+    const score = Math.max(0, Math.round(win.score*10)/10);
+    const isToday = key===todayKey;
+    const dayLabel = isToday ? 'TODAY' : i===1 ? 'TOMORROW' : DAY_NAMES[date.getDay()].toUpperCase();
+    const dateLabel = `${DAY_NAMES[date.getDay()]} · ${MON_NAMES[date.getMonth()]} ${date.getDate()}`;
+    return { date, key, dayLabel, dateLabel, score, win, tideArr };
+  });
+}
+
+function dayConditionTags(slice){
+  if(!slice||!slice.length) return [];
+  const winds  = slice.map(p=>parseWindKts(p.windSpeed));
+  const gusts  = slice.map(p=>parseWindKts(p.windGust||'')||parseWindKts(p.windSpeed));
+  const precips= slice.map(p=>p.probabilityOfPrecipitation?.value??0);
+  const dirs   = [...new Set(slice.map(p=>p.windDirection||'').filter(Boolean))].slice(0,2).join('/');
+  const minW=Math.min(...winds), maxW=Math.max(...winds), maxG=Math.max(...gusts);
+  const avgP=Math.round(precips.reduce((a,b)=>a+b,0)/precips.length);
+  const thunder=slice.some(p=>/thunder|severe/i.test(p.shortForecast||''));
+  return [
+    `💨 ${minW}–${maxW} kt${dirs?' '+dirs:''}`,
+    `⚡ ${maxG} kt`,
+    thunder ? '⛈ Storm risk' : `⛈ Rain ${avgP}%`
+  ];
+}
+
+function open7DayView(){
+  if(trialStatus().state === 'expired'){ openSubscribeModal('locked'); return; }
+  const view = document.getElementById('sevenday-view');
+  view.style.display = 'flex';
+  // update active nav
+  document.querySelectorAll('.nav-item').forEach(el=>el.classList.remove('active'));
+  document.getElementById('nav-7day').classList.add('active');
+  load7Day();
+}
+function close7DayView(){
+  document.getElementById('sevenday-view').style.display = 'none';
+  document.getElementById('feedback-view').style.display = 'none';
+  document.querySelectorAll('.nav-item').forEach(el=>el.classList.remove('active'));
+  document.querySelector('.nav-item[data-tab="today"]').classList.add('active');
+}
+
+async function load7Day(){
+  const body = document.getElementById('sevenday-body');
+  const locEl = document.getElementById('sevenday-loc');
+  body.innerHTML = '<div style="padding:2rem;text-align:center;color:var(--muted)">Fetching 7-day data…</div>';
+  try{
+    let loc;
+    if(prefs.locKey==='custom')      loc={name:prefs.custom?.name||'My Marina',sub:'NOAA '+(prefs.custom?.stationId||'—'),lat:+prefs.custom?.lat,lon:+prefs.custom?.lon,stationId:String(prefs.custom?.stationId||'')};
+    else if(prefs.locKey==='current') loc={name:prefs.current?.name||'Current Location',sub:'GPS',lat:+prefs.current?.lat,lon:+prefs.current?.lon,stationId:String(prefs.current?.stationId||'')};
+    else                              loc=LOCATIONS[prefs.locKey];
+    locEl.textContent = loc.name+' · '+loc.sub+' · Preferences: '+prefs.windMin+'–'+prefs.windMax+' kt, max gust '+prefs.gustMax+' kt';
+    const nwsData  = lastHourlyData.length>0 ? lastHourlyData : await fetchNWS(loc.lat, loc.lon);
+    const tideArr  = await fetch7DayTides(loc.stationId);
+    const days     = score7Days(groupPeriodsByDay(nwsData), groupTidesByDay(tideArr));
+    build7DayCards(days);
+  }catch(err){
+    body.innerHTML = `<div style="padding:1.5rem;color:var(--warn);font-size:var(--sm)">⚠ ${err.message}<br><br>Check your connection and try again.</div>`;
+    locEl.textContent = 'Could not load data';
+  }
+}
+
+function build7DayCards(days){
+  const body = document.getElementById('sevenday-body');
+  body.innerHTML = '';
+  for(const day of days){
+    const q = qualityLabel(day.score);
+    const noWin = !day.win.startTime;
+    const tags  = day.win.slice?.length ? dayConditionTags(day.win.slice) : [];
+    const card  = document.createElement('div');
+    card.className = 'day-card';
+    card.style.setProperty('--stripe-a', q.stripe[0]);
+    card.style.setProperty('--stripe-b', q.stripe[1]);
+    card.innerHTML = `
+      <div class="day-inner">
+        <div class="day-top">
+          <div>
+            <div class="day-label">${day.dayLabel}</div>
+            <div class="day-date">${day.dateLabel}</div>
+          </div>
+          <div class="day-score-block">
+            <div class="day-score-num">${day.score.toFixed(1)}<span>/10</span></div>
+            <div class="quality-badge ${q.cls}" style="margin-top:var(--sp2)">${q.emoji} ${q.lbl}</div>
+          </div>
+        </div>
+        ${noWin
+          ? `<div style="font-size:var(--sm);color:var(--error);font-weight:500">No suitable sailing window today</div>`
+          : `<div class="day-window">
+               <span style="font-size:var(--sm);font-weight:500">${fmtTime(day.win.startTime)} → ${fmtTime(day.win.endTime)}</span>
+               <span class="win-dur">${prefs.durationHrs} hr</span>
+             </div>`}
+        <div class="reasons">${tags.map(t=>`<span class="rtag">${t}</span>`).join('')}</div>
+      </div>`;
+    body.appendChild(card);
+  }
+}
+
+// ─────────────────────────────────────────────
+// HELP OVERLAY
+// ─────────────────────────────────────────────
+function openHelp(){
+  const v = document.getElementById('help-view');
+  v.style.display = 'flex';
+  const b = document.getElementById('help-body');
+  if(b) b.scrollTop = 0;
+}
+function closeHelp(){
+  document.getElementById('help-view').style.display = 'none';
+}
+
+// ─────────────────────────────────────────────
+// TRIAL & SUBSCRIPTION SYSTEM
+// ─────────────────────────────────────────────
+const TRIAL_DAYS     = 7;
+const TRIAL_KEY      = "sailwindow.trial.start";
+const SUB_KEY        = "sailwindow.subscription";
+const FREE_KEYS      = new Set(["tampa-hooker","tampa-egmont","tampa-gandy","pensacola","pensacola-beach"]);
+// TODO: replace with your live Stripe Payment Links
+const STRIPE_MONTHLY    = "https://buy.stripe.com/28EeV73mk86kaUuc6Q7Re00";
+const STRIPE_ANNUAL     = "https://buy.stripe.com/4gM8wJf521HW8MmeeY7Re01";
+const FEEDBACK_EMAIL    = "feedback@sailwindow.com";
+const MARINA_CACHE_KEY  = "sailwindow.marina.v1";
+const MARINA_CACHE_TTL  = 24 * 60 * 60 * 1000; // 24 hours
+
+let _selectedPlan = "monthly";
+
+function trialStatus(){
+  // subscribed always wins
+  if(storageAvailable() && localStorage.getItem(SUB_KEY) === "active")
+    return { state:"subscribed", daysLeft:null };
+
+  let raw = storageAvailable() ? localStorage.getItem(TRIAL_KEY) : null;
+
+  // first visit or storage lost: start trial now
+  if(!raw){
+    raw = String(Date.now());
+    try{
+      if(storageAvailable()) localStorage.setItem(TRIAL_KEY, raw);
+    }catch(e){
+      console.warn("Could not save trial key:", e);
+      // if storage fails, still grant trial — assume this is a new visit
+    }
+  }
+
+  const startTime = parseInt(raw, 10);
+  if(isNaN(startTime)){
+    // corrupted key, reset
+    raw = String(Date.now());
+    try{
+      if(storageAvailable()) localStorage.setItem(TRIAL_KEY, raw);
+    }catch(e){ /* storage unavailable */ }
+    return { state:"trial", daysLeft:TRIAL_DAYS };
+  }
+
+  const daysLeft = Math.ceil(TRIAL_DAYS - (Date.now() - startTime) / 86400000);
+  if(daysLeft > 0) return { state:"trial", daysLeft };
+  return { state:"expired", daysLeft:0 };
+}
+
+function isLocked(locKey){
+  const s = trialStatus();
+  if(s.state === "subscribed" || s.state === "trial") return false;
+  return !FREE_KEYS.has(locKey);
+}
+
+function logTrialStatus(){
+  const s = trialStatus();
+  console.log(`[Trial] state=${s.state}, daysLeft=${s.daysLeft}, locked(current)=${isLocked(prefs.locKey)}`);
+}
+
+function updateTrialBanner(){
+  const s   = trialStatus();
+  const wrap = document.getElementById("trial-banner");
+  const bar  = document.getElementById("trial-bar-inner");
+  const txt  = document.getElementById("trial-days-text");
+  if(!wrap) return;
+  if(s.state !== "trial"){ wrap.style.display = "none"; return; }
+  const d = s.daysLeft;
+  wrap.style.display = "block";
+  bar.className = "trial-bar " + (d <= 2 ? "trial-bar-e" : d <= 4 ? "trial-bar-w" : "trial-bar-p");
+  txt.textContent = d === 1 ? "1 day" : d + " days";
+}
+
+function checkTrialGate(){
+  if(trialStatus().state === "expired") showExpiredOverlay();
+}
+
+function showExpiredOverlay(){
+  document.getElementById("sub-headline").textContent = "Your 7-day free trial has ended";
+  document.getElementById("sub-free-option").style.display = "block";
+  document.getElementById("sub-dismiss").style.display    = "none";
+  document.getElementById("subscribe-overlay").style.display = "flex";
+  updateLockState();
+}
+
+function openSubscribeModal(mode){
+  const isUpgrade = mode === "upgrade";
+  document.getElementById("sub-headline").textContent = isUpgrade
+    ? "Upgrade for full Gulf Coast access"
+    : "Your 7-day free trial has ended";
+  document.getElementById("sub-free-option").style.display = "block";
+  document.getElementById("sub-dismiss").style.display    = isUpgrade ? "block" : "none";
+  document.getElementById("sub-activate").style.display   = "none";
+  document.getElementById("subscribe-overlay").style.display = "flex";
+}
+
+function closeSubscribeModal(){
+  document.getElementById("subscribe-overlay").style.display = "none";
+}
+
+function handleOverlayClick(e){
+  if(e.target === document.getElementById("subscribe-overlay")){
+    const s = trialStatus();
+    if(s.state !== "expired") closeSubscribeModal();
+  }
+}
+
+function selectPlan(plan){
+  _selectedPlan = plan;
+  document.getElementById("price-monthly").className = "price-card" + (plan === "monthly" ? " selected" : "");
+  document.getElementById("price-annual").className  = "price-card" + (plan === "annual"  ? " selected" : "");
+}
+
+function handleStripeCheckout(){
+  const url = _selectedPlan === "annual" ? STRIPE_ANNUAL : STRIPE_MONTHLY;
+  if(url === "#"){
+    toast("Stripe not yet configured — set STRIPE_MONTHLY / STRIPE_ANNUAL URLs in the code");
+    return;
+  }
+  // keep the app open in this tab so the user can activate after paying
+  window.open(url, "_blank", "noopener");
+  document.getElementById("sub-activate").style.display = "block";
+}
+
+function activateSubscription(){
+  if(storageAvailable()) localStorage.setItem(SUB_KEY, "active");
+  closeSubscribeModal();
+  updateTrialBanner();
+  updateLockState();
+  toast("✦ Subscription active — all 32 stations unlocked");
+  loadAll();
+}
+
+function chooseFreeMode(){
+  closeSubscribeModal();
+  if(isLocked(prefs.locKey)){
+    prefs.locKey = "tampa-hooker";
+    savePrefsToStorage();
+    syncPrefsUI();
+    loadAll();
+  }
+  updateLockState();
+  toast("Free access: Tampa Bay & Pensacola stations");
+}
+
+function updateLockState(){
+  const expired = trialStatus().state === "expired";
+  ["p-loc","chooser-marina-select"].forEach(id => {
+    const sel = document.getElementById(id);
+    if(!sel) return;
+    sel.querySelectorAll("option").forEach(opt => {
+      if(!opt.value) return;
+      const locked = expired && !FREE_KEYS.has(opt.value);
+      opt.disabled = locked;
+      if(!opt.dataset.orig) opt.dataset.orig = opt.textContent;
+      opt.textContent = locked ? "🔒 " + opt.dataset.orig : opt.dataset.orig;
+    });
+  });
+}
+
+// ─────────────────────────────────────────────
+// INIT
+// ─────────────────────────────────────────────
+document.addEventListener("DOMContentLoaded", () => {
+  loadPrefsFromStorage();
+  if(window.PRESELECT_LOCATION && LOCATIONS[window.PRESELECT_LOCATION]){
+    prefs.locKey = window.PRESELECT_LOCATION;
+  }
+  logTrialStatus();
+  syncPrefsUI();
+  applySavedTheme();
+  updateTrialBanner();
+  checkTrialGate();
+  loadAll();
+});
+</script>
+
+<!-- Subscribe / Trial Expired overlay -->
+<div id="subscribe-overlay" onclick="handleOverlayClick(event)">
+  <div class="sub-card" onclick="event.stopPropagation()">
+
+    <!-- Logo + title -->
+    <div style="text-align:center">
+      <svg width="40" height="40" viewBox="0 0 32 32" fill="none" style="margin:0 auto var(--sp2)"><circle cx="16" cy="16" r="16" fill="var(--primary)" opacity=".12"/><line x1="16" y1="22" x2="16" y2="8" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"/><path d="M16 8 L24 21 L16 22 Z" fill="var(--primary)" opacity=".85"/><path d="M16 12 L10 21 L16 22 Z" fill="var(--primary)" opacity=".4"/><path d="M7 25.5 Q10 23.5 13 25.5 Q16 27.5 19 25.5 Q22 23.5 25 25.5" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".6"/></svg>
+      <div style="font-size:var(--lg);font-weight:700;letter-spacing:-.01em">Sail<span style="color:var(--primary)">Window</span> <span style="font-weight:300;opacity:.45">Pro</span></div>
+      <div id="sub-headline" style="font-size:var(--sm);color:var(--muted);margin-top:var(--sp2)">Full Gulf Coast coverage — all 35 stations</div>
+    </div>
+
+    <div class="sub-divider"></div>
+
+    <!-- Feature list -->
+    <div style="display:flex;flex-direction:column;gap:var(--sp2)">
+      <div class="sub-feature"><span class="sub-check">✓</span><span>All 35 Gulf Coast stations — Texas to the Florida Keys</span></div>
+      <div class="sub-feature"><span class="sub-check">✓</span><span>7-Day sailing forecast with daily sailability scoring</span></div>
+      <div class="sub-feature"><span class="sub-check">✓</span><span>Live marina map with 30-mile proximity search</span></div>
+      <div class="sub-feature"><span class="sub-check">✓</span><span>NOAA tide predictions + best sailing window finder</span></div>
+      <div class="sub-feature"><span class="sub-check">✓</span><span>Hurricane &amp; marina status advisories (2026)</span></div>
+      <div class="sub-feature"><span class="sub-check">✓</span><span>Referral credits — earn free months by sharing</span></div>
+    </div>
+
+    <div class="sub-divider"></div>
+
+    <!-- Pricing toggle -->
+    <div class="price-row">
+      <div class="price-card selected" id="price-monthly" onclick="selectPlan('monthly')">
+        <div class="price-amount">$5<span style="font-size:.45em;font-weight:400;opacity:.7">.99</span></div>
+        <div class="price-per">per month</div>
+      </div>
+      <div class="price-card" id="price-annual" onclick="selectPlan('annual')">
+        <div class="price-amount">$49<span style="font-size:.45em;font-weight:400;opacity:.7">/yr</span></div>
+        <div class="price-per">billed annually</div>
+        <div class="price-save">Save 32%</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <button class="save-btn" onclick="handleStripeCheckout()">Start Subscription →</button>
+
+    <!-- Post-checkout activation (revealed after checkout opens) -->
+    <div id="sub-activate" style="display:none;text-align:center;margin-top:var(--sp3)">
+      <p style="font-size:var(--xs);color:var(--muted);margin-bottom:var(--sp2)">Checkout opened in a new tab. Once your payment is complete, come back and tap below.</p>
+      <button class="save-btn" style="background:var(--success)" onclick="activateSubscription()">I've paid — Activate ✓</button>
+    </div>
+
+    <!-- Free tier fallback -->
+    <div id="sub-free-option" style="text-align:center;display:none">
+      <button onclick="chooseFreeMode()" style="font-size:var(--xs);color:var(--muted);background:none;border:none;cursor:pointer;text-decoration:underline;padding:var(--sp2)">Continue free — Tampa Bay &amp; Pensacola only</button>
+    </div>
+
+    <!-- Dismiss (only when upgrading mid-trial) -->
+    <div id="sub-dismiss" style="text-align:center;display:none">
+      <button onclick="closeSubscribeModal()" style="font-size:var(--xs);color:var(--faint);background:none;border:none;cursor:pointer;padding:var(--sp1)">Maybe later</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ─────────────────────────────────────────────
+// FEEDBACK VIEW
+// ─────────────────────────────────────────────
+let _fbCat = "back";
+
+function openFeedbackView(){
+  if(trialStatus().state === 'expired'){ openSubscribeModal('locked'); return; }
+  document.getElementById('feedback-view').style.display = 'flex';
+  document.querySelectorAll('.nav-item').forEach(el=>el.classList.remove('active'));
+  document.getElementById('nav-feedback').classList.add('active');
+  resetFeedbackForm();
+}
+
+function closeFeedbackView(){
+  document.getElementById('feedback-view').style.display = 'none';
+  document.querySelectorAll('.nav-item').forEach(el=>el.classList.remove('active'));
+  document.querySelector('.nav-item[data-tab="today"]').classList.add('active');
+}
+
+function selectFbCat(btn){
+  document.querySelectorAll('.fb-cat').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  _fbCat = btn.dataset.cat;
+  document.getElementById('fb-marina-row').style.display = _fbCat === 'app' ? 'none' : '';
+  const placeholders = {
+    back:   "e.g. Fuel dock is back open as of this week — called ahead and confirmed.",
+    closed: "e.g. Seawall still damaged, no transient slips as of June 2026.",
+    info:   "e.g. Phone number shown is wrong; correct number is (850) 555-0100.",
+    app:    "Feature idea, bug report, or anything else on your mind."
+  };
+  document.getElementById('fb-details').placeholder = placeholders[_fbCat];
+}
+
+function submitFeedback(e){
+  e.preventDefault();
+  const marina  = document.getElementById('fb-marina').value.trim();
+  const details = document.getElementById('fb-details').value.trim();
+  const email   = document.getElementById('fb-email').value.trim();
+  if(!details){ toast("Please add some details before sending."); return; }
+  const labels  = { back:"Marina Back Online", closed:"Marina Closed/Damaged", info:"Wrong Info", app:"App Feedback" };
+  const subject = encodeURIComponent(`[SailWindow] ${labels[_fbCat]}${marina ? ' — '+marina : ''}`);
+  const body    = encodeURIComponent(`Type: ${labels[_fbCat]}\n${marina?'Marina: '+marina+'\n':''}Details: ${details}\n${email?'Contact: '+email+'\n':''}\n— Sent from SailWindow`);
+  window.open(`mailto:${FEEDBACK_EMAIL}?subject=${subject}&body=${body}`, '_blank');
+  document.getElementById('feedback-form').style.display = 'none';
+  document.getElementById('fb-confirm').style.display = '';
+}
+
+function resetFeedbackForm(){
+  _fbCat = 'back';
+  document.querySelectorAll('.fb-cat').forEach(b=>b.classList.remove('active'));
+  document.querySelector('.fb-cat[data-cat="back"]').classList.add('active');
+  document.getElementById('fb-marina-row').style.display = '';
+  document.getElementById('fb-marina').value  = '';
+  document.getElementById('fb-details').value = '';
+  document.getElementById('fb-email').value   = '';
+  document.getElementById('fb-details').placeholder = "e.g. Fuel dock is back open as of this week — called ahead and confirmed.";
+  document.getElementById('feedback-form').style.display = '';
+  document.getElementById('fb-confirm').style.display    = 'none';
+}
+</script>
+</body>
+</html>

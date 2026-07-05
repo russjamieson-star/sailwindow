@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SailWindow · Competitive Battlecard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f6f2;--surface:#fff;--divider:#dcd9d5;--text:#28251d;--muted:#6b6a65;
+  --primary:#01696f;--primary-hl:#e2eeec;--warn:#964219;--warn-hl:#f5e8df;--success:#437a22;--success-hl:#e4ecdc;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:13px;line-height:1.45;padding:28px}
+.page{max-width:880px;margin:0 auto}
+.head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--primary);padding-bottom:8px;margin-bottom:14px}
+.head h1{font-size:19px;letter-spacing:-.02em}.head h1 span{color:var(--primary)}
+.head .meta{font-size:11px;color:var(--muted);text-align:right}
+.oneliner{background:var(--primary-hl);border-left:4px solid var(--primary);padding:10px 14px;border-radius:6px;margin-bottom:14px;font-size:13.5px}
+.oneliner strong{color:var(--primary)}
+h2{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--primary);margin:14px 0 6px}
+table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--divider);border-radius:8px;overflow:hidden}
+th{text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);padding:7px 9px;border-bottom:1px solid var(--divider);background:#fbfaf8}
+td{padding:7px 9px;border-bottom:1px solid var(--divider);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.app{font-weight:700;white-space:nowrap}
+td.price{white-space:nowrap;color:var(--muted);font-size:12px}
+td.say{color:#3a3933}
+.newtag{display:inline-block;background:var(--warn-hl);color:var(--warn);font-size:9.5px;font-weight:700;padding:1px 6px;border-radius:999px;margin-left:4px;vertical-align:1px}
+.cols{display:grid;grid-template-columns:1.2fr 1fr;gap:14px}
+ul{padding-left:17px;display:flex;flex-direction:column;gap:3px}
+li::marker{color:var(--primary)}
+.concede li::marker{color:var(--warn)}
+.reb{background:var(--surface);border:1px solid var(--divider);border-radius:8px;padding:9px 12px;margin-bottom:6px}
+.reb b{color:var(--primary)}
+.foot{margin-top:14px;padding-top:8px;border-top:1px solid var(--divider);font-size:10px;color:var(--muted)}
+.foot a{color:var(--muted)}
+@media print{
+  body{padding:0;background:#fff;font-size:9.6px;line-height:1.35}
+  .page{max-width:100%}
+  @page{margin:0.9cm}
+  .head h1{font-size:15px}.head{margin-bottom:8px;padding-bottom:5px}
+  .oneliner{font-size:10.3px;padding:7px 10px;margin-bottom:8px}
+  h2{margin:8px 0 4px;font-size:9px}
+  th{padding:4px 7px;font-size:8px}
+  td{padding:4px 7px}
+  td.price{font-size:9px}
+  .newtag{font-size:7.5px}
+  .cols{gap:10px}
+  ul{gap:1px}
+  .reb{padding:5px 9px;margin-bottom:4px}
+  .foot{margin-top:8px;padding-top:5px;font-size:7.5px}
+}
+@media(max-width:640px){ .cols{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="head">
+    <h1>Sail<span>Window</span> · Competitive Battlecard</h1>
+    <div class="meta">For sailing-club pitches · live data collected June 10, 2026<br>Internal — not a handout</div>
+  </div>
+
+  <div class="oneliner">
+    <strong>The answer to "aren't there other apps like this?":</strong> "Those apps show you the weather — SailWindow answers the question: <em>should I go, and when?</em> It knows your comfort range and trip length, scores every daylight window 0–10, hands you a departure time, and tracks which Gulf marinas are actually operational after the storms. Windy gives everyone the same map. SailWindow gives <em>you</em> an answer — for the price of a burgee."
+  </div>
+
+  <h2>The seven names you'll hear — and what to say</h2>
+  <table>
+    <thead><tr><th style="width:14%">App</th><th style="width:24%">What it really is</th><th style="width:15%">Price (verified 6/2026)</th><th>Your response</th></tr></thead>
+    <tbody>
+      <tr><td class="app">Windy / Windfinder</td><td>Beautiful global wind-map viewers</td><td class="price">Free + premium</td><td class="say">"Great maps — same map for everyone. No score, no window, no tide logic. The captain still does the interpreting."</td></tr>
+      <tr><td class="app">SailFlow</td><td>Wind reports &amp; alerts from coastal station network</td><td class="price">Freemium tiers</td><td class="say">"Excellent live wind. But it hands you data points, not a decision — and nothing about your marina's post-storm status."</td></tr>
+      <tr><td class="app">PredictWind</td><td>Pro offshore routing, GRIBs, own weather models</td><td class="price">$249–499/yr</td><td class="say">"The gold standard for crossing oceans — at 4× to 8× our annual price. Nobody opens PredictWind to decide if Tuesday is a nice bay-sail. Different job; we're the everyday layer."</td></tr>
+      <tr><td class="app">savvy navvy</td><td>Nav app with route-based departure scheduler</td><td class="price">$99–169/yr</td><td class="say">"Closest cousin. But theirs needs a plotted route, then you scroll departure times yourself. SailWindow needs nothing — it scores your home waters automatically, every morning, against <em>your</em> limits. And it's $49/yr, not $169."</td></tr>
+      <tr><td class="app">Navionics / Aqua Map</td><td>Charts + crowdsourced marina data (Garmin)</td><td class="price">Subscription</td><td class="say">"Charts answer <em>where</em>; we answer <em>whether and when</em>. Carry both — they're complements, not competitors."</td></tr>
+      <tr><td class="app">Argo</td><td>"Waze of boating" — free social navigation</td><td class="price">Free + premium</td><td class="say">"Powerboat-skewed, East Coast strong, navigation-first. No conditions judgment, no sailing focus."</td></tr>
+      <tr><td class="app">SeaLegs AI <span class="newtag">NEW 2025</span></td><td>AI Go/Caution/Avoid trip ratings + fishing reports, iOS</td><td class="price">10 free credits, then ~$10/125 forecast-days</td><td class="say">"The newest entrant — and it proves captains want an answer, not a map. But it's generic boating with a fishing tilt: no sail-specific preferences, no tide-direction logic, no Gulf marina &amp; hurricane layer, pay-per-forecast credits, iOS only. We're the sailing-specific version of that idea, flat-priced, in any browser."</td></tr>
+    </tbody>
+  </table>
+
+  <div class="cols">
+    <div>
+      <h2>Only SailWindow has (today)</h2>
+      <ul>
+        <li><strong>Personalized 0–10 score</strong> from <em>your</em> wind band, gust ceiling, trip length &amp; tide preference — your own Small Craft Advisory</li>
+        <li><strong>Best departure → return window</strong> for daylight day-sails, no route-plotting required</li>
+        <li><strong>32 verified Gulf Coast NOAA stations</strong> + hurricane recovery status by facility (Michael · Ian · Helene · Milton)</li>
+        <li><strong>Any browser, no install</strong> — works on the club projector, the dock, your phone</li>
+        <li><strong>Free Tampa Bay &amp; Pensacola tier</strong>; full access $5.99/mo or $49/yr flat</li>
+        <li><strong>Coming:</strong> pre-sail checklist + shareable float plan, on-water assist line, dock fuel prices</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Concede these honestly (it builds trust)</h2>
+      <ul class="concede">
+        <li>Crossing to Mexico? Use <strong>PredictWind</strong> — that's its job.</li>
+        <li>Navigating skinny water? You still need <strong>charts</strong> (Navionics / Aqua Map).</li>
+        <li>SeaLegs proves AI go/no-go is a real category — <em>we're the sailing-specific, Gulf-local one.</em></li>
+      </ul>
+      <h2>Rapid-fire rebuttals</h2>
+      <div class="reb"><b>"It's all just NOAA data."</b> So is everyone's. NOAA's Small Craft Advisory is one-size-fits-all; SailWindow is <em>your</em>-size. The product is the judgment, not the data.</div>
+      <div class="reb"><b>"Windy is free."</b> A map should be free. An answer is worth $5.99 — less than one gallon of diesel.</div>
+      <div class="reb"><b>"I just look at the sky."</b> The sky at 9 AM doesn't show the 2 PM gust line or the ebb at the pass. The score does.</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    Sources: yacht.de 2026 weather-app roundup · sealegs.ai/app · predictwind.com/pricing · savvy-navvy.com/pricing &amp; wavveboating.com pricing guides · argonav.io · SailFlow (Google Play) · discoverboating.com app guide. Prices checked June 10, 2026 — re-verify before quoting in print.
+  </div>
+
+</div>
+</body>
+</html>

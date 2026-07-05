@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<!-- SailWindow Landing Page · V6 -->
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#171614">
+<title>SailWindow — Gulf Coast Sailing Conditions</title>
+<meta name="description" content="Live sailing conditions, wind, tide, and best-departure windows for 35 Gulf Coast marinas. Built by a sailor for sailors.">
+<meta property="og:title" content="SailWindow — Gulf Coast Sailing Conditions">
+<meta property="og:description" content="Know when to go. Live wind, tide, and sailability scores for 35 Gulf Coast marinas.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sailwindow.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root,[data-theme="light"]{
+  --bg:#f7f6f2;--surface:#f9f8f5;--surface2:#fbfbf9;--offset:#f3f0ec;
+  --dynamic:#e6e4df;--divider:#dcd9d5;--border:#d4d1ca;
+  --text:#28251d;--muted:#7a7974;--faint:#bab9b4;--inverse:#f9f8f4;
+  --primary:#01696f;--primary-h:#0c4e54;--primary-hl:#cedcd8;
+  --success:#437a22;--success-hl:#d4dfcc;
+  --warn:#964219;--warn-hl:#ddcfc6;
+  --error:#a12c7b;--error-hl:#e0ced7;
+  --gold:#b07a00;--gold-hl:#e9e0c6;
+  --sh-sm:0 1px 2px oklch(0.2 0.01 80/.06);
+  --sh-md:0 4px 12px oklch(0.2 0.01 80/.08);
+  --sh-lg:0 12px 32px oklch(0.2 0.01 80/.12);
+  --r-sm:.375rem;--r-md:.5rem;--r-lg:.75rem;--r-xl:1rem;--r-2xl:1.5rem;--r-full:9999px;
+  --sp1:.25rem;--sp2:.5rem;--sp3:.75rem;--sp4:1rem;--sp5:1.25rem;--sp6:1.5rem;--sp8:2rem;--sp10:2.5rem;--sp12:3rem;
+  --xs:clamp(.75rem,.7rem + .25vw,.875rem);--sm:clamp(.875rem,.8rem + .35vw,1rem);
+  --base:clamp(1rem,.95rem + .25vw,1.125rem);--lg:clamp(1.125rem,1rem + .75vw,1.5rem);
+  --xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);--2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);
+  --body:'DM Sans',system-ui,sans-serif;--mono:'DM Mono',monospace;
+  --tr:180ms cubic-bezier(.16,1,.3,1);
+}
+[data-theme="dark"]{
+  --bg:#171614;--surface:#1c1b19;--surface2:#201f1d;--offset:#1d1c1a;
+  --dynamic:#2d2c2a;--divider:#262523;--border:#393836;
+  --text:#cdccca;--muted:#797876;--faint:#5a5957;--inverse:#2b2a28;
+  --primary:#4f98a3;--primary-h:#227f8b;--primary-hl:#313b3b;
+  --success:#6daa45;--success-hl:#3a4435;
+  --warn:#bb653b;--warn-hl:#564942;
+  --error:#d163a7;--error-hl:#4c3d46;
+  --gold:#e8af34;--gold-hl:#4d4332;
+  --sh-sm:0 1px 2px oklch(0 0 0/.2);--sh-md:0 4px 12px oklch(0 0 0/.3);--sh-lg:0 12px 32px oklch(0 0 0/.4);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:none;text-size-adjust:none;-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{font-family:var(--body);font-size:var(--base);color:var(--text);background:var(--bg);line-height:1.5;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--primary);outline-offset:3px;border-radius:var(--r-sm)}
+a{color:var(--primary);text-decoration:none;transition:opacity var(--tr)}
+a:hover{opacity:.8}
+/* ── Header ── */
+.header{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--divider);padding:var(--sp3) var(--sp4);padding-top:calc(var(--sp3) + env(safe-area-inset-top))}.header-in{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:var(--sp2);text-decoration:none;color:var(--text);font-weight:600;font-size:var(--sm)}
+.logo-word{display:flex;align-items:center;gap:3px}.logo-word span{color:var(--primary)}
+.header-nav{display:flex;gap:var(--sp4);align-items:center}.nav-link{font-size:var(--xs);color:var(--muted);transition:color var(--tr)}.nav-link:hover{color:var(--text)}
+.header-cta{background:var(--primary);color:var(--inverse);padding:var(--sp2) var(--sp4);border-radius:var(--r-full);font-size:var(--xs);font-weight:600;white-space:nowrap;box-shadow:0 2px 8px oklch(from var(--primary) l c h/.3)}
+/* ── Hero Section ── */
+.hero{max-width:100%;margin:0 auto;min-height:90dvh;display:flex;align-items:center;justify-content:center;padding:var(--sp8) var(--sp4);position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:-1;background:var(--offset);opacity:.4}
+.hero-content{text-align:center;max-width:640px;display:flex;flex-direction:column;gap:var(--sp6)}
+.hero-tagline{font-size:clamp(1.75rem,6vw,3rem);font-weight:700;line-height:1.1;letter-spacing:-.02em}.hero-tagline em{color:var(--primary);font-style:italic}
+.hero-subtitle{font-size:var(--lg);color:var(--muted);line-height:1.6}
+.hero-ctas{display:flex;flex-direction:column;gap:var(--sp3);margin-top:var(--sp4)}
+.btn-primary{background:var(--primary);color:var(--inverse);padding:var(--sp4) var(--sp6);border-radius:var(--r-xl);font-size:var(--sm);font-weight:600;display:inline-block;text-align:center;transition:background var(--tr),transform var(--tr);box-shadow:0 4px 16px oklch(from var(--primary) l c h/.3)}
+.btn-primary:hover{background:var(--primary-h);transform:translateY(-2px)}
+.btn-secondary{background:var(--surface);color:var(--text);padding:var(--sp4) var(--sp6);border-radius:var(--r-xl);font-size:var(--sm);font-weight:600;display:inline-block;text-align:center;border:1px solid var(--border);transition:background var(--tr),border-color var(--tr)}
+.btn-secondary:hover{background:var(--dynamic);border-color:var(--primary)}
+/* ── Video/Image Placeholder ── */
+.hero-media{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,var(--offset),var(--dynamic));border-radius:var(--r-2xl);margin-top:var(--sp8);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:var(--sm);border:1px solid var(--divider);overflow:hidden}.hero-media img,.hero-media video{width:100%;height:100%;object-fit:cover}
+/* ── Section ── */
+.section{max-width:1200px;margin:0 auto;padding:var(--sp12) var(--sp4)}
+.section-title{font-size:clamp(2rem,5vw,3rem);font-weight:700;text-align:center;margin-bottom:var(--sp8);letter-spacing:-.02em}
+.section-subtitle{font-size:var(--lg);text-align:center;color:var(--muted);max-width:600px;margin:0 auto var(--sp8);line-height:1.6}
+/* ── Features Grid ── */
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--sp6)}
+.feature-card{background:var(--surface);border-radius:var(--r-2xl);padding:var(--sp6);border:1px solid oklch(from var(--text) l c h/.06);box-shadow:var(--sh-md);display:flex;flex-direction:column;gap:var(--sp3)}
+.feature-icon{font-size:2.5rem;margin-bottom:var(--sp2)}
+.feature-title{font-size:var(--lg);font-weight:700}
+.feature-desc{color:var(--muted);font-size:var(--sm);line-height:1.6}
+/* ── Story Section ── */
+.story{background:var(--surface);border-radius:var(--r-2xl);padding:var(--sp8);border:1px solid oklch(from var(--text) l c h/.06);box-shadow:var(--sh-md)}
+.story-content{max-width:680px;margin:0 auto;display:flex;flex-direction:column;gap:var(--sp5);line-height:1.8}
+.story-content p{color:var(--muted);font-size:var(--sm)}
+.story-content strong{color:var(--text)}
+.story-highlight{background:var(--offset);border-left:3px solid var(--primary);padding:var(--sp4);border-radius:var(--r-lg);font-size:var(--sm);font-style:italic;color:var(--muted)}
+/* ── CTA Section ── */
+.cta-section{text-align:center;padding:var(--sp12) var(--sp4);display:flex;flex-direction:column;gap:var(--sp4)}
+.cta-text{font-size:var(--lg);color:var(--muted);max-width:640px;margin:0 auto}
+/* ── Footer ── */
+.footer{background:var(--offset);padding:var(--sp8) var(--sp4);border-top:1px solid var(--divider)}.footer-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--sp8);text-align:center}
+.footer-col h4{font-size:var(--sm);font-weight:600;margin-bottom:var(--sp3)}
+.footer-col a{display:block;font-size:var(--xs);color:var(--muted);margin-bottom:var(--sp2)}
+.footer-col a:hover{color:var(--text)}
+.footer-bottom{grid-column:1/-1;text-align:center;padding-top:var(--sp6);border-top:1px solid var(--divider);color:var(--faint);font-size:var(--xs)}
+/* ── Responsive ── */
+@media(max-width:640px){
+  .header-nav{display:none}
+  .hero-ctas{flex-direction:column}
+  .features{grid-template-columns:1fr}
+  .footer-in{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<!-- Header -->
+<header class="header">
+  <div class="header-in">
+    <a href="/" class="logo">
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="16" r="16" fill="var(--primary)" opacity=".12"/>
+        <line x1="16" y1="22" x2="16" y2="8" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M16 8 L24 21 L16 22 Z" fill="var(--primary)" opacity=".85"/>
+        <path d="M16 12 L10 21 L16 22 Z" fill="var(--primary)" opacity=".4"/>
+        <path d="M7 25.5 Q10 23.5 13 25.5 Q16 27.5 19 25.5 Q22 23.5 25 25.5" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".6"/>
+      </svg>
+      <span class="logo-word">Sail<span>Window</span></span>
+    </a>
+    <nav class="header-nav">
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#story" class="nav-link">The Story</a>
+      <a href="#faq" class="nav-link">Help</a>
+      <a href="/app" class="header-cta">Open App</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-tagline">
+      I've always been <em>the cook.</em><br>This year, I cooked up <em>something different.</em>
+    </div>
+    <p class="hero-subtitle">
+      Live sailing conditions for 35 Gulf Coast marinas. Free, real-time wind, tide, and best-departure windows powered by NWS and NOAA data.
+    </p>
+    <div class="hero-ctas">
+      <a href="/app" class="btn-primary">Get Started →</a>
+      <a href="#story" class="btn-secondary">Learn the Story</a>
+    </div>
+  </div>
+</section>
+
+<!-- Video/Image Placeholder -->
+<div style="max-width:1200px;margin:0 auto;padding:0 var(--sp4)">
+  <div class="hero-media">
+    <div style="text-align:center">
+      <div style="font-size:3rem;margin-bottom:var(--sp2)">📷 📹</div>
+      <p>Your sailing photos & video will go here</p>
+      <p style="font-size:var(--xs);color:var(--faint);margin-top:var(--sp2)">Carousel or background video • 35 marinas • 30 years of sailing tradition</p>
+    </div>
+  </div>
+</div>
+
+<!-- Features Section -->
+<section class="section" id="features">
+  <h2 class="section-title">Know When to Go</h2>
+  <p class="section-subtitle">
+    Built for sailors by a sailor. Real-time data from the sources meteorologists and mariners trust.
+  </p>
+  <div class="features">
+    <div class="feature-card">
+      <div class="feature-icon">⛵</div>
+      <h3 class="feature-title">Best Sailing Window</h3>
+      <p class="feature-desc">See the exact hour-long window when conditions align. Wind in your range, low gusts, minimal rain, no storms.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⏰</div>
+      <h3 class="feature-title">Departure & Return Times</h3>
+      <p class="feature-desc">Plan your whole trip. We calculate the best time to leave and the optimal return window based on wind, tide, and daylight.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🌊</div>
+      <h3 class="feature-title">Live Tide & Wind Data</h3>
+      <p class="feature-desc">Updated hourly from NWS and NOAA. Wind forecasts, gust peaks, tide predictions—everything sailors need to decide.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📍</div>
+      <h3 class="feature-title">35 Gulf Coast Marinas</h3>
+      <p class="feature-desc">Texas to the Florida Keys. Select your marina and see conditions tailored to where you sail.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⚙️</div>
+      <h3 class="feature-title">Your Sailing Preferences</h3>
+      <p class="feature-desc">Set your wind limits, gust tolerance, and storm threshold. Sail Window learns what you want and shows you what matters.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">✨</div>
+      <h3 class="feature-title">Simple, Fast, Beautiful</h3>
+      <p class="feature-desc">No clutter. No ads. Just clean, real-time sailing conditions when you need them—on any device.</p>
+    </div>
+  </div>
+</section>
+
+<!-- The Story Section -->
+<section class="section" id="story">
+  <h2 class="section-title">The Story</h2>
+  <div class="story">
+    <div class="story-content">
+      <p>
+        For <strong>30 years</strong>, I've been the cook on our annual sailing trips to Niceville. Same boat, same crew of four friends, same jokes. My job was simple: keep everyone fed, stay out of the captain's way, and try not to burn the rice.
+      </p>
+      <p>
+        The captain's a blue water sailor. <strong>He knows the Gulf</strong>. But every year, we spent half the trip arguing about the forecast. Is the wind going to hold? Will gusts spike when we motor out? Is the tide right? Sailors don't trust forecasts—we trust data we can see and feel.
+      </p>
+      <div class="story-highlight">
+        This year, we couldn't make the trip. So I stayed in the kitchen a little longer—and cooked up Sail Window instead.
+      </div>
+      <p>
+        I built this for sailors like the captain. Sailors who've logged thousands of hours on the water. Sailors who know their boat, know their limits, and want to see the numbers before they commit to a day on the water.
+      </p>
+      <p>
+        <strong>Sail Window</strong> is the tool I wish existed before we'd argue about the forecast. Real-time wind and tide data from NWS and NOAA. A single sailability score. A clear best-departure window. Your wind limits baked in.
+      </p>
+      <p>
+        No ads. No guesswork. Just the data that matters, when you need it.
+      </p>
+      <p style="margin-top:var(--sp4);color:var(--text);font-weight:500">
+        Built by a cook. Built for sailors.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Founder Bio Section -->
+<section class="section" id="founder" style="background:var(--offset);border-radius:var(--r-2xl)">
+  <div style="max-width:800px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:var(--sp8);align-items:center">
+
+    <div style="text-align:center">
+      <div style="width:100%;aspect-ratio:1;background:var(--dynamic);border-radius:var(--r-2xl);overflow:hidden;border:2px solid var(--border)">
+        <!-- REPLACE WITH YOUR HEADSHOT IMAGE -->
+        <img src="your-headshot.jpg" alt="Russ Jamieson, Founder" style="width:100%;height:100%;object-fit:cover">
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:var(--sp4)">
+      <div>
+        <h3 style="font-size:var(--xl);font-weight:700;margin-bottom:var(--sp1)">Meet Russ</h3>
+        <p style="font-size:var(--xs);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600">Founder, Sail Window</p>
+      </div>
+
+      <p style="color:var(--muted);line-height:1.8;font-size:var(--sm)">
+        I'm the cook on our annual sailing trips to Niceville—same boat, same crew of friends, same jokes for 30 years. My job was simple: keep everyone fed and stay out of the captain's way.
+      </p>
+
+      <p style="color:var(--muted);line-height:1.8;font-size:var(--sm)">
+        But every trip, we'd argue about the forecast. The captain knows the Gulf better than anyone—but even he wanted to see the data before committing to a day on the water.
+      </p>
+
+      <p style="color:var(--text);line-height:1.8;font-size:var(--sm);font-weight:500">
+        This year, we couldn't make the trip. So I stayed in the kitchen a little longer and built Sail Window instead.
+      </p>
+
+      <p style="color:var(--muted);font-size:var(--xs)">
+        Built by a sailor. For sailors.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <h2 class="section-title">Ready to Know When to Go?</h2>
+  <p class="cta-text">
+    Start with 7 free days. No credit card required. 35 marinas from Texas to the Florida Keys.
+  </p>
+  <div style="display:flex;flex-direction:column;gap:var(--sp3);align-items:center">
+    <a href="/app" class="btn-primary">Get Started Free →</a>
+    <a href="#" style="font-size:var(--xs);color:var(--muted)">Questions? <a href="#" style="color:var(--primary)">Open the help</a></a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-in">
+    <div class="footer-col">
+      <h4>Product</h4>
+      <a href="/app">Open App</a>
+      <a href="#features">Features</a>
+      <a href="#story">About</a>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="#">Help & Feedback</a>
+      <a href="#">Pricing</a>
+      <a href="#">Status</a>
+    </div>
+    <div class="footer-col">
+      <h4>Learn</h4>
+      <a href="#">How It Works</a>
+      <a href="#">Wind Basics</a>
+      <a href="#">Tide Guide</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>SailWindow © 2026. Built for sailors. <br>Live data from NWS &amp; NOAA.</p>
+  </div>
+</footer>
+
+<script>
+// Simple smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+// Theme toggle (optional, remove if not needed)
+const themeBtn = document.querySelector('[data-theme]');
+if (themeBtn) {
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+}
+</script>
+</body>
+</html>
