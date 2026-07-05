@@ -2619,8 +2619,11 @@ const MARINA_CACHE_TTL  = 24 * 60 * 60 * 1000; // 24 hours
 let _selectedPlan = "monthly";
 
 function trialStatus(){
-  // subscribed always wins
-  if(storageAvailable() && localStorage.getItem(SUB_KEY) === "active")
+  // subscribed always wins — but only once verified against the backend.
+  // A bare SUB_KEY flag with no verified email can't be checked against
+  // anything, so it isn't trusted; this is what closes the old devtools
+  // localStorage bypass (see refreshSubscriptionStatus for the ongoing check).
+  if(storageAvailable() && localStorage.getItem(SUB_KEY) === "active" && localStorage.getItem(SUB_EMAIL_KEY))
     return { state:"subscribed", daysLeft:null };
 
   let raw = storageAvailable() ? localStorage.getItem(TRIAL_KEY) : null;
