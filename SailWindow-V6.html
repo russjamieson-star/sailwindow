@@ -116,7 +116,32 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 .marina-mini{font-size:12px;padding:6px 10px;border-radius:999px;background:var(--primary-hl);color:var(--primary);border:0;cursor:pointer}
 .marina-mini.secondary{background:var(--offset);color:var(--text)}
 .ashore-section{margin-top:8px;padding-top:8px;border-top:1px dashed var(--divider);font-size:12.5px;line-height:1.7}
-.ashore-partner{margin-top:6px;padding:7px 10px;border-radius:10px;background:var(--primary-hl)}
+.ashore-partner{margin-top:6px;padding:10px 12px;border-radius:12px;background:var(--primary-hl);cursor:pointer;transition:opacity .15s ease,transform .15s ease;-webkit-tap-highlight-color:transparent}
+.ashore-partner:hover{opacity:.85}.ashore-partner:active{transform:scale(.98)}
+.ashore-partner-tap{font-size:10px;color:var(--primary);opacity:.75;margin-top:3px}
+/* Partner modal */
+.partner-modal{position:fixed;inset:0;z-index:600;background:oklch(0 0 0/.7);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity 250ms ease}
+.partner-modal.open{opacity:1;pointer-events:all}
+.partner-card-modal{width:100%;max-width:380px;background:var(--surface);border-radius:24px;overflow:hidden;transform:scale(.95) translateY(12px);transition:transform 280ms cubic-bezier(.16,1,.3,1);box-shadow:var(--sh-lg);border:1px solid var(--border)}
+.partner-modal.open .partner-card-modal{transform:scale(1) translateY(0)}
+.pm-header{background:var(--primary);padding:20px 22px 16px;text-align:center}
+.pm-badge{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:oklch(from var(--primary) l c h/.6);background:oklch(1 0 0/.12);padding:3px 10px;border-radius:999px;display:inline-block;margin-bottom:10px}
+.pm-name{font-size:22px;font-weight:700;color:#fff;line-height:1.2}
+.pm-rating{font-size:12px;color:oklch(1 0 0/.7);margin-top:4px}
+.pm-body{padding:20px 22px}
+.pm-offer-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.pm-offer{font-size:18px;font-weight:700;color:var(--primary);line-height:1.35;margin-bottom:16px}
+.pm-show-bar{background:var(--primary-hl);border:1.5px dashed var(--primary);border-radius:12px;padding:12px 16px;text-align:center;margin-bottom:18px}
+.pm-show-text{font-size:13px;font-weight:700;color:var(--primary);letter-spacing:.01em}
+.pm-show-sub{font-size:11px;color:var(--muted);margin-top:3px}
+.pm-actions{display:flex;gap:10px;margin-bottom:4px}
+.pm-action-btn{flex:1;padding:11px;border-radius:12px;font-size:13px;font-weight:600;text-align:center;text-decoration:none;transition:opacity .15s ease;display:flex;align-items:center;justify-content:center;gap:6px}
+.pm-action-btn:hover{opacity:.8}
+.pm-action-phone{background:var(--primary);color:var(--inverse)}
+.pm-action-dir{background:var(--offset);color:var(--text)}
+.pm-close{width:100%;padding:12px;font-size:13px;color:var(--muted);text-align:center;margin-top:4px;border-top:1px solid var(--divider);background:none;cursor:pointer}
+.pm-footer{padding:0 22px 18px;text-align:center;font-size:10.5px;color:var(--faint)}
+
 .marina-selected-bar{padding:12px 16px;background:var(--primary-hl);border-bottom:1px solid var(--primary);font-size:13px;color:var(--primary);font-weight:600;display:none}
 .marina-selected-bar.visible{display:block}
 
@@ -160,8 +185,6 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 .price-per{font-size:var(--xs);color:var(--muted);margin-top:3px}
 .price-save{font-size:var(--xs);font-weight:700;color:var(--success);margin-top:4px}
 .sub-divider{height:1px;background:var(--divider)}
-@keyframes activate-pulse{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}50%{box-shadow:0 0 0 12px rgba(34,197,94,0)}}
-#sub-activate.visible{animation:activate-pulse 1.5s ease-in-out infinite;border:2px solid var(--success);border-radius:14px;padding:var(--sp3);background:color-mix(in srgb,var(--success) 8%,var(--surface))}
 /* ── Marina view — mobile full-width, desktop side-by-side ── */
 .marina-view-row{display:flex;flex:1;min-height:0}
 #marina-map-toggle{display:none}
@@ -321,6 +344,7 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
     <a href="javascript:void(0)" class="nav-item active" data-tab="today" aria-current="page" onclick="close7DayView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>Today</a>
     <a href="javascript:void(0)" class="nav-item" id="nav-7day" onclick="open7DayView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>7-Day</a>
     <a href="#" class="nav-item" onclick="openMarinaView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>Marina</a>
+    <a href="javascript:void(0)" class="nav-item" onclick="openEatSheet()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v6a2 2 0 0 0 4 0V3"/><path d="M7 3v18"/><path d="M17 3c-2 3-2 7 0 10c.6.7 1.4 1 2 1"/><path d="M19 3v18"/></svg>Eat</a>
     <a href="javascript:void(0)" class="nav-item" id="nav-feedback" onclick="openFeedbackView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Feedback</a>
   </nav>
 </div>
@@ -465,7 +489,6 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
     <div style="font-size:20px;font-weight:700;margin-bottom:8px">Change Location</div>
     <div style="color:var(--muted);margin-bottom:16px">Choose GPS, pick a marina from the dropdown, or open the marina map.</div>
     <div style="display:flex;flex-direction:column;gap:12px">
-      <button class="refresh-btn" id="homedock-btn" style="display:none" onclick="useHomeDockFromChooser()"></button>
       <button class="refresh-btn" onclick="useGpsFromChooser()">Use GPS Location</button>
       <div style="display:flex;gap:10px;align-items:center">
         <select id="chooser-marina-select" class="fselect" style="flex:1">
@@ -522,7 +545,6 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
         <button class="refresh-btn" style="width:auto;min-width:110px;flex-shrink:0" onclick="setMarinaFromChooser()">Set Marina</button>
       </div>
       <button class="refresh-btn" onclick="openMarinaView();closeChooser()">Open Map</button>
-      <button class="refresh-btn" id="homedock-set-btn" style="background:transparent;color:var(--text);border:1px solid var(--divider);font-size:13px" onclick="setHomeDockFromChooser()">Set current spot as Home Dock (private)</button>
       <button class="refresh-btn" style="background:transparent;color:var(--text);border:1px solid var(--divider)" onclick="closeChooser()">Cancel</button>
     </div>
   </div>
@@ -714,7 +736,6 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
           <option value="corpus-christi">Corpus Christi (8775870)</option>
           <option value="port-isabel">Port Isabel (8779770)</option>
         </optgroup>
-        <option value="homedock">🏠 Home Dock</option>
         <option value="custom">Custom GPS / NOAA Station</option>
         <option value="current">Current Location (boat at sea)</option>
       </select>
@@ -724,7 +745,7 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
         <button class="refresh-btn" type="button" style="padding:var(--sp3);width:100%" onclick="useCurrentLocation()">Use Current GPS</button>
       </div>
       <div class="fg">
-        <label class="flbl" for="p-cname">Dock / Marina Name</label>
+        <label class="flbl" for="p-cname">Custom Marina Name</label>
         <input class="finput" type="text" id="p-cname" value="My Marina" placeholder="My Marina">
       </div>
       <div class="frow">
@@ -754,6 +775,17 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
     </div>
     <button class="save-btn" onclick="savePrefs()">Save &amp; Refresh</button>
     <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+  </div>
+</div>
+
+<!-- Where to Eat sheet -->
+<div class="overlay" id="eat-sheet" role="dialog" aria-modal="true" aria-label="Restaurants near you" style="display:none;opacity:0;pointer-events:none;z-index:9999">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <h2 class="sheet-title">🍴 Where to Eat</h2>
+    <div id="eat-subtitle" style="text-align:center;font-size:var(--xs);color:var(--muted);margin-top:calc(-1*var(--sp3))"></div>
+    <div id="eat-body" style="max-height:60vh;overflow-y:auto;display:flex;flex-direction:column;gap:2px"></div>
+    <button class="cancel-btn" onclick="closeEatSheet()">Close</button>
   </div>
 </div>
 
@@ -814,8 +846,7 @@ const LOCATIONS = {
 let prefs = {
   locKey:"tampa-hooker", windMin:8, windMax:18, gustMax:22, durationHrs:4, tidePref:"any", theme:null,
   custom:{ enabled:false, name:"My Marina", lat:27.9060, lon:-82.4167, stationId:"8726667" },
-  current:{ enabled:false, name:"Current Location", lat:null, lon:null, stationId:"" },
-  homeDock:null
+  current:{ enabled:false, name:"Current Location", lat:null, lon:null, stationId:"" }
 };
 
 let windChart = null, tideChart = null, lastHourlyData = [], lastTideData = [];
@@ -908,11 +939,10 @@ function openModal(){
   document.getElementById("p-gust").value = prefs.gustMax;
   document.getElementById("p-dur").value  = prefs.durationHrs;
   document.getElementById("p-tide").value = prefs.tidePref;
-  { const src = customFieldsSource(prefs.locKey);
-    document.getElementById("p-cname").value   = src?.name || (prefs.locKey === "homedock" ? "My Dock" : "My Marina");
-    document.getElementById("p-lat").value     = src?.lat ?? 27.9060;
-    document.getElementById("p-lon").value     = src?.lon ?? -82.4167;
-    document.getElementById("p-station").value = src?.stationId || "8726667"; }
+  document.getElementById("p-cname").value   = prefs.custom?.name || "My Marina";
+  document.getElementById("p-lat").value     = prefs.custom?.lat ?? 27.9060;
+  document.getElementById("p-lon").value     = prefs.custom?.lon ?? -82.4167;
+  document.getElementById("p-station").value = prefs.custom?.stationId || "8726667";
   toggleCustomFields();
   modal.style.cssText = "display:flex;opacity:1;pointer-events:all;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999";
   const sheet = modal.querySelector('.sheet');
@@ -928,21 +958,15 @@ function closeModal(){
 }
 document.getElementById("modal").addEventListener("click", e => { if(e.target === document.getElementById("modal")) closeModal(); });
 
-function customFieldsSource(v){
-  return v === "homedock" ? prefs.homeDock : prefs.custom;
-}
 function toggleCustomFields(){
   const v = document.getElementById("p-loc").value;
-  const isCustom = v === "custom", isCurrent = v === "current", isHomeDock = v === "homedock";
-  document.getElementById("custom-fields").style.display = (isCustom || isCurrent || isHomeDock) ? "flex" : "none";
+  const isCustom = v === "custom", isCurrent = v === "current";
+  document.getElementById("custom-fields").style.display = (isCustom || isCurrent) ? "flex" : "none";
   ["p-cname","p-lat","p-lon","p-station"].forEach(id => {
     const el = document.getElementById(id); if(el) el.disabled = isCurrent;
   });
   const btn = document.querySelector('#custom-fields button');
-  if(btn){
-    btn.textContent = isCurrent ? "Using device GPS" : isHomeDock ? "Use Current GPS for Home Dock" : "Use Current GPS";
-    btn.setAttribute("onclick", isHomeDock ? "useCurrentLocationForHomeDock()" : "useCurrentLocation()");
-  }
+  if(btn) btn.textContent = isCurrent ? "Using device GPS" : "Use Current GPS";
 }
 
 function syncPrefsUI(){
@@ -952,11 +976,10 @@ function syncPrefsUI(){
   document.getElementById("p-gust").value    = prefs.gustMax;
   document.getElementById("p-dur").value     = prefs.durationHrs;
   document.getElementById("p-tide").value    = prefs.tidePref;
-  { const src = customFieldsSource(prefs.locKey);
-    document.getElementById("p-cname").value   = src?.name || (prefs.locKey === "homedock" ? "My Dock" : "My Marina");
-    document.getElementById("p-lat").value     = src?.lat ?? 27.9060;
-    document.getElementById("p-lon").value     = src?.lon ?? -82.4167;
-    document.getElementById("p-station").value = src?.stationId || "8726667"; }
+  document.getElementById("p-cname").value   = prefs.custom?.name || "My Marina";
+  document.getElementById("p-lat").value     = prefs.custom?.lat ?? 27.9060;
+  document.getElementById("p-lon").value     = prefs.custom?.lon ?? -82.4167;
+  document.getElementById("p-station").value = prefs.custom?.stationId || "8726667";
   toggleCustomFields();
   document.getElementById("pv-wind").textContent = prefs.windMin + "–" + prefs.windMax + " kt";
   document.getElementById("pv-gust").textContent = prefs.gustMax + " kt";
@@ -983,17 +1006,6 @@ function savePrefs(){
     if(isNaN(prefs.custom.lat) || isNaN(prefs.custom.lon) || !prefs.custom.stationId){
       toast("Enter valid custom GPS and NOAA station ID"); return;
     }
-  } else if(prefs.locKey === "homedock"){
-    prefs.homeDock = {
-      enabled:true,
-      name: (document.getElementById("p-cname").value || "My Dock").trim(),
-      lat:  parseFloat(document.getElementById("p-lat").value),
-      lon:  parseFloat(document.getElementById("p-lon").value),
-      stationId: (document.getElementById("p-station").value || "").trim()
-    };
-    if(isNaN(prefs.homeDock.lat) || isNaN(prefs.homeDock.lon) || !prefs.homeDock.stationId){
-      toast("Enter valid GPS and NOAA station ID, or tap Use Current GPS for Home Dock"); return;
-    }
   } else if(prefs.locKey === "current"){
     if(prefs.current?.lat == null || !prefs.current?.stationId){
       toast("Tap Use Current GPS first"); return;
@@ -1008,14 +1020,11 @@ function savePrefs(){
 }
 
 function resetPrefs(){
-  const keepHomeDock = prefs.homeDock; // Home Dock survives a preference reset — it's an identity, not a scoring setting
   prefs = { locKey:"tampa-hooker", windMin:8, windMax:18, gustMax:22, durationHrs:4, tidePref:"any", theme:null,
     custom:{ enabled:false, name:"My Marina", lat:27.9060, lon:-82.4167, stationId:"8726667" },
-    current:{ enabled:false, name:"Current Location", lat:null, lon:null, stationId:"" },
-    homeDock: keepHomeDock || null
+    current:{ enabled:false, name:"Current Location", lat:null, lon:null, stationId:"" }
   };
   clearSavedPrefs();
-  savePrefsToStorage(); // re-persist so the retained Home Dock survives a page reload
   syncPrefsUI();
   applySavedTheme();
   toast("Preferences reset");
@@ -1136,348 +1145,58 @@ async function fetchNearbyMarinas(lat, lon, radiusMeters=48280){
 // ─────────────────────────────────────────────
 // ASHORE — fuel & food near a marina (OSM)
 // ─────────────────────────────────────────────
-const GOOGLE_ASHORE_CACHE = {
-  "key-west": [
-    {name:"Gator Joes Coffee",type:"Cafe",rating:3.7,price:"",address:"271 Front St, Key West",distM:195,onsite:false},
-    {name:"Little Whitehouse Subs",type:"Sandwich Shop",rating:5,price:"$",address:"218 Whitehead St, Key West",distM:301,onsite:false},
-    {name:"First Flight Island Restaurant & Brewery",type:"Restaurant",rating:4.3,price:"$$",address:"301 Whitehead St, Key West",distM:314,onsite:false},
-    {name:"Elevate Skye Bar & Lounge",type:"Bar",rating:4.2,price:"",address:"245 Front St, Key West",distM:316,onsite:false},
-    {name:"Birth Place of Pan Am",type:"Bar",rating:4.4,price:"",address:"301 Whitehead St, Key West",distM:316,onsite:false},
-    {name:"Lolita's Coastal Cocina",type:"Mexican Restaurant",rating:4.4,price:"",address:"245 Front St, Key West",distM:324,onsite:false},
-    {name:"Hank's Hair of the Dog Saloon",type:"Bar",rating:4.7,price:"",address:"409 Caroline St, Naval Air Station Key West",distM:342,onsite:false},
-    {name:"Garbo's Grill @ Hanks!",type:"Restaurant",rating:4.6,price:"$$",address:"409 Caroline St, Key West",distM:344,onsite:false},
-    {name:"Cuban Coffee Queen",type:"Coffee Shop",rating:4.4,price:"",address:"291 Front St #6, Key West",distM:351,onsite:false},
-    {name:"Key West Cooking Show",type:"Food",rating:4.9,price:"",address:"291 Front St Ste 207, Key West",distM:359,onsite:false},
-    {name:"Bar 1",type:"Cocktail Bar",rating:4.6,price:"",address:"291 Front St Ste 207, Key West",distM:359,onsite:false},
-    {name:"Key West Conch Fritters",type:"Cafe",rating:3.9,price:"",address:"0668 25 00072082001900, Key West",distM:366,onsite:false},
-    {name:"Key Lime Pie Bakery",type:"Bakery",rating:4.4,price:"$",address:"412 Greene St, Key West",distM:381,onsite:false},
-    {name:"Yummy Crab",type:"Seafood Restaurant",rating:4.2,price:"",address:"300 Front St upstair, Key West",distM:381,onsite:false},
-    {name:"The Baklava",type:"Dessert Restaurant",rating:4.7,price:"$",address:"411 Greene St, Key West",distM:383,onsite:false},
-    {name:"Tempt at The Saint Hotel",type:"Restaurant",rating:4.6,price:"",address:"417 Eaton St, Key West",distM:388,onsite:false},
-    {name:"Bruschetta Francesca",type:"Italian Restaurant",rating:4.7,price:"",address:"112 Fitzpatrick St, Key West",distM:397,onsite:false},
-    {name:"General Horseplay",type:"Cocktail Bar",rating:4.7,price:"$$",address:"423 Caroline St, Key West",distM:399,onsite:false},
-    {name:"Falafel King",type:"Middle Eastern Restaurant",rating:3.7,price:"$",address:"110 Fitzpatrick St, Key West",distM:402,onsite:false},
-    {name:"HiNote",type:"Cocktail Bar",rating:4.4,price:"",address:"423 Caroline St Upstairs, Key West",distM:401,onsite:false},
-  ],
-  "naples": [
-    {name:"Naples Beach Food & Drinks Delivery",type:"Services",rating:5,price:"",address:"61 12th Ave S, Naples",distM:216,onsite:false},
-    {name:"Annie's Bistro",type:"American Restaurant",rating:5,price:"",address:"200 Broad Ave S, Naples",distM:493,onsite:false},
-    {name:"Ridgway Bar & Grill",type:"Restaurant",rating:4.3,price:"$$",address:"1300 3rd St S #101, Naples",distM:525,onsite:false},
-    {name:"Sea Salt",type:"Seafood Restaurant",rating:4.3,price:"$$$",address:"1186 3rd St S, Naples",distM:530,onsite:false},
-    {name:"Tommy Bahama Restaurant & Bar",type:"Restaurant",rating:4.5,price:"$$$",address:"1220 3rd St S, Naples",distM:533,onsite:false},
-    {name:"Tony's Off Third",type:"Bakery",rating:4.4,price:"$$",address:"1300 3rd St S, Naples",distM:545,onsite:false},
-    {name:"Barbatella",type:"Italian Restaurant",rating:4.4,price:"$$$",address:"1290 3rd St S, Naples",distM:559,onsite:false},
-    {name:"Campiello",type:"Italian Restaurant",rating:4.4,price:"$$$",address:"1177 3rd St S, Naples",distM:572,onsite:false},
-    {name:"D'Amico's The Continental",type:"Steak House",rating:4.5,price:"$$$",address:"1205 3rd St S, Naples",distM:575,onsite:false},
-    {name:"The Club Room at Campiello - Naples",type:"Italian Restaurant",rating:4.2,price:"",address:"1177 3rd St S, Naples",distM:586,onsite:false},
-    {name:"Jane's Cafe on 3rd",type:"Brunch Restaurant",rating:4.5,price:"$$",address:"1209 3rd St S, Naples",distM:597,onsite:false},
-    {name:"Bad Ass Coffee of Hawaii",type:"Coffee Shop",rating:4.7,price:"$",address:"1307 3rd St S, Naples",distM:603,onsite:false},
-    {name:"7-Eleven",type:"Convenience Store",rating:3,price:"$",address:"1353 3rd St S, Naples",distM:631,onsite:false},
-    {name:"La Salière Naples",type:"Italian Restaurant",rating:4.9,price:"",address:"360 12th Ave S, Naples",distM:644,onsite:false},
-    {name:"Mediterrano",type:"Mediterranean Restaurant",rating:4.8,price:"$$$",address:"336 13th Ave S, Naples",distM:647,onsite:false},
-  ],
-  "fort-myers": [
-    {name:"Oxbow Bar & Grill",type:"Restaurant",rating:4.1,price:"",address:"1300 Hendry St, Fort Myers",distM:115,onsite:true},
-    {name:"Beacon Social Drinkery",type:"Bar",rating:4.5,price:"",address:"2200 Edwards Dr, Fort Myers",distM:273,onsite:false},
-    {name:"Dean Street Coffee Roastery & Retail",type:"Coffee Shop",rating:4.3,price:"",address:"2200 Edwards Dr, Fort Myers",distM:280,onsite:false},
-    {name:"The Silver King Coastal Kitchen",type:"Restaurant",rating:4.3,price:"",address:"2200 Edwards Dr First Floor, Fort Myers",distM:289,onsite:false},
-    {name:"Ella Mae's Diner",type:"Restaurant",rating:4.5,price:"$$",address:"2200 Edwards Dr, Fort Myers",distM:324,onsite:false},
-    {name:"Chips Sports Pub",type:"Sports Bar",rating:4.2,price:"",address:"2200 Edwards Dr, Fort Myers",distM:337,onsite:false},
-    {name:"The Firestone Skybar & Martini Bar",type:"Bar & Grill",rating:4.3,price:"$$",address:"2224 Bay St, Fort Myers",distM:347,onsite:false},
-    {name:"Best Ice Cream “Under The Sea Experience” and Mermaid Room Cafe",type:"Ice Cream Shop",rating:4.4,price:"",address:"1401 Lee St, Fort Myers",distM:352,onsite:false},
-    {name:"Downtown Social House",type:"Bar",rating:4.2,price:"$$",address:"1406 Hendry St, Fort Myers",distM:355,onsite:false},
-    {name:"Fancy's Southern Cafe",type:"American Restaurant",rating:4,price:"",address:"2214 Bay St, Fort Myers",distM:358,onsite:false},
-    {name:"City Tavern",type:"Bar",rating:4.5,price:"$$",address:"2206 Bay St, Fort Myers",distM:360,onsite:false},
-    {name:"Casanova Bistro Café",type:"Coffee Shop",rating:5,price:"",address:"Inside Edison Grand Aparments- Lobby, 2500 Edwards Dr, Fort Myers",distM:372,onsite:false},
-    {name:"Sidney's Rooftop",type:"Bar",rating:4.7,price:"",address:"2301 First St, Fort Myers",distM:374,onsite:false},
-    {name:"Café Blue",type:"Coffee Shop",rating:4.4,price:"",address:"2277 First St, Fort Myers",distM:379,onsite:false},
-    {name:"Kearns Restaurant Group",type:"Corporate Office",rating:4.4,price:"",address:"1404 Dean St #201, Fort Myers",distM:381,onsite:false},
-    {name:"NautiGirlBadBouy BBQ Boats",type:"Restaurant",rating:4.6,price:"",address:"1250 Monroe St, Fort Myers",distM:383,onsite:false},
-    {name:"Peter's German Café",type:"Coffee Shop",rating:4.9,price:"$",address:"1412 Dean St #100, Fort Myers",distM:386,onsite:false},
-    {name:"Hogwash",type:"Bar",rating:4.6,price:"",address:"1415 Dean St #101, Fort Myers",distM:390,onsite:false},
-    {name:"Wake N Bakery Fort Myers",type:"Coffee Shop",rating:4.9,price:"",address:"2231 First St, Fort Myers",distM:398,onsite:false},
-    {name:"Burgers with Attitude",type:"Restaurant",rating:4.5,price:"$",address:"2231 First St, Fort Myers",distM:398,onsite:false},
-  ],
-  "clearwater": [
-    {name:"Tommy's Tiki Bar",type:"Restaurant",rating:4.1,price:"",address:"400 Mandalay Ave, Clearwater Beach",distM:313,onsite:false},
-    {name:"Pier 60 Concessions",type:"Restaurant",rating:3.9,price:"",address:"1 Causeway Blvd, Clearwater",distM:318,onsite:false},
-    {name:"carambola",type:"Restaurant",rating:4.1,price:"",address:"400 Mandalay Ave, Clearwater Beach",distM:329,onsite:false},
-    {name:"Starbucks",type:"Coffee Shop",rating:3.9,price:"$$",address:"400 Mandalay Ave, Clearwater",distM:405,onsite:false},
-    {name:"The Spotted Donkey Cantina",type:"Restaurant",rating:3.9,price:"$$",address:"400 Mandalay Ave, Clearwater Beach",distM:408,onsite:false},
-    {name:"Hooters",type:"Sports Bar",rating:4,price:"$$",address:"381 Mandalay Ave, Clearwater",distM:434,onsite:false},
-    {name:"Beach Shanty Cafe",type:"Brunch Restaurant",rating:4.5,price:"$",address:"397 Mandalay Ave, Clearwater",distM:440,onsite:false},
-    {name:"Dunkin'",type:"Coffee Shop",rating:3.4,price:"$",address:"393 Mandalay Ave, Clearwater",distM:442,onsite:false},
-    {name:"Surfside Taphouse",type:"Restaurant",rating:4.1,price:"$$",address:"395 Mandalay Ave, Clearwater",distM:443,onsite:false},
-    {name:"Calypso Queen",type:"",rating:4.3,price:"",address:"Pinellas County Aquatic Preserve Outstanding Florida Water, Pinellas County Aquatic Preserve, 25 Causeway Blvd, Clearwater",distM:442,onsite:false},
-    {name:"Crabby's Dockside Clearwater",type:"Restaurant",rating:4.3,price:"$$",address:"37 Causeway Blvd, Clearwater",distM:448,onsite:false},
-    {name:"Little Anthony's Italian Pizzeria",type:"Pizza Restaurant",rating:3.6,price:"$$",address:"407 Mandalay Ave, Clearwater",distM:458,onsite:false},
-    {name:"Panini Workz",type:"Restaurant",rating:5,price:"",address:"411 Mandalay Ave, Clearwater Beach",distM:461,onsite:false},
-    {name:"Jamminz",type:"Bar",rating:4.2,price:"$",address:"411 Mandalay Ave, Clearwater Beach",distM:461,onsite:false},
-    {name:"Ocean Hai",type:"Asian Fusion Restaurant",rating:4.2,price:"",address:"100 Coronado Dr, Clearwater Beach",distM:466,onsite:false},
-    {name:"Eskpades Coffee & Cocktail Bar",type:"Bar",rating:4.3,price:"",address:"100 Coronado Dr, Clearwater Beach",distM:466,onsite:false},
-    {name:"Toucans Bar & Grill",type:"Bar & Grill",rating:4.1,price:"$$",address:"431 Mandalay Ave, Clearwater",distM:473,onsite:false},
-    {name:"Jimmy's Crows Nest",type:"Bar",rating:4.4,price:"$$",address:"101 Coronado Dr, Clearwater Beach",distM:477,onsite:false},
-    {name:"FORLINI'S RESTAURANT",type:"Italian Restaurant",rating:4.1,price:"$$$",address:"435 Mandalay Ave, Clearwater Beach",distM:483,onsite:false},
-    {name:"Tango Lounge",type:"Bar",rating:null,price:"",address:"456 Mandalay Ave, Clearwater",distM:490,onsite:false},
-  ],
-  "st-pete": [
-    {name:"Bento Sushi",type:"Takeout Restaurant",rating:null,price:"",address:"140 7th Ave S, St. Petersburg",distM:597,onsite:false},
-    {name:"Cafe Gala",type:"Cafe",rating:4.5,price:"$$",address:"1 Dali Blvd, St. Petersburg",distM:749,onsite:false},
-    {name:"Garden",type:"Bar",rating:5,price:"",address:"1 Dali Blvd, St. Petersburg",distM:767,onsite:false},
-    {name:"The Hangar Restaurant & Flight Lounge",type:"Restaurant",rating:4.4,price:"$$",address:"Second Floor Albert Whitted Airport, 540 1st St S, St. Petersburg",distM:789,onsite:false},
-  ],
-  "tampa-gandy": [
-    {name:"Luis's Garden Grille Cafe South Tampa",type:"American Restaurant",rating:4.6,price:"",address:"5252 S Dale Mabry Hwy, Tampa",distM:422,onsite:false},
-    {name:"Subway",type:"Sandwich Shop",rating:4,price:"$",address:"5502 S Dale Mabry Hwy, Tampa",distM:429,onsite:false},
-    {name:"MAMAS KITCHEN",type:"Family Restaurant",rating:4.6,price:"$",address:"5524 S Dale Mabry Hwy, Tampa",distM:431,onsite:false},
-    {name:"Little Caesars Pizza",type:"Pizza Restaurant",rating:4,price:"$",address:"5502 S Dale Mabry Hwy, Tampa",distM:440,onsite:false},
-    {name:"The Sushi Box TB",type:"Takeout Restaurant",rating:5,price:"",address:"5224 S Dale Mabry Hwy C, Tampa",distM:443,onsite:false},
-    {name:"Big Crush Ginger Beer",type:"",rating:5,price:"",address:"5224 S Dale Mabry Hwy, Tampa",distM:443,onsite:false},
-    {name:"Guthrie's",type:"Chicken Restaurant",rating:4.7,price:"$",address:"5228 S Dale Mabry Hwy, Tampa",distM:444,onsite:false},
-    {name:"Davenport’s Daily Delights",type:"Takeout Restaurant",rating:5,price:"",address:"5224 S Dale Mabry Hwy, Tampa",distM:450,onsite:false},
-    {name:"Dutch Bros Coffee",type:"Coffee Shop",rating:4.5,price:"",address:"3616 W Ballast Point Blvd, Tampa",distM:520,onsite:false},
-    {name:"Victoria's Restaurant",type:"Sandwich Shop",rating:4.6,price:"$",address:"5130 S Dale Mabry Hwy #113, Tampa",distM:564,onsite:false},
-    {name:"Taste of China",type:"Chinese Restaurant",rating:4.1,price:"$",address:"5827 S Dale Mabry Hwy, Tampa",distM:566,onsite:false},
-    {name:"Slice Pizzeria & Wing House Is Now Sauce Boss Pizza Company (Coming Soon)",type:"Pizza Restaurant",rating:4.1,price:"$",address:"5831 S Dale Mabry Hwy, Tampa",distM:578,onsite:false},
-    {name:"Kubana Kafe",type:"Coffee Shop",rating:4.7,price:"$",address:"5130 S Dale Mabry Hwy #106, Tampa",distM:589,onsite:false},
-    {name:"Blackjack Pizza & Salads",type:"Pizza Delivery",rating:4.5,price:"$",address:"3692 W Gandy Blvd, Tampa",distM:795,onsite:false},
-    {name:"Smoothie King",type:"Food",rating:4.3,price:"$$",address:"3694 W Gandy Blvd #179, Tampa",distM:796,onsite:false},
-  ],
-  "cedar-key": [
-    {name:"Sip & Sea Wine Bar Cedar Key",type:"Bar",rating:5,price:"",address:"Big Bend Seagrasses Aquatic Preserve, Big Bend Seagrasses Aquatic Preserve Outstanding Florida Water, 491 Dock St, Cedar Key",distM:68,onsite:true},
-    {name:"Jaybird's Chicken And Dock Street Dips",type:"American Restaurant",rating:4.9,price:"",address:"Big Bend Seagrasses Aquatic Preserve, Big Bend Seagrasses Aquatic Preserve Outstanding Florida Water, 491 Dock St, Cedar Key",distM:68,onsite:true},
-    {name:"Wild Dining & Great Food",type:"Restaurant",rating:4,price:"",address:"Big Bend Seagrasses Aquatic Preserve, Big Bend Seagrasses Aquatic Preserve Outstanding Florida Water, Cedar Key",distM:103,onsite:true},
-    {name:"Island Trading Post",type:"Gift Shop",rating:3.6,price:"",address:"Big Bend Seagrasses Aquatic Preserve, Big Bend Seagrasses Aquatic Preserve Outstanding Florida Water, 450 Dock St, Cedar Key",distM:129,onsite:false},
-    {name:"Tipsy Cow Bar & Grill",type:"Bar & Grill",rating:3.9,price:"",address:"Big Bend Seagrasses Aquatic Preserve, Big Bend Seagrasses Aquatic Preserve Outstanding Florida Water, 360 Dock St Upper, Cedar Key",distM:156,onsite:false},
-    {name:"Liam & Madi’s",type:"Bar",rating:4.6,price:"",address:"Big Bend Seagrasses Aquatic Preserve, Big Bend Seagrasses Aquatic Preserve Outstanding Florida Water, 360 Dock St, Cedar Key",distM:158,onsite:false},
-    {name:"Bonish Studio",type:"Bar",rating:4.8,price:"$$",address:"582 2nd St, Cedar Key",distM:172,onsite:false},
-    {name:"2nd Street Cafe",type:"American Restaurant",rating:4.6,price:"$$",address:"434 2nd St, Cedar Key",distM:177,onsite:false},
-    {name:"Cedar Key Pizza And Subs",type:"Pizza Restaurant",rating:4.5,price:"$",address:"598 2nd St and, D St C, Cedar Key",distM:179,onsite:false},
-    {name:"83 West & 29 North at 83 West",type:"American Restaurant",rating:4.3,price:"$$",address:"Big Bend Seagrasses Aquatic Preserve, Big Bend Seagrasses Aquatic Preserve Outstanding Florida Water, 310 Dock St, Cedar Key",distM:183,onsite:false},
-    {name:"Steamers",type:"American Restaurant",rating:4.5,price:"$$",address:"434 2nd St, Cedar Key",distM:186,onsite:false},
-    {name:"1842 Daily Grind & Mercantile",type:"Coffee Shop",rating:4.8,price:"",address:"598 2nd St, Cedar Key",distM:189,onsite:false},
-    {name:"The Prickly Palm",type:"Cafe",rating:4.9,price:"$$",address:"495 2nd St, Cedar Key",distM:203,onsite:false},
-    {name:"Tony's Restaurant",type:"Seafood Restaurant",rating:4.5,price:"$$",address:"597 2nd St, Cedar Key",distM:211,onsite:false},
-    {name:"FishBonz on Third",type:"Restaurant",rating:4.9,price:"",address:"509 3rd St, Cedar Key",distM:283,onsite:false},
-    {name:"Annie's Cafe",type:"Cafe",rating:4.6,price:"",address:"FL-24 &, 609 6th St, Cedar Key",distM:544,onsite:false},
-    {name:"Hunt Brothers Pizza",type:"Pizza Restaurant",rating:2,price:"$",address:"12810 FL-24, Cedar Key",distM:785,onsite:false},
-  ],
-  "apalachicola": [
-    {name:"Market Street Nutrition",type:"Restaurant",rating:4.8,price:"",address:"45 Market St, Apalachicola",distM:312,onsite:false},
-    {name:"The Franklin Café",type:"Restaurant",rating:3.8,price:"",address:"The Gibson Inn, 51 Ave C, Apalachicola",distM:341,onsite:false},
-    {name:"The Station Raw Bar",type:"Restaurant",rating:4.6,price:"$$",address:"53 Market St, Apalachicola",distM:355,onsite:false},
-    {name:"Apalachicola Yacht Club",type:"Bar",rating:4.8,price:"",address:"170 Water St, Apalachicola",distM:410,onsite:false},
-    {name:"Taqueria de Apalach",type:"Restaurant",rating:4.8,price:"",address:"170 Water St, Apalachicola",distM:411,onsite:false},
-    {name:"Hole In The Wall Seafood And Raw Bar",type:"Restaurant",rating:4.4,price:"$$",address:"23 Ave D, Apalachicola",distM:451,onsite:false},
-    {name:"Up To No Good Tavern",type:"Restaurant",rating:3.7,price:"",address:"76 Market St, Apalachicola",distM:457,onsite:false},
-    {name:"Apalachicola Chocolate & Coffee Company",type:"Coffee Shop",rating:4.6,price:"",address:"75 Market St, Apalachicola",distM:464,onsite:false},
-    {name:"Owl Café",type:"Restaurant",rating:4.3,price:"$$",address:"15 Ave D, Apalachicola",distM:466,onsite:false},
-    {name:"The Tap Room",type:"American Restaurant",rating:4.3,price:"$$",address:"75 Commerce St, Apalachicola",distM:467,onsite:false},
-    {name:"Apalachicola Seafood Grill",type:"Seafood Restaurant",rating:4.2,price:"$$",address:"100 Market St, Apalachicola",distM:524,onsite:false},
-    {name:"Tamara's On the Go",type:"Restaurant",rating:4.8,price:"",address:"86 Water St, Apalachicola",distM:542,onsite:false},
-    {name:"Apalachicola Bee Company",type:"Wine Bar",rating:4.9,price:"",address:"16 Avenue E, Apalachicola",distM:543,onsite:false},
-    {name:"Subway",type:"Sandwich Shop",rating:3.7,price:"$",address:"47 Avenue E, Apalachicola",distM:591,onsite:false},
-    {name:"Cafe Con Leche",type:"Coffee Shop",rating:4.6,price:"$$",address:"234 Water St, Apalachicola",distM:646,onsite:false},
-    {name:"High Five Dive Bar",type:"Bar",rating:4.8,price:"$",address:"131 Commerce St, Apalachicola",distM:696,onsite:false},
-    {name:"Belle's Winery and Saloon",type:"Bar",rating:5,price:"",address:"252 Water St Ste C, Apalachicola",distM:707,onsite:false},
-    {name:"The Biscuit Factory",type:"Breakfast Restaurant",rating:4.8,price:"",address:"254 Water St, Apalachicola",distM:722,onsite:false},
-    {name:"Speakeasy BBQ & Grill",type:"Restaurant",rating:5,price:"",address:"254 Water St, Apalachicola",distM:722,onsite:false},
-  ],
-  "panama-city": [
-    {name:"Harrison's Kitchen & Bar",type:"Restaurant",rating:4.3,price:"$$",address:"5 Harrison Ave, Panama City",distM:290,onsite:false},
-    {name:"Tarpon's",type:"American Restaurant",rating:4.8,price:"",address:"7 Harrison Ave, Panama City",distM:433,onsite:false},
-    {name:"Tarpon Dock Seafood Market",type:"Market",rating:4.6,price:"",address:"234 E Beach Dr, Panama City",distM:442,onsite:false},
-    {name:"Steam on 5",type:"Seafood Restaurant",rating:4.7,price:"",address:"7 Harrison Ave, Panama City",distM:445,onsite:false},
-    {name:"Rosemary-N-Thyme",type:"Restaurant",rating:5,price:"",address:"33 Harrison Ave, Panama City",distM:484,onsite:false},
-    {name:"Atelier",type:"Bar",rating:4.6,price:"",address:"100 Harrison Ave, Panama City",distM:495,onsite:false},
-    {name:"Blu Island Shave Ice Co.",type:"Restaurant",rating:null,price:"",address:"239 E Beach Dr, Panama City",distM:504,onsite:false},
-    {name:"Dee's Hideout Downtown",type:"Seafood Restaurant",rating:4.8,price:"",address:"115 Harrison Ave, Panama City",distM:528,onsite:false},
-    {name:"The Local 115 llc",type:"Seafood Restaurant",rating:4.6,price:"",address:"115 Harrison Ave, Panama City",distM:528,onsite:false},
-    {name:"Trigo San Francisco Style Deli & Catering",type:"Sandwich Shop",rating:4.7,price:"$$",address:"119 Harrison Ave, Panama City",distM:537,onsite:false},
-    {name:"No Name Lounge",type:"Bar",rating:4.5,price:"$",address:"111 W Beach Dr, Panama City",distM:600,onsite:false},
-    {name:"Bayou Joes Marina & Grill",type:"Restaurant",rating:4.5,price:"$$",address:"112A E 3rd Ct, Panama City",distM:628,onsite:false},
-    {name:"El Weirdo",type:"Brewpub",rating:4.7,price:"$$",address:"24 Oak Ave, Panama City",distM:630,onsite:false},
-    {name:"Somethin's Cookin' Downtown",type:"Restaurant",rating:4.7,price:"$$",address:"32 Oak Ave, Panama City",distM:640,onsite:false},
-    {name:"Millie's Cafe",type:"Restaurant",rating:4.6,price:"$$",address:"228 Harrison Ave, Panama City",distM:661,onsite:false},
-    {name:"The Bagel Maker",type:"Bagel Shop",rating:4.7,price:"$",address:"41 W 4th St, Panama City",distM:671,onsite:false},
-    {name:"Craft Beer EmPOURium - Corner Pocket",type:"Bar",rating:4.5,price:"$$",address:"300 Harrison Ave, Panama City",distM:677,onsite:false},
-    {name:"Ferrucci Ristorante",type:"Italian Restaurant",rating:4.4,price:"$$",address:"301 Harrison Ave, Panama City",distM:678,onsite:false},
-    {name:"Thistle & Thorne",type:"Lounge bar",rating:4.8,price:"",address:"304 Harrison Ave, Panama City",distM:683,onsite:false},
-    {name:"The Press Downtown",type:"Coffee Shop",rating:4.7,price:"",address:"310 Harrison Ave, Panama City",distM:705,onsite:false},
-  ],
-  "rocky-bayou": [
-    {name:"CEFCO Convenience Store",type:"Convenience Store",rating:3.6,price:"",address:"1600 E John Sims Pkwy, Niceville",distM:620,onsite:false},
-    {name:"Panera Bread",type:"Cafe",rating:3.9,price:"$$",address:"1510 E John Sims Pkwy, Niceville",distM:745,onsite:false},
-    {name:"Marco's Pizza",type:"Pizza Restaurant",rating:4.2,price:"$",address:"1554 E John Sims Pkwy, Niceville",distM:798,onsite:false},
-  ],
-  "niceville": [
-    {name:"Doc's Oyster Bar",type:"Restaurant",rating:4.6,price:"$$",address:"Behind Compass Rose, 303 E Glen Ave, Valparaiso",distM:168,onsite:false},
-    {name:"Pho Nguyen Vietnamese Noodle",type:"Vietnamese Restaurant",rating:4.5,price:"$",address:"177 S John Sims Pkwy, Valparaiso",distM:364,onsite:false},
-    {name:"Philippines market dining food great",type:"Asian Restaurant",rating:null,price:"",address:"153 N John Sims Pkwy, Valparaiso",distM:569,onsite:false},
-    {name:"Philippine Market & Cafe",type:"Filipino Restaurant",rating:4.6,price:"$",address:"144 S John Sims Pkwy, Valparaiso",distM:573,onsite:false},
-  ],
-  "destin": [
-    {name:"Nonna's Ristorante",type:"Italian Restaurant",rating:4.6,price:"",address:"2 Harbor Blvd, Destin",distM:17,onsite:true},
-    {name:"Azul Mexican Fusion",type:"Mexican Restaurant",rating:4.7,price:"$$",address:"2 Harbor Blvd, Destin",distM:30,onsite:true},
-    {name:"Jester Mardi Gras Daiquiris",type:"Bar",rating:4.2,price:"$$",address:"34 Harbor Blvd #106, Destin",distM:47,onsite:true},
-    {name:"Grande Vista Bar & Grill",type:"Bar & Grill",rating:4.3,price:"",address:"10 Harbor Blvd, Destin",distM:87,onsite:true},
-    {name:"On The Rocks Bar",type:"Cocktail Bar",rating:3.3,price:"",address:"10 Harbor Blvd, Destin",distM:94,onsite:true},
-    {name:"Wave Coffee",type:"Cafe",rating:1,price:"",address:"10 Harbor Blvd West Tower, Destin",distM:102,onsite:true},
-    {name:"Harry T's Lighthouse",type:"Seafood Restaurant",rating:4.3,price:"$$",address:"46 Harbor Blvd, Destin",distM:105,onsite:true},
-    {name:"Vinny McGuire's",type:"Pizza Restaurant",rating:4.7,price:"$$",address:"29 Harbor Blvd, Destin",distM:116,onsite:true},
-    {name:"Pandora's Steakhouse",type:"Restaurant",rating:3.6,price:"",address:"56 Harbor Blvd, Destin",distM:138,onsite:false},
-    {name:"McGuire's Irish Pub of Destin",type:"Pub",rating:4.7,price:"$$",address:"33 US-98, Destin",distM:144,onsite:false},
-    {name:"Café Café",type:"Coffee Shop",rating:3.9,price:"$$",address:"10 Harbor Blvd Ste 240, Destin",distM:149,onsite:false},
-    {name:"McGuire’s Sushi",type:"Sushi Restaurant",rating:4.7,price:"$$",address:"35 Harbor Blvd, Destin",distM:171,onsite:false},
-    {name:"Harbor Tacos",type:"Taco Restaurant",rating:3.3,price:"",address:"66 Harbor Blvd, Destin",distM:174,onsite:false},
-    {name:"Sugar Land Candy, Ice Cream, & Coffee",type:"Ice Cream Shop",rating:4.8,price:"$",address:"47 Harbor Blvd, Destin",distM:190,onsite:false},
-    {name:"Happy Life Cruises",type:"Tour Agency",rating:4.9,price:"",address:"16 Harbor Blvd Boat Slip 39, Destin",distM:234,onsite:false},
-    {name:"Margaritaville - Destin",type:"American Restaurant",rating:4,price:"$$",address:"76 Harbor Blvd, Destin",distM:239,onsite:false},
-    {name:"Say Cheese",type:"Sandwich Shop",rating:3.4,price:"",address:"10 Harbor Blvd spot 88, Destin",distM:268,onsite:false},
-    {name:"the locker",type:"Bar",rating:5,price:"",address:"100 Harbor Blvd, Destin",distM:282,onsite:false},
-    {name:"Coyote Ugly Saloon",type:"Bar",rating:3.7,price:"$$",address:"100 Harbor Blvd, Destin",distM:309,onsite:false},
-    {name:"Whataburger",type:"Fast Food Restaurant",rating:4.1,price:"$",address:"101 Harbor Blvd, Destin",distM:310,onsite:false},
-  ],
-  "pensacola": [
-    {name:"Deluna's",type:"American Restaurant",rating:3.9,price:"",address:"920 S Palafox St, Pensacola",distM:118,onsite:true},
-    {name:"Jaco's Bayfront Bar & Grille",type:"Bar & Grill",rating:4.6,price:"$$",address:"997 S Palafox St, Pensacola",distM:186,onsite:false},
-    {name:"Portside Pickle",type:"Athletic Field",rating:4.6,price:"",address:"740 Commendencia St, Pensacola",distM:198,onsite:false},
-    {name:"The Fish House",type:"Seafood Restaurant",rating:4.5,price:"$$",address:"600 S Barracks St, Pensacola",distM:418,onsite:false},
-    {name:"Renaissance Restaurant at the Garden",type:"French Restaurant",rating:5,price:"",address:"At the Garden on, 3 W Main St, N Palafox St, Pensacola",distM:505,onsite:false},
-    {name:"JT's Modern Kitchen",type:"Japanese Restaurant",rating:null,price:"",address:"3 W Main St, Pensacola",distM:505,onsite:false},
-    {name:"Ruby Slipper",type:"Brunch Restaurant",rating:4.6,price:"$$",address:"509 S Palafox St, Pensacola",distM:507,onsite:false},
-    {name:"The Garden Bar",type:"Bar",rating:3,price:"",address:"501 S Palafox St, Pensacola",distM:521,onsite:false},
-    {name:"Xiscali Taqueria Garden",type:"Mexican Restaurant",rating:4.4,price:"",address:"501 S Palafox St, Pensacola",distM:521,onsite:false},
-    {name:"Buzzed Brew Coffee",type:"Coffee Shop",rating:4.8,price:"",address:"501 S Palafox St, Pensacola",distM:521,onsite:false},
-    {name:"Bluefin Poke - Pensacola, FL",type:"Hawaiian Restaurant",rating:4.7,price:"",address:"501 S Palafox St Ste 10, Pensacola",distM:521,onsite:false},
-    {name:"Anthony pizza cone",type:"Pizza Restaurant",rating:5,price:"",address:"501 S Palafox St, Pensacola",distM:521,onsite:false},
-    {name:"Chester’s Pensacola",type:"Restaurant",rating:4.7,price:"",address:"501 S Palafox St, Pensacola",distM:521,onsite:false},
-    {name:"e-saan thai street food",type:"Thai Restaurant",rating:3.2,price:"",address:"501 S Palafox St Unit 1, Pensacola",distM:521,onsite:false},
-    {name:"Eurasian Bistro Express",type:"Vietnamese Restaurant",rating:4.8,price:"$$",address:"501 S Palafox St, Pensacola",distM:521,onsite:false},
-    {name:"Calavera Tacos",type:"Taco Restaurant",rating:4.3,price:"",address:"501 S Palafox St #5932, Pensacola",distM:521,onsite:false},
-    {name:"The Garden at Palafox + Main",type:"Food Court",rating:4.6,price:"",address:"501 S Palafox St, Pensacola",distM:528,onsite:false},
-    {name:"The Rooftop",type:"Bar",rating:4.5,price:"",address:"400 S Jefferson St 4th Floor, Pensacola",distM:550,onsite:false},
-    {name:"Maker's Cafe & Espresso Bar",type:"Coffee Shop",rating:4.7,price:"",address:"The Artisan, 422 S Palafox St, Pensacola",distM:559,onsite:false},
-    {name:"Fix Coffee Company",type:"Cafe",rating:4.7,price:"",address:"407 S Palafox St Ste F, Pensacola",distM:560,onsite:false},
-  ],
-  "dauphin-island": [
-    {name:"BGH Cafe LLC",type:"Restaurant",rating:3.8,price:"",address:"114 Bienville Blvd, Dauphin Island",distM:735,onsite:false},
-  ],
-  "mobile": [
-    {name:"Subway",type:"Sandwich Shop",rating:3.8,price:"$",address:"420 N Water St, Mobile",distM:711,onsite:false},
-  ],
-  "pascagoula": [
-    {name:"The District Coffee Co.",type:"Coffee Shop",rating:4.8,price:"",address:"506 Delmas Ave, Pascagoula",distM:329,onsite:false},
-    {name:"Chandeleur Depot",type:"Brewpub",rating:4.8,price:"",address:"505 Railroad Ave, Pascagoula",distM:342,onsite:false},
-    {name:"City Centre of Pascagoula",type:"Apartment Building",rating:5,price:"",address:"3207 Magnolia St, Pascagoula",distM:390,onsite:false},
-    {name:"The Hancock Rooftop Bar",type:"Cocktail Bar",rating:5,price:"",address:"3207 Magnolia St Rooftop, Pascagoula",distM:390,onsite:false},
-    {name:"Scranton's | Restaurant & Catering",type:"American Restaurant",rating:4.5,price:"$$",address:"623 Delmas Ave, Pascagoula",distM:473,onsite:false},
-    {name:"Craft 228",type:"Bar",rating:4.8,price:"",address:"636 Delmas Ave, Pascagoula",distM:486,onsite:false},
-    {name:"CZak’s",type:"Bar",rating:4.8,price:"",address:"617 Krebs Ave, Pascagoula",distM:493,onsite:false},
-    {name:"Italian Bistro",type:"Italian Restaurant",rating:4.4,price:"$$",address:"641 Delmas Ave, Pascagoula",distM:504,onsite:false},
-    {name:"Uncle Joe's Pizza Pascagoula",type:"Restaurant",rating:4.1,price:"",address:"650 Delmas Ave, Pascagoula",distM:511,onsite:false},
-    {name:"Downtown Jazz Club",type:"Night Club",rating:4.6,price:"$",address:"3225 Canty St, Pascagoula",distM:523,onsite:false},
-    {name:"Kitchen Sisters Meal Prep",type:"Restaurant",rating:5,price:"",address:"703 Krebs Ave, Pascagoula",distM:545,onsite:false},
-    {name:"The Jury Room",type:"Bar",rating:4.5,price:"",address:"702 Delmas Ave, Pascagoula",distM:551,onsite:false},
-    {name:"Off the Hook Seafood and Cajun Grille",type:"Seafood Restaurant",rating:4.7,price:"$$",address:"707 Krebs Ave, Pascagoula",distM:551,onsite:false},
-    {name:"Jack's By The Tracks",type:"Sushi Restaurant",rating:4.6,price:"$$",address:"709 Krebs Ave, Pascagoula",distM:558,onsite:false},
-    {name:"NURA JUICE BAR",type:"Juice Shop",rating:4.7,price:"",address:"3255 Pascagoula St, Pascagoula",distM:605,onsite:false},
-    {name:"Brady's Steaks & Seafood",type:"Seafood Restaurant",rating:4.5,price:"$$",address:"3801 Magnolia St, Pascagoula",distM:660,onsite:false},
-  ],
-  "biloxi": [
-    {name:"Jr's Lounge",type:"Bar",rating:3,price:"",address:"Desoto St, Biloxi",distM:396,onsite:false},
-    {name:"Coffee Fusion",type:"Coffee Shop",rating:4.1,price:"$",address:"301 Fisher St, Biloxi",distM:714,onsite:false},
-    {name:"ZENSHI Handcrafted Sushi",type:"Restaurant",rating:null,price:"",address:"508 Larcher Blvd #1510, Biloxi",distM:785,onsite:false},
-  ],
-  "port-fourchon": [
-    {name:"Da'Fire LLC",type:"Cafe",rating:5,price:"",address:"868 A O Rappelet Rd #1229, Golden Meadow",distM:644,onsite:false},
-  ],
-  "new-orleans": [
-    {name:"Landry's Seafood House",type:"Seafood Restaurant",rating:4.3,price:"$$$",address:"8000 Lakeshore Dr, New Orleans",distM:86,onsite:true},
-    {name:"The Blue Crab Restaurant and Oyster Bar",type:"Restaurant",rating:4.3,price:"$$",address:"7900 Lakeshore Dr, New Orleans",distM:152,onsite:false},
-    {name:"JB's Fuel Dock",type:"Pizza Restaurant",rating:4.5,price:"$$",address:"126 S Roadway St, New Orleans",distM:309,onsite:false},
-    {name:"Felix's Restaurant & Oyster Bar",type:"Cajun Restaurant",rating:4.1,price:"$$",address:"7400 Lakeshore Dr, New Orleans",distM:378,onsite:false},
-    {name:"Russell's Marina Grill",type:"Breakfast Restaurant",rating:4.6,price:"$",address:"8555 Pontchartrain Blvd, New Orleans",distM:657,onsite:false},
-    {name:"Lakeview Harbor",type:"Restaurant",rating:4.2,price:"$$",address:"8550 Pontchartrain Blvd, New Orleans",distM:659,onsite:false},
-    {name:"Smoothie King",type:"Food",rating:4.3,price:"$$",address:"111-A Allen Toussaint Blvd A, New Orleans",distM:668,onsite:false},
-    {name:"Sala Nola",type:"Restaurant",rating:4.4,price:"$$",address:"124 Lake Marina Ave, New Orleans",distM:672,onsite:false},
-    {name:"Subway",type:"Sandwich Shop",rating:2.9,price:"$",address:"115 Allen Toussaint Blvd, New Orleans",distM:683,onsite:false},
-    {name:"Two Tony's Restaurant",type:"Italian Restaurant",rating:4.5,price:"$$",address:"8536 Pontchartrain Blvd, New Orleans",distM:706,onsite:false},
-    {name:"Ming's",type:"Restaurant",rating:4.4,price:"$$",address:"7224 Pontchartrain Blvd, New Orleans",distM:731,onsite:false},
-    {name:"Safta's Table",type:"Mediterranean Restaurant",rating:4,price:"",address:"129 Allen Toussaint Blvd Suite 103, New Orleans",distM:735,onsite:false},
-    {name:"ZENSHI Handcrafted Sushi",type:"Restaurant",rating:null,price:"",address:"135 W Robert E Lee Blvd, New Orleans",distM:770,onsite:false},
-    {name:"Thai Zaap Express West End",type:"Thai Restaurant",rating:4.4,price:"",address:"131 W Robert E Lee Blvd, New Orleans",distM:773,onsite:false},
-    {name:"PJ's Coffee",type:"Coffee Shop",rating:4.4,price:"$",address:"Roberts Fresh Market, 153 W Robert E Lee Blvd, New Orleans",distM:776,onsite:false},
-    {name:"Chateau Café",type:"Restaurant",rating:4.3,price:"$",address:"139 Allen Toussaint Blvd, New Orleans",distM:795,onsite:false},
-  ],
-  "port-arthur": [
-    {name:"PleasurEscape Lounge",type:"Coffee Shop",rating:3,price:"",address:"410 Pleasure Pier Blvd Bldg B, Port Arthur",distM:476,onsite:false},
-    {name:"Cheddars",type:"Restaurant",rating:null,price:"",address:"Port Arthur",distM:602,onsite:false},
-  ],
-  "galveston": [
-    {name:"Willie G's Seafood & Steaks",type:"Seafood Restaurant",rating:4.4,price:"$$$",address:"2100 Harborside Dr, Galveston",distM:91,onsite:true},
-    {name:"Pier 21",type:"Tourist Attraction",rating:4.5,price:"",address:"2100 Harborside Dr, Galveston",distM:98,onsite:true},
-    {name:"Fisherman's Wharf",type:"American Restaurant",rating:4.5,price:"$$",address:"2200 Harborside Dr, Galveston",distM:111,onsite:true},
-    {name:"Jimmy John's",type:"Sandwich Shop",rating:3.8,price:"$",address:"102-B Kempner St, Galveston",distM:183,onsite:false},
-    {name:"El Pinoy Restaurante & Groceries",type:"Filipino Restaurant",rating:4.1,price:"",address:"101 21st St #4, Galveston",distM:188,onsite:false},
-    {name:"Starbucks Coffee Company",type:"Coffee Shop",rating:4.3,price:"$$",address:"102 Kempner St, Galveston",distM:190,onsite:false},
-    {name:"Katie's Seafood House",type:"Seafood Restaurant",rating:4.5,price:"$$",address:"2000 Wharf Rd, Galveston",distM:194,onsite:false},
-    {name:"Groovy Grind Coffee Co.",type:"Coffee Shop",rating:5,price:"",address:"2028 The Strand, Galveston",distM:236,onsite:false},
-    {name:"Galveston Island Tacos",type:"Tex-Mex Restaurant",rating:4.6,price:"",address:"2028 The Strand, Galveston",distM:239,onsite:false},
-    {name:"Island Acai",type:"Restaurant",rating:4.8,price:"",address:"Hendley Green, 2028 The Strand, Galveston",distM:241,onsite:false},
-    {name:"Lapalapa",type:"Clothing Store",rating:4.3,price:"",address:"2120 The Strand, Galveston",distM:248,onsite:false},
-    {name:"Brewchachos Tacos & Cantina Galveston",type:"Taco Restaurant",rating:4.3,price:"$",address:"2110 The Strand, Galveston",distM:252,onsite:false},
-    {name:"Peanut Butter Warehouse",type:"Store",rating:4.2,price:"",address:"100 20th St, Galveston",distM:272,onsite:false},
-    {name:"Hendley Wine Co.",type:"Wine Bar",rating:4.9,price:"",address:"2016 The Strand, Galveston",distM:272,onsite:false},
-    {name:"Old Oleander®",type:"Wine Bar",rating:4.9,price:"$",address:"2016 The Strand, Galveston",distM:272,onsite:false},
-    {name:"Tapas on the Strand food n' drinks tour, Galveston",type:"Tour Agency",rating:5,price:"",address:"102 20th St, Galveston",distM:277,onsite:false},
-    {name:"3 Doors Down Bar",type:"Bar",rating:4.6,price:"",address:"102 20th St Ste a, Galveston",distM:277,onsite:false},
-    {name:"Union Public House Galveston",type:"Bar",rating:4.7,price:"",address:"114 20th St, Galveston",distM:287,onsite:false},
-    {name:"Mr. Taco Downtown",type:"Mexican Restaurant",rating:4.4,price:"",address:"120 20th St, Galveston",distM:291,onsite:false},
-    {name:"Rosario`s flying pizza and pub",type:"Pizza Restaurant",rating:4.4,price:"$$",address:"2121 The Strand, Galveston",distM:301,onsite:false},
-  ],
-  "freeport": [
-    {name:"Jetty Shack",type:"Bar & Grill",rating:4.5,price:"$",address:"412 Parkview Rd, Surfside Beach",distM:427,onsite:false},
-  ],
-  "rockport": [
-    {name:"Rockport Daily Grind",type:"Coffee Shop",rating:4.6,price:"$$",address:"302 S Austin St, Rockport",distM:403,onsite:false},
-    {name:"The Salty Gypsea Boutique",type:"Clothing Store",rating:4.7,price:"",address:"207 S Austin St, Rockport",distM:444,onsite:false},
-    {name:"The Coastal Mercantile",type:"Home Goods Store",rating:4.5,price:"",address:"406 S Austin St, Rockport",distM:446,onsite:false},
-    {name:"LATITUDE 28°02' Restaurant and Art Gallery",type:"Seafood Restaurant",rating:4.6,price:"$$$",address:"105 N Austin St, Rockport",distM:455,onsite:false},
-    {name:"Winery on the Bay / Dog'Gone Brewery",type:"Winery",rating:4.5,price:"",address:"1007 E North St, Rockport",distM:471,onsite:false},
-    {name:"Copano's",type:"Restaurant",rating:4.5,price:"$$",address:"1008 E North St, Rockport",distM:487,onsite:false},
-    {name:"Quirky Birds Coffee",type:"Coffee Shop",rating:5,price:"",address:"415 S Austin St #2, Rockport",distM:509,onsite:false},
-    {name:"Whiskey Palm",type:"Bar",rating:4.8,price:"$$",address:"Station Mall, 415 S. Austin Street Austin, Rockport",distM:524,onsite:false},
-    {name:"The Roo Pub - Rockport",type:"Bar & Grill",rating:4.3,price:"",address:"501 S Austin St, Rockport",distM:534,onsite:false},
-    {name:"Rock Bottom Park & Pub",type:"Bar",rating:4.5,price:"$",address:"507 S Austin St, Rockport",distM:546,onsite:false},
-    {name:"PIK-NIK Deli + Wine Bar",type:"American Restaurant",rating:4.7,price:"",address:"1005 St Marys St, Rockport",distM:567,onsite:false},
-    {name:"Hunt Brother Pizza",type:"Takeout Restaurant",rating:4.5,price:"",address:"902 E Market St, Rockport",distM:653,onsite:false},
-    {name:"Main Street Coffee House",type:"Coffee Shop",rating:4.8,price:"",address:"802 E Main St, Rockport",distM:687,onsite:false},
-    {name:"Mac's Pit Barbecue & Catering",type:"Barbecue Restaurant",rating:4.3,price:"$$",address:"815 E Market St, Rockport",distM:749,onsite:false},
-  ],
-};
-
 const ASHORE_CACHE_KEY = "sailwindow.ashore.v1";
 
-// Featured dock-and-dine partners — hand-managed for now, Cloudflare KV in Phase 1.
-// A partner renders at the top of the Ashore panel within 1.2 mi of the marina.
-// Crew redeems by showing the screen or saying the code word; the restaurant tallies.
-const ASHORE_PARTNERS = [
-  { name:"Doc's Oyster Bar", lat:30.5038786, lon:-86.4944173, sample:true,
-    offer:"Example: 10% off entrées for SailWindow crews", code:"SAILWINDOW",
-    note:"Example listing", validThru:"2026-12-31" },
-  { name:"Jaco's Bayfront Bar & Grille", lat:30.4025569, lon:-87.2134236, sample:true,
-    offer:"Example: free appetizer with two entrées for SailWindow crews", code:"SAILWINDOW",
-    note:"Example listing", validThru:"2026-12-31" }
-];
+// SailWindow marina restaurant database — loaded from marina_data.json
+// Cached in localStorage; only re-fetched when SW_DB_VER changes or cache is missing.
+const SW_DB_CACHE_KEY = "sailwindow.marinadb.v1";
+const SW_DB_VER       = "2026-06-29";   // bump this string whenever marina_data.json is redeployed
+let SW_MARINA_DB = null;
+(async function loadMarinaDB(){
+  // 1. Try localStorage first
+  if(storageAvailable()){
+    try{
+      const raw = localStorage.getItem(SW_DB_CACHE_KEY);
+      if(raw){
+        const cached = JSON.parse(raw);
+        if(cached.ver === SW_DB_VER && cached.data){
+          SW_MARINA_DB = cached.data;
+          return; // cache hit — no network request needed
+        }
+      }
+    }catch(e){ /* corrupt cache — fall through to fetch */ }
+  }
+  // 2. Cache miss or stale version — fetch and store
+  try{
+    const r = await fetch('marina_data.json');
+    if(r.ok){
+      SW_MARINA_DB = await r.json();
+      if(storageAvailable()){
+        try{
+          localStorage.setItem(SW_DB_CACHE_KEY, JSON.stringify({ ver: SW_DB_VER, data: SW_MARINA_DB }));
+        }catch(e){ /* quota exceeded — skip caching */ }
+      }
+    }
+  }catch(e){ console.warn('SailWindow marina DB unavailable', e); }
+})();
 
-function findAshorePartners(lat, lon){
-  const today = new Date();
-  return ASHORE_PARTNERS.filter(p => {
-    if(p.validThru && new Date(p.validThru + "T23:59:59") < today) return false;
-    return distMiles(lat, lon, p.lat, p.lon) <= 1.2;
-  }).sort((a,b) => distMiles(lat,lon,a.lat,a.lon) - distMiles(lat,lon,b.lat,b.lon));
+// Find the nearest marina in our DB to the given lat/lon (within 3 miles),
+// then return its restaurant list split into partners (offer agreed) and all others.
+function getSwRestaurants(lat, lon){
+  if(!SW_MARINA_DB) return { partners:[], restaurants:[], marinaName:null, distMi:null };
+  let best = null, bestName = null, bestDist = 999;
+  for(const [name, data] of Object.entries(SW_MARINA_DB)){
+    const d = distMiles(lat, lon, data.lat, data.lng);
+    if(d < bestDist){ bestDist = d; best = data; bestName = name; }
+  }
+  if(!best || bestDist > 3) return { partners:[], restaurants:[], marinaName:null, distMi:null };
+  const partners     = best.restaurants.filter(r => r.partner && r.discount_offer);
+  const restaurants  = best.restaurants.filter(r => !r.partner || !r.discount_offer);
+  return { partners, restaurants, marinaName:bestName, distMi:bestDist };
 }
+
+// Legacy stub — no longer used but kept for safety
+function findAshorePartners(){ return []; }
 
 function loadAshoreCache(lat, lon){
   try{
@@ -1500,40 +1219,17 @@ function saveAshoreCache(lat, lon, data){
 async function fetchAshore(lat, lon){
   const cached = loadAshoreCache(lat, lon);
   if(cached) return cached;
-
-  // Try Google Places cache (pre-collected, refreshed monthly)
-  const gKey = Object.keys(GOOGLE_ASHORE_CACHE).find(id => {
-    const loc = LOCATIONS[id];
-    return loc && Math.abs(loc.lat - lat) < 0.01 && Math.abs(loc.lon - lon) < 0.01;
-  });
-  if(gKey){
-    const places = GOOGLE_ASHORE_CACHE[gKey];
-    const items = places.map(p => ({
-      name: p.name, lat: null, lon: null,
-      kind: 'food',
-      cuisine: p.type,
-      dist: p.distM != null ? p.distM / 1609.34 : null,
-      onsite: p.onsite,
-      price: p.price,
-      mapsUrl: ''
-    })).filter(x => x.dist != null).sort((a,b) => a.dist - b.dist);
-    saveAshoreCache(lat, lon, items);
-    return items;
-  }
-
-  // Fallback: live OpenStreetMap query
   const query = `[out:json][timeout:25];(nwr["amenity"~"^(restaurant|fast_food|cafe|bar|pub)$"](around:1200,${lat},${lon});nwr["waterway"="fuel"](around:1600,${lat},${lon});nwr["amenity"="fuel"](around:1600,${lat},${lon}););out center tags;`;
   const res = await fetch('https://overpass-api.de/api/interpreter', { method:'POST', body:'data='+encodeURIComponent(query) });
   if(!res.ok) throw new Error('Overpass '+res.status);
-  const osm = await res.json();
-  const items = (osm.elements||[]).map(el=>{
+  const data = await res.json();
+  const items = (data.elements||[]).map(el=>{
     const la = el.lat ?? el.center?.lat, lo = el.lon ?? el.center?.lon, t = el.tags || {};
     return {
       name: t.name || null, lat: la, lon: lo,
       kind: t.waterway === 'fuel' ? 'fuel-dock' : (t.amenity === 'fuel' ? 'fuel-road' : 'food'),
       cuisine: (t.cuisine || '').split(';')[0].replace(/_/g,' '),
-      dist: (la != null && lo != null) ? distMiles(lat, lon, la, lo) : null,
-      onsite: false, price: '', mapsUrl: ''
+      dist: (la != null && lo != null) ? distMiles(lat, lon, la, lo) : null
     };
   }).filter(x => x.dist != null).sort((a,b) => a.dist - b.dist);
   saveAshoreCache(lat, lon, items);
@@ -1563,31 +1259,157 @@ async function toggleAshore(btn, lat, lon, marinaFuel){
   let items = [];
   try{ items = await fetchAshore(lat, lon); }
   catch(e){ sec.innerHTML = '<span style="color:var(--warn)">Couldn\'t reach OpenStreetMap — try again in a minute.</span>'; return; }
-  const partners  = findAshorePartners(lat, lon);
-  const pNames    = new Set(partners.map(p => p.name.toLowerCase()));
   const fuelDocks = items.filter(i => i.kind === 'fuel-dock');
   const fuelRoad  = items.filter(i => i.kind === 'fuel-road');
-  const food      = items.filter(i => i.kind === 'food' && !(i.name && pNames.has(i.name.toLowerCase())));
   let html = '';
+
+  // ── Fuel ──
   if(marinaFuel)            html += `<div>⛽ <strong>Fuel at this marina</strong></div>`;
   else if(fuelDocks.length) html += `<div>⛽ Fuel dock: <strong>${escHtml(fuelDocks[0].name || 'unnamed')}</strong> · ${fmtAshoreDist(fuelDocks[0].dist)}</div>`;
   else if(fuelRoad.length)  html += `<div>⛽ Nearest fuel is a road station: ${escHtml(fuelRoad[0].name || 'unnamed')} · ${fmtAshoreDist(fuelRoad[0].dist)}</div>`;
   else                      html += `<div>⛽ No fuel mapped nearby — call ahead.</div>`;
-  for(const p of partners){
-    const redeem = p.sample
-      ? `Restaurant owner? This featured spot is open: <a href="mailto:marketing@sailwindow.com" style="color:inherit;font-weight:600">marketing@sailwindow.com</a>`
-      : `show this screen or say &ldquo;${escHtml(p.code)}&rdquo;`;
-    html += `<div class="ashore-partner">★ <strong>${escHtml(p.name)}</strong>${p.note ? ` <span style="font-size:10.5px;font-weight:600;color:var(--warn)">${escHtml(p.note)}</span>` : ''}<br>${escHtml(p.offer)} · ${redeem} · ${fmtAshoreDist(distMiles(lat, lon, p.lat, p.lon))}</div>`;
+
+  // ── Restaurants from SailWindow Google database ──
+  const swData = getSwRestaurants(lat, lon);
+
+  // Partner restaurants (agreed discount) — featured at top
+  for(const p of swData.partners){
+    const pd = JSON.stringify(p).replace(/'/g,"&#39;").replace(/"/g,"&quot;");
+    html += `<div class="ashore-partner" onclick="event.stopPropagation();showPartnerModal(${pd})">
+      <div style="display:flex;align-items:center;gap:6px">
+        <span style="font-size:13px">🏷️</span>
+        <strong style="font-size:13px">${escHtml(p.name)}</strong>
+        <span style="font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--primary);background:var(--primary-hl);padding:1px 7px;border-radius:999px;border:1px solid var(--primary);margin-left:2px">PARTNER</span>
+        ${p.rating ? `<span style="font-size:11px;color:var(--muted);margin-left:auto">★ ${p.rating}</span>` : ''}
+      </div>
+      <div style="font-size:12px;color:var(--primary);margin-top:4px;font-weight:600">${escHtml(p.discount_offer)}</div>
+      <div class="ashore-partner-tap">Tap to show your server →</div>
+    </div>`;
   }
-  if(food.length){
-    html += `<div style="margin-top:4px">🍴 Eat ashore:</div>`;
-    html += food.slice(0,5).map(f => `<div style="padding-left:14px">• ${f.onsite ? '<strong>On-site</strong> · ' : ''}${escHtml(f.name || 'unnamed')}${f.cuisine ? ` <span style="color:var(--muted)">(${escHtml(f.cuisine)})</span>` : ''}${f.price ? ` <span style="color:var(--muted)">${escHtml(f.price)}</span>` : ''} · ${fmtAshoreDist(f.dist)}</div>`).join('');
-    if(food.length > 5) html += `<div style="padding-left:14px;color:var(--muted)">+ ${food.length - 5} more within a walk</div>`;
+
+  // All other Google-sourced restaurants near this marina
+  if(swData.restaurants.length){
+    html += `<div style="margin-top:6px;font-weight:600;font-size:12px">🍴 Nearby restaurants</div>`;
+    html += swData.restaurants.slice(0, 8).map(r => {
+      const stars   = r.rating ? `★ ${r.rating}` : '';
+      const siteBtn = r.website ? ` · <a href="${escHtml(r.website)}" target="_blank" rel="noopener" style="color:var(--primary);font-size:11px" onclick="event.stopPropagation()">menu/site</a>` : '';
+      const phoneBtn= r.phone   ? ` · <a href="tel:${r.phone.replace(/[^0-9+]/g,'')}" style="color:var(--primary);font-size:11px" onclick="event.stopPropagation()">${escHtml(r.phone)}</a>` : '';
+      return `<div style="padding:5px 0;border-bottom:1px solid var(--divider)"><strong style="font-size:13px">${escHtml(r.name)}</strong>${stars ? ` <span style="color:var(--muted);font-size:12px">${stars}</span>` : ''}<br><span style="font-size:11px;color:var(--muted)">${escHtml(r.address)}</span>${phoneBtn}${siteBtn}</div>`;
+    }).join('');
+    if(swData.restaurants.length > 8) html += `<div style="font-size:11px;color:var(--muted);padding-top:4px">+ ${swData.restaurants.length - 8} more nearby</div>`;
+    if(!swData.partners.length){
+      html += `<div style="margin-top:6px;font-size:10.5px;color:var(--muted)">Restaurant owner? List your discount for SailWindow crews: <a href="mailto:marketing@sailwindow.com" style="color:var(--primary)">marketing@sailwindow.com</a></div>`;
+    }
   } else {
-    html += `<div style="margin-top:4px">🍴 Nothing mapped within walking distance.</div>`;
+    // Fall back to OpenStreetMap food if our DB has nothing for this area
+    const food = items.filter(i => i.kind === 'food');
+    if(food.length){
+      html += `<div style="margin-top:4px">🍴 Eat ashore:</div>`;
+      html += food.slice(0,5).map(f => `<div style="padding-left:14px">• ${escHtml(f.name || 'unnamed')}${f.cuisine ? ` <span style="color:var(--muted)">(${escHtml(f.cuisine)})</span>` : ''} · ${fmtAshoreDist(f.dist)}</div>`).join('');
+    } else {
+      html += `<div style="margin-top:4px">🍴 Nothing mapped within walking distance.</div>`;
+    }
   }
-  html += `<div style="margin-top:5px;font-size:10.5px;color:var(--muted)">Google Places + OpenStreetMap · straight-line distances · verify before you tie up</div>`;
+
+  html += `<div style="margin-top:5px;font-size:10.5px;color:var(--muted)">Google Places data · distances approximate · always call ahead</div>`;
   sec.innerHTML = html;
+}
+
+// ─────────────────────────────────────────────
+// EAT — one-tap "where to eat" sheet, GPS-driven
+// ─────────────────────────────────────────────
+function openEatSheet(){
+  const overlay = document.getElementById('eat-sheet');
+  overlay.style.cssText = "display:flex;opacity:1;pointer-events:all;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999";
+  const sheet = overlay.querySelector('.sheet');
+  if(sheet) sheet.style.transform = 'translateY(0)';
+  document.getElementById('eat-subtitle').textContent = '';
+  document.getElementById('eat-body').innerHTML = '<div style="padding:2rem 0;text-align:center;color:var(--muted)">📍 Getting your location…</div>';
+  if(!('geolocation' in navigator)){
+    document.getElementById('eat-body').innerHTML = '<div style="padding:1.5rem 0;text-align:center;color:var(--warn);font-size:var(--sm)">Geolocation isn\'t available on this device.</div>';
+    return;
+  }
+  navigator.geolocation.getCurrentPosition(
+    pos => renderEatResults(pos.coords.latitude, pos.coords.longitude),
+    err => { document.getElementById('eat-body').innerHTML = `<div style="padding:1.5rem 0;text-align:center;color:var(--warn);font-size:var(--sm)">⚠ Couldn't get GPS: ${escHtml(err.message)}<br><br>Check location permission and try again.</div>`; },
+    { enableHighAccuracy:true, timeout:10000, maximumAge:60000 }
+  );
+}
+function closeEatSheet(){
+  const overlay = document.getElementById('eat-sheet');
+  overlay.style.opacity = '0';
+  overlay.style.pointerEvents = 'none';
+  overlay.style.display = 'none';
+  const sheet = overlay.querySelector('.sheet');
+  if(sheet) sheet.style.transform = 'translateY(20px)';
+}
+document.getElementById('eat-sheet').addEventListener('click', e => { if(e.target === document.getElementById('eat-sheet')) closeEatSheet(); });
+
+async function renderEatResults(lat, lon){
+  const body = document.getElementById('eat-body');
+  const sub  = document.getElementById('eat-subtitle');
+  // SW_MARINA_DB loads async on page load — give it a moment if it hasn't landed yet
+  for(let i=0; i<20 && !SW_MARINA_DB; i++) await new Promise(r=>setTimeout(r,150));
+  const swData = getSwRestaurants(lat, lon);
+
+  if(swData.marinaName){
+    sub.textContent = `Near ${swData.marinaName} · ${swData.distMi.toFixed(1)} mi away`;
+    let html = '';
+    for(const p of swData.partners){
+      const pd = JSON.stringify(p).replace(/'/g,"&#39;").replace(/"/g,"&quot;");
+      html += `<div class="ashore-partner" onclick="showPartnerModal(${pd})">
+        <div style="display:flex;align-items:center;gap:6px">
+          <span style="font-size:13px">🏷️</span>
+          <strong style="font-size:13px">${escHtml(p.name)}</strong>
+          <span style="font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--primary);background:var(--primary-hl);padding:1px 7px;border-radius:999px;border:1px solid var(--primary);margin-left:2px">PARTNER</span>
+          ${p.rating ? `<span style="font-size:11px;color:var(--muted);margin-left:auto">★ ${p.rating}</span>` : ''}
+        </div>
+        <div style="font-size:12px;color:var(--primary);margin-top:4px;font-weight:600">${escHtml(p.discount_offer)}</div>
+        <div class="ashore-partner-tap">Tap to show your server →</div>
+      </div>`;
+    }
+    if(swData.restaurants.length){
+      html += swData.restaurants.map(r => {
+        const stars    = r.rating ? `★ ${r.rating}` : '';
+        const dirUrl   = r.google_maps || ('https://maps.apple.com/?q=' + encodeURIComponent(r.address || r.name));
+        const phoneBtn = r.phone ? `<a href="tel:${r.phone.replace(/[^0-9+]/g,'')}" style="color:var(--primary);font-size:11px" onclick="event.stopPropagation()">📞 Call</a>` : '';
+        return `<div style="padding:8px 0;border-bottom:1px solid var(--divider)">
+          <strong style="font-size:13px">${escHtml(r.name)}</strong>${stars ? ` <span style="color:var(--muted);font-size:12px">${stars}</span>` : ''}<br>
+          <span style="font-size:11px;color:var(--muted)">${escHtml(r.address)}</span>
+          <div style="margin-top:4px;display:flex;gap:12px">
+            <a href="${dirUrl}" target="_blank" rel="noopener" style="color:var(--primary);font-size:11px" onclick="event.stopPropagation()">🗺 Directions</a>
+            ${phoneBtn}
+          </div>
+        </div>`;
+      }).join('');
+    } else if(!swData.partners.length){
+      html = `<div style="padding:1.5rem 0;text-align:center;color:var(--muted);font-size:var(--sm)">No restaurants listed for ${escHtml(swData.marinaName)} yet.</div>`;
+    }
+    body.innerHTML = html;
+    return;
+  }
+
+  // No SailWindow marina within 3 mi — fall back to live OpenStreetMap food data
+  sub.textContent = 'Nearby (OpenStreetMap)';
+  body.innerHTML = '<div style="padding:1.5rem 0;text-align:center;color:var(--muted)">Checking what\'s nearby…</div>';
+  try{
+    const items = await fetchAshore(lat, lon);
+    const food = items.filter(i => i.kind === 'food');
+    if(!food.length){
+      body.innerHTML = '<div style="padding:1.5rem 0;text-align:center;color:var(--muted);font-size:var(--sm)">Nothing mapped within walking distance. Try the <strong>Marina</strong> tab to search by name.</div>';
+      return;
+    }
+    body.innerHTML = food.map(f => {
+      const dirUrl = `https://maps.apple.com/?q=${encodeURIComponent(f.name || 'restaurant')}&sll=${f.lat},${f.lon}`;
+      return `<div style="padding:8px 0;border-bottom:1px solid var(--divider)">
+        <strong style="font-size:13px">${escHtml(f.name || 'Unnamed')}</strong>${f.cuisine ? ` <span style="color:var(--muted);font-size:12px">(${escHtml(f.cuisine)})</span>` : ''}
+        <span style="color:var(--muted);font-size:12px"> · ${fmtAshoreDist(f.dist)}</span><br>
+        <a href="${dirUrl}" target="_blank" rel="noopener" style="color:var(--primary);font-size:11px">🗺 Directions</a>
+      </div>`;
+    }).join('');
+  }catch(e){
+    body.innerHTML = '<div style="padding:1.5rem 0;text-align:center;color:var(--warn);font-size:var(--sm)">Couldn\'t reach OpenStreetMap — try again in a minute.</div>';
+  }
 }
 
 // ─────────────────────────────────────────────
@@ -1880,10 +1702,6 @@ function rebuildCharts(){
 async function loadAll(){
   // only show paywall if: (1) locked AND (2) NOT first visit (we have last data)
   // this prevents paywall from appearing if connectivity failed on first try
-  if(prefs.locKey === "homedock" && (!prefs.homeDock || prefs.homeDock.lat == null || !prefs.homeDock.stationId)){
-    prefs.locKey = "tampa-hooker";
-    toast("No Home Dock saved yet — pick a location");
-  }
   if(prefs.locKey && isLocked(prefs.locKey) && lastHourlyData.length > 0){
     openSubscribeModal('locked'); return;
   }
@@ -1892,8 +1710,6 @@ async function loadAll(){
   let loc;
   if(prefs.locKey === "custom"){
     loc = { name:prefs.custom?.name||"My Marina", sub:"NOAA "+(prefs.custom?.stationId||"—"), lat:Number(prefs.custom?.lat), lon:Number(prefs.custom?.lon), stationId:String(prefs.custom?.stationId||"") };
-  } else if(prefs.locKey === "homedock"){
-    loc = { name:prefs.homeDock?.name||"Home Dock", sub:"NOAA "+(prefs.homeDock?.stationId||"—"), lat:Number(prefs.homeDock?.lat), lon:Number(prefs.homeDock?.lon), stationId:String(prefs.homeDock?.stationId||"") };
   } else if(prefs.locKey === "current"){
     loc = { name:prefs.current?.name||"Current Location", sub:prefs.current?.lat!=null?`GPS ${prefs.current.lat.toFixed(4)}, ${prefs.current.lon.toFixed(4)} · NOAA ${prefs.current.stationId||"—"}`:"GPS pending", lat:Number(prefs.current?.lat), lon:Number(prefs.current?.lon), stationId:String(prefs.current?.stationId||"") };
   } else {
@@ -2025,45 +1841,9 @@ function openChooser(){
   el.style.display = 'flex';
   const sel = document.getElementById('chooser-marina-select');
   if(sel) sel.value = LOCATIONS[prefs.locKey] ? prefs.locKey : '';
-  const hasHomeDock = !!(prefs.homeDock && prefs.homeDock.lat != null);
-  const hdBtn = document.getElementById('homedock-btn');
-  if(hdBtn){
-    hdBtn.style.display = hasHomeDock ? 'block' : 'none';
-    hdBtn.textContent = hasHomeDock ? `🏠 Sail from ${prefs.homeDock.name}` : '';
-  }
-  const hdSetBtn = document.getElementById('homedock-set-btn');
-  if(hdSetBtn) hdSetBtn.textContent = hasHomeDock ? 'Update Home Dock (private, use current GPS)' : 'Set current spot as Home Dock (private)';
 }
 function closeChooser(){
   document.getElementById('choose-location').style.display = 'none';
-}
-function useHomeDockFromChooser(){
-  if(!prefs.homeDock || prefs.homeDock.lat == null){ toast('No Home Dock saved yet'); return; }
-  prefs.locKey = 'homedock';
-  prefs.custom = { ...prefs.custom, enabled:false };
-  savePrefsToStorage();
-  syncPrefsUI();
-  closeChooser();
-  loadAll();
-  toast('🏠 Sailing from ' + prefs.homeDock.name);
-}
-function setHomeDockFromChooser(){
-  if(!('geolocation' in navigator)){ toast('Geolocation not available'); return; }
-  toast('Finding your dock…');
-  navigator.geolocation.getCurrentPosition(pos => {
-    const lat = +pos.coords.latitude.toFixed(4), lon = +pos.coords.longitude.toFixed(4);
-    const nearest = nearestStationId(lat, lon);
-    const defaultName = prefs.homeDock?.name || 'My Dock';
-    const name = (prompt('Name this dock:', defaultName) || defaultName).trim() || 'My Dock';
-    prefs.homeDock = { enabled:true, name, lat, lon, stationId:nearest.id, stationName:nearest.name };
-    prefs.locKey = 'homedock';
-    prefs.custom = { ...prefs.custom, enabled:false };
-    savePrefsToStorage();
-    syncPrefsUI();
-    closeChooser();
-    loadAll();
-    toast(`🏠 Home dock saved: ${name} · ${nearest.name}`);
-  }, err => { toast(`GPS failed: ${err.message}`); }, { enableHighAccuracy:true, timeout:10000, maximumAge:0 });
 }
 function setMarinaFromChooser(){
   const val = document.getElementById('chooser-marina-select').value;
@@ -2101,24 +1881,12 @@ async function useCurrentLocation(){
     toast(`GPS saved: ${lat}, ${lon} · ${nearest.name}`);
   }, err => { toast(`GPS failed: ${err.message}`); }, { enableHighAccuracy:true, timeout:10000, maximumAge:0 });
 }
-function useCurrentLocationForHomeDock(){
-  if(!('geolocation' in navigator)){ toast('Geolocation not available'); return; }
-  toast('Finding your dock…');
-  navigator.geolocation.getCurrentPosition(pos => {
-    const lat = +pos.coords.latitude.toFixed(4), lon = +pos.coords.longitude.toFixed(4);
-    const nearest = nearestStationId(lat, lon);
-    document.getElementById('p-lat').value     = lat;
-    document.getElementById('p-lon').value     = lon;
-    document.getElementById('p-station').value = nearest.id;
-    if(!document.getElementById('p-cname').value.trim()) document.getElementById('p-cname').value = 'My Dock';
-    toast(`GPS captured: ${lat}, ${lon} · ${nearest.name} — tap Save to keep it as your Home Dock`);
-  }, err => { toast(`GPS failed: ${err.message}`); }, { enableHighAccuracy:true, timeout:10000, maximumAge:0 });
-}
 
 // ─────────────────────────────────────────────
 // MARINA VIEW
 // ─────────────────────────────────────────────
 var marinaMap = null;
+var marinaDbMap = {}; // id → entry for SW_MARINA_DB entries, populated in buildMarinaCards
 var marinaCluster = null;
 var marinaLiveCache = [];
 var marinaLiveAt = 0;
@@ -2184,7 +1952,6 @@ function distMiles(lat1, lon1, lat2, lon2){
 
 function activeSearchCenter(){
   if(prefs.locKey && LOCATIONS[prefs.locKey]) return { lat:LOCATIONS[prefs.locKey].lat, lon:LOCATIONS[prefs.locKey].lon };
-  if(prefs.locKey === "homedock" && prefs.homeDock?.lat != null) return { lat:Number(prefs.homeDock.lat), lon:Number(prefs.homeDock.lon) };
   if(prefs.custom?.lat != null) return { lat:Number(prefs.custom.lat), lon:Number(prefs.custom.lon) };
   if(prefs.current?.lat != null) return { lat:Number(prefs.current.lat), lon:Number(prefs.current.lon) };
   return { lat:27.9, lon:-82.5 };
@@ -2235,7 +2002,6 @@ function updateMarinaSelectedBar(){
   const name = document.getElementById("marina-selected-name");
   let activeName = "";
   if(prefs.locKey === "custom" && prefs.custom?.name) activeName = prefs.custom.name;
-  else if(prefs.locKey === "homedock") activeName = prefs.homeDock?.name || "Home Dock";
   else if(prefs.locKey === "current") activeName = prefs.current?.name || "Current Location";
   else if(LOCATIONS[prefs.locKey]) activeName = LOCATIONS[prefs.locKey].name;
   if(activeName){ name.textContent = activeName; bar.classList.add("visible"); }
@@ -2277,9 +2043,27 @@ async function buildMarinaCards(){
     }));
   }catch(e){ console.warn('Nearby marina fetch failed', e); }
 
+  // Add marina_data.json entries (real marina names — searchable by name)
+  marinaDbMap = {};
+  const dbEntries = [];
+  if(SW_MARINA_DB){
+    for(const [mname, mdata] of Object.entries(SW_MARINA_DB)){
+      const lon = mdata.lng ?? mdata.lon;
+      if(mdata.lat == null || lon == null) continue;
+      const eid = 'db-' + mname.toLowerCase().replace(/[^a-z0-9]+/g,'-');
+      const entry = {
+        id: eid, name: mname, lat: mdata.lat, lon: lon, source: 'db',
+        meta: { area:'', rating:'', reviews:'', phone:'', hours:'' },
+        dist: Math.round(distMiles(center.lat, center.lon, mdata.lat, lon))
+      };
+      marinaDbMap[eid] = entry;
+      dbEntries.push(entry);
+    }
+  }
+
   // Deduplicate and sort by distance
   const seen = new Set();
-  const entries = [...base, ...live].filter(m=>{
+  const entries = [...base, ...live, ...dbEntries].filter(m=>{
     const key = (m.name+'|'+m.lat.toFixed(5)+'|'+m.lon.toFixed(5)).toLowerCase();
     if(seen.has(key)) return false; seen.add(key); return true;
   }).sort((a,b)=>(a.dist??99999)-(b.dist??99999));
@@ -2334,11 +2118,12 @@ function focusMarina(lat, lon){
 
 function selectMarinaFromCard(id, liveData){
   const saved = id && LOCATIONS[id] ? LOCATIONS[id] : null;
-  const live = (!saved && liveData && typeof liveData === 'object') ? liveData : null;
-  const loc = saved || live;
+  const dbEntry = (!saved && id && marinaDbMap[id]) ? marinaDbMap[id] : null;
+  const live = (!saved && !dbEntry && liveData && typeof liveData === 'object') ? liveData : null;
+  const loc = saved || dbEntry || live;
   if(!loc){ toast('Unknown marina'); return; }
 
-  if(live){
+  if(dbEntry || live){
     prefs.locKey = 'custom';
     prefs.custom = { enabled:true, name:loc.name, lat:loc.lat, lon:loc.lon, stationId:'' };
     toast('Live marina set — add a NOAA station ID in preferences for tide data');
@@ -2527,10 +2312,9 @@ async function load7Day(){
   body.innerHTML = '<div style="padding:2rem;text-align:center;color:var(--muted)">Fetching 7-day data…</div>';
   try{
     let loc;
-    if(prefs.locKey==='custom')       loc={name:prefs.custom?.name||'My Marina',sub:'NOAA '+(prefs.custom?.stationId||'—'),lat:+prefs.custom?.lat,lon:+prefs.custom?.lon,stationId:String(prefs.custom?.stationId||'')};
-    else if(prefs.locKey==='homedock') loc={name:prefs.homeDock?.name||'Home Dock',sub:'NOAA '+(prefs.homeDock?.stationId||'—'),lat:+prefs.homeDock?.lat,lon:+prefs.homeDock?.lon,stationId:String(prefs.homeDock?.stationId||'')};
+    if(prefs.locKey==='custom')      loc={name:prefs.custom?.name||'My Marina',sub:'NOAA '+(prefs.custom?.stationId||'—'),lat:+prefs.custom?.lat,lon:+prefs.custom?.lon,stationId:String(prefs.custom?.stationId||'')};
     else if(prefs.locKey==='current') loc={name:prefs.current?.name||'Current Location',sub:'GPS',lat:+prefs.current?.lat,lon:+prefs.current?.lon,stationId:String(prefs.current?.stationId||'')};
-    else                               loc=LOCATIONS[prefs.locKey];
+    else                              loc=LOCATIONS[prefs.locKey];
     locEl.textContent = loc.name+' · '+loc.sub+' · Preferences: '+prefs.windMin+'–'+prefs.windMax+' kt, max gust '+prefs.gustMax+' kt';
     const nwsData  = lastHourlyData.length>0 ? lastHourlyData : await fetchNWS(loc.lat, loc.lon);
     const tideArr  = await fetch7DayTides(loc.stationId);
@@ -2895,9 +2679,9 @@ document.addEventListener("DOMContentLoaded", () => {
       <button id="sub-verify-toggle" onclick="revealVerifyBox()" style="font-size:var(--xs);color:var(--muted);background:none;border:none;cursor:pointer;text-decoration:underline;padding:var(--sp2)">Already subscribed? Verify your email</button>
     </div>
     <div id="sub-activate" style="display:none;text-align:center;margin-top:var(--sp2)">
-      <p id="sub-activate-hint" style="display:none;font-size:var(--sm);font-weight:600;color:var(--text);margin-bottom:var(--sp1)">✅ Payment complete? Come back here after checkout and enter your email below.</p>
+      <p id="sub-activate-hint" style="display:none;font-size:var(--xs);color:var(--muted);margin-bottom:var(--sp2)">Checkout opened in a new tab. Once your payment is complete, come back and enter your email below.</p>
       <input id="sub-activate-email" class="finput" type="email" placeholder="Email used at checkout" style="margin-bottom:var(--sp2)">
-      <button class="save-btn" style="background:var(--success);font-size:var(--base);padding:var(--sp4) var(--sp6);letter-spacing:.01em" onclick="activateSubscription()">Verify &amp; Activate ✓</button>
+      <button class="save-btn" style="background:var(--success)" onclick="activateSubscription()">Verify &amp; Activate ✓</button>
     </div>
 
     <!-- Free tier fallback -->
@@ -2973,6 +2757,58 @@ function resetFeedbackForm(){
   document.getElementById('feedback-form').style.display = '';
   document.getElementById('fb-confirm').style.display    = 'none';
 }
+</script>
+
+<!-- ── Partner Discount Modal ── -->
+<div id="partner-modal" class="partner-modal" onclick="closePartnerModal()">
+  <div class="partner-card-modal" onclick="event.stopPropagation()">
+    <div class="pm-header">
+      <div class="pm-badge">SailWindow Sailor Discount</div>
+      <div class="pm-name" id="pm-name"></div>
+      <div class="pm-rating" id="pm-rating"></div>
+    </div>
+    <div class="pm-body">
+      <div class="pm-offer-label">Your offer</div>
+      <div class="pm-offer" id="pm-offer"></div>
+      <div class="pm-show-bar">
+        <div class="pm-show-text">📱 Show this to your server</div>
+        <div class="pm-show-sub">Mention SailWindow when you arrive</div>
+      </div>
+      <div class="pm-actions">
+        <a class="pm-action-btn pm-action-phone" id="pm-phone" href="#">📞 Call</a>
+        <a class="pm-action-btn pm-action-dir" id="pm-directions" target="_blank" rel="noopener">🗺 Directions</a>
+      </div>
+      <button class="pm-close" onclick="closePartnerModal()">Close</button>
+    </div>
+    <div class="pm-footer">Powered by SailWindow.com · sailwindow.com</div>
+  </div>
+</div>
+
+<script>
+function showPartnerModal(p){
+  const modal = document.getElementById('partner-modal');
+  document.getElementById('pm-name').textContent    = p.name || '';
+  document.getElementById('pm-offer').textContent   = p.discount_offer || '';
+  const ratingEl = document.getElementById('pm-rating');
+  ratingEl.textContent = p.rating ? `★ ${p.rating}  ·  ${p.address || ''}` : (p.address || '');
+  // Phone
+  const phoneEl = document.getElementById('pm-phone');
+  if(p.phone){ phoneEl.href = 'tel:' + p.phone.replace(/[^0-9+]/g,''); phoneEl.style.display='flex'; }
+  else { phoneEl.style.display='none'; }
+  // Directions
+  const dirEl = document.getElementById('pm-directions');
+  const addr  = p.address || p.name || '';
+  dirEl.href  = `https://maps.apple.com/?q=${encodeURIComponent(addr)}`;
+  // Open
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closePartnerModal(){
+  document.getElementById('partner-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+// Close on Escape
+document.addEventListener('keydown', e => { if(e.key==='Escape') closePartnerModal(); });
 </script>
 </body>
 </html>
