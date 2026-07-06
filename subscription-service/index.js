@@ -5,7 +5,7 @@ const { Firestore } = require("@google-cloud/firestore");
 const PORT = process.env.PORT || 8080;
 const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
 const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET;
-const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || "https://sailwindow.com")
+const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || "https://sailwindow.com,https://www.sailwindow.com")
   .split(",")
   .map(s => s.trim());
 

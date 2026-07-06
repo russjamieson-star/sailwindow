@@ -45,7 +45,7 @@ gcloud run deploy sailwindow-subscription \
   --region=us-east1 \
   --project=PROJECT_ID \
   --allow-unauthenticated \
-  --set-env-vars=STRIPE_SECRET_KEY=sk_live_...,STRIPE_WEBHOOK_SECRET=placeholder,ALLOWED_ORIGINS=https://sailwindow.com
+  --set-env-vars=STRIPE_SECRET_KEY=sk_live_...,STRIPE_WEBHOOK_SECRET=placeholder,ALLOWED_ORIGINS=https://sailwindow.com,https://www.sailwindow.com
 ```
 
 This builds and deploys straight from source — no Docker install needed.
