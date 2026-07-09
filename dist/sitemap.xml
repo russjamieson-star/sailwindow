@@ -16,12 +16,102 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://sailwindow.com/locations/marathon</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sailwindow.com/locations/islamorada</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sailwindow.com/locations/miami</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sailwindow.com/locations/fort-lauderdale</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sailwindow.com/locations/west-palm-beach</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sailwindow.com/locations/jupiter</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sailwindow.com/locations/stuart</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sailwindow.com/locations/fort-pierce</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sailwindow.com/locations/vero-beach</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sailwindow.com/locations/cocoa</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sailwindow.com/locations/port-canaveral</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sailwindow.com/locations/daytona</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sailwindow.com/locations/st-augustine</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sailwindow.com/locations/jacksonville</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sailwindow.com/locations/fernandina</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sailwindow.com/locations/marco-island</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://sailwindow.com/locations/naples</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://sailwindow.com/locations/fort-myers</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sailwindow.com/locations/punta-gorda</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sailwindow.com/locations/sarasota</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
@@ -57,6 +147,11 @@
   </url>
   <url>
     <loc>https://sailwindow.com/locations/apalachicola</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sailwindow.com/locations/port-st-joe</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
@@ -151,12 +246,27 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://sailwindow.com/locations/port-bolivar</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sailwindow.com/locations/kemah</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://sailwindow.com/locations/galveston</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://sailwindow.com/locations/freeport</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sailwindow.com/locations/port-lavaca</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
@@ -176,12 +286,27 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://sailwindow.com/locations/port-aransas</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://sailwindow.com/locations/corpus-christi</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://sailwindow.com/locations/port-mansfield</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://sailwindow.com/locations/port-isabel</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sailwindow.com/locations/south-padre-island</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>

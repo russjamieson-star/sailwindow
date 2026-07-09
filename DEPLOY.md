@@ -6,19 +6,13 @@
 - Wrangler is logged in on this Mac.
 - Note: Pages custom domains must be activated via the dashboard wizard ("Set up a custom domain") — API attachment alone stays pending forever.
 
-**To ship an update** (after editing SailWindow-V6.html or the guide):
+**To ship an update** (after editing SailWindow-V5.html or the guide):
 ```bash
-cd ~/Projects/SailWindow
-cp SailWindow-V6.html dist/index.html && cp SailWindow-Instructions.html dist/
+cd ~/Desktop/SailWindow
+cp SailWindow-V5.html dist/index.html && cp SailWindow-V5.html dist/ && cp SailWindow-Instructions.html dist/
 npx wrangler pages deploy dist --project-name=sailwindow --branch main
 ```
 (The battlecard is internal — never copy it into dist/.)
-
-Note (2026-07-05): this project moved from `~/Desktop/SailWindow` to
-`~/Projects/SailWindow` to keep it out of Desktop & Documents iCloud sync
-(which was silently evicting files). A mirrored backup copy also lives on
-Google Drive at `My Drive/SailWindow`, and the full history is on GitHub
-at `github.com/russjamieson-star/sailwindow`.
 
 ## Stripe (already configured — LIVE mode)
 

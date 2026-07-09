@@ -344,7 +344,6 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
     <a href="javascript:void(0)" class="nav-item active" data-tab="today" aria-current="page" onclick="close7DayView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>Today</a>
     <a href="javascript:void(0)" class="nav-item" id="nav-7day" onclick="open7DayView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>7-Day</a>
     <a href="#" class="nav-item" onclick="openMarinaView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>Marina</a>
-    <a href="javascript:void(0)" class="nav-item" onclick="openEatSheet()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v6a2 2 0 0 0 4 0V3"/><path d="M7 3v18"/><path d="M17 3c-2 3-2 7 0 10c.6.7 1.4 1 2 1"/><path d="M19 3v18"/></svg>Eat</a>
     <a href="javascript:void(0)" class="nav-item" id="nav-feedback" onclick="openFeedbackView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Feedback</a>
   </nav>
 </div>
@@ -778,17 +777,6 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
   </div>
 </div>
 
-<!-- Where to Eat sheet -->
-<div class="overlay" id="eat-sheet" role="dialog" aria-modal="true" aria-label="Restaurants near you" style="display:none;opacity:0;pointer-events:none;z-index:9999">
-  <div class="sheet">
-    <div class="sheet-handle"></div>
-    <h2 class="sheet-title">🍴 Where to Eat</h2>
-    <div id="eat-subtitle" style="text-align:center;font-size:var(--xs);color:var(--muted);margin-top:calc(-1*var(--sp3))"></div>
-    <div id="eat-body" style="max-height:60vh;overflow-y:auto;display:flex;flex-direction:column;gap:2px"></div>
-    <button class="cancel-btn" onclick="closeEatSheet()">Close</button>
-  </div>
-</div>
-
 <div id="toast"></div>
 
 <script>
@@ -1183,16 +1171,16 @@ let SW_MARINA_DB = null;
 // Find the nearest marina in our DB to the given lat/lon (within 3 miles),
 // then return its restaurant list split into partners (offer agreed) and all others.
 function getSwRestaurants(lat, lon){
-  if(!SW_MARINA_DB) return { partners:[], restaurants:[], marinaName:null, distMi:null };
-  let best = null, bestName = null, bestDist = 999;
+  if(!SW_MARINA_DB) return { partners:[], restaurants:[] };
+  let best = null, bestDist = 999;
   for(const [name, data] of Object.entries(SW_MARINA_DB)){
     const d = distMiles(lat, lon, data.lat, data.lng);
-    if(d < bestDist){ bestDist = d; best = data; bestName = name; }
+    if(d < bestDist){ bestDist = d; best = data; }
   }
-  if(!best || bestDist > 3) return { partners:[], restaurants:[], marinaName:null, distMi:null };
+  if(!best || bestDist > 3) return { partners:[], restaurants:[] };
   const partners     = best.restaurants.filter(r => r.partner && r.discount_offer);
   const restaurants  = best.restaurants.filter(r => !r.partner || !r.discount_offer);
-  return { partners, restaurants, marinaName:bestName, distMi:bestDist };
+  return { partners, restaurants };
 }
 
 // Legacy stub — no longer used but kept for safety
@@ -1313,103 +1301,6 @@ async function toggleAshore(btn, lat, lon, marinaFuel){
 
   html += `<div style="margin-top:5px;font-size:10.5px;color:var(--muted)">Google Places data · distances approximate · always call ahead</div>`;
   sec.innerHTML = html;
-}
-
-// ─────────────────────────────────────────────
-// EAT — one-tap "where to eat" sheet, GPS-driven
-// ─────────────────────────────────────────────
-function openEatSheet(){
-  const overlay = document.getElementById('eat-sheet');
-  overlay.style.cssText = "display:flex;opacity:1;pointer-events:all;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999";
-  const sheet = overlay.querySelector('.sheet');
-  if(sheet) sheet.style.transform = 'translateY(0)';
-  document.getElementById('eat-subtitle').textContent = '';
-  document.getElementById('eat-body').innerHTML = '<div style="padding:2rem 0;text-align:center;color:var(--muted)">📍 Getting your location…</div>';
-  if(!('geolocation' in navigator)){
-    document.getElementById('eat-body').innerHTML = '<div style="padding:1.5rem 0;text-align:center;color:var(--warn);font-size:var(--sm)">Geolocation isn\'t available on this device.</div>';
-    return;
-  }
-  navigator.geolocation.getCurrentPosition(
-    pos => renderEatResults(pos.coords.latitude, pos.coords.longitude),
-    err => { document.getElementById('eat-body').innerHTML = `<div style="padding:1.5rem 0;text-align:center;color:var(--warn);font-size:var(--sm)">⚠ Couldn't get GPS: ${escHtml(err.message)}<br><br>Check location permission and try again.</div>`; },
-    { enableHighAccuracy:true, timeout:10000, maximumAge:60000 }
-  );
-}
-function closeEatSheet(){
-  const overlay = document.getElementById('eat-sheet');
-  overlay.style.opacity = '0';
-  overlay.style.pointerEvents = 'none';
-  overlay.style.display = 'none';
-  const sheet = overlay.querySelector('.sheet');
-  if(sheet) sheet.style.transform = 'translateY(20px)';
-}
-document.getElementById('eat-sheet').addEventListener('click', e => { if(e.target === document.getElementById('eat-sheet')) closeEatSheet(); });
-
-async function renderEatResults(lat, lon){
-  const body = document.getElementById('eat-body');
-  const sub  = document.getElementById('eat-subtitle');
-  // SW_MARINA_DB loads async on page load — give it a moment if it hasn't landed yet
-  for(let i=0; i<20 && !SW_MARINA_DB; i++) await new Promise(r=>setTimeout(r,150));
-  const swData = getSwRestaurants(lat, lon);
-
-  if(swData.marinaName){
-    sub.textContent = `Near ${swData.marinaName} · ${swData.distMi.toFixed(1)} mi away`;
-    let html = '';
-    for(const p of swData.partners){
-      const pd = JSON.stringify(p).replace(/'/g,"&#39;").replace(/"/g,"&quot;");
-      html += `<div class="ashore-partner" onclick="showPartnerModal(${pd})">
-        <div style="display:flex;align-items:center;gap:6px">
-          <span style="font-size:13px">🏷️</span>
-          <strong style="font-size:13px">${escHtml(p.name)}</strong>
-          <span style="font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--primary);background:var(--primary-hl);padding:1px 7px;border-radius:999px;border:1px solid var(--primary);margin-left:2px">PARTNER</span>
-          ${p.rating ? `<span style="font-size:11px;color:var(--muted);margin-left:auto">★ ${p.rating}</span>` : ''}
-        </div>
-        <div style="font-size:12px;color:var(--primary);margin-top:4px;font-weight:600">${escHtml(p.discount_offer)}</div>
-        <div class="ashore-partner-tap">Tap to show your server →</div>
-      </div>`;
-    }
-    if(swData.restaurants.length){
-      html += swData.restaurants.map(r => {
-        const stars    = r.rating ? `★ ${r.rating}` : '';
-        const dirUrl   = r.google_maps || ('https://maps.apple.com/?q=' + encodeURIComponent(r.address || r.name));
-        const phoneBtn = r.phone ? `<a href="tel:${r.phone.replace(/[^0-9+]/g,'')}" style="color:var(--primary);font-size:11px" onclick="event.stopPropagation()">📞 Call</a>` : '';
-        return `<div style="padding:8px 0;border-bottom:1px solid var(--divider)">
-          <strong style="font-size:13px">${escHtml(r.name)}</strong>${stars ? ` <span style="color:var(--muted);font-size:12px">${stars}</span>` : ''}<br>
-          <span style="font-size:11px;color:var(--muted)">${escHtml(r.address)}</span>
-          <div style="margin-top:4px;display:flex;gap:12px">
-            <a href="${dirUrl}" target="_blank" rel="noopener" style="color:var(--primary);font-size:11px" onclick="event.stopPropagation()">🗺 Directions</a>
-            ${phoneBtn}
-          </div>
-        </div>`;
-      }).join('');
-    } else if(!swData.partners.length){
-      html = `<div style="padding:1.5rem 0;text-align:center;color:var(--muted);font-size:var(--sm)">No restaurants listed for ${escHtml(swData.marinaName)} yet.</div>`;
-    }
-    body.innerHTML = html;
-    return;
-  }
-
-  // No SailWindow marina within 3 mi — fall back to live OpenStreetMap food data
-  sub.textContent = 'Nearby (OpenStreetMap)';
-  body.innerHTML = '<div style="padding:1.5rem 0;text-align:center;color:var(--muted)">Checking what\'s nearby…</div>';
-  try{
-    const items = await fetchAshore(lat, lon);
-    const food = items.filter(i => i.kind === 'food');
-    if(!food.length){
-      body.innerHTML = '<div style="padding:1.5rem 0;text-align:center;color:var(--muted);font-size:var(--sm)">Nothing mapped within walking distance. Try the <strong>Marina</strong> tab to search by name.</div>';
-      return;
-    }
-    body.innerHTML = food.map(f => {
-      const dirUrl = `https://maps.apple.com/?q=${encodeURIComponent(f.name || 'restaurant')}&sll=${f.lat},${f.lon}`;
-      return `<div style="padding:8px 0;border-bottom:1px solid var(--divider)">
-        <strong style="font-size:13px">${escHtml(f.name || 'Unnamed')}</strong>${f.cuisine ? ` <span style="color:var(--muted);font-size:12px">(${escHtml(f.cuisine)})</span>` : ''}
-        <span style="color:var(--muted);font-size:12px"> · ${fmtAshoreDist(f.dist)}</span><br>
-        <a href="${dirUrl}" target="_blank" rel="noopener" style="color:var(--primary);font-size:11px">🗺 Directions</a>
-      </div>`;
-    }).join('');
-  }catch(e){
-    body.innerHTML = '<div style="padding:1.5rem 0;text-align:center;color:var(--warn);font-size:var(--sm)">Couldn\'t reach OpenStreetMap — try again in a minute.</div>';
-  }
 }
 
 // ─────────────────────────────────────────────
@@ -2380,34 +2271,19 @@ function closeHelp(){
 const TRIAL_DAYS     = 7;
 const TRIAL_KEY      = "sailwindow.trial.start";
 const SUB_KEY        = "sailwindow.subscription";
-const SUB_EMAIL_KEY  = "sailwindow.subscription.email";
 const FREE_KEYS      = new Set(["tampa-hooker","tampa-egmont","tampa-gandy","pensacola","pensacola-beach"]);
 // TODO: replace with your live Stripe Payment Links
 const STRIPE_MONTHLY    = "https://buy.stripe.com/28EeV73mk86kaUuc6Q7Re00";
 const STRIPE_ANNUAL     = "https://buy.stripe.com/4gM8wJf521HW8MmeeY7Re01";
 const FEEDBACK_EMAIL    = "feedback@sailwindow.com";
-const BACKEND_URL       = "https://sailwindow-subscription-103614525446.us-east1.run.app";
-function backendConfigured(){ return !BACKEND_URL.includes("REPLACE_ME"); }
-
-// Looks up subscription status from the backend (source of truth) by email.
-// Returns { status } on success; throws on network/HTTP failure so callers
-// can decide how to handle being offline vs. genuinely not subscribed.
-async function fetchSubscriptionStatus(email){
-  const res = await fetch(`${BACKEND_URL}/subscription-status?email=${encodeURIComponent(email)}`);
-  if(!res.ok) throw new Error(`subscription-status ${res.status}`);
-  return res.json();
-}
 const MARINA_CACHE_KEY  = "sailwindow.marina.v1";
 const MARINA_CACHE_TTL  = 24 * 60 * 60 * 1000; // 24 hours
 
 let _selectedPlan = "monthly";
 
 function trialStatus(){
-  // subscribed always wins — but only once verified against the backend.
-  // A bare SUB_KEY flag with no verified email can't be checked against
-  // anything, so it isn't trusted; this is what closes the old devtools
-  // localStorage bypass (see refreshSubscriptionStatus for the ongoing check).
-  if(storageAvailable() && localStorage.getItem(SUB_KEY) === "active" && localStorage.getItem(SUB_EMAIL_KEY))
+  // subscribed always wins
+  if(storageAvailable() && localStorage.getItem(SUB_KEY) === "active")
     return { state:"subscribed", daysLeft:null };
 
   let raw = storageAvailable() ? localStorage.getItem(TRIAL_KEY) : null;
@@ -2466,19 +2342,10 @@ function checkTrialGate(){
   if(trialStatus().state === "expired") showExpiredOverlay();
 }
 
-function resetVerifyBox(){
-  const activateEl = document.getElementById("sub-activate");
-  activateEl.style.display = "none";
-  activateEl.classList.remove("visible");
-  document.getElementById("sub-activate-hint").style.display = "none";
-  document.getElementById("sub-verify-toggle").style.display = "";
-}
-
 function showExpiredOverlay(){
   document.getElementById("sub-headline").textContent = "Your 7-day free trial has ended";
   document.getElementById("sub-free-option").style.display = "block";
   document.getElementById("sub-dismiss").style.display    = "none";
-  resetVerifyBox();
   document.getElementById("subscribe-overlay").style.display = "flex";
   updateLockState();
 }
@@ -2490,19 +2357,8 @@ function openSubscribeModal(mode){
     : "Your 7-day free trial has ended";
   document.getElementById("sub-free-option").style.display = "block";
   document.getElementById("sub-dismiss").style.display    = isUpgrade ? "block" : "none";
-  resetVerifyBox();
+  document.getElementById("sub-activate").style.display   = "none";
   document.getElementById("subscribe-overlay").style.display = "flex";
-}
-
-function revealVerifyBox(){
-  const activateEl = document.getElementById("sub-activate");
-  activateEl.style.display = "block";
-  activateEl.classList.add("visible");
-  document.getElementById("sub-verify-toggle").style.display = "none";
-  const input = document.getElementById("sub-activate-email");
-  const stored = storageAvailable() ? localStorage.getItem(SUB_EMAIL_KEY) : null;
-  if(stored && !input.value) input.value = stored;
-  setTimeout(() => activateEl.scrollIntoView({ behavior: "smooth", block: "center" }), 100);
 }
 
 function closeSubscribeModal(){
@@ -2528,64 +2384,18 @@ function handleStripeCheckout(){
     toast("Stripe not yet configured — set STRIPE_MONTHLY / STRIPE_ANNUAL URLs in the code");
     return;
   }
-  // keep the app open in this tab so the user can verify after paying
+  // keep the app open in this tab so the user can activate after paying
   window.open(url, "_blank", "noopener");
-  document.getElementById("sub-activate-hint").style.display = "block";
-  revealVerifyBox();
+  document.getElementById("sub-activate").style.display = "block";
 }
 
-async function activateSubscription(){
-  const input = document.getElementById("sub-activate-email");
-  const email = input.value.trim().toLowerCase();
-  if(!email){ toast("Enter the email you used at checkout."); return; }
-  if(!backendConfigured()){
-    toast("Subscription server not yet configured — set BACKEND_URL in the code");
-    return;
-  }
-  toast("Checking your subscription…");
-  try{
-    const data = await fetchSubscriptionStatus(email);
-    if(data.status === "active" || data.status === "trialing"){
-      if(storageAvailable()){
-        localStorage.setItem(SUB_KEY, "active");
-        localStorage.setItem(SUB_EMAIL_KEY, email);
-      }
-      closeSubscribeModal();
-      close7DayView();  // ensure Today tab is front and center
-      updateTrialBanner();
-      updateLockState();
-      toast("✦ Subscription active — all 35 stations unlocked");
-      loadAll();
-    }else{
-      toast("No active subscription found for that email yet. If you just paid, wait a few seconds and try again.");
-    }
-  }catch(err){
-    console.warn("Subscription check failed:", err);
-    toast("Couldn't reach the subscription server — check your connection and try again.");
-  }
-}
-
-// Re-checks a previously-verified device against the backend so a
-// cancellation (or a renewal) is reflected without the user doing anything.
-// Only reconciles when we actually have a verified email cached — silently
-// no-ops (and never downgrades) on network failure so it's offline-safe.
-async function refreshSubscriptionStatus(){
-  if(!storageAvailable() || !backendConfigured()) return;
-  const email = localStorage.getItem(SUB_EMAIL_KEY);
-  if(!email) return;
-  try{
-    const data = await fetchSubscriptionStatus(email);
-    const isActive  = data.status === "active" || data.status === "trialing";
-    const wasActive = localStorage.getItem(SUB_KEY) === "active";
-    if(isActive === wasActive) return;
-    if(isActive) localStorage.setItem(SUB_KEY, "active");
-    else localStorage.removeItem(SUB_KEY);
-    updateTrialBanner();
-    updateLockState();
-    checkTrialGate();
-  }catch(err){
-    console.warn("Subscription refresh failed (offline?):", err);
-  }
+function activateSubscription(){
+  if(storageAvailable()) localStorage.setItem(SUB_KEY, "active");
+  closeSubscribeModal();
+  updateTrialBanner();
+  updateLockState();
+  toast("✦ Subscription active — all 32 stations unlocked");
+  loadAll();
 }
 
 function chooseFreeMode(){
@@ -2629,7 +2439,6 @@ document.addEventListener("DOMContentLoaded", () => {
   updateTrialBanner();
   checkTrialGate();
   loadAll();
-  refreshSubscriptionStatus();
 });
 </script>
 
@@ -2674,14 +2483,10 @@ document.addEventListener("DOMContentLoaded", () => {
     <!-- CTA -->
     <button class="save-btn" onclick="handleStripeCheckout()">Start Subscription →</button>
 
-    <!-- Already subscribed? Works right after checkout, or to restore access on a new device -->
-    <div style="text-align:center;margin-top:var(--sp3)">
-      <button id="sub-verify-toggle" onclick="revealVerifyBox()" style="font-size:var(--xs);color:var(--muted);background:none;border:none;cursor:pointer;text-decoration:underline;padding:var(--sp2)">Already subscribed? Verify your email</button>
-    </div>
-    <div id="sub-activate" style="display:none;text-align:center;margin-top:var(--sp2)">
-      <p id="sub-activate-hint" style="display:none;font-size:var(--xs);color:var(--muted);margin-bottom:var(--sp2)">Checkout opened in a new tab. Once your payment is complete, come back and enter your email below.</p>
-      <input id="sub-activate-email" class="finput" type="email" placeholder="Email used at checkout" style="margin-bottom:var(--sp2)">
-      <button class="save-btn" style="background:var(--success)" onclick="activateSubscription()">Verify &amp; Activate ✓</button>
+    <!-- Post-checkout activation (revealed after checkout opens) -->
+    <div id="sub-activate" style="display:none;text-align:center;margin-top:var(--sp3)">
+      <p style="font-size:var(--xs);color:var(--muted);margin-bottom:var(--sp2)">Checkout opened in a new tab. Once your payment is complete, come back and tap below.</p>
+      <button class="save-btn" style="background:var(--success)" onclick="activateSubscription()">I've paid — Activate ✓</button>
     </div>
 
     <!-- Free tier fallback -->

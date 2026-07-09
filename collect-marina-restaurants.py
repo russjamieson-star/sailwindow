@@ -56,8 +56,29 @@ FIELD_MASK = ",".join([
 MARINAS = [
     # Florida — Keys & Southwest
     {"id": "key-west",        "name": "Key West, FL",                  "lat": 24.5557, "lng": -81.8079},
+    # Florida — Atlantic Keys & Miami corridor
+    {"id": "marathon",        "name": "Marathon, FL",                  "lat": 24.7110, "lng": -81.1065},
+    {"id": "islamorada",      "name": "Islamorada, FL",                "lat": 24.9250, "lng": -80.6317},
+    {"id": "miami",           "name": "Miami Beach, FL",               "lat": 25.7683, "lng": -80.1317},
+    {"id": "fort-lauderdale", "name": "Fort Lauderdale, FL",           "lat": 26.0817, "lng": -80.1167},
+    # Florida — Treasure Coast & Space Coast
+    {"id": "west-palm-beach", "name": "West Palm Beach, FL",           "lat": 26.6128, "lng": -80.0342},
+    {"id": "jupiter",         "name": "Jupiter, FL",                   "lat": 26.9433, "lng": -80.0733},
+    {"id": "stuart",          "name": "Stuart, FL",                    "lat": 27.2000, "lng": -80.2583},
+    {"id": "fort-pierce",     "name": "Fort Pierce, FL",               "lat": 27.4700, "lng": -80.2883},
+    {"id": "vero-beach",      "name": "Vero Beach, FL",                "lat": 27.6317, "lng": -80.3717},
+    {"id": "cocoa",           "name": "Cocoa, FL",                     "lat": 28.3683, "lng": -80.6000},
+    {"id": "port-canaveral",  "name": "Port Canaveral, FL",            "lat": 28.4158, "lng": -80.5931},
+    {"id": "daytona",         "name": "Daytona Beach, FL",             "lat": 29.1467, "lng": -80.9633},
+    {"id": "st-augustine",    "name": "St. Augustine, FL",             "lat": 29.8917, "lng": -81.3100},
+    {"id": "jacksonville",    "name": "Jacksonville, FL",              "lat": 30.3982, "lng": -81.4279},
+    {"id": "fernandina",      "name": "Fernandina Beach, FL",          "lat": 30.6714, "lng": -81.4658},
+    # Florida — Southwest Gulf
+    {"id": "marco-island",    "name": "Marco Island, FL",              "lat": 25.9083, "lng": -81.7283},
     {"id": "naples",          "name": "Naples, FL",                    "lat": 26.1317, "lng": -81.8075},
     {"id": "fort-myers",      "name": "Fort Myers, FL",                "lat": 26.6478, "lng": -81.8711},
+    {"id": "punta-gorda",     "name": "Punta Gorda, FL",               "lat": 26.9283, "lng": -82.0650},
+    {"id": "sarasota",        "name": "Sarasota, FL",                  "lat": 27.3317, "lng": -82.5450},
     # Florida — Tampa Bay
     {"id": "clearwater",      "name": "Clearwater Beach, FL",          "lat": 27.9783, "lng": -82.8317},
     {"id": "st-pete",         "name": "St. Petersburg, FL",            "lat": 27.7606, "lng": -82.6269},
@@ -68,6 +89,7 @@ MARINAS = [
     {"id": "cedar-key",       "name": "Cedar Key, FL",                 "lat": 29.1350, "lng": -83.0317},
     {"id": "apalachicola",    "name": "Apalachicola, FL",              "lat": 29.7244, "lng": -84.9806},
     # Florida — Panhandle
+    {"id": "port-st-joe",     "name": "Port St. Joe, FL",              "lat": 29.8150, "lng": -85.3133},
     {"id": "panama-city",     "name": "Panama City, FL",               "lat": 30.1497, "lng": -85.6644},
     {"id": "rocky-bayou",     "name": "Niceville — Rocky Bayou",       "lat": 30.5070, "lng": -86.4470},
     {"id": "niceville",       "name": "Niceville — Valparaiso",        "lat": 30.5030, "lng": -86.4930},
@@ -90,13 +112,19 @@ MARINAS = [
     # Texas
     {"id": "sabine-pass",     "name": "Sabine Pass, TX",               "lat": 29.7284, "lng": -93.8701},
     {"id": "port-arthur",     "name": "Port Arthur, TX",               "lat": 29.8667, "lng": -93.9300},
+    {"id": "port-bolivar",    "name": "Port Bolivar, TX",              "lat": 29.3650, "lng": -94.7800},
+    {"id": "kemah",           "name": "Kemah / Clear Lake, TX",        "lat": 29.5633, "lng": -95.0667},
     {"id": "galveston",       "name": "Galveston Pier 21, TX",         "lat": 29.3100, "lng": -94.7933},
     {"id": "freeport",        "name": "Freeport, TX",                  "lat": 28.9433, "lng": -95.3025},
+    {"id": "port-lavaca",     "name": "Port Lavaca, TX",               "lat": 28.6406, "lng": -96.6098},
     {"id": "matagorda",       "name": "Matagorda City, TX",            "lat": 28.7100, "lng": -95.9139},
     {"id": "rockport",        "name": "Rockport, TX",                  "lat": 28.0217, "lng": -97.0467},
     {"id": "aransas-pass",    "name": "Aransas Pass, TX",              "lat": 27.8366, "lng": -97.0391},
+    {"id": "port-aransas",    "name": "Port Aransas, TX",              "lat": 27.8397, "lng": -97.0725},
     {"id": "corpus-christi",  "name": "Corpus Christi, TX",            "lat": 27.5800, "lng": -97.2167},
+    {"id": "port-mansfield",  "name": "Port Mansfield, TX",            "lat": 26.5642, "lng": -97.2765},
     {"id": "port-isabel",     "name": "Port Isabel, TX",               "lat": 26.0612, "lng": -97.2155},
+    {"id": "south-padre-island", "name": "South Padre Island, TX",     "lat": 26.0731, "lng": -97.1675},
 ]
 
 # ── Helpers ───────────────────────────────────────────────────────────────────

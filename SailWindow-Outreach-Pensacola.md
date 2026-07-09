@@ -30,7 +30,7 @@ Pensacola + Pensacola Beach Pier are **free-tier stations** — every member can
 >
 > Fair winds,
 > Howard [last name]
-> SailWindow · sailwindow.com · [phone]
+> SailWindow · sailwindow.com · russjamieson@sailwindow.com · [phone]
 >
 > *If you'd rather not hear from me again, just reply "no thanks" — no hard feelings.*
 > *Rj Marketing d/b/a SailWindow · [business mailing address]*

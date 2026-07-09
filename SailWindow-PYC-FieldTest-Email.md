@@ -28,7 +28,7 @@ Could I send you a one-page intro to drop in front of a few members, or grab 10 
 Fair winds,
 
 Howard
-SailWindow · sailwindow.com · [phone]
+SailWindow · sailwindow.com · russjamieson@sailwindow.com · [phone]
 
 ---
 *If you'd rather not hear from me again, just reply "no thanks" — no hard feelings.*

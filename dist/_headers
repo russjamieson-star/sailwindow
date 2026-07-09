@@ -1,8 +1,0 @@
-/marina_data.json
-  Cache-Control: public, max-age=86400, stale-while-revalidate=3600
-
-/sailor-partners.html
-  Cache-Control: public, max-age=3600
-
-/partner-guide.html
-  Cache-Control: public, max-age=3600
