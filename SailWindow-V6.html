@@ -332,6 +332,7 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
     <a href="javascript:void(0)" class="nav-item active" data-tab="today" aria-current="page" onclick="close7DayView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>Today</a>
     <a href="javascript:void(0)" class="nav-item" id="nav-7day" onclick="open7DayView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>7-Day</a>
     <a href="#" class="nav-item" onclick="openMarinaView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>Marina</a>
+    <a href="javascript:void(0)" class="nav-item" id="nav-eat" onclick="openEatView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2v20M15 2v6a3 3 0 0 0 6 0V2M8 2v8a2 2 0 1 1-4 0V2M6 12v10"/></svg>Eat</a>
     <a href="javascript:void(0)" class="nav-item" id="nav-feedback" onclick="openFeedbackView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Feedback</a>
   </nav>
 </div>
@@ -624,6 +625,26 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
       </div>
     </div>
   </div>
+</div>
+
+<!-- Eat Ashore full-screen view -->
+<div id="eat-view" style="position:fixed;inset:0;z-index:150;background:var(--bg);display:none;flex-direction:column">
+  <div class="topbar">
+    <div class="logo" onclick="closeEatView()" style="cursor:pointer">
+      <svg width="24" height="24" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="var(--primary)" opacity=".12"/><line x1="16" y1="22" x2="16" y2="8" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"/><path d="M16 8 L24 21 L16 22 Z" fill="var(--primary)" opacity=".85"/><path d="M16 12 L10 21 L16 22 Z" fill="var(--primary)" opacity=".4"/><path d="M7 25.5 Q10 23.5 13 25.5 Q16 27.5 19 25.5 Q22 23.5 25 25.5" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".6"/></svg>
+      <span class="logo-word">← <span>Where to Eat</span></span>
+    </div>
+    <div class="bar-actions">
+      <button class="icon-btn" onclick="useCurrentLocationForEat()" aria-label="Use current GPS">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v2M2 12h2M20 12h2M4.93 4.93l1.42 1.42M17.66 17.66l1.42 1.42M4.93 19.07l1.42-1.42M17.66 6.34l1.42-1.42"/></svg>
+      </button>
+      <button class="icon-btn" onclick="closeEatView()" aria-label="Close eat view">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="eat-subtitle" style="padding:10px 16px;background:var(--surface);border-bottom:1px solid var(--divider);font-size:12.5px;color:var(--muted)">Just landed? Tap the GPS icon above to pull up what's within walking distance.</div>
+  <div id="eat-body" style="flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:16px"></div>
 </div>
 
 <!-- Marina full-screen view -->
@@ -1927,6 +1948,77 @@ async function toggleAshore(btn, lat, lon, marinaFuel){
 }
 
 // ─────────────────────────────────────────────
+// EAT ASHORE — full-screen "just landed" view.
+// Reuses fetchAshore()/GOOGLE_ASHORE_CACHE above (same data as the
+// per-marina-card Ashore toggle) — single source of truth, no
+// separate restaurant dataset to keep in sync.
+// ─────────────────────────────────────────────
+function openEatView(){
+  document.getElementById('sevenday-view').style.display = 'none';
+  document.getElementById('feedback-view').style.display = 'none';
+  document.getElementById('marina-view').style.display = 'none';
+  const view = document.getElementById('eat-view');
+  view.style.display = 'flex';
+  document.querySelectorAll('.nav-item').forEach(el=>el.classList.remove('active'));
+  document.getElementById('nav-eat').classList.add('active');
+  const c = activeSearchCenter();
+  renderEatResults(c.lat, c.lon, "Showing restaurants near your saved location — tap the GPS icon above if you've just landed somewhere new.");
+}
+function closeEatView(){
+  document.getElementById('eat-view').style.display = 'none';
+  document.querySelectorAll('.nav-item').forEach(el=>el.classList.remove('active'));
+  document.querySelector('.nav-item[data-tab="today"]').classList.add('active');
+}
+function useCurrentLocationForEat(){
+  if(!('geolocation' in navigator)){ toast('Geolocation not available'); return; }
+  const sub = document.getElementById('eat-subtitle');
+  if(sub) sub.textContent = 'Finding your GPS position…';
+  navigator.geolocation.getCurrentPosition(pos => {
+    const lat = +pos.coords.latitude.toFixed(4), lon = +pos.coords.longitude.toFixed(4);
+    renderEatResults(lat, lon, 'Showing restaurants near your current GPS position.');
+  }, err => {
+    toast(`GPS failed: ${err.message}`);
+    if(sub) sub.textContent = "Just landed? Tap the GPS icon above to pull up what's within walking distance.";
+  }, { enableHighAccuracy:true, timeout:10000, maximumAge:0 });
+}
+async function renderEatResults(lat, lon, subtitle){
+  const sub = document.getElementById('eat-subtitle');
+  const body = document.getElementById('eat-body');
+  if(sub) sub.textContent = subtitle || "Just landed? Tap the GPS icon above to pull up what's within walking distance.";
+  body.innerHTML = '<div style="color:var(--muted);text-align:center;padding:30px 0">Checking what\'s ashore…</div>';
+  let items = [];
+  try{ items = await fetchAshore(lat, lon); }
+  catch(e){
+    body.innerHTML = '<div style="color:var(--warn);text-align:center;padding:30px 0">Couldn\'t reach OpenStreetMap — try again in a minute.</div>';
+    return;
+  }
+  const partners  = findAshorePartners(lat, lon);
+  const pNames    = new Set(partners.map(p => p.name.toLowerCase()));
+  const fuelDocks = items.filter(i => i.kind === 'fuel-dock');
+  const fuelRoad  = items.filter(i => i.kind === 'fuel-road');
+  const food      = items.filter(i => i.kind === 'food' && !(i.name && pNames.has(i.name.toLowerCase())));
+  let html = '<div style="max-width:480px;margin:0 auto">';
+  if(fuelDocks.length)      html += `<div style="margin-bottom:14px">⛽ Fuel dock: <strong>${escHtml(fuelDocks[0].name || 'unnamed')}</strong> · ${fmtAshoreDist(fuelDocks[0].dist)}</div>`;
+  else if(fuelRoad.length)  html += `<div style="margin-bottom:14px">⛽ Nearest fuel is a road station: ${escHtml(fuelRoad[0].name || 'unnamed')} · ${fmtAshoreDist(fuelRoad[0].dist)}</div>`;
+  else                      html += `<div style="margin-bottom:14px">⛽ No fuel mapped nearby — call ahead.</div>`;
+  for(const p of partners){
+    const redeem = p.sample
+      ? `Restaurant owner? This featured spot is open: <a href="mailto:marketing@sailwindow.com" style="color:inherit;font-weight:600">marketing@sailwindow.com</a>`
+      : `show this screen or say &ldquo;${escHtml(p.code)}&rdquo;`;
+    html += `<div class="ashore-partner">★ <strong>${escHtml(p.name)}</strong>${p.note ? ` <span style="font-size:10.5px;font-weight:600;color:var(--warn)">${escHtml(p.note)}</span>` : ''}<br>${escHtml(p.offer)} · ${redeem} · ${fmtAshoreDist(distMiles(lat, lon, p.lat, p.lon))}</div>`;
+  }
+  if(food.length){
+    html += `<div style="margin:14px 0 6px;font-weight:700">🍴 Eat ashore</div>`;
+    html += food.map(f => `<div style="padding:8px 0;border-bottom:1px solid var(--divider)">${f.onsite ? '<strong>On-site</strong> · ' : ''}${escHtml(f.name || 'unnamed')}${f.cuisine ? ` <span style="color:var(--muted)">(${escHtml(f.cuisine)})</span>` : ''}${f.price ? ` <span style="color:var(--muted)">${escHtml(f.price)}</span>` : ''} · ${fmtAshoreDist(f.dist)}</div>`).join('');
+  } else {
+    html += `<div style="margin-top:10px">🍴 Nothing mapped within walking distance.</div>`;
+  }
+  html += `<div style="margin-top:14px;font-size:10.5px;color:var(--muted)">Google Places + OpenStreetMap · straight-line distances · verify before you tie up</div>`;
+  html += '</div>';
+  body.innerHTML = html;
+}
+
+// ─────────────────────────────────────────────
 // DRAWBRIDGES — schedules from 33 CFR Part 117
 // (public-domain federal regs; verified 2026-06-12 via eCFR.
 //  Unlisted drawbridges open on signal per §117.5.)
@@ -2583,6 +2675,9 @@ function activeSearchCenter(){
 }
 
 function openMarinaView(){
+  document.getElementById('eat-view').style.display = 'none';
+  document.getElementById('sevenday-view').style.display = 'none';
+  document.getElementById('feedback-view').style.display = 'none';
   const view = document.getElementById("marina-view");
   view.style.display = "flex";
   // Always open on the list on mobile
@@ -3051,6 +3146,8 @@ function dayConditionTags(slice){
 
 function open7DayView(){
   if(trialStatus().state === 'expired'){ openSubscribeModal('locked'); return; }
+  document.getElementById('eat-view').style.display = 'none';
+  document.getElementById('feedback-view').style.display = 'none';
   const view = document.getElementById('sevenday-view');
   view.style.display = 'flex';
   // update active nav
@@ -3061,6 +3158,7 @@ function open7DayView(){
 function close7DayView(){
   document.getElementById('sevenday-view').style.display = 'none';
   document.getElementById('feedback-view').style.display = 'none';
+  document.getElementById('eat-view').style.display = 'none';
   document.querySelectorAll('.nav-item').forEach(el=>el.classList.remove('active'));
   document.querySelector('.nav-item[data-tab="today"]').classList.add('active');
 }
@@ -3465,6 +3563,8 @@ let _fbCat = "back";
 
 function openFeedbackView(){
   if(trialStatus().state === 'expired'){ openSubscribeModal('locked'); return; }
+  document.getElementById('eat-view').style.display = 'none';
+  document.getElementById('sevenday-view').style.display = 'none';
   document.getElementById('feedback-view').style.display = 'flex';
   document.querySelectorAll('.nav-item').forEach(el=>el.classList.remove('active'));
   document.getElementById('nav-feedback').classList.add('active');
