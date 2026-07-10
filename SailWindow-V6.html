@@ -8,7 +8,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#171614">
 <title>SailWindow — Gulf Coast Sailing Conditions</title>
-<meta name="description" content="Live sailing conditions, wind, tide, and best-departure windows for 35 Gulf Coast marinas — Texas to the Florida Keys. Free, no login required.">
+<meta name="description" content="Live sailing conditions, wind, tide, and best-departure windows for 60 Gulf Coast &amp; Atlantic Florida marinas — Texas to Florida's Space Coast. Free, no login required.">
 <meta property="og:title" content="SailWindow — Gulf Coast Sailing Conditions">
 <meta property="og:description" content="Live wind, tide, and sailability scores for your marina, from NWS and NOAA data.">
 <meta property="og:type" content="website">
@@ -351,17 +351,17 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 
     <section>
       <div class="sec-title">Overview</div>
-      <p style="font-size:var(--sm);color:var(--muted)">SailWindow V6 — Gulf Coast Edition. Fetches live hourly wind forecasts from <strong style="color:var(--text)">NWS</strong> and tide predictions from <strong style="color:var(--text)">NOAA Tides &amp; Currents</strong>, scores every possible time block against your preferences, and shows the best sailing window for today. Covers <strong style="color:var(--text)">35 verified NOAA stations</strong> from Port Isabel, TX to Key West, FL. No login required — preferences are saved in your browser.</p>
+      <p style="font-size:var(--sm);color:var(--muted)">SailWindow V6 — Gulf Coast &amp; Atlantic Florida Edition. Fetches live hourly wind forecasts from <strong style="color:var(--text)">NWS</strong> and tide predictions from <strong style="color:var(--text)">NOAA Tides &amp; Currents</strong>, scores every possible time block against your preferences, and shows the best sailing window for today. Covers <strong style="color:var(--text)">60 verified NOAA stations</strong> from Port Isabel, TX to Florida's Space Coast. No login required — preferences are saved in your browser.</p>
     </section>
 
     <section>
       <div class="sec-title">Sailability Score</div>
       <p style="font-size:var(--sm);color:var(--muted)">The large number (0–10) rates conditions during the best available window. The colour badge describes it in plain English:</p>
       <div style="display:flex;flex-direction:column;gap:var(--sp2);margin-top:var(--sp3)">
-        <div style="display:flex;align-items:center;gap:var(--sp3)"><span class="quality-badge q-excellent" style="min-width:115px;justify-content:center">🟢 Excellent</span><span style="font-size:var(--sm);color:var(--muted)">9–10 · Prime conditions, go sailing</span></div>
+        <div style="display:flex;align-items:center;gap:var(--sp3)"><span class="quality-badge q-excellent" style="min-width:115px;justify-content:center">🟢 Excellent</span><span style="font-size:var(--sm);color:var(--muted)">9–10 · Prime conditions, most favorable for sailing</span></div>
         <div style="display:flex;align-items:center;gap:var(--sp3)"><span class="quality-badge q-good" style="min-width:115px;justify-content:center">✦ Good</span><span style="font-size:var(--sm);color:var(--muted)">7–8.9 · Solid day, comfortably in range</span></div>
         <div style="display:flex;align-items:center;gap:var(--sp3)"><span class="quality-badge q-marginal" style="min-width:115px;justify-content:center">🟡 Marginal</span><span style="font-size:var(--sm);color:var(--muted)">5–6.9 · Sail with awareness</span></div>
-        <div style="display:flex;align-items:center;gap:var(--sp3)"><span class="quality-badge q-nogo" style="min-width:115px;justify-content:center">🔴 No-Go</span><span style="font-size:var(--sm);color:var(--muted)">0–4.9 · Stay ashore</span></div>
+        <div style="display:flex;align-items:center;gap:var(--sp3)"><span class="quality-badge q-nogo" style="min-width:115px;justify-content:center">🔴 Unfavorable</span><span style="font-size:var(--sm);color:var(--muted)">0–4.9 · Least favorable, exercise caution</span></div>
       </div>
       <p style="font-size:var(--sm);color:var(--muted);margin-top:var(--sp3)">The <strong style="color:var(--text)">reason tags</strong> below the score summarise wind, gusts, rain, storm risk, and wind direction during the window.</p>
     </section>
@@ -398,7 +398,7 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
       <p style="font-size:var(--sm);color:var(--muted)">Open the settings sheet to adjust:</p>
       <div style="display:flex;flex-direction:column;gap:var(--sp2);margin-top:var(--sp2)">
         <div style="font-size:var(--sm);padding:var(--sp3);background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--divider)"><strong>Wind Min / Max (kt)</strong> <span style="color:var(--muted)">— ideal sustained range. Hours outside it are penalised.</span></div>
-        <div style="font-size:var(--sm);padding:var(--sp3);background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--divider)"><strong>Max Gust (kt)</strong> <span style="color:var(--muted)">— any hour above this scores 0 (automatic no-go).</span></div>
+        <div style="font-size:var(--sm);padding:var(--sp3);background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--divider)"><strong>Max Gust (kt)</strong> <span style="color:var(--muted)">— any hour above this scores 0 (automatically scores as Unfavorable).</span></div>
         <div style="font-size:var(--sm);padding:var(--sp3);background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--divider)"><strong>Duration (hrs)</strong> <span style="color:var(--muted)">— length of your sail (0.5–12 hrs). Sets the window width searched.</span></div>
         <div style="font-size:var(--sm);padding:var(--sp3);background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--divider)"><strong>Tide Preference</strong> <span style="color:var(--muted)">— Any, Incoming (flood), or Outgoing (ebb). Matching hours get a small scoring bonus.</span></div>
       </div>
@@ -454,7 +454,7 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
       <div style="display:flex;flex-direction:column;gap:var(--sp2)">
         <div style="background:var(--surface);border-radius:var(--r-lg);padding:var(--sp3) var(--sp4);border:1px solid var(--divider)"><div style="font-size:var(--sm);font-weight:600;margin-bottom:4px">Data won't load</div><div style="font-size:var(--xs);color:var(--muted)">Check your internet connection. NWS occasionally returns 500 errors — wait a minute and tap Refresh Live Data.</div></div>
         <div style="background:var(--surface);border-radius:var(--r-lg);padding:var(--sp3) var(--sp4);border:1px solid var(--divider)"><div style="font-size:var(--sm);font-weight:600;margin-bottom:4px">Score seems too low</div><div style="font-size:var(--xs);color:var(--muted)">Check your wind range — a narrow range penalises most days. Also verify the correct location is active.</div></div>
-        <div style="background:var(--surface);border-radius:var(--r-lg);padding:var(--sp3) var(--sp4);border:1px solid var(--divider)"><div style="font-size:var(--sm);font-weight:600;margin-bottom:4px">GPS not working</div><div style="font-size:var(--xs);color:var(--muted)">Allow location access in your browser settings. GPS auto-selects the nearest of the 32 built-in NOAA stations — full Gulf Coast coverage from Brownsville, TX to Key West, FL.</div></div>
+        <div style="background:var(--surface);border-radius:var(--r-lg);padding:var(--sp3) var(--sp4);border:1px solid var(--divider)"><div style="font-size:var(--sm);font-weight:600;margin-bottom:4px">GPS not working</div><div style="font-size:var(--xs);color:var(--muted)">Allow location access in your browser settings. GPS auto-selects the nearest of the 60 built-in NOAA stations — full Gulf Coast &amp; Atlantic Florida coverage from Port Isabel, TX to Florida's Space Coast.</div></div>
       </div>
     </section>
 
@@ -2136,7 +2136,7 @@ function qualityLabel(score){
   if(score>=9) return {lbl:"Excellent",cls:"q-excellent",emoji:"🟢",stripe:["var(--success)","var(--primary)"]};
   if(score>=7) return {lbl:"Good",cls:"q-good",emoji:"✦",stripe:["var(--primary)","var(--primary)"]};
   if(score>=5) return {lbl:"Marginal",cls:"q-marginal",emoji:"🟡",stripe:["var(--gold)","var(--warn)"]};
-  return {lbl:"No-Go",cls:"q-nogo",emoji:"🔴",stripe:["var(--error)","var(--error)"]};
+  return {lbl:"Unfavorable",cls:"q-nogo",emoji:"🔴",stripe:["var(--error)","var(--error)"]};
 }
 
 // ─────────────────────────────────────────────
@@ -3359,7 +3359,7 @@ function showExpiredOverlay(){
 function openSubscribeModal(mode){
   const isUpgrade = mode === "upgrade";
   document.getElementById("sub-headline").textContent = isUpgrade
-    ? "Upgrade for full Gulf Coast access"
+    ? "Upgrade for full Gulf Coast + Atlantic Florida access"
     : "Your 7-day free trial has ended";
   document.getElementById("sub-free-option").style.display = "block";
   document.getElementById("sub-dismiss").style.display    = isUpgrade ? "block" : "none";
@@ -3427,7 +3427,7 @@ async function activateSubscription(){
       close7DayView();  // ensure Today tab is front and center
       updateTrialBanner();
       updateLockState();
-      toast("✦ Subscription active — all 35 stations unlocked");
+      toast("✦ Subscription active — all 60 stations unlocked");
       loadAll();
     }else{
       toast("No active subscription found for that email yet. If you just paid, wait a few seconds and try again.");
@@ -3514,14 +3514,14 @@ document.addEventListener("DOMContentLoaded", () => {
     <div style="text-align:center">
       <svg width="40" height="40" viewBox="0 0 32 32" fill="none" style="margin:0 auto var(--sp2)"><circle cx="16" cy="16" r="16" fill="var(--primary)" opacity=".12"/><line x1="16" y1="22" x2="16" y2="8" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"/><path d="M16 8 L24 21 L16 22 Z" fill="var(--primary)" opacity=".85"/><path d="M16 12 L10 21 L16 22 Z" fill="var(--primary)" opacity=".4"/><path d="M7 25.5 Q10 23.5 13 25.5 Q16 27.5 19 25.5 Q22 23.5 25 25.5" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".6"/></svg>
       <div style="font-size:var(--lg);font-weight:700;letter-spacing:-.01em">Sail<span style="color:var(--primary)">Window</span> <span style="font-weight:300;opacity:.45">Pro</span></div>
-      <div id="sub-headline" style="font-size:var(--sm);color:var(--muted);margin-top:var(--sp2)">Full Gulf Coast coverage — all 35 stations</div>
+      <div id="sub-headline" style="font-size:var(--sm);color:var(--muted);margin-top:var(--sp2)">Full Gulf Coast + Atlantic Florida coverage — all 60 stations</div>
     </div>
 
     <div class="sub-divider"></div>
 
     <!-- Feature list -->
     <div style="display:flex;flex-direction:column;gap:var(--sp2)">
-      <div class="sub-feature"><span class="sub-check">✓</span><span>All 35 Gulf Coast stations — Texas to the Florida Keys</span></div>
+      <div class="sub-feature"><span class="sub-check">✓</span><span>All 60 coastal stations — Texas to Florida's Space Coast</span></div>
       <div class="sub-feature"><span class="sub-check">✓</span><span>7-Day sailing forecast with daily sailability scoring</span></div>
       <div class="sub-feature"><span class="sub-check">✓</span><span>Live marina map with 30-mile proximity search</span></div>
       <div class="sub-feature"><span class="sub-check">✓</span><span>NOAA tide predictions + best sailing window finder</span></div>
