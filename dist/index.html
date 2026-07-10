@@ -142,16 +142,12 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 .day-score-num{font-size:clamp(1.75rem,7vw,2.25rem);font-weight:700;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums lining-nums}
 .day-score-num span{font-size:.45em;font-weight:400;color:var(--muted)}
 .day-window{display:flex;align-items:center;justify-content:space-between;background:var(--offset);border-radius:var(--r-lg);padding:var(--sp2) var(--sp3)}
-/* Navigation advisory — scrollable body */
-#advisory-body{max-height:52vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
-/* Navigation advisory — light mode: bright yellow, high contrast for sunlight */
-#marina-advisory{background:#ffe033!important;border-color:#b8900a!important}
-#marina-advisory button,#advisory-body{color:#1a0d00!important}
-#advisory-arrow{stroke:#1a0d00!important}
-/* Navigation advisory — dark mode: dark amber bg, white text */
-[data-theme="dark"] #marina-advisory{background:#2b2008!important;border-color:#7a5510!important}
-[data-theme="dark"] #marina-advisory button,[data-theme="dark"] #advisory-body{color:#ffffff!important}
-[data-theme="dark"] #advisory-arrow{stroke:#ffca3a!important}
+/* Navigation advisory pill — light mode: bright yellow, high contrast for sunlight */
+#marina-advisory{background:#ffe033!important;border-color:#b8900a!important;color:#1a0d00!important}
+#marina-advisory svg{stroke:#1a0d00!important}
+/* Navigation advisory pill — dark mode: dark amber bg, white text */
+[data-theme="dark"] #marina-advisory{background:#2b2008!important;border-color:#7a5510!important;color:#ffffff!important}
+[data-theme="dark"] #marina-advisory svg{stroke:#ffca3a!important}
 /* ── Trial countdown banner ──────────────────────────────── */
 .trial-bar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px var(--sp4);font-size:var(--xs);font-weight:500}
 .trial-bar-p{background:var(--primary-hl);color:var(--primary)}
@@ -338,7 +334,7 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 </div>
 
 <!-- Help / User Guide overlay -->
-<div id="help-view" style="position:fixed;inset:0;z-index:150;background:var(--bg);display:none;flex-direction:column">
+<div id="help-view" style="position:fixed;inset:0;z-index:160;background:var(--bg);display:none;flex-direction:column">
   <div class="topbar">
     <div class="logo">
       <svg width="24" height="24" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="var(--primary)" opacity=".12"/><line x1="16" y1="22" x2="16" y2="8" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"/><path d="M16 8 L24 21 L16 22 Z" fill="var(--primary)" opacity=".85"/><path d="M16 12 L10 21 L16 22 Z" fill="var(--primary)" opacity=".4"/><path d="M7 25.5 Q10 23.5 13 25.5 Q16 27.5 19 25.5 Q22 23.5 25 25.5" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".6"/></svg>
@@ -415,10 +411,32 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
       <p style="font-size:var(--sm);color:var(--muted)">The <strong style="color:var(--text)">Marina tab</strong> shows a searchable list and interactive map. On phones, tap the 🗺 icon to toggle between the list and the map. Marina data is cached for 24 hours — the map loads instantly on return visits.</p>
     </section>
 
-    <section>
-      <div class="sec-title">Navigation Advisory</div>
-      <p style="font-size:var(--sm);color:var(--muted)">The amber advisory banner at the top of the Marina list covers hurricane-damaged facilities — Panama City, Clearwater, Fort Myers, and others — that are technically listed as open but have suspended transient docking or fueling. Tap the banner to expand the full status by storm. Marina cards for affected facilities show an <strong style="color:var(--text)">⚠ Advisory</strong> badge.</p>
-      <p style="font-size:var(--sm);color:var(--warn)">"Open" can be misleading. Always confirm transient availability by phone before arriving.</p>
+    <section id="help-advisory">
+      <div class="sec-title">⚠️ Navigation Advisory</div>
+      <p style="font-size:var(--sm);color:var(--muted)">If you are navigating the Intracoastal or the Gulf Coast, <strong style="color:var(--text)">"open"</strong> can be a deceptive word. Many marinas across Southwest Florida and the Tampa Bay region are technically operational for local slip holders but have suspended all transient docking, high-capacity fueling, or shore-power hookups due to ongoing grid and dock maintenance. Marina cards for affected facilities show an <strong style="color:var(--text)">⚠ Advisory</strong> badge.</p>
+
+      <p style="font-size:var(--xs);font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-top:var(--sp3)">Panhandle — Hurricane Michael</p>
+      <p style="font-size:var(--sm);color:var(--muted);margin-bottom:6px">The vast majority of Panhandle marinas successfully rebuilt or upgraded after Michael. One prominent public facility remains the exception:</p>
+      <ul style="margin-left:16px;display:flex;flex-direction:column;gap:7px;font-size:var(--sm);color:var(--muted)">
+        <li><strong style="color:var(--text)">Panama City Downtown Marina</strong> ⚠ — Still non-operational for transient and slip-holder use. Hurricane Michael delivered catastrophic damage to seawalls, docks, utilities, and upland buildings — including the permanent loss of its ship's store. Rather than a patch repair, the City has launched a full waterfront revitalization: public design charrettes are complete, a multi-million dollar master plan for modernized slips, expanded boardwalks, and new dining is approved, but full vertical construction remains in progress.</li>
+        <li><strong style="color:var(--text)">St. Andrews Marina (Panama City)</strong> ✓ Reopened — Welcoming transient boaters again under new management (Coastal Marina Management, April 2026). Fuel dock pumping; bulkhead reconstruction adding 44 slips approved and underway, with plans for 150+. Harbormaster: (850) 872-7240.</li>
+        <li><strong style="color:var(--text)">Tyndall AFB Marina</strong> ✓ Rebuilt — Completely destroyed by Michael, then rebuilt as a brand-new 42,000+ sq ft marina complex (restaurant, boat slips, recreational storage) as part of the $4.7B base-wide reconstruction. Targeted completion: early 2025.</li>
+        <li><strong style="color:var(--text)">Mexico Beach Marina</strong> ✓ Open — Took the direct Category 5 eyewall hit but was successfully rebuilt as a private commercial facility. Fully open with operational fuel docks, ship's store, and regular hours.</li>
+      </ul>
+
+      <p style="font-size:var(--xs);font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-top:var(--sp4)">West Coast &amp; Tampa Bay — Helene &amp; Milton</p>
+      <ul style="margin-left:16px;display:flex;flex-direction:column;gap:7px;font-size:var(--sm);color:var(--muted);margin-top:6px">
+        <li><strong style="color:var(--text)">Clearwater Beach Marina</strong> ⚠ — Fuel dock permanently closed. Full facility reconstruction underway through late summer 2026; Harbormaster's office destroyed, staff operating off-site.</li>
+        <li><strong style="color:var(--text)">Dunedin Marina</strong> ⚠ — Heavy structural reconstruction through mid-to-late 2026; public boat ramp closed to general public.</li>
+        <li><strong style="color:var(--text)">Safety Harbor Marina &amp; Pier</strong> ⚠ — Entire basin, boat ramp, and pier closed through December 2026. Complete reconstruction contract awarded to Shoreline Foundation.</li>
+      </ul>
+
+      <p style="font-size:var(--xs);font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-top:var(--sp4)">Southwest Florida — Hurricane Ian</p>
+      <ul style="margin-left:16px;display:flex;flex-direction:column;gap:7px;font-size:var(--sm);color:var(--muted);margin-top:6px">
+        <li><strong style="color:var(--text)">Fort Myers / Fort Myers Beach</strong> ⚠ — Post-Ian recovery ongoing. Large corporate-backed marinas (Safe Harbor properties) have rebuilt and expanded; smaller operators may still have compromised seawalls or remain closed. Call ahead before arriving for transient availability.</li>
+      </ul>
+
+      <p style="font-size:var(--sm);color:var(--warn);margin-top:var(--sp4);font-style:italic">Always confirm transient availability by phone before arriving. Conditions change frequently.</p>
     </section>
 
     <section>
@@ -680,43 +698,12 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
         </div>
         <button id="marina-groups-toggle" class="marina-groups-toggle" onclick="toggleAllMarinaGroups()">Expand all</button>
       </div>
-      <!-- Navigation Advisory -->
-      <div id="marina-advisory" style="margin:8px 10px 0;border-radius:12px;border:1px solid var(--warn);overflow:hidden;background:var(--warn-hl)">
-        <button onclick="toggleAdvisory()" style="width:100%;display:flex;align-items:flex-start;gap:8px;padding:10px 12px;background:none;border:none;cursor:pointer;text-align:left">
-          <span style="font-size:14px;flex-shrink:0">⚠️</span>
-          <div style="flex:1">
-            <div style="font-size:11px;font-weight:700;color:var(--warn);text-transform:uppercase;letter-spacing:.07em;margin-bottom:2px">Navigation Advisory</div>
-            <div style="font-size:12px;color:var(--warn);opacity:.85">St. Andrews Marina (Panama City) reopened to transients · downtown Panama City Marina still non-operational · Clearwater, Dunedin &amp; Safety Harbor under reconstruction. Tap for details.</div>
-          </div>
-          <svg id="advisory-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--warn)" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;transition:transform 200ms ease"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div id="advisory-body" style="display:none;padding:0 12px 12px;font-size:12px;color:var(--warn);line-height:1.65">
-          <p style="margin-bottom:10px">If you are navigating the Intracoastal or the Gulf Coast, <strong>"open"</strong> can be a deceptive word. Many marinas across Southwest Florida and the Tampa Bay region are technically operational for local slip holders but have suspended all transient docking, high-capacity fueling, or shore-power hookups due to ongoing grid and dock maintenance.</p>
-
-          <p style="font-weight:700;margin-bottom:3px;text-transform:uppercase;font-size:10px;letter-spacing:.07em;opacity:.7">Panhandle — Hurricane Michael</p>
-          <p style="margin-bottom:6px;opacity:.85">The vast majority of Panhandle marinas successfully rebuilt or upgraded after Michael. One prominent public facility remains the exception:</p>
-          <ul style="margin-left:14px;display:flex;flex-direction:column;gap:7px;margin-bottom:10px">
-            <li><strong>Panama City Downtown Marina</strong> ⚠ — Still non-operational for transient and slip-holder use. Hurricane Michael delivered catastrophic damage to seawalls, docks, utilities, and upland buildings — including the permanent loss of its ship's store. Rather than a patch repair, the City has launched a full waterfront revitalization: public design charrettes are complete, a multi-million dollar master plan for modernized slips, expanded boardwalks, and new dining is approved, but full vertical construction remains in progress.</li>
-            <li><strong>St. Andrews Marina (Panama City)</strong> ✓ Reopened — Welcoming transient boaters again under new management (Coastal Marina Management, April 2026). Fuel dock pumping; bulkhead reconstruction adding 44 slips approved and underway, with plans for 150+. Harbormaster: (850) 872-7240.</li>
-            <li><strong>Tyndall AFB Marina</strong> ✓ Rebuilt — Completely destroyed by Michael, then rebuilt as a brand-new 42,000+ sq ft marina complex (restaurant, boat slips, recreational storage) as part of the $4.7B base-wide reconstruction. Targeted completion: early 2025.</li>
-            <li><strong>Mexico Beach Marina</strong> ✓ Open — Took the direct Category 5 eyewall hit but was successfully rebuilt as a private commercial facility. Fully open with operational fuel docks, ship's store, and regular hours.</li>
-          </ul>
-
-          <p style="font-weight:700;margin-bottom:3px;text-transform:uppercase;font-size:10px;letter-spacing:.07em;opacity:.7">West Coast &amp; Tampa Bay — Helene &amp; Milton</p>
-          <ul style="margin-left:14px;display:flex;flex-direction:column;gap:7px;margin-bottom:10px">
-            <li><strong>Clearwater Beach Marina</strong> ⚠ — Fuel dock permanently closed. Full facility reconstruction underway through late summer 2026; Harbormaster's office destroyed, staff operating off-site.</li>
-            <li><strong>Dunedin Marina</strong> ⚠ — Heavy structural reconstruction through mid-to-late 2026; public boat ramp closed to general public.</li>
-            <li><strong>Safety Harbor Marina &amp; Pier</strong> ⚠ — Entire basin, boat ramp, and pier closed through December 2026. Complete reconstruction contract awarded to Shoreline Foundation.</li>
-          </ul>
-
-          <p style="font-weight:700;margin-bottom:3px;text-transform:uppercase;font-size:10px;letter-spacing:.07em;opacity:.7">Southwest Florida — Hurricane Ian</p>
-          <ul style="margin-left:14px;display:flex;flex-direction:column;gap:7px">
-            <li><strong>Fort Myers / Fort Myers Beach</strong> ⚠ — Post-Ian recovery ongoing. Large corporate-backed marinas (Safe Harbor properties) have rebuilt and expanded; smaller operators may still have compromised seawalls or remain closed. Call ahead before arriving for transient availability.</li>
-          </ul>
-
-          <p style="margin-top:10px;opacity:.8;font-style:italic">Always confirm transient availability by phone before arriving. Conditions change frequently.</p>
-        </div>
-      </div>
+      <!-- Navigation Advisory — compact pill, full detail lives in Help -->
+      <button id="marina-advisory" onclick="openHelp('help-advisory')" style="margin:8px 10px 0;width:calc(100% - 20px);display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid var(--warn);background:var(--warn-hl);color:var(--warn);cursor:pointer;text-align:left">
+        <span style="font-size:13px;flex-shrink:0">⚠️</span>
+        <span style="flex:1;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Navigation Advisories</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--warn)" stroke-width="3" style="flex-shrink:0"><polyline points="9 6 15 12 9 18"/></svg>
+      </button>
       <div id="bridge-block" style="margin:8px 10px 0"></div>
       <div id="marina-results" style="flex:1;overflow:auto;padding:12px;display:flex;flex-direction:column;gap:12px"></div>
     </div>
@@ -2712,14 +2699,6 @@ function closeMarinaView(){
   document.getElementById("marina-view").style.display = "none";
 }
 
-function toggleAdvisory(){
-  const body = document.getElementById("advisory-body");
-  const arrow = document.getElementById("advisory-arrow");
-  const open = body.style.display === "none";
-  body.style.display = open ? "block" : "none";
-  arrow.style.transform = open ? "rotate(180deg)" : "";
-}
-
 function updateMarinaSelectedBar(){
   const bar  = document.getElementById("marina-selected-bar");
   const name = document.getElementById("marina-selected-name");
@@ -3250,10 +3229,18 @@ function build7DayCards(days){
 // ─────────────────────────────────────────────
 // HELP OVERLAY
 // ─────────────────────────────────────────────
-function openHelp(){
+function openHelp(sectionId){
   const v = document.getElementById('help-view');
   v.style.display = 'flex';
   const b = document.getElementById('help-body');
+  if(sectionId){
+    const el = document.getElementById(sectionId);
+    if(el){
+      // Double rAF so we scroll after the just-shown view has a layout pass
+      requestAnimationFrame(() => requestAnimationFrame(() => el.scrollIntoView({block:'start', behavior:'auto'})));
+      return;
+    }
+  }
   if(b) b.scrollTop = 0;
 }
 function closeHelp(){
