@@ -2788,6 +2788,7 @@ const REGION_BY_ID = {};
 REGION_GROUPS.forEach(g => g.ids.forEach(id => REGION_BY_ID[id] = g.label));
 
 let marinaExpandedGroups = null;
+let marinaAutoSyncedLocKey = null; // tracks last locKey groups were auto-expanded for
 function loadMarinaExpandedGroups(){
   if(marinaExpandedGroups) return marinaExpandedGroups;
   try{
@@ -2949,6 +2950,18 @@ async function buildMarinaCards(){
     });
 
     const expanded = loadMarinaExpandedGroups();
+    // If the active location changed since the last render, make sure its
+    // region group is open and scroll to it — otherwise switching location
+    // silently leaves whatever group you had open before still on top,
+    // making it look like the list "didn't update".
+    const activeGroupLabel = REGION_BY_ID[prefs.locKey];
+    const locationChanged = marinaAutoSyncedLocKey !== prefs.locKey;
+    if(locationChanged && activeGroupLabel){
+      expanded.add(activeGroupLabel);
+      saveMarinaExpandedGroups();
+    }
+    marinaAutoSyncedLocKey = prefs.locKey;
+
     REGION_GROUPS.forEach(({label}) => {
       const list = byGroup[label];
       if(!list || !list.length) return;
@@ -2956,6 +2969,18 @@ async function buildMarinaCards(){
     });
     if(byGroup['Other'] && byGroup['Other'].length){
       wrap.appendChild(buildGroupDetailsEl('Other', byGroup['Other'], expanded));
+    }
+    if(locationChanged){
+      const activeCard = wrap.querySelector('.marina-active');
+      if(activeCard){
+        // Double rAF: wait for layout to fully settle after inserting ~60 cards
+        // before scrolling, then jump instantly. A raw setTimeout + smooth-scroll
+        // here reliably overshot the target because the browser hadn't finished
+        // laying out the newly-expanded groups yet.
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          activeCard.scrollIntoView({block:'center', behavior:'auto'});
+        }));
+      }
     }
   }
 }
