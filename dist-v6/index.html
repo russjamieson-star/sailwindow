@@ -203,6 +203,50 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 #feedback-view textarea{resize:vertical;min-height:100px}
 #feedback-view input:focus,#feedback-view textarea:focus{border-color:var(--primary)}
 .fb-submit{width:100%;background:var(--primary);color:#fff;border:none;border-radius:12px;padding:14px;font-size:15px;font-weight:700;cursor:pointer;letter-spacing:.02em;margin-top:4px}
+/* ── Cruiser's Log view ── */
+#log-view{overflow-y:auto}
+#log-view .log-body{padding:var(--sp4);display:flex;flex-direction:column;gap:var(--sp4);max-width:480px;width:100%;margin:0 auto}
+.log-sec-title{font-size:var(--xs);font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:var(--sp2)}
+.log-star{font-size:1.6rem;cursor:pointer;color:var(--border);transition:color var(--tr);line-height:1;padding:0 2px}
+.log-star.lit{color:#f5a623}
+.log-stars{display:flex;gap:2px;margin-bottom:var(--sp2)}
+.log-multi{display:flex;flex-wrap:wrap;gap:var(--sp2)}
+.log-chip{background:var(--offset);border:1px solid var(--border);border-radius:var(--r-full);padding:5px 12px;font-size:var(--xs);cursor:pointer;transition:all .15s;color:var(--text)}
+.log-chip.selected{background:var(--primary);border-color:var(--primary);color:#fff}
+.log-submit-btn{width:100%;background:var(--primary);color:#fff;border:none;border-radius:var(--r-xl);padding:var(--sp4);font-size:var(--sm);font-weight:700;cursor:pointer;transition:background var(--tr)}
+.log-submit-btn:hover{background:var(--primary-h)}
+.log-submit-btn:disabled{opacity:.5;cursor:not-allowed}
+.log-msg{font-size:var(--sm);text-align:center;padding:var(--sp4);border-radius:var(--r-lg);margin-top:var(--sp3);display:none}
+.log-msg.success{background:var(--success-hl);color:var(--success)}
+.log-msg.error{background:var(--error-hl);color:var(--error)}
+#log-community-feed{display:flex;flex-direction:column;gap:var(--sp3)}
+.log-entry{background:var(--surface);border:1px solid var(--divider);border-radius:var(--r-xl);padding:var(--sp4)}
+.log-entry-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:var(--sp2);flex-wrap:wrap;gap:var(--sp1)}
+.log-entry-boat{font-weight:700;font-size:var(--sm)}
+.log-entry-date{font-size:var(--xs);color:var(--muted)}
+.log-entry-route{font-size:var(--xs);color:var(--primary);font-weight:600;margin-bottom:var(--sp2)}
+.log-entry-notes{font-size:var(--sm);color:var(--text);line-height:1.55}
+.log-entry-meta{display:flex;flex-wrap:wrap;gap:var(--sp2);margin-top:var(--sp2)}
+.log-entry-badge{font-size:10px;background:var(--offset);color:var(--muted);padding:2px 8px;border-radius:var(--r-full)}
+.log-empty{color:var(--muted);font-size:var(--sm);text-align:center;padding:var(--sp8)}
+.log-chip-section{width:100%;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);margin-top:var(--sp2);padding-top:var(--sp1)}
+/* ── Bridge Schedules view ── */
+#bridge-search{width:100%;background:var(--offset);border:1px solid var(--border);border-radius:var(--r-lg);padding:var(--sp3) var(--sp4);font-size:var(--sm);color:var(--text);font-family:inherit;box-sizing:border-box;outline:none;margin-bottom:var(--sp3)}
+#bridge-search:focus{border-color:var(--primary)}
+.bridge-filter-bar{display:flex;gap:var(--sp2);margin-bottom:var(--sp3);flex-wrap:wrap}
+.bridge-filter{background:var(--offset);border:1px solid var(--border);border-radius:var(--r-full);padding:4px 12px;font-size:var(--xs);font-weight:600;cursor:pointer;color:var(--text);transition:all .15s}
+.bridge-filter.active{background:var(--primary);border-color:var(--primary);color:#fff}
+#bridge-list{display:flex;flex-direction:column;gap:var(--sp2)}
+.bridge-card{background:var(--surface);border:1px solid var(--divider);border-radius:var(--r-xl);padding:var(--sp4);cursor:pointer;transition:border-color var(--tr)}
+.bridge-card:hover{border-color:var(--primary)}
+.bridge-card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--sp2)}
+.bridge-name{font-weight:700;font-size:var(--sm);flex:1}
+.bridge-mm{font-size:var(--xs);color:var(--muted);white-space:nowrap}
+.bridge-location{font-size:var(--xs);color:var(--muted);margin-top:2px}
+.bridge-schedule{display:none;font-size:var(--xs);color:var(--text);line-height:1.7;margin-top:var(--sp3);padding-top:var(--sp3);border-top:1px solid var(--divider);background:var(--offset);border-radius:var(--r-lg);padding:var(--sp3)}
+.bridge-card.open .bridge-schedule{display:block;margin-top:var(--sp3)}
+.bridge-toggle{font-size:10px;color:var(--primary);font-weight:600;margin-top:var(--sp2)}
+.bridge-waterway-badge{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--primary);background:var(--primary-hl);padding:2px 7px;border-radius:var(--r-full);white-space:nowrap}
 </style>
 </head>
 <body>
@@ -345,6 +389,7 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
     <a href="javascript:void(0)" class="nav-item" id="nav-7day" onclick="open7DayView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>7-Day</a>
     <a href="#" class="nav-item" onclick="openMarinaView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>Marina</a>
     <a href="javascript:void(0)" class="nav-item" id="nav-feedback" onclick="openFeedbackView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Feedback</a>
+    <a href="javascript:void(0)" class="nav-item" id="nav-log" onclick="openLogView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>Log</a>
   </nav>
 </div>
 
@@ -366,7 +411,7 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 
     <section>
       <div class="sec-title">Overview</div>
-      <p style="font-size:var(--sm);color:var(--muted)">SailWindow V6 — Gulf Coast Edition. Fetches live hourly wind forecasts from <strong style="color:var(--text)">NWS</strong> and tide predictions from <strong style="color:var(--text)">NOAA Tides &amp; Currents</strong>, scores every possible time block against your preferences, and shows the best sailing window for today. Covers <strong style="color:var(--text)">35 verified NOAA stations</strong> from Port Isabel, TX to Key West, FL. No login required — preferences are saved in your browser.</p>
+      <p style="font-size:var(--sm);color:var(--muted)">SailWindow V8.0 — Gulf Coast Edition. Fetches live hourly wind forecasts from <strong style="color:var(--text)">NWS</strong> and tide predictions from <strong style="color:var(--text)">NOAA Tides &amp; Currents</strong>, scores every possible time block against your preferences, and shows the best sailing window for today. Covers <strong style="color:var(--text)">35 verified NOAA stations</strong> from Port Isabel, TX to Key West, FL. No login required — preferences are saved in your browser.</p>
     </section>
 
     <section>
@@ -430,6 +475,19 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
       <div class="sec-title">Navigation Advisory</div>
       <p style="font-size:var(--sm);color:var(--muted)">The amber advisory banner at the top of the Marina list covers hurricane-damaged facilities — Panama City, Clearwater, Fort Myers, and others — that are technically listed as open but have suspended transient docking or fueling. Tap the banner to expand the full status by storm. Marina cards for affected facilities show an <strong style="color:var(--text)">⚠ Advisory</strong> badge.</p>
       <p style="font-size:var(--sm);color:var(--warn)">"Open" can be misleading. Always confirm transient availability by phone before arriving.</p>
+    </section>
+
+    <section>
+      <div class="sec-title">Cruiser's Log</div>
+      <p style="font-size:var(--sm);color:var(--muted)">Tap <strong style="color:var(--text)">Log</strong> in the bottom nav to open the Cruiser's Log. Rate your trip (1–5 stars), log your departure and destination, note conditions and bridges encountered, and add free-form notes for fellow cruisers. Tap <strong style="color:var(--text)">Submit to Community Log</strong> to share your entry.</p>
+      <p style="font-size:var(--sm);color:var(--muted);margin-top:var(--sp2)">The <strong style="color:var(--text)">Community Feed</strong> tab shows recent entries from other sailors — a real-time picture of conditions, bridge delays, and anchorage tips along the route.</p>
+    </section>
+
+    <section>
+      <div class="sec-title">Bridge Schedules</div>
+      <p style="font-size:var(--sm);color:var(--muted)">From inside the Cruiser's Log, tap <strong style="color:var(--text)">Schedules</strong> in the top bar to open the ICW Bridge Schedules reference. It covers <strong style="color:var(--text)">34 Florida drawbridges</strong> — 11 on the Gulf ICW (33 CFR 117.287) and 23 on the Atlantic ICW (33 CFR 117.261) — organized by mile marker.</p>
+      <p style="font-size:var(--sm);color:var(--muted);margin-top:var(--sp2)">Filter by waterway (FL Gulf ICW, FL Atlantic ICW, FL Panhandle, TX/LA/AL) or search by name, city, or mile marker. Tap any bridge card to expand its opening schedule and CFR citation. Texas and Gulf Coast bridges are also included for reference.</p>
+      <p style="font-size:var(--sm);color:var(--warn);margin-top:var(--sp2)">Schedules are based on published 33 CFR regulations. Always verify current restrictions with local USCG notices before transiting — special events, maintenance, and emergency orders can override posted times.</p>
     </section>
 
     <section>
@@ -597,6 +655,292 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
         <button onclick="resetFeedbackForm()" style="margin-top:20px;background:transparent;border:1px solid var(--border);border-radius:10px;padding:10px 20px;font-size:14px;color:var(--text);cursor:pointer">Submit another →</button>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- Cruiser's Log full-screen view -->
+<div id="log-view" style="position:fixed;inset:0;z-index:150;background:var(--bg);display:none;flex-direction:column">
+  <div class="topbar">
+    <div class="logo" onclick="closeLogView()" style="cursor:pointer">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      <span class="logo-word">Cruiser's <span>Log</span></span>
+    </div>
+    <div class="bar-actions">
+      <button onclick="openBridgesView()" style="background:var(--offset);border:1px solid var(--border);border-radius:var(--r-lg);padding:5px 12px;font-size:var(--xs);font-weight:600;color:var(--text);cursor:pointer;display:flex;align-items:center;gap:5px;font-family:inherit">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+        Schedules
+      </button>
+    </div>
+  </div>
+  <div class="log-body">
+    <!-- Form -->
+    <div id="log-form-section">
+      <div class="log-sec-title">Log Your Trip</div>
+      <form id="cruisers-log-form" onsubmit="return false">
+        <div class="frow" style="margin-bottom:var(--sp3)">
+          <div class="fg">
+            <label class="flbl">Trip Date</label>
+            <input type="date" id="log-trip-date" class="finput">
+          </div>
+          <div class="fg">
+            <label class="flbl">Boat Name</label>
+            <input type="text" id="log-boat-name" class="finput" placeholder="Optional">
+          </div>
+        </div>
+        <div class="frow" style="margin-bottom:var(--sp3)">
+          <div class="fg">
+            <label class="flbl">Departed From</label>
+            <select id="log-departure" class="fselect">
+              <option value="">Select marina…</option>
+              <optgroup label="Texas">
+                <option>Port Isabel Marina</option>
+                <option>South Padre Island Marina</option>
+                <option>Aransas Pass Harbor</option>
+                <option>Rockport Harbor</option>
+                <option>Corpus Christi Marina</option>
+                <option>Port O'Connor Marina</option>
+                <option>Matagorda Bay Marina</option>
+                <option>Freeport Municipal Marina</option>
+                <option>Galveston Yacht Basin</option>
+                <option>Kemah Boardwalk Marina</option>
+                <option>Sabine Pass Marina</option>
+              </optgroup>
+              <optgroup label="Louisiana">
+                <option>Calcasieu Pass Marina</option>
+                <option>Port Fourchon Marina</option>
+                <option>Grand Isle Marina</option>
+                <option>New Orleans Municipal Marina</option>
+                <option>Slidell Municipal Marina</option>
+              </optgroup>
+              <optgroup label="Mississippi">
+                <option>Bay Waveland Yacht Club</option>
+                <option>Biloxi Small Craft Harbor</option>
+                <option>Pascagoula River Marina</option>
+              </optgroup>
+              <optgroup label="Alabama">
+                <option>Dauphin Island Marina</option>
+                <option>Mobile State Docks</option>
+                <option>Fairhope Municipal Pier</option>
+              </optgroup>
+              <optgroup label="Florida Panhandle">
+                <option>Pensacola Beach Marina</option>
+                <option>Palafox Pier (Pensacola)</option>
+                <option>Fort Walton Beach Marina</option>
+                <option>Destin Harbor Marina</option>
+                <option>Panama City Marina</option>
+                <option>St. Andrews Marina (Panama City)</option>
+                <option>Apalachicola Municipal Marina</option>
+              </optgroup>
+              <optgroup label="Florida Gulf Coast">
+                <option>Cedar Key Marina</option>
+                <option>Clearwater Beach Marina</option>
+                <option>Dunedin Marina</option>
+                <option>St. Pete Municipal Marina</option>
+                <option>Tampa — Hooker Point</option>
+                <option>Tampa — Gandy Bridge</option>
+                <option>Sarasota Municipal Marina</option>
+                <option>Venice Yacht Club</option>
+                <option>Charlotte Harbor / Punta Gorda</option>
+                <option>Fort Myers City Yacht Basin</option>
+                <option>Fort Myers Beach Marina</option>
+                <option>Naples City Dock</option>
+                <option>Key West Bight Marina</option>
+              </optgroup>
+              <optgroup label="Florida Space Coast / Atlantic ICW">
+                <option>New Smyrna Beach Marina</option>
+                <option>Titusville Municipal Marina</option>
+                <option>Port Canaveral</option>
+                <option>Cocoa Village Marina</option>
+                <option>Melbourne Harbor Marina</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="fg">
+            <label class="flbl">Destination</label>
+            <select id="log-destination" class="fselect">
+              <option value="">Select marina…</option>
+              <optgroup label="Texas">
+                <option>Port Isabel Marina</option>
+                <option>South Padre Island Marina</option>
+                <option>Aransas Pass Harbor</option>
+                <option>Rockport Harbor</option>
+                <option>Corpus Christi Marina</option>
+                <option>Port O'Connor Marina</option>
+                <option>Matagorda Bay Marina</option>
+                <option>Freeport Municipal Marina</option>
+                <option>Galveston Yacht Basin</option>
+                <option>Kemah Boardwalk Marina</option>
+                <option>Sabine Pass Marina</option>
+              </optgroup>
+              <optgroup label="Louisiana">
+                <option>Calcasieu Pass Marina</option>
+                <option>Port Fourchon Marina</option>
+                <option>Grand Isle Marina</option>
+                <option>New Orleans Municipal Marina</option>
+                <option>Slidell Municipal Marina</option>
+              </optgroup>
+              <optgroup label="Mississippi">
+                <option>Bay Waveland Yacht Club</option>
+                <option>Biloxi Small Craft Harbor</option>
+                <option>Pascagoula River Marina</option>
+              </optgroup>
+              <optgroup label="Alabama">
+                <option>Dauphin Island Marina</option>
+                <option>Mobile State Docks</option>
+                <option>Fairhope Municipal Pier</option>
+              </optgroup>
+              <optgroup label="Florida Panhandle">
+                <option>Pensacola Beach Marina</option>
+                <option>Palafox Pier (Pensacola)</option>
+                <option>Fort Walton Beach Marina</option>
+                <option>Destin Harbor Marina</option>
+                <option>Panama City Marina</option>
+                <option>St. Andrews Marina (Panama City)</option>
+                <option>Apalachicola Municipal Marina</option>
+              </optgroup>
+              <optgroup label="Florida Gulf Coast">
+                <option>Cedar Key Marina</option>
+                <option>Clearwater Beach Marina</option>
+                <option>Dunedin Marina</option>
+                <option>St. Pete Municipal Marina</option>
+                <option>Tampa — Hooker Point</option>
+                <option>Tampa — Gandy Bridge</option>
+                <option>Sarasota Municipal Marina</option>
+                <option>Venice Yacht Club</option>
+                <option>Charlotte Harbor / Punta Gorda</option>
+                <option>Fort Myers City Yacht Basin</option>
+                <option>Fort Myers Beach Marina</option>
+                <option>Naples City Dock</option>
+                <option>Key West Bight Marina</option>
+              </optgroup>
+              <optgroup label="Florida Space Coast / Atlantic ICW">
+                <option>New Smyrna Beach Marina</option>
+                <option>Titusville Municipal Marina</option>
+                <option>Port Canaveral</option>
+                <option>Cocoa Village Marina</option>
+                <option>Melbourne Harbor Marina</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+        <div class="fg" style="margin-bottom:var(--sp3)">
+          <label class="flbl">Bridges Passed <span style="font-weight:400;text-transform:none;letter-spacing:0">(tap to select)</span></label>
+          <div class="log-multi" id="log-bridges">
+            <span class="log-chip-section">Texas</span>
+            <span class="log-chip" data-val="galveston_railroad">Galveston RR</span>
+            <span class="log-chip" data-val="freeport_railroad">Freeport RR</span>
+            <span class="log-chip" data-val="matagorda">Matagorda</span>
+            <span class="log-chip" data-val="port_oconnor">Port O'Connor</span>
+            <span class="log-chip" data-val="aransas_pass">Aransas Pass RR</span>
+            <span class="log-chip" data-val="corpus_christi_harbor">Corpus Christi Harbor</span>
+            <span class="log-chip" data-val="port_isabel">Port Isabel</span>
+            <span class="log-chip-section">Louisiana · Mississippi · Alabama</span>
+            <span class="log-chip" data-val="morgan_city">Morgan City Lift</span>
+            <span class="log-chip" data-val="biloxi_bay">Biloxi Bay</span>
+            <span class="log-chip" data-val="mobile_bay">Mobile Bay Causeway</span>
+            <span class="log-chip-section">Florida Panhandle</span>
+            <span class="log-chip" data-val="pensacola_bay">Pensacola Bay US-98</span>
+            <span class="log-chip" data-val="fort_walton">Fort Walton Beach</span>
+            <span class="log-chip" data-val="destin_east_pass">Destin East Pass</span>
+            <span class="log-chip" data-val="hathaway">Hathaway (Panama City)</span>
+            <span class="log-chip-section">Florida Gulf ICW (33 CFR 117.287)</span>
+            <span class="log-chip" data-val="boca_grande_swing">Boca Grande Swing</span>
+            <span class="log-chip" data-val="venice_avenue">Venice Avenue</span>
+            <span class="log-chip" data-val="hatchett_creek_us41">Hatchett Creek US-41</span>
+            <span class="log-chip" data-val="blackburn_point">Blackburn Point</span>
+            <span class="log-chip" data-val="stickney_point">Stickney Point</span>
+            <span class="log-chip" data-val="siesta_drive">Siesta Drive</span>
+            <span class="log-chip" data-val="cortez_sr684">Cortez SR-684</span>
+            <span class="log-chip" data-val="anna_maria_manatee">Anna Maria Manatee Ave W</span>
+            <span class="log-chip" data-val="corey_causeway">Corey Causeway SR-693</span>
+            <span class="log-chip" data-val="treasure_island_cswy">Treasure Island Causeway</span>
+            <span class="log-chip" data-val="welch_causeway">Welch Causeway SR-699</span>
+            <span class="log-chip-section">Florida Atlantic ICW (33 CFR 117.261)</span>
+            <span class="log-chip" data-val="bridge_of_lions">Bridge of Lions SR-A1A</span>
+            <span class="log-chip" data-val="george_musson">George Musson SR-44</span>
+            <span class="log-chip" data-val="nasa_railroad">NASA Railroad</span>
+            <span class="log-chip" data-val="a1a_north_causeway">A1A North Causeway</span>
+            <span class="log-chip" data-val="indiantown_road">Indiantown Road</span>
+            <span class="log-chip" data-val="donald_ross">Donald Ross</span>
+            <span class="log-chip" data-val="east_camino_real">East Camino Real</span>
+            <span class="log-chip" data-val="hillsboro_blvd">E. Hillsboro Blvd SR-810</span>
+            <span class="log-chip" data-val="ne14th_pompano">NE 14th St (Pompano)</span>
+            <span class="log-chip" data-val="atlantic_blvd_sr814">E. Atlantic Blvd SR-814</span>
+            <span class="log-chip" data-val="commercial_blvd_sr870">E. Commercial Blvd SR-870</span>
+            <span class="log-chip" data-val="oakland_park_blvd">E. Oakland Park Blvd</span>
+            <span class="log-chip" data-val="sunrise_blvd_sr838">E. Sunrise Blvd SR-838</span>
+            <span class="log-chip" data-val="east_las_olas">East Las Olas</span>
+            <span class="log-chip" data-val="se17th_brooks">SE 17th St Brooks Memorial</span>
+            <span class="log-chip" data-val="dania_beach_blvd">Dania Beach Blvd</span>
+            <span class="log-chip" data-val="sheridan_street">Sheridan Street</span>
+            <span class="log-chip" data-val="hollywood_beach_blvd">Hollywood Beach Blvd SR-820</span>
+            <span class="log-chip" data-val="hallandale_beach_blvd">Hallandale Beach Blvd SR-824</span>
+            <span class="log-chip" data-val="ne163rd_sr826">NE 163rd St SR-826</span>
+            <span class="log-chip" data-val="broad_causeway">Broad Causeway</span>
+            <span class="log-chip" data-val="w79th_miami">West 79th Street</span>
+            <span class="log-chip" data-val="venetian_causeway">West Venetian Causeway</span>
+          </div>
+        </div>
+        <div class="frow" style="margin-bottom:var(--sp3)">
+          <div class="fg">
+            <label class="flbl">Longest Bridge Wait</label>
+            <select id="log-bridge-wait" class="fselect">
+              <option value="">Select…</option>
+              <option>No wait</option>
+              <option>Under 15 min</option>
+              <option>15–30 min</option>
+              <option>30–60 min</option>
+              <option>Over 1 hour</option>
+              <option>Bridge closed / restricted</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label class="flbl">Marina Rating</label>
+            <div class="log-stars" id="log-star-container" aria-label="Rate the destination marina">
+              <span class="log-star" data-val="1">★</span>
+              <span class="log-star" data-val="2">★</span>
+              <span class="log-star" data-val="3">★</span>
+              <span class="log-star" data-val="4">★</span>
+              <span class="log-star" data-val="5">★</span>
+            </div>
+            <input type="hidden" id="log-marina-rating" value="0">
+          </div>
+        </div>
+        <div class="fg" style="margin-bottom:var(--sp4)">
+          <label class="flbl">Trip Notes</label>
+          <textarea id="log-trip-notes" class="finput" rows="4" placeholder="Conditions, bridge tips, anchorages, anything useful for fellow cruisers…" style="resize:vertical;min-height:90px"></textarea>
+        </div>
+        <button type="button" id="log-submit-btn" class="log-submit-btn" onclick="submitLog()">Log This Trip →</button>
+        <div id="log-success" class="log-msg success">✓ Trip logged! Thanks for sharing with the fleet.</div>
+        <div id="log-error" class="log-msg error">Something went wrong — please try again.</div>
+      </form>
+    </div>
+    <!-- Community feed -->
+    <div>
+      <div class="log-sec-title" style="margin-top:var(--sp2)">Recent Crew Logs</div>
+      <div id="log-community-feed"><div class="log-empty">Loading recent logs…</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Bridge Schedules full-screen view -->
+<div id="bridges-view" style="position:fixed;inset:0;z-index:200;background:var(--bg);display:none;flex-direction:column">
+  <div class="topbar">
+    <div class="logo" onclick="closeBridgesView()" style="cursor:pointer">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      <span class="logo-word">Bridge <span>Schedules</span></span>
+    </div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding:var(--sp4);display:flex;flex-direction:column;gap:0">
+    <input id="bridge-search" type="search" placeholder="Search bridges…" oninput="renderBridgeSchedules()" autocomplete="off">
+    <div class="bridge-filter-bar" id="bridge-filters">
+      <span class="bridge-filter active" data-ww="all" onclick="setBridgeFilter(this)">All</span>
+      <span class="bridge-filter" data-ww="gulf_icw" onclick="setBridgeFilter(this)">FL Gulf ICW</span>
+      <span class="bridge-filter" data-ww="atlantic_icw" onclick="setBridgeFilter(this)">FL Atlantic ICW</span>
+      <span class="bridge-filter" data-ww="panhandle" onclick="setBridgeFilter(this)">FL Panhandle</span>
+      <span class="bridge-filter" data-ww="tx_la" onclick="setBridgeFilter(this)">TX / LA / AL</span>
+    </div>
+    <div id="bridge-list"></div>
   </div>
 </div>
 
@@ -2193,6 +2537,8 @@ function open7DayView(){
 function close7DayView(){
   document.getElementById('sevenday-view').style.display = 'none';
   document.getElementById('feedback-view').style.display = 'none';
+  const _lv = document.getElementById('log-view'); if(_lv) _lv.style.display = 'none';
+  const _bv = document.getElementById('bridges-view'); if(_bv) _bv.style.display = 'none';
   document.querySelectorAll('.nav-item').forEach(el=>el.classList.remove('active'));
   document.querySelector('.nav-item[data-tab="today"]').classList.add('active');
 }
@@ -2461,6 +2807,8 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="sub-feature"><span class="sub-check">✓</span><span>7-Day sailing forecast with daily sailability scoring</span></div>
       <div class="sub-feature"><span class="sub-check">✓</span><span>Live marina map with 30-mile proximity search</span></div>
       <div class="sub-feature"><span class="sub-check">✓</span><span>NOAA tide predictions + best sailing window finder</span></div>
+      <div class="sub-feature"><span class="sub-check">✓</span><span>Cruiser's Log — share trip notes with the community</span></div>
+      <div class="sub-feature"><span class="sub-check">✓</span><span>ICW Bridge Schedules — 34 Florida drawbridges with CFR times</span></div>
       <div class="sub-feature"><span class="sub-check">✓</span><span>Hurricane &amp; marina status advisories (2026)</span></div>
       <div class="sub-feature"><span class="sub-check">✓</span><span>Referral credits — earn free months by sharing</span></div>
     </div>
@@ -2497,6 +2845,11 @@ document.addEventListener("DOMContentLoaded", () => {
     <!-- Dismiss (only when upgrading mid-trial) -->
     <div id="sub-dismiss" style="text-align:center;display:none">
       <button onclick="closeSubscribeModal()" style="font-size:var(--xs);color:var(--faint);background:none;border:none;cursor:pointer;padding:var(--sp1)">Maybe later</button>
+    </div>
+
+    <!-- Existing member note -->
+    <div style="text-align:center;margin-top:var(--sp3);padding-top:var(--sp3);border-top:1px solid var(--divider)">
+      <p style="font-size:var(--xs);color:var(--muted);line-height:1.5">Current members: tap <strong style="color:var(--text)">Subscribe</strong> and enter your registration email address to restore access.</p>
     </div>
 
   </div>
@@ -2562,6 +2915,272 @@ function resetFeedbackForm(){
   document.getElementById('feedback-form').style.display = '';
   document.getElementById('fb-confirm').style.display    = 'none';
 }
+
+// ── Cruiser's Log ────────────────────────────────────────────
+const CRUISERS_LOG_URL = "https://script.google.com/macros/s/AKfycbxRNxjqhSvUuYD49yHGYu9F4qiIPa8mR-uZx2CrzmpgJVt27UEB1RRKvwOrAovPO1SP/exec";
+
+function openLogView(){
+  if(trialStatus().state === 'expired'){ openSubscribeModal('locked'); return; }
+  document.getElementById('log-view').style.display = 'flex';
+  document.querySelectorAll('.nav-item').forEach(el=>el.classList.remove('active'));
+  document.getElementById('nav-log').classList.add('active');
+  initLogStars();
+  loadCommunityFeed();
+}
+function closeLogView(){
+  document.getElementById('log-view').style.display = 'none';
+  const _bv = document.getElementById('bridges-view'); if(_bv) _bv.style.display = 'none';
+  document.querySelectorAll('.nav-item').forEach(el=>el.classList.remove('active'));
+  document.querySelector('.nav-item[data-tab="today"]').classList.add('active');
+}
+
+function initLogStars(){
+  const container = document.getElementById('log-star-container');
+  if(container.dataset.init) return;
+  container.dataset.init = '1';
+  const stars = container.querySelectorAll('.log-star');
+  stars.forEach(s => {
+    s.addEventListener('click', () => {
+      const val = +s.dataset.val;
+      document.getElementById('log-marina-rating').value = val;
+      stars.forEach(x => x.classList.toggle('lit', +x.dataset.val <= val));
+    });
+    s.addEventListener('mouseover', () => {
+      const val = +s.dataset.val;
+      stars.forEach(x => x.classList.toggle('lit', +x.dataset.val <= val));
+    });
+    s.addEventListener('mouseout', () => {
+      const cur = +document.getElementById('log-marina-rating').value;
+      stars.forEach(x => x.classList.toggle('lit', +x.dataset.val <= cur));
+    });
+  });
+  // bridge chips toggle
+  document.querySelectorAll('#log-bridges .log-chip').forEach(chip => {
+    chip.addEventListener('click', () => chip.classList.toggle('selected'));
+  });
+  // default date = today
+  const dateEl = document.getElementById('log-trip-date');
+  if(!dateEl.value) dateEl.value = new Date().toISOString().split('T')[0];
+}
+
+async function submitLog(){
+  const btn     = document.getElementById('log-submit-btn');
+  const success = document.getElementById('log-success');
+  const error   = document.getElementById('log-error');
+  success.style.display = 'none';
+  error.style.display   = 'none';
+
+  const bridges = [...document.querySelectorAll('#log-bridges .log-chip.selected')]
+    .map(c => c.dataset.val);
+
+  const payload = {
+    trip_date:           document.getElementById('log-trip-date').value,
+    boat_name:           document.getElementById('log-boat-name').value.trim(),
+    departure_marina:    document.getElementById('log-departure').value,
+    destination_marina:  document.getElementById('log-destination').value,
+    bridges_passed:      bridges,
+    bridge_wait:         document.getElementById('log-bridge-wait').value,
+    marina_rating:       +document.getElementById('log-marina-rating').value,
+    trip_notes:          document.getElementById('log-trip-notes').value.trim()
+  };
+
+  btn.disabled    = true;
+  btn.textContent = 'Submitting…';
+  try {
+    const res  = await fetch(CRUISERS_LOG_URL, { method:'POST', body:JSON.stringify(payload) });
+    const data = await res.json();
+    if(data.success){
+      success.style.display = 'block';
+      document.getElementById('cruisers-log-form').reset();
+      document.getElementById('log-marina-rating').value = '0';
+      document.querySelectorAll('#log-star-container .log-star').forEach(s=>s.classList.remove('lit'));
+      document.querySelectorAll('#log-bridges .log-chip').forEach(c=>c.classList.remove('selected'));
+      document.getElementById('log-trip-date').value = new Date().toISOString().split('T')[0];
+    } else {
+      error.style.display = 'block';
+    }
+  } catch(e){
+    error.style.display = 'block';
+  }
+  btn.disabled    = false;
+  btn.textContent = 'Log This Trip →';
+}
+
+async function loadCommunityFeed(){
+  const feed = document.getElementById('log-community-feed');
+  feed.innerHTML = '<div class="log-empty">Loading recent logs…</div>';
+  try {
+    const res  = await fetch(CRUISERS_LOG_URL);
+    const data = await res.json();
+    if(!data.success || !data.entries || !data.entries.length){
+      feed.innerHTML = '<div class="log-empty">No logs yet — be the first to share a trip!</div>';
+      return;
+    }
+    feed.innerHTML = data.entries.map(e => {
+      const stars = e.marina_rating
+        ? '★'.repeat(+e.marina_rating) + '☆'.repeat(5 - +e.marina_rating)
+        : '';
+      const route = (e.departure_marina && e.destination_marina)
+        ? e.departure_marina + ' → ' + e.destination_marina
+        : (e.departure_marina || e.destination_marina || '');
+      const rawDate = e.trip_date ? new Date(e.trip_date) : null;
+      const date = rawDate
+        ? rawDate.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'UTC'})
+        : '';
+      const badges = [];
+      if(e.bridge_wait && e.bridge_wait !== 'No wait') badges.push('⏱ ' + e.bridge_wait);
+      if(e.bridges_passed){
+        const bList = e.bridges_passed.split(', ').filter(Boolean);
+        if(bList.length) badges.push('🌉 ' + bList.length + ' bridge' + (bList.length > 1 ? 's' : ''));
+      }
+      return '<div class="log-entry">'
+        + '<div class="log-entry-header">'
+        +   '<span class="log-entry-boat">' + (e.boat_name || 'Anonymous') + '</span>'
+        +   '<span class="log-entry-date">' + date + '</span>'
+        + '</div>'
+        + (route ? '<div class="log-entry-route">' + route + '</div>' : '')
+        + (stars  ? '<div style="color:#f5a623;font-size:.9rem;margin-bottom:var(--sp1)">' + stars + '</div>' : '')
+        + (e.trip_notes ? '<div class="log-entry-notes">' + e.trip_notes + '</div>' : '')
+        + (badges.length
+            ? '<div class="log-entry-meta">' + badges.map(b=>'<span class="log-entry-badge">'+b+'</span>').join('') + '</div>'
+            : '')
+        + '</div>';
+    }).join('');
+  } catch(err){
+    feed.innerHTML = '<div class="log-empty">Couldn\'t load recent logs. Try again later.</div>';
+  }
+}
+// ── Bridge Schedules ──────────────────────────────────────────────
+const BRIDGE_DATA = [
+  // Texas (Gulf ICW)
+  {id:'galveston_railroad',     name:'Galveston RR Lift Bridge',        loc:'Galveston, TX',             mm:'',       ww:'tx_la',      schedule:'Railroad bridge; opens on signal when no train is approaching. Extended closures possible during rail traffic.'},
+  {id:'freeport_railroad',      name:'Freeport Railroad Bridge',        loc:'Freeport, TX',              mm:'',       ww:'tx_la',      schedule:'Railroad bridge; opens on signal when not in use by rail traffic.'},
+  {id:'matagorda',              name:'Matagorda Bridge',                loc:'Matagorda, TX',             mm:'',       ww:'tx_la',      schedule:'Opens on signal.'},
+  {id:'port_oconnor',           name:"Port O'Connor Bridge",            loc:"Port O'Connor, TX",         mm:'',       ww:'tx_la',      schedule:'Opens on signal.'},
+  {id:'aransas_pass',           name:'Aransas Pass Railroad Bridge',    loc:'Aransas Pass, TX',          mm:'',       ww:'tx_la',      schedule:'Railroad bridge; opens on signal when not in use by rail traffic.'},
+  {id:'corpus_christi_harbor',  name:'Corpus Christi Harbor Bridge',    loc:'Corpus Christi, TX',        mm:'',       ww:'tx_la',      schedule:'Opens on signal.'},
+  {id:'port_isabel',            name:'Port Isabel Bridge',              loc:'Port Isabel, TX',           mm:'',       ww:'tx_la',      schedule:'Opens on signal.'},
+  // Louisiana / Mississippi / Alabama
+  {id:'morgan_city',            name:'Morgan City Lift Bridge',         loc:'Morgan City, LA',           mm:'',       ww:'tx_la',      schedule:'Opens on signal.'},
+  {id:'biloxi_bay',             name:'Biloxi Bay Bridge',               loc:'Biloxi, MS',                mm:'',       ww:'tx_la',      schedule:'Opens on signal.'},
+  {id:'mobile_bay',             name:'Mobile Bay Causeway Bridge',      loc:'Mobile, AL',                mm:'',       ww:'tx_la',      schedule:'Opens on signal.'},
+  // Florida Panhandle
+  {id:'pensacola_bay',          name:'Pensacola Bay Bridge US-98',      loc:'Pensacola, FL',             mm:'',       ww:'panhandle',  schedule:'Opens on signal. Verify current restrictions; contact USCG District 8 for updates.'},
+  {id:'fort_walton',            name:'Fort Walton Beach Bridge',        loc:'Fort Walton Beach, FL',     mm:'',       ww:'panhandle',  schedule:'Opens on signal.'},
+  {id:'destin_east_pass',       name:'Destin East Pass Bridge',         loc:'Destin, FL',                mm:'',       ww:'panhandle',  schedule:'Opens on signal.'},
+  {id:'hathaway',               name:'Hathaway Bridge',                 loc:'Panama City, FL',           mm:'',       ww:'panhandle',  schedule:'Fixed bridge — no draw. Vertical clearance approx. 50 ft.'},
+  // Florida Gulf ICW (33 CFR 117.287)
+  {id:'boca_grande_swing',      name:'Boca Grande Swing Bridge',        loc:'Placida, FL',               mm:'34.3',   ww:'gulf_icw',   schedule:'Opens on signal except 8–9 AM and 5–6 PM Mon–Fri (not federal holidays), when the draw need not open for recreational vessels. 33 CFR 117.287(a).'},
+  {id:'venice_avenue',          name:'Venice Avenue Bridge',            loc:'Venice, FL',                mm:'56.6',   ww:'gulf_icw',   schedule:'Opens on signal except 7–9 AM and 4–6 PM Mon–Fri (not federal holidays), when the draw need not open. 33 CFR 117.287(e).'},
+  {id:'hatchett_creek_us41',    name:'Hatchett Creek US-41 Bridge',     loc:'Venice, FL',                mm:'56.9',   ww:'gulf_icw',   schedule:'Opens on signal except 7–9 AM and 4–6 PM Mon–Fri (not federal holidays). 33 CFR 117.287(c).'},
+  {id:'blackburn_point',        name:'Blackburn Point Bridge',          loc:'Osprey, FL',                mm:'63.1',   ww:'gulf_icw',   schedule:'Opens on signal except 7–9 AM and 4–6 PM Mon–Fri (not federal holidays). 33 CFR 117.287(d).'},
+  {id:'stickney_point',         name:'Stickney Point Bridge',           loc:'South Sarasota, FL',        mm:'68.6',   ww:'gulf_icw',   schedule:'Opens on signal except 7–9 AM and 4–6 PM Mon–Fri (not federal holidays). 33 CFR 117.287.'},
+  {id:'siesta_drive',           name:'Siesta Drive Bridge',             loc:'Sarasota, FL',              mm:'71.6',   ww:'gulf_icw',   schedule:'Opens on signal except 7–9 AM and 4–6 PM Mon–Fri (not federal holidays). 33 CFR 117.287.'},
+  {id:'cortez_sr684',           name:'Cortez SR-684 Bridge',            loc:'Bradenton Beach, FL',       mm:'87.4',   ww:'gulf_icw',   schedule:'Opens on signal. 33 CFR 117.287.'},
+  {id:'anna_maria_manatee',     name:'Anna Maria Manatee Ave W Bridge', loc:'Bradenton Beach, FL',       mm:'89.2',   ww:'gulf_icw',   schedule:'Opens on signal. 33 CFR 117.287.'},
+  {id:'corey_causeway',         name:'Corey Causeway SR-693',           loc:'South Pasadena, FL',        mm:'117.7',  ww:'gulf_icw',   schedule:'Opens on signal except 7–9 AM and 4:30–6 PM Mon–Fri (not federal holidays). 33 CFR 117.287.'},
+  {id:'treasure_island_cswy',   name:'Treasure Island Causeway',        loc:'Treasure Island, FL',       mm:'119.0',  ww:'gulf_icw',   schedule:'Opens on signal except 7–9 AM and 4:30–6 PM Mon–Fri (not federal holidays). 33 CFR 117.287.'},
+  {id:'welch_causeway',         name:'Welch Causeway SR-699',           loc:'Madeira Beach, FL',         mm:'122.8',  ww:'gulf_icw',   schedule:'Opens on signal except 7–9 AM and 4:30–6 PM Mon–Fri (not federal holidays). 33 CFR 117.287.'},
+  // Florida Atlantic ICW (33 CFR 117.261)
+  {id:'bridge_of_lions',        name:'Bridge of Lions SR-A1A',          loc:'St. Augustine, FL',         mm:'777.9',  ww:'atlantic_icw', schedule:'Opens on the hour and half-hour 7 AM–6 PM. All other times opens on signal. 33 CFR 117.261.'},
+  {id:'george_musson',          name:'George Musson Bridge SR-44',      loc:'New Smyrna Beach, FL',      mm:'845',    ww:'atlantic_icw', schedule:'Opens on signal except 6:45–8 AM and 4–5:30 PM Mon–Fri (not federal holidays). 33 CFR 117.261(n).'},
+  {id:'nasa_railroad',          name:'NASA Railroad Bridge',            loc:'Titusville, FL',            mm:'876.6',  ww:'atlantic_icw', schedule:'Railroad bridge; maintained in open position except when trains are approaching. 33 CFR 117.261.'},
+  {id:'a1a_north_causeway',     name:'A1A North Causeway',              loc:'Fort Pierce, FL',           mm:'964.8',  ww:'atlantic_icw', schedule:'Opens on signal. 33 CFR 117.261.'},
+  {id:'indiantown_road',        name:'Indiantown Road Bridge',          loc:'Jupiter, FL',               mm:'1006.2', ww:'atlantic_icw', schedule:'Opens on signal except 7–9 AM and 4:30–6 PM Mon–Fri (not federal holidays). 33 CFR 117.261.'},
+  {id:'donald_ross',            name:'Donald Ross Bridge',              loc:'North Palm Beach, FL',      mm:'1009.3', ww:'atlantic_icw', schedule:'Opens on signal except 7–9 AM and 4:30–6 PM Mon–Fri (not federal holidays). 33 CFR 117.261.'},
+  {id:'east_camino_real',       name:'East Camino Real Bridge',         loc:'Boca Raton, FL',            mm:'1048.2', ww:'atlantic_icw', schedule:'Opens on signal except 7:30–9 AM and 4:30–6 PM Mon–Fri (not federal holidays). 33 CFR 117.261.'},
+  {id:'hillsboro_blvd',         name:'E. Hillsboro Blvd Bridge SR-810', loc:'Deerfield Beach, FL',      mm:'1050.0', ww:'atlantic_icw', schedule:'Opens on signal except 7:30–9 AM and 4:30–6 PM Mon–Fri (not federal holidays). 33 CFR 117.261.'},
+  {id:'ne14th_pompano',         name:'NE 14th Street Bridge',           loc:'Pompano Beach, FL',         mm:'1055.0', ww:'atlantic_icw', schedule:'Opens on signal except 7:30–9 AM and 4:30–6 PM Mon–Fri (not federal holidays). 33 CFR 117.261.'},
+  {id:'atlantic_blvd_sr814',    name:'E. Atlantic Blvd Bridge SR-814',  loc:'Pompano Beach, FL',         mm:'1056.0', ww:'atlantic_icw', schedule:'Opens on signal except 7:30–9 AM and 4:30–6 PM Mon–Fri (not federal holidays). 33 CFR 117.261.'},
+  {id:'commercial_blvd_sr870',  name:'E. Commercial Blvd Bridge SR-870',loc:'Lauderdale-by-the-Sea, FL', mm:'1059.0', ww:'atlantic_icw', schedule:'Opens on signal except 7:30–9 AM and 4:30–6 PM Mon–Fri (not federal holidays). 33 CFR 117.261.'},
+  {id:'oakland_park_blvd',      name:'E. Oakland Park Blvd Bridge',     loc:'Fort Lauderdale, FL',       mm:'1060.5', ww:'atlantic_icw', schedule:'Opens on signal except 7:30–9 AM and 4:30–6 PM Mon–Fri (not federal holidays). 33 CFR 117.261.'},
+  {id:'sunrise_blvd_sr838',     name:'E. Sunrise Blvd Bridge SR-838',   loc:'Fort Lauderdale, FL',       mm:'1062.6', ww:'atlantic_icw', schedule:'Opens on signal except 7:30–9 AM and 4:30–6 PM Mon–Fri (not federal holidays). 33 CFR 117.261.'},
+  {id:'east_las_olas',          name:'East Las Olas Bridge',            loc:'Fort Lauderdale, FL',       mm:'1064.0', ww:'atlantic_icw', schedule:'Opens on the hour and half-hour 7:30 AM–6 PM Mon–Fri (not federal holidays). All other times opens on signal. 33 CFR 117.261.'},
+  {id:'se17th_brooks',          name:'SE 17th St Brooks Memorial Bridge',loc:'Fort Lauderdale, FL',      mm:'1065.9', ww:'atlantic_icw', schedule:'Opens on the hour and half-hour except 7:30–9 AM and 4:30–6 PM Mon–Fri (not federal holidays). 33 CFR 117.261.'},
+  {id:'dania_beach_blvd',       name:'Dania Beach Blvd Bridge',         loc:'Hollywood, FL',             mm:'1069.4', ww:'atlantic_icw', schedule:'Opens on the hour and half-hour except 7:30–9 AM and 4:30–6 PM Mon–Fri (not federal holidays). 33 CFR 117.261.'},
+  {id:'sheridan_street',        name:'Sheridan Street Bridge',          loc:'Hollywood, FL',             mm:'1070.5', ww:'atlantic_icw', schedule:'Opens on the hour and half-hour except 7:30–9 AM and 4:30–6 PM Mon–Fri (not federal holidays). 33 CFR 117.261.'},
+  {id:'hollywood_beach_blvd',   name:'Hollywood Beach Blvd Bridge SR-820', loc:'Hollywood, FL',         mm:'1072.2', ww:'atlantic_icw', schedule:'Opens on signal except 7:30–9 AM and 4:30–6 PM Mon–Fri (not federal holidays). 33 CFR 117.261.'},
+  {id:'hallandale_beach_blvd',  name:'Hallandale Beach Blvd Bridge SR-824', loc:'Hallandale Beach, FL', mm:'1074.0', ww:'atlantic_icw', schedule:'Opens on signal except 7:30–9 AM and 4:30–6 PM Mon–Fri (not federal holidays). 33 CFR 117.261.'},
+  {id:'ne163rd_sr826',          name:'NE 163rd St Bridge SR-826',       loc:'Sunny Isles Beach, FL',     mm:'1078.0', ww:'atlantic_icw', schedule:'Opens on signal. 33 CFR 117.261.'},
+  {id:'broad_causeway',         name:'Broad Causeway Bridge',           loc:'Bay Harbor Islands, FL',    mm:'1081.4', ww:'atlantic_icw', schedule:'Opens on the hour and half-hour 8 AM–6 PM. All other times opens on signal. 33 CFR 117.261.'},
+  {id:'w79th_miami',            name:'West 79th Street Bridge',         loc:'Miami, FL',                 mm:'1084.6', ww:'atlantic_icw', schedule:'Opens on signal. 33 CFR 117.261.'},
+  {id:'venetian_causeway',      name:'West Venetian Causeway Bridge',   loc:'Miami, FL',                 mm:'1088.6', ww:'atlantic_icw', schedule:'Opens on the hour and half-hour 8 AM–6 PM. All other times opens on signal. 33 CFR 117.261.'},
+];
+
+function openBridgesView(){
+  document.getElementById('bridges-view').style.display = 'flex';
+  document.getElementById('bridge-search').value = '';
+  document.querySelectorAll('.bridge-filter').forEach(f=>f.classList.toggle('active', f.dataset.ww==='all'));
+  renderBridgeSchedules();
+}
+
+function closeBridgesView(){
+  document.getElementById('bridges-view').style.display = 'none';
+}
+
+function setBridgeFilter(el){
+  document.querySelectorAll('.bridge-filter').forEach(f=>f.classList.remove('active'));
+  el.classList.add('active');
+  renderBridgeSchedules();
+}
+
+function renderBridgeSchedules(){
+  const q = (document.getElementById('bridge-search').value||'').toLowerCase().trim();
+  const activeFilter = document.querySelector('.bridge-filter.active');
+  const ww = activeFilter ? activeFilter.dataset.ww : 'all';
+  const list = document.getElementById('bridge-list');
+  const wwLabels = {gulf_icw:'FL Gulf ICW (33 CFR 117.287)', atlantic_icw:'FL Atlantic ICW (33 CFR 117.261)', panhandle:'FL Panhandle', tx_la:'TX / LA / MS / AL'};
+  const wwOrder = ['tx_la','panhandle','gulf_icw','atlantic_icw'];
+
+  let filtered = BRIDGE_DATA.filter(b=>{
+    if(ww !== 'all' && b.ww !== ww) return false;
+    if(q) return b.name.toLowerCase().includes(q) || b.loc.toLowerCase().includes(q) || (b.mm && b.mm.includes(q));
+    return true;
+  });
+
+  if(!filtered.length){
+    list.innerHTML = '<p class="log-empty">No bridges found.</p>';
+    return;
+  }
+
+  // Sort by waterway order, then by MM
+  filtered.sort((a,b)=>{
+    const oi = wwOrder.indexOf(a.ww) - wwOrder.indexOf(b.ww);
+    if(oi !== 0) return oi;
+    return parseFloat(a.mm||0) - parseFloat(b.mm||0);
+  });
+
+  let html = '';
+  let lastWw = null;
+  filtered.forEach(b=>{
+    if(ww === 'all' && b.ww !== lastWw){
+      lastWw = b.ww;
+      html += `<div class="log-chip-section" style="margin:var(--sp4) 0 var(--sp2)">${wwLabels[b.ww]||b.ww}</div>`;
+    }
+    const mmBadge = b.mm ? `<span class="bridge-mm">MM ${b.mm}</span>` : '';
+    html += `<div class="bridge-card" id="bcard-${b.id}" onclick="toggleBridgeCard('${b.id}')">
+  <div class="bridge-card-top">
+    <div style="flex:1">
+      <div class="bridge-name">${b.name}</div>
+      <div class="bridge-location">${b.loc}</div>
+    </div>
+    ${mmBadge}
+  </div>
+  <div class="bridge-schedule">${b.schedule}</div>
+  <div class="bridge-toggle">▼ Show schedule</div>
+</div>`;
+  });
+  list.innerHTML = html;
+}
+
+function toggleBridgeCard(id){
+  const card = document.getElementById('bcard-'+id);
+  if(!card) return;
+  const isOpen = card.classList.toggle('open');
+  card.querySelector('.bridge-toggle').textContent = isOpen ? '▲ Hide schedule' : '▼ Show schedule';
+}
+// ── End Bridge Schedules ──────────────────────────────────────────
+
 </script>
 
 <!-- ── Partner Discount Modal ── -->
