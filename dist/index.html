@@ -327,7 +327,7 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 
 <div id="sw-hero-overlay">
 
-<!-- Atlantic Edition "Coming Soon" banner — across the top of the landing page -->
+<!-- Live Editions bar — cross-links to other live SailWindow editions -->
 <section style="
     max-width: 1280px;
     margin: 1.5rem auto 0 auto;
@@ -347,15 +347,15 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
     ">
         <div style="display: flex; align-items: center; gap: 1rem;">
             <span style="
-                background: #ffb74d;
-                color: #0a1e2b;
+                background: #2e7d32;
+                color: white;
                 padding: 0.2rem 0.8rem;
                 border-radius: 30px;
                 font-weight: 700;
                 font-size: 0.75rem;
                 text-transform: uppercase;
             ">
-                <i class="fas fa-waves"></i> Coming Soon
+                <i class="fas fa-check-circle"></i> Live Now
             </span>
             <div>
                 <strong style="font-size: 1.1rem;">Sailwindow: Atlantic Edition</strong>
@@ -365,10 +365,7 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
             </div>
         </div>
         <div style="display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap;">
-            <span style="font-size: 0.9rem; opacity: 0.8;">
-                <i class="fas fa-clock"></i> Be first to know
-            </span>
-            <a href="#atlantic-waitlist" style="
+            <a href="https://atlantic.sailwindow.com" target="_blank" rel="noopener" style="
                 background: #ffb74d;
                 color: #0a1e2b;
                 padding: 0.5rem 1.5rem;
@@ -378,7 +375,7 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
                 transition: all 0.2s;
                 font-size: 0.95rem;
             ">
-                <i class="fas fa-envelope"></i> Get Notified
+                <i class="fas fa-arrow-right"></i> Visit Atlantic Edition
             </a>
         </div>
     </div>
@@ -480,8 +477,11 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 </section>
 
 <!-- Atlantic Edition Waitlist Form -->
-<section id="atlantic-waitlist" style="
-    max-width: 600px;
+<!-- Coming Next — waitlist for future editions. Edition-parameterized: adding
+     another future edition later is copy one of the two column blocks below,
+     swap the edition slug in the id="" attributes and submitWaitlist(...) call. -->
+<section id="coming-next-waitlist" style="
+    max-width: 900px;
     margin: 3rem auto;
     padding: 0 2rem;
 ">
@@ -493,71 +493,76 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
         border: 1px solid rgba(0, 119, 190, 0.1);
         text-align: center;
     ">
-        <div style="font-size: 3rem; margin-bottom: 0.5rem; color: #0077be;">
-            <i class="fas fa-ship"></i>
-        </div>
-        <h2 style="font-size: 1.8rem; color: #0a1e2b; margin-bottom: 0.5rem;">
-            Sailwindow: Atlantic Edition
-        </h2>
-        <p style="color: #5a7a8a; margin-bottom: 1.5rem; max-width: 400px; margin-left: auto; margin-right: auto;">
-            Georgia to Maine. Every bridge. Every marina. Every meal. Every log.
-            <strong style="color: #0a1e2b;">Be the first to know when we launch.</strong>
+        <h2 style="font-size: 1.8rem; color: #0a1e2b; margin-bottom: 0.5rem;">Coming Next</h2>
+        <p style="color: #5a7a8a; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+            More SailWindow editions are in the works. Be the first to know when they launch.
         </p>
-        <p style="color: #0a1e2b; font-size: 0.9rem; margin-bottom: 1.5rem; background: #eef7fb; border-radius: 12px; padding: 0.6rem 1rem; display: inline-block;">
-            <i class="fas fa-tag" style="color: #0077be;"></i> $5.99/mo on its own — or <strong>$10/mo for Gulf + Atlantic together</strong>
-        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
 
-        <!-- Waitlist Form — edition-parameterized: copy this whole block for future
-             editions (Great Lakes, Mississippi) and just swap 'atlantic' for the new
-             edition slug in the id="" attributes and the submitWaitlist(...) call. -->
-        <form id="waitlist-form-atlantic" onsubmit="submitWaitlist(event,'atlantic')" style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px; margin: 0 auto;">
-            <input type="email" name="email" placeholder="Enter your email address" required style="
-                padding: 0.9rem 1.2rem;
-                border-radius: 12px;
-                border: 2px solid #e8edf0;
-                font-size: 1rem;
-                transition: border 0.2s;
-            ">
-            <button type="submit" style="
-                background: #0077be;
-                color: white;
-                padding: 0.9rem 1.5rem;
-                border-radius: 60px;
-                border: none;
-                font-weight: 600;
-                font-size: 1rem;
-                cursor: pointer;
-                transition: background 0.2s;
-                box-shadow: 0 4px 15px rgba(0, 119, 190, 0.3);
-            ">
-                <i class="fas fa-sailboat"></i> Notify Me When Ready
-            </button>
-        </form>
+            <!-- Great Lakes -->
+            <div style="flex: 1 1 300px; max-width: 360px;">
+                <div style="font-size: 1.8rem; color: #0077be; margin-bottom: 0.4rem;"><i class="fas fa-water"></i></div>
+                <h3 style="font-size: 1.15rem; color: #0a1e2b; margin-bottom: 0.4rem;">Great Lakes Edition</h3>
+                <p style="color: #5a7a8a; font-size: 0.85rem; margin-bottom: 1rem;">Lake levels, ice season &amp; lock-based chokepoints.</p>
+                <form id="waitlist-form-greatlakes" onsubmit="submitWaitlist(event,'greatlakes')" style="display: flex; flex-direction: column; gap: 0.75rem; max-width: 320px; margin: 0 auto;">
+                    <input type="email" name="email" placeholder="Enter your email address" required style="
+                        padding: 0.8rem 1.1rem;
+                        border-radius: 12px;
+                        border: 2px solid #e8edf0;
+                        font-size: 0.95rem;
+                    ">
+                    <button type="submit" style="
+                        background: #0077be;
+                        color: white;
+                        padding: 0.8rem 1.4rem;
+                        border-radius: 60px;
+                        border: none;
+                        font-weight: 600;
+                        font-size: 0.95rem;
+                        cursor: pointer;
+                    ">
+                        <i class="fas fa-envelope"></i> Notify Me
+                    </button>
+                </form>
+                <div id="waitlist-success-greatlakes" style="display:none; padding: 0.7rem 1rem; background: #eaf6ec; color: #1e7d32; border-radius: 12px; font-weight: 600; margin-top: 0.6rem; font-size: 0.9rem;">
+                    <i class="fas fa-check-circle"></i> You're on the list!
+                </div>
+            </div>
 
-        <div id="waitlist-success-atlantic" style="display:none; padding: 0.9rem 1.5rem; background: #eaf6ec; color: #1e7d32; border-radius: 12px; font-weight: 600; max-width: 400px; margin: 0 auto;">
-            <i class="fas fa-check-circle"></i> You're on the list — we'll email you the moment Atlantic Edition launches.
+            <!-- Mississippi -->
+            <div style="flex: 1 1 300px; max-width: 360px;">
+                <div style="font-size: 1.8rem; color: #0077be; margin-bottom: 0.4rem;"><i class="fas fa-water"></i></div>
+                <h3 style="font-size: 1.15rem; color: #0a1e2b; margin-bottom: 0.4rem;">Mississippi Edition</h3>
+                <p style="color: #5a7a8a; font-size: 0.85rem; margin-bottom: 1rem;">River stage gauges, locks &amp; dams, barge traffic.</p>
+                <form id="waitlist-form-mississippi" onsubmit="submitWaitlist(event,'mississippi')" style="display: flex; flex-direction: column; gap: 0.75rem; max-width: 320px; margin: 0 auto;">
+                    <input type="email" name="email" placeholder="Enter your email address" required style="
+                        padding: 0.8rem 1.1rem;
+                        border-radius: 12px;
+                        border: 2px solid #e8edf0;
+                        font-size: 0.95rem;
+                    ">
+                    <button type="submit" style="
+                        background: #0077be;
+                        color: white;
+                        padding: 0.8rem 1.4rem;
+                        border-radius: 60px;
+                        border: none;
+                        font-weight: 600;
+                        font-size: 0.95rem;
+                        cursor: pointer;
+                    ">
+                        <i class="fas fa-envelope"></i> Notify Me
+                    </button>
+                </form>
+                <div id="waitlist-success-mississippi" style="display:none; padding: 0.7rem 1rem; background: #eaf6ec; color: #1e7d32; border-radius: 12px; font-weight: 600; margin-top: 0.6rem; font-size: 0.9rem;">
+                    <i class="fas fa-check-circle"></i> You're on the list!
+                </div>
+            </div>
+
         </div>
-
-        <p style="font-size: 0.8rem; color: #5a7a8a; margin-top: 1rem;">
+        <p style="font-size: 0.8rem; color: #5a7a8a; margin-top: 1.5rem;">
             <i class="fas fa-shield-alt"></i> No spam. Just one email when we launch.
         </p>
-
-        <!-- Social Proof (optional) -->
-        <div style="
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 2px dashed rgba(0, 119, 190, 0.1);
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            font-size: 0.85rem;
-            color: #5a7a8a;
-        ">
-            <span><i class="fas fa-check-circle" style="color: #2e7d32;"></i> 45+ Atlantic marinas ready</span>
-            <span><i class="fas fa-check-circle" style="color: #2e7d32;"></i> 32 drawbridges mapped (GA–ME)</span>
-            <span><i class="fas fa-check-circle" style="color: #2e7d32;"></i> 3-mile dining radius</span>
-        </div>
     </div>
 </section>
 </div><!-- /#sw-hero-overlay -->

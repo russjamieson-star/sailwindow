@@ -326,6 +326,61 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 <body>
 
 <div id="sw-hero-overlay">
+
+<!-- Live Editions bar — cross-links to other live SailWindow editions -->
+<section style="
+    max-width: 1280px;
+    margin: 1.5rem auto 0 auto;
+    padding: 0 2rem;
+">
+    <div style="
+        background: linear-gradient(135deg, #0a1e2b, #005a8c);
+        color: white;
+        padding: 1.2rem 2rem;
+        border-radius: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        box-shadow: 0 8px 30px rgba(0, 40, 60, 0.2);
+    ">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <span style="
+                background: #2e7d32;
+                color: white;
+                padding: 0.2rem 0.8rem;
+                border-radius: 30px;
+                font-weight: 700;
+                font-size: 0.75rem;
+                text-transform: uppercase;
+            ">
+                <i class="fas fa-check-circle"></i> Live Now
+            </span>
+            <div>
+                <strong style="font-size: 1.1rem;">Sailwindow: Gulf Edition</strong>
+                <span style="opacity: 0.8; font-size: 0.9rem; margin-left: 0.5rem;">
+                    — Florida &amp; Gulf Coast
+                </span>
+            </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap;">
+            <a href="https://sailwindow.com" target="_blank" rel="noopener" style="
+                background: #ffb74d;
+                color: #0a1e2b;
+                padding: 0.5rem 1.5rem;
+                border-radius: 60px;
+                font-weight: 600;
+                text-decoration: none;
+                transition: all 0.2s;
+                font-size: 0.95rem;
+            ">
+                <i class="fas fa-arrow-right"></i> Visit Gulf Edition
+            </a>
+        </div>
+    </div>
+</section>
+
 <section id="sailwindow-hero">
   <div class="hero-container">
 
@@ -419,6 +474,95 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
     </div>
 
   </div>
+</section>
+
+<!-- Coming Next — waitlist for future editions. Edition-parameterized: adding
+     another future edition later is copy one of the two column blocks below,
+     swap the edition slug in the id="" attributes and submitWaitlist(...) call. -->
+<section id="coming-next-waitlist" style="
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+">
+    <div style="
+        background: white;
+        border-radius: 24px;
+        padding: 2.5rem 2rem;
+        box-shadow: 0 12px 40px rgba(0, 40, 60, 0.1);
+        border: 1px solid rgba(0, 119, 190, 0.1);
+        text-align: center;
+    ">
+        <h2 style="font-size: 1.8rem; color: #0a1e2b; margin-bottom: 0.5rem;">Coming Next</h2>
+        <p style="color: #5a7a8a; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+            More SailWindow editions are in the works. Be the first to know when they launch.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+
+            <!-- Great Lakes -->
+            <div style="flex: 1 1 300px; max-width: 360px;">
+                <div style="font-size: 1.8rem; color: #0077be; margin-bottom: 0.4rem;"><i class="fas fa-water"></i></div>
+                <h3 style="font-size: 1.15rem; color: #0a1e2b; margin-bottom: 0.4rem;">Great Lakes Edition</h3>
+                <p style="color: #5a7a8a; font-size: 0.85rem; margin-bottom: 1rem;">Lake levels, ice season &amp; lock-based chokepoints.</p>
+                <form id="waitlist-form-greatlakes" onsubmit="submitWaitlist(event,'greatlakes')" style="display: flex; flex-direction: column; gap: 0.75rem; max-width: 320px; margin: 0 auto;">
+                    <input type="email" name="email" placeholder="Enter your email address" required style="
+                        padding: 0.8rem 1.1rem;
+                        border-radius: 12px;
+                        border: 2px solid #e8edf0;
+                        font-size: 0.95rem;
+                    ">
+                    <button type="submit" style="
+                        background: #0077be;
+                        color: white;
+                        padding: 0.8rem 1.4rem;
+                        border-radius: 60px;
+                        border: none;
+                        font-weight: 600;
+                        font-size: 0.95rem;
+                        cursor: pointer;
+                    ">
+                        <i class="fas fa-envelope"></i> Notify Me
+                    </button>
+                </form>
+                <div id="waitlist-success-greatlakes" style="display:none; padding: 0.7rem 1rem; background: #eaf6ec; color: #1e7d32; border-radius: 12px; font-weight: 600; margin-top: 0.6rem; font-size: 0.9rem;">
+                    <i class="fas fa-check-circle"></i> You're on the list!
+                </div>
+            </div>
+
+            <!-- Mississippi -->
+            <div style="flex: 1 1 300px; max-width: 360px;">
+                <div style="font-size: 1.8rem; color: #0077be; margin-bottom: 0.4rem;"><i class="fas fa-water"></i></div>
+                <h3 style="font-size: 1.15rem; color: #0a1e2b; margin-bottom: 0.4rem;">Mississippi Edition</h3>
+                <p style="color: #5a7a8a; font-size: 0.85rem; margin-bottom: 1rem;">River stage gauges, locks &amp; dams, barge traffic.</p>
+                <form id="waitlist-form-mississippi" onsubmit="submitWaitlist(event,'mississippi')" style="display: flex; flex-direction: column; gap: 0.75rem; max-width: 320px; margin: 0 auto;">
+                    <input type="email" name="email" placeholder="Enter your email address" required style="
+                        padding: 0.8rem 1.1rem;
+                        border-radius: 12px;
+                        border: 2px solid #e8edf0;
+                        font-size: 0.95rem;
+                    ">
+                    <button type="submit" style="
+                        background: #0077be;
+                        color: white;
+                        padding: 0.8rem 1.4rem;
+                        border-radius: 60px;
+                        border: none;
+                        font-weight: 600;
+                        font-size: 0.95rem;
+                        cursor: pointer;
+                    ">
+                        <i class="fas fa-envelope"></i> Notify Me
+                    </button>
+                </form>
+                <div id="waitlist-success-mississippi" style="display:none; padding: 0.7rem 1rem; background: #eaf6ec; color: #1e7d32; border-radius: 12px; font-weight: 600; margin-top: 0.6rem; font-size: 0.9rem;">
+                    <i class="fas fa-check-circle"></i> You're on the list!
+                </div>
+            </div>
+
+        </div>
+        <p style="font-size: 0.8rem; color: #5a7a8a; margin-top: 1.5rem;">
+            <i class="fas fa-shield-alt"></i> No spam. Just one email when we launch.
+        </p>
+    </div>
 </section>
 </div><!-- /#sw-hero-overlay -->
 <div class="shell">
@@ -1631,8 +1775,44 @@ const MARINA_PHOTOS = {};
 // previously these pointed at the Gulf edition's real links by accident (fork copy-paste bug), now fixed.
 // $10/mo bundle covering both Gulf + Atlantic editions ("SailWindow Bundle" product, created 2026-07-20).
 // Same link value as the Gulf edition's dist/index.html — it's one shared product. // 24 hours
+// Deployed Apps Script Web App (waitlist-Code.gs) on the "SailWindow — Waitlist" Sheet.
+// One shared script/sheet serves every edition's waitlist — see submitWaitlist() below.
+const WAITLIST_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby4T_pBZvpuhmrZZzMlJi3VRJlXmmfMb4e76CcP5v1kOhJjJr2hOwpo9jBng74STW9gNw/exec";
 
 let _selectedPlan = "monthly";
+
+// ─────────────────────────────────────────────
+// EDITION WAITLIST (shared across all future editions — Great Lakes,
+// Mississippi, ...). Each edition's waitlist section just needs its own form id
+// "waitlist-form-<edition>", a success div "waitlist-success-<edition>", and an
+// onsubmit="submitWaitlist(event,'<edition>')" — no new script or sheet needed.
+// ─────────────────────────────────────────────
+function submitWaitlist(evt, edition){
+  evt.preventDefault();
+  if(WAITLIST_SCRIPT_URL === "#"){
+    toast("Waitlist isn't wired up yet — set WAITLIST_SCRIPT_URL in the code");
+    return;
+  }
+  const form  = evt.target;
+  const email = form.querySelector('input[type="email"]').value;
+  const btn   = form.querySelector('button[type="submit"]');
+  btn.disabled = true;
+  fetch(WAITLIST_SCRIPT_URL, {
+    method: "POST",
+    // text/plain avoids a CORS preflight (Apps Script Web Apps don't handle
+    // OPTIONS requests) — the body is still valid JSON, doPost() parses it fine.
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify({ edition: edition, email: email, source: location.hostname }),
+    mode: "no-cors" // Apps Script won't return CORS headers Claude can read back; fire-and-forget
+  }).then(() => {
+    form.style.display = "none";
+    const successEl = document.getElementById("waitlist-success-" + edition);
+    if(successEl) successEl.style.display = "block";
+  }).catch(() => {
+    btn.disabled = false;
+    toast("Something went wrong — try again in a moment.");
+  });
+}
 
 // ─────────────────────────────────────────────
 // INIT
