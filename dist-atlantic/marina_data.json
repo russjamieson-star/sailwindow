@@ -1,0 +1,227 @@
+{
+  "St. Marys Intracoastal Gateway Marina": {
+    "lat": 30.721419,
+    "lng": -81.546607,
+    "restaurants": []
+  },
+  "Jekyll Island Marina": {
+    "lat": 31.046448,
+    "lng": -81.419912,
+    "restaurants": []
+  },
+  "Kilkenny Marina": {
+    "lat": 31.93806,
+    "lng": -81.31361,
+    "restaurants": []
+  },
+  "Isle of Hope Marina": {
+    "lat": 31.979949,
+    "lng": -81.056947,
+    "restaurants": []
+  },
+  "Harbour Town Yacht Basin": {
+    "lat": 32.139847,
+    "lng": -80.810287,
+    "restaurants": []
+  },
+  "Safe Harbor Beaufort": {
+    "lat": 32.431139,
+    "lng": -80.673105,
+    "restaurants": []
+  },
+  "The Marina at Edisto Beach": {
+    "lat": 32.49583,
+    "lng": -80.31444,
+    "restaurants": []
+  },
+  "Charleston City Marina": {
+    "lat": 32.779482,
+    "lng": -79.949977,
+    "restaurants": []
+  },
+  "Isle of Palms Marina": {
+    "lat": 32.803901,
+    "lng": -79.760487,
+    "restaurants": []
+  },
+  "Georgetown Landing Marina": {
+    "lat": 33.366791,
+    "lng": -79.269448,
+    "restaurants": []
+  },
+  "Osprey Marina": {
+    "lat": 33.677802,
+    "lng": -79.03876,
+    "restaurants": []
+  },
+  "Barefoot Marina": {
+    "lat": 33.82778,
+    "lng": -78.69028,
+    "restaurants": []
+  },
+  "Southport Marina": {
+    "lat": 33.919443,
+    "lng": -78.025969,
+    "restaurants": []
+  },
+  "Tidewater Yacht Marina": {
+    "lat": 36.840054,
+    "lng": -76.298661,
+    "restaurants": []
+  },
+  "Cape Charles Yacht Center": {
+    "lat": 37.2675,
+    "lng": -76.01417,
+    "restaurants": []
+  },
+  "Deltaville Marina": {
+    "lat": 37.5528,
+    "lng": -76.3355,
+    "restaurants": []
+  },
+  "Chesapeake Boat Basin": {
+    "lat": 37.700145,
+    "lng": -76.351561,
+    "restaurants": []
+  },
+  "Somers Cove Marina": {
+    "lat": 37.979706,
+    "lng": -75.857454,
+    "restaurants": []
+  },
+  "Zahniser's Yachting Center": {
+    "lat": 38.328699,
+    "lng": -76.459773,
+    "restaurants": []
+  },
+  "Herrington Harbour South": {
+    "lat": 38.727227,
+    "lng": -76.540289,
+    "restaurants": []
+  },
+  "Annapolis City Dock": {
+    "lat": 38.976879,
+    "lng": -76.484815,
+    "restaurants": []
+  },
+  "Chesapeake Inn & Marina": {
+    "lat": 39.526455,
+    "lng": -75.811688,
+    "restaurants": []
+  },
+  "Delaware City Marina": {
+    "lat": 39.573252,
+    "lng": -75.590151,
+    "restaurants": []
+  },
+  "Utsch's Marina": {
+    "lat": 38.951038,
+    "lng": -74.908296,
+    "restaurants": []
+  },
+  "Golden Nugget Farley State Marina": {
+    "lat": 39.379982,
+    "lng": -74.424949,
+    "restaurants": []
+  },
+  "Hoffman's Marina": {
+    "lat": 40.107966,
+    "lng": -74.050519,
+    "restaurants": []
+  },
+  "Liberty Landing Marina": {
+    "lat": 40.709143,
+    "lng": -74.044503,
+    "restaurants": []
+  },
+  "Bayshore Waterfront Park Marina": {
+    "lat": 40.436673,
+    "lng": -74.098641,
+    "restaurants": []
+  },
+  "Manhasset Bay Marina": {
+    "lat": 40.836071,
+    "lng": -73.706359,
+    "restaurants": []
+  },
+  "Stamford Landing Marina": {
+    "lat": 41.03736,
+    "lng": -73.547471,
+    "restaurants": []
+  },
+  "Safe Harbor Bridgeport": {
+    "lat": 41.175362,
+    "lng": -73.181671,
+    "restaurants": []
+  },
+  "Saybrook Point Marina": {
+    "lat": 41.281188,
+    "lng": -72.352138,
+    "restaurants": []
+  },
+  "Mystic Shipyard": {
+    "lat": 41.343747,
+    "lng": -71.975567,
+    "restaurants": []
+  },
+  "Newport Yachting Center": {
+    "lat": 41.485105,
+    "lng": -71.315241,
+    "restaurants": []
+  },
+  "Point Judith Marina": {
+    "lat": 41.3615,
+    "lng": -71.4814,
+    "restaurants": []
+  },
+  "Cuttyhunk Marina / Town Wharf": {
+    "lat": 41.418,
+    "lng": -70.9337,
+    "restaurants": []
+  },
+  "MacDougalls' Cape Cod Marine": {
+    "lat": 41.523815,
+    "lng": -70.669343,
+    "restaurants": []
+  },
+  "Plymouth Yacht Basin": {
+    "lat": 41.95527,
+    "lng": -70.661743,
+    "restaurants": []
+  },
+  "Constitution Marina": {
+    "lat": 42.371773,
+    "lng": -71.060126,
+    "restaurants": []
+  },
+  "Hawthorne Cove Marina": {
+    "lat": 42.522893,
+    "lng": -70.883401,
+    "restaurants": []
+  },
+  "Newburyport City Waterfront Docks": {
+    "lat": 42.812077,
+    "lng": -70.872894,
+    "restaurants": []
+  },
+  "Safe Harbor Marinas Fore Points": {
+    "lat": 43.662411,
+    "lng": -70.245371,
+    "restaurants": []
+  },
+  "Boothbay Harbor Marina": {
+    "lat": 43.854486,
+    "lng": -69.625128,
+    "restaurants": []
+  },
+  "Rockland Public Landing": {
+    "lat": 44.125,
+    "lng": -69.13167,
+    "restaurants": []
+  },
+  "Dysart's Great Harbor Marina": {
+    "lat": 44.27833,
+    "lng": -68.32194,
+    "restaurants": []
+  }
+}

@@ -328,13 +328,71 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 <body>
 
 <div id="sw-hero-overlay">
+
+<!-- Atlantic Edition "Coming Soon" banner — across the top of the landing page -->
+<section style="
+    max-width: 1280px;
+    margin: 1.5rem auto 0 auto;
+    padding: 0 2rem;
+">
+    <div style="
+        background: linear-gradient(135deg, #0a1e2b, #005a8c);
+        color: white;
+        padding: 1.2rem 2rem;
+        border-radius: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        box-shadow: 0 8px 30px rgba(0, 40, 60, 0.2);
+    ">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <span style="
+                background: #ffb74d;
+                color: #0a1e2b;
+                padding: 0.2rem 0.8rem;
+                border-radius: 30px;
+                font-weight: 700;
+                font-size: 0.75rem;
+                text-transform: uppercase;
+            ">
+                <i class="fas fa-waves"></i> Coming Soon
+            </span>
+            <div>
+                <strong style="font-size: 1.1rem;">Sailwindow: Atlantic Edition</strong>
+                <span style="opacity: 0.8; font-size: 0.9rem; margin-left: 0.5rem;">
+                    — Georgia to Maine
+                </span>
+            </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap;">
+            <span style="font-size: 0.9rem; opacity: 0.8;">
+                <i class="fas fa-clock"></i> Be first to know
+            </span>
+            <a href="#atlantic-waitlist" style="
+                background: #ffb74d;
+                color: #0a1e2b;
+                padding: 0.5rem 1.5rem;
+                border-radius: 60px;
+                font-weight: 600;
+                text-decoration: none;
+                transition: all 0.2s;
+                font-size: 0.95rem;
+            ">
+                <i class="fas fa-envelope"></i> Get Notified
+            </a>
+        </div>
+    </div>
+</section>
+
 <section id="sailwindow-hero">
   <div class="hero-container">
 
     <!-- LEFT COLUMN -->
     <div class="hero-left">
       <div class="hero-badge">
-        <i class="fas fa-satellite-dish"></i> NOAA + ECMWF &middot; Gulf &amp; Atlantic ICW
+        <i class="fas fa-satellite-dish"></i> NOAA + ECMWF &middot; FL Gulf &amp; Atlantic Coasts
         <span class="live-tag">&#x25CF; LIVE</span>
       </div>
       <h1 class="hero-title">
@@ -413,7 +471,7 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
       <div class="hw-pricing-bar">
         <span>
           <span class="hw-price-big">$5.99 <span>/ month</span></span>
-          <span style="color:#5a7a8a;margin-left:.5rem;">or $49/year</span>
+          <span style="color:#5a7a8a;margin-left:.5rem;">or $49/year &middot; $10/mo for Gulf + Atlantic bundled</span>
           <span class="hw-trial-tag"><i class="fas fa-gift"></i> 7-day trial</span>
         </span>
         <button class="btn-hero-outline" style="width:auto;padding:.4rem 1.2rem;font-size:.85rem;" onclick="heroSubscribe()">Subscribe</button>
@@ -421,6 +479,82 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
     </div>
 
   </div>
+</section>
+
+<!-- Atlantic Edition Waitlist Form -->
+<section id="atlantic-waitlist" style="
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+">
+    <div style="
+        background: white;
+        border-radius: 24px;
+        padding: 2.5rem 2rem;
+        box-shadow: 0 12px 40px rgba(0, 40, 60, 0.1);
+        border: 1px solid rgba(0, 119, 190, 0.1);
+        text-align: center;
+    ">
+        <div style="font-size: 3rem; margin-bottom: 0.5rem; color: #0077be;">
+            <i class="fas fa-ship"></i>
+        </div>
+        <h2 style="font-size: 1.8rem; color: #0a1e2b; margin-bottom: 0.5rem;">
+            Sailwindow: Atlantic Edition
+        </h2>
+        <p style="color: #5a7a8a; margin-bottom: 1.5rem; max-width: 400px; margin-left: auto; margin-right: auto;">
+            Georgia to Maine. Every bridge. Every marina. Every meal. Every log.
+            <strong style="color: #0a1e2b;">Be the first to know when we launch.</strong>
+        </p>
+        <p style="color: #0a1e2b; font-size: 0.9rem; margin-bottom: 1.5rem; background: #eef7fb; border-radius: 12px; padding: 0.6rem 1rem; display: inline-block;">
+            <i class="fas fa-tag" style="color: #0077be;"></i> $5.99/mo on its own — or <strong>$10/mo for Gulf + Atlantic together</strong>
+        </p>
+
+        <!-- Waitlist Form -->
+        <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px; margin: 0 auto;">
+            <input type="email" name="email" placeholder="Enter your email address" required style="
+                padding: 0.9rem 1.2rem;
+                border-radius: 12px;
+                border: 2px solid #e8edf0;
+                font-size: 1rem;
+                transition: border 0.2s;
+            ">
+            <button type="submit" style="
+                background: #0077be;
+                color: white;
+                padding: 0.9rem 1.5rem;
+                border-radius: 60px;
+                border: none;
+                font-weight: 600;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: background 0.2s;
+                box-shadow: 0 4px 15px rgba(0, 119, 190, 0.3);
+            ">
+                <i class="fas fa-sailboat"></i> Notify Me When Ready
+            </button>
+        </form>
+
+        <p style="font-size: 0.8rem; color: #5a7a8a; margin-top: 1rem;">
+            <i class="fas fa-shield-alt"></i> No spam. Just one email when we launch.
+        </p>
+
+        <!-- Social Proof (optional) -->
+        <div style="
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px dashed rgba(0, 119, 190, 0.1);
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            color: #5a7a8a;
+        ">
+            <span><i class="fas fa-check-circle" style="color: #2e7d32;"></i> 45+ Atlantic marinas ready</span>
+            <span><i class="fas fa-check-circle" style="color: #2e7d32;"></i> 15 drawbridges mapped (GA–NJ)</span>
+            <span><i class="fas fa-check-circle" style="color: #2e7d32;"></i> 3-mile dining radius</span>
+        </div>
+    </div>
 </section>
 </div><!-- /#sw-hero-overlay -->
 <div class="shell">
@@ -644,11 +778,6 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
       <p style="font-size:var(--sm);color:var(--muted)">The <strong style="color:var(--text)">Marina tab</strong> shows a searchable list and interactive map. On phones, tap the 🗺 icon to toggle between the list and the map. Marina data is cached for 24 hours — the map loads instantly on return visits.</p>
     </section>
 
-    <section>
-      <div class="sec-title">Navigation Advisory</div>
-      <p style="font-size:var(--sm);color:var(--muted)">The amber advisory banner at the top of the Marina list covers hurricane-damaged facilities — Panama City, Clearwater, Fort Myers, and others — that are technically listed as open but have suspended transient docking or fueling. Tap the banner to expand the full status by storm. Marina cards for affected facilities show an <strong style="color:var(--text)">⚠ Advisory</strong> badge.</p>
-      <p style="font-size:var(--sm);color:var(--warn)">"Open" can be misleading. Always confirm transient availability by phone before arriving.</p>
-    </section>
 
     <section>
       <div class="sec-title">Cruiser's Log</div>
@@ -1175,43 +1304,8 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
           <input id="marina-search-input" type="text" placeholder="Search marinas by name or region" style="flex:1;background:var(--offset);border:1px solid var(--border);border-radius:14px;padding:12px 14px;font-size:14px;color:var(--text);outline:none" oninput="buildMarinaCards()">
         </div>
       </div>
-      <!-- Navigation Advisory -->
-      <div id="marina-advisory" style="margin:8px 10px 0;border-radius:12px;border:1px solid var(--warn);overflow:hidden;background:var(--warn-hl)">
-        <button onclick="toggleAdvisory()" style="width:100%;display:flex;align-items:flex-start;gap:8px;padding:10px 12px;background:none;border:none;cursor:pointer;text-align:left">
-          <span style="font-size:14px;flex-shrink:0">⚠️</span>
-          <div style="flex:1">
-            <div style="font-size:11px;font-weight:700;color:var(--warn);text-transform:uppercase;letter-spacing:.07em;margin-bottom:2px">Navigation Advisory</div>
-            <div style="font-size:12px;color:var(--warn);opacity:.85">St. Andrews Marina (Panama City) reopened to transients · downtown Panama City Marina still non-operational · Clearwater, Dunedin &amp; Safety Harbor under reconstruction. Tap for details.</div>
-          </div>
-          <svg id="advisory-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--warn)" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;transition:transform 200ms ease"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <div id="advisory-body" style="display:none;padding:0 12px 12px;font-size:12px;color:var(--warn);line-height:1.65">
-          <p style="margin-bottom:10px">If you are navigating the Intracoastal or the Gulf Coast, <strong>"open"</strong> can be a deceptive word. Many marinas across Southwest Florida and the Tampa Bay region are technically operational for local slip holders but have suspended all transient docking, high-capacity fueling, or shore-power hookups due to ongoing grid and dock maintenance.</p>
-
-          <p style="font-weight:700;margin-bottom:3px;text-transform:uppercase;font-size:10px;letter-spacing:.07em;opacity:.7">Panhandle — Hurricane Michael</p>
-          <p style="margin-bottom:6px;opacity:.85">The vast majority of Panhandle marinas successfully rebuilt or upgraded after Michael. One prominent public facility remains the exception:</p>
-          <ul style="margin-left:14px;display:flex;flex-direction:column;gap:7px;margin-bottom:10px">
-            <li><strong>Panama City Downtown Marina</strong> ⚠ — Still non-operational for transient and slip-holder use. Hurricane Michael delivered catastrophic damage to seawalls, docks, utilities, and upland buildings — including the permanent loss of its ship's store. Rather than a patch repair, the City has launched a full waterfront revitalization: public design charrettes are complete, a multi-million dollar master plan for modernized slips, expanded boardwalks, and new dining is approved, but full vertical construction remains in progress.</li>
-            <li><strong>St. Andrews Marina (Panama City)</strong> ✓ Reopened — Welcoming transient boaters again under new management (Coastal Marina Management, April 2026). Fuel dock pumping; bulkhead reconstruction adding 44 slips approved and underway, with plans for 150+. Harbormaster: (850) 872-7240.</li>
-            <li><strong>Tyndall AFB Marina</strong> ✓ Rebuilt — Completely destroyed by Michael, then rebuilt as a brand-new 42,000+ sq ft marina complex (restaurant, boat slips, recreational storage) as part of the $4.7B base-wide reconstruction. Targeted completion: early 2025.</li>
-            <li><strong>Mexico Beach Marina</strong> ✓ Open — Took the direct Category 5 eyewall hit but was successfully rebuilt as a private commercial facility. Fully open with operational fuel docks, ship's store, and regular hours.</li>
-          </ul>
-
-          <p style="font-weight:700;margin-bottom:3px;text-transform:uppercase;font-size:10px;letter-spacing:.07em;opacity:.7">West Coast &amp; Tampa Bay — Helene &amp; Milton</p>
-          <ul style="margin-left:14px;display:flex;flex-direction:column;gap:7px;margin-bottom:10px">
-            <li><strong>Clearwater Beach Marina</strong> ⚠ — Fuel dock permanently closed. Full facility reconstruction underway through late summer 2026; Harbormaster's office destroyed, staff operating off-site.</li>
-            <li><strong>Dunedin Marina</strong> ⚠ — Heavy structural reconstruction through mid-to-late 2026; public boat ramp closed to general public.</li>
-            <li><strong>Safety Harbor Marina &amp; Pier</strong> ⚠ — Entire basin, boat ramp, and pier closed through December 2026. Complete reconstruction contract awarded to Shoreline Foundation.</li>
-          </ul>
-
-          <p style="font-weight:700;margin-bottom:3px;text-transform:uppercase;font-size:10px;letter-spacing:.07em;opacity:.7">Southwest Florida — Hurricane Ian</p>
-          <ul style="margin-left:14px;display:flex;flex-direction:column;gap:7px">
-            <li><strong>Fort Myers / Fort Myers Beach</strong> ⚠ — Post-Ian recovery ongoing. Large corporate-backed marinas (Safe Harbor properties) have rebuilt and expanded; smaller operators may still have compromised seawalls or remain closed. Call ahead before arriving for transient availability.</li>
-          </ul>
-
-          <p style="margin-top:10px;opacity:.8;font-style:italic">Always confirm transient availability by phone before arriving. Conditions change frequently.</p>
-        </div>
-      </div>
+      <!-- Navigation Advisory removed 2026-07-19 at Russ's request -->
+      <div id="marina-advisory" style="display:none"></div>
       <div id="bridge-block" style="margin:8px 10px 0"></div>
       <div id="marina-results" style="flex:1;overflow:auto;padding:12px;display:flex;flex-direction:column;gap:12px"></div>
     </div>
@@ -2373,9 +2467,9 @@ const MARINA_META = {
   // ── Florida — Keys & Southwest ──────────────────────────────────────────
   "key-west":        { rating:"4.7", reviews:"", hours:"Open · 24 hours",       area:"Key West Bight, FL",                phone:"",               address:"Key West Harbor, Key West, FL 33040" },
   "naples":          { rating:"4.5", reviews:"", hours:"Open · 7 AM–7 PM",      area:"Naples Bay, FL",                    phone:"(239) 213-7066", address:"880 12th Ave S, Naples, FL 34102" },
-  "fort-myers":      { rating:"4.4", reviews:"", hours:"⚠ Post-Ian repairs ongoing · Call ahead for transient", area:"Fort Myers City Yacht Basin, FL", phone:"(239) 321-7080", address:"1300 Lee St, Fort Myers, FL 33901", warn:true },
+  "fort-myers":      { rating:"4.4", reviews:"", hours:"Call ahead for transient availability", area:"Fort Myers City Yacht Basin, FL", phone:"(239) 321-7080", address:"1300 Lee St, Fort Myers, FL 33901" },
   // ── Florida — Tampa Bay (existing + two new) ─────────────────────────────
-  "clearwater":      { rating:"4.4", reviews:"", hours:"⚠ Fuel dock closed · Reconstruction thru late 2026", area:"Clearwater Municipal Marina, FL", phone:"(727) 462-6954", address:"25 Causeway Blvd, Clearwater Beach, FL 33767", warn:true },
+  "clearwater":      { rating:"4.4", reviews:"", hours:"Call ahead for transient availability", area:"Clearwater Municipal Marina, FL", phone:"(727) 462-6954", address:"25 Causeway Blvd, Clearwater Beach, FL 33767" },
   "st-pete":         { rating:"4.6", reviews:"", hours:"Open · 24 hours",       area:"St. Petersburg Municipal Marina",   phone:"(727) 893-7329", address:"300 2nd Ave SE, St. Petersburg, FL 33701" },
   "tampa-hooker":    { rating:"4.6", reviews:"88",  hours:"Closed · Opens 8 AM Mon", area:"Hooker Point, Tampa, FL",      phone:"(813) 905-5131", address:"1402 S 22nd St, Tampa, FL 33605" },
   "tampa-egmont":    { rating:"4.4", reviews:"61",  hours:"Open · 24 hours",    area:"Egmont Key, Tampa Bay",             phone:"(813) 864-1500", address:"Egmont Key State Park, Tampa, FL" },
@@ -2384,7 +2478,7 @@ const MARINA_META = {
   "cedar-key":       { rating:"4.2", reviews:"", hours:"Call ahead",            area:"Cedar Key Marina, FL",              phone:"(352) 543-5132", address:"Cedar Key Marina, Cedar Key, FL 32625" },
   "apalachicola":    { rating:"4.3", reviews:"", hours:"Call ahead",            area:"Apalachicola Bay, FL",              phone:"(850) 653-9419", address:"132 Water St, Apalachicola, FL 32320" },
   // ── Florida — Panhandle ───────────────────────────────────────────────────
-  "panama-city":     { rating:"4.4", reviews:"", hours:"⚠ Non-operational for transient · $10M rebuild Phase 1 underway", area:"St. Andrews Bay, Panama City, FL", phone:"", address:"Panama City Downtown Marina, Panama City, FL 32401", warn:true },
+  "panama-city":     { rating:"4.4", reviews:"", hours:"Call ahead for transient availability", area:"St. Andrews Bay, Panama City, FL", phone:"", address:"Panama City Downtown Marina, Panama City, FL 32401" },
   "pensacola":       { rating:"4.7", reviews:"112", hours:"Closed · Opens 9 AM Sat", area:"Pensacola Harbor, FL",         phone:"(850) 436-5050", address:"600 S Barracks St, Pensacola, FL 32502" },
   "pensacola-beach": { rating:"4.5", reviews:"76",  hours:"Closed · Opens 7 AM Mon", area:"Pensacola Beach, FL",          phone:"(850) 932-0304", address:"655 Pensacola Beach Blvd, Gulf Breeze, FL 32561" },
   // ── Alabama ───────────────────────────────────────────────────────────────
@@ -2864,6 +2958,8 @@ const FREE_KEYS      = new Set(["tampa-hooker","tampa-egmont","tampa-gandy","pen
 // TODO: replace with your live Stripe Payment Links
 const STRIPE_MONTHLY    = "https://buy.stripe.com/28EeV73mk86kaUuc6Q7Re00";
 const STRIPE_ANNUAL     = "https://buy.stripe.com/4gM8wJf521HW8MmeeY7Re01";
+// TODO: create this Payment Link in Stripe — $10/mo bundle covering both Gulf + Atlantic editions
+const STRIPE_BUNDLE      = "#";
 const FEEDBACK_EMAIL    = "feedback@sailwindow.com";
 const MARINA_CACHE_KEY  = "sailwindow.marina.v1";
 const MARINA_CACHE_TTL  = 24 * 60 * 60 * 1000; // 24 hours
@@ -2968,17 +3064,21 @@ function selectPlan(plan){
   _selectedPlan = plan;
   document.getElementById("price-monthly").className = "price-card" + (plan === "monthly" ? " selected" : "");
   document.getElementById("price-annual").className  = "price-card" + (plan === "annual"  ? " selected" : "");
+  document.getElementById("price-bundle").className  = "price-card" + (plan === "bundle"   ? " selected" : "");
 }
 
 function handleStripeCheckout(){
-  const url = _selectedPlan === "annual" ? STRIPE_ANNUAL : STRIPE_MONTHLY;
+  const url = _selectedPlan === "annual" ? STRIPE_ANNUAL : _selectedPlan === "bundle" ? STRIPE_BUNDLE : STRIPE_MONTHLY;
   if(url === "#"){
-    toast("Stripe not yet configured — set STRIPE_MONTHLY / STRIPE_ANNUAL URLs in the code");
+    toast("Stripe not yet configured — set STRIPE_MONTHLY / STRIPE_ANNUAL / STRIPE_BUNDLE URLs in the code");
     return;
   }
   // keep the app open in this tab so the user can activate after paying
   window.open(url, "_blank", "noopener");
   document.getElementById("sub-activate").style.display = "block";
+  document.getElementById("sub-activate-note").textContent = _selectedPlan === "bundle"
+    ? "Checkout opened in a new tab. Once your payment is complete, come back and tap below — then visit atlantic.sailwindow.com and tap \"Already a subscriber? Restore access\" to activate there too (each edition is a separate site, so it needs to be unlocked once on each)."
+    : "Checkout opened in a new tab. Once your payment is complete, come back and tap below.";
 }
 
 function activateSubscription(){
@@ -2986,7 +3086,11 @@ function activateSubscription(){
   closeSubscribeModal();
   updateTrialBanner();
   updateLockState();
-  toast("✦ Subscription active — all 32 stations unlocked");
+  if(_selectedPlan === "bundle"){
+    toast("✦ Subscription active — all 32 stations unlocked. Visit atlantic.sailwindow.com and activate there too.");
+  } else {
+    toast("✦ Subscription active — all 32 stations unlocked");
+  }
   loadAll();
 }
 
@@ -3056,7 +3160,6 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="sub-feature"><span class="sub-check">✓</span><span>NOAA tide predictions + best sailing window finder</span></div>
       <div class="sub-feature"><span class="sub-check">✓</span><span>Cruiser's Log — share trip notes with the community</span></div>
       <div class="sub-feature"><span class="sub-check">✓</span><span>ICW Bridge Schedules — 34 Florida drawbridges with CFR times</span></div>
-      <div class="sub-feature"><span class="sub-check">✓</span><span>Hurricane &amp; marina status advisories (2026)</span></div>
       <div class="sub-feature"><span class="sub-check">✓</span><span>Referral credits — earn free months by sharing</span></div>
     </div>
 
@@ -3075,12 +3178,19 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     </div>
 
+    <!-- Bundle: both editions -->
+    <div class="price-card" id="price-bundle" onclick="selectPlan('bundle')" style="margin-top:var(--sp3);position:relative">
+      <div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--gold);color:#0a1e2b;font-size:.65rem;font-weight:700;padding:.15rem .7rem;border-radius:var(--r-full);letter-spacing:.03em;text-transform:uppercase;white-space:nowrap">Best Value</div>
+      <div class="price-amount">$10<span style="font-size:.45em;font-weight:400;opacity:.7">/month</span></div>
+      <div class="price-per">Gulf + Atlantic editions, one subscription</div>
+    </div>
+
     <!-- CTA -->
     <button class="save-btn" onclick="handleStripeCheckout()">Start Subscription →</button>
 
     <!-- Post-checkout activation (revealed after checkout opens) -->
     <div id="sub-activate" style="display:none;text-align:center;margin-top:var(--sp3)">
-      <p style="font-size:var(--xs);color:var(--muted);margin-bottom:var(--sp2)">Checkout opened in a new tab. Once your payment is complete, come back and tap below.</p>
+      <p id="sub-activate-note" style="font-size:var(--xs);color:var(--muted);margin-bottom:var(--sp2)">Checkout opened in a new tab. Once your payment is complete, come back and tap below.</p>
       <button class="save-btn" style="background:var(--success)" onclick="activateSubscription()">I've paid — Activate ✓</button>
     </div>
 

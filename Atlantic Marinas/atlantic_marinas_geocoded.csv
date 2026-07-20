@@ -1,0 +1,46 @@
+Leg,Name,Address,Phone,Rating,Notes,Lat,Lng,Geocode_Precision
+Georgia to North Carolina,St. Marys Intracoastal Gateway Marina,"200 East Bryant Street, St. Marys, GA 31558",(912) 510-6213,4.5/5,"GA Border gateway, excellent transient docks.",30.721419,-81.546607,exact
+Georgia to North Carolina,Jekyll Island Marina,"1 Harbor Rd, Jekyll Island, GA 31527",(912) 635-3137,4.4/5,Great stopover with easy marshland access.,31.046448,-81.419912,exact
+Georgia to North Carolina,Kilkenny Marina,"1884 Kilkenny Rd, Richmond Hill, GA 31324",(912) 756-3740,4.6/5,"Well-protected creek location, highly helpful staff.",31.93806,-81.31361,town_center
+Georgia to North Carolina,Isle of Hope Marina,"50 W Bluff Drive, Savannah, GA 31406",(912) 354-8187,4.8/5,"Iconic, historic Savannah bluff setting; 1st Choice Marina.",31.979949,-81.056947,exact
+Georgia to North Carolina,Harbour Town Yacht Basin,"160 Lighthouse Rd, Hilton Head Island, SC 29928",(843) 363-8335,4.8/5,Resort setting underneath the famous lighthouse.,32.139847,-80.810287,exact
+Georgia to North Carolina,Safe Harbor Beaufort,"1006 Bay St, Beaufort, SC 29902",(843) 524-4422,4.7/5,Beautiful downtown location with great floating docks.,32.431139,-80.673105,exact
+Georgia to North Carolina,The Marina at Edisto Beach,"3702 Docksite Rd, Edisto Beach, SC 29438",(843) 869-3504,4.5/5,Crucial staging point before entering Charleston.,32.49583,-80.31444,town_center
+Georgia to North Carolina,Charleston City Marina,"17 Lockwood Dr, Charleston, SC 29401",(843) 723-5098,4.8/5,"Home of the famous 'Mega Dock', premier deep-water facility.",32.779482,-79.949977,exact
+Georgia to North Carolina,Isle of Palms Marina,"50 41st Ave, Isle of Palms, SC 29451",(843) 886-0209,4.6/5,Well-stocked facility right off the ICW.,32.803901,-79.760487,exact
+Georgia to North Carolina,Georgetown Landing Marina,"435 Marina Dr, Georgetown, SC 29440",(843) 546-1776,4.7/5,Excellent staging spot right on the deep Waccamaw River.,33.366791,-79.269448,exact
+Georgia to North Carolina,Osprey Marina,"8400 Osprey Rd, Myrtle Beach, SC 29588",(843) 215-5353,4.8/5,Highly protected basin carved into the woods; very popular.,33.677802,-79.03876,exact
+Georgia to North Carolina,Barefoot Marina,"2051 Bridge View Ct, North Myrtle Beach, SC 29582",(843) 390-2015,4.7/5,Directly across from Barefoot Landing shopping/dining.,33.82778,-78.69028,town_center
+Georgia to North Carolina,Southport Marina,"606 W West St, Southport, NC 28461",(910) 457-9900,4.8/5,World-class transient facility at Cape Fear River junction.,33.919443,-78.025969,exact
+Mid-Atlantic & Chesapeake,Tidewater Yacht Marina,"10 Crawford Pkwy, Portsmouth, VA 23704",(757) 393-2525,4.8/5,Located right at ICW Mile Marker 0. Elite 1st Choice Marina.,36.840054,-76.298661,exact
+Mid-Atlantic & Chesapeake,Cape Charles Yacht Center,"201 Mason Ave, Cape Charles, VA 23310",(757) 331-3100,4.7/5,Engineered for deep-draft superyachts on the Eastern Shore.,37.2675,-76.01417,town_center
+Mid-Atlantic & Chesapeake,Deltaville Marina,"273 Marina Ln, Deltaville, VA 23043",(804) 776-9812,4.8/5,Highly responsive service-oriented stop at Rappahannock mouth.,37.5528,-76.3355,town_center
+Mid-Atlantic & Chesapeake,Chesapeake Boat Basin,"1686 Waverly Ave, Kilmarnock, VA 22482",(804) 436-1234,4.9/5,Famous for guest courtesy cars and premium pool/lounge area.,37.700145,-76.351561,exact
+Mid-Atlantic & Chesapeake,Somers Cove Marina,"715 Broadway, Crisfield, MD 21817",(410) 968-0925,4.6/5,Massive state-owned public hub. Extremely well-protected.,37.979706,-75.857454,exact
+Mid-Atlantic & Chesapeake,Zahniser's Yachting Center,"245 C St, Solomons, MD 20688",(410) 326-2166,4.8/5,Elite cruising resort stop with full-service yard infrastructure.,38.328699,-76.459773,exact
+Mid-Atlantic & Chesapeake,Herrington Harbour South,"7149 Lake Shore Dr, North Beach, MD 20714",(410) 741-5100,4.9/5,Voted best resort marina on the bay. Immaculate floating docks.,38.727227,-76.540289,exact
+Mid-Atlantic & Chesapeake,Annapolis City Dock,"1 Dock St, Annapolis, MD 21401",(410) 263-7973,4.7/5,Municipal heart of the sailing capital. Incredibly vibrant.,38.976879,-76.484815,exact
+C&D Canal & New Jersey,Chesapeake Inn & Marina,"605 2nd St, Chesapeake City, MD 21915",(410) 885-2040,4.6/5,Perfect mid-point stop directly inside the C&D Canal.,39.526455,-75.811688,exact
+C&D Canal & New Jersey,Delaware City Marina,"302 Canal St, Delaware City, DE 19706",(302) 834-4531,4.7/5,Crucial staging yard before entering the rough Delaware Bay.,39.573252,-75.590151,exact
+C&D Canal & New Jersey,Utsch's Marina,"1121 NJ-109, Cape May, NJ 08204",(609) 884-2051,4.8/5,Deep-water ocean-access classic stop at Cape May Harbor entrance.,38.951038,-74.908296,exact
+C&D Canal & New Jersey,Golden Nugget Farley State Marina,"600 Huron Ave, Atlantic City, NJ 08401",(609) 441-8450,4.5/5,"Massive state-owned, casino-managed public deep water basin.",39.379982,-74.424949,exact
+C&D Canal & New Jersey,Hoffman's Marina,"608 Green Ave, Brielle, NJ 08730",(732) 528-6160,4.7/5,Manasquan Inlet staging standard for offshore jumps to NYC.,40.107966,-74.050519,exact
+NY Harbor & Long Island Sound,Liberty Landing Marina,"80 Audrey Zapp Dr, Jersey City, NJ 07305",(201) 985-8000,4.8/5,"Directly across from Manhattan. Full service, highly protected.",40.709143,-74.044503,exact
+NY Harbor & Long Island Sound,Bayshore Waterfront Park Marina,"Port Monmouth Rd, Port Monmouth, NJ 07758",(732) 787-3038,4.4/5,Raritan Bay public staging area before entering the East River.,40.436673,-74.098641,town_center
+NY Harbor & Long Island Sound,Manhasset Bay Marina,"10 Matinecock Ave, Port Washington, NY 11050",(516) 883-8411,4.6/5,First great Long Island Sound protected deep-water haven.,40.836071,-73.706359,exact
+NY Harbor & Long Island Sound,Stamford Landing Marina,"78 Southfield Ave, Stamford, CT 06902",(203) 965-0075,4.5/5,"Excellent floating docks, immediate access to waterfront dining.",41.03736,-73.547471,exact
+NY Harbor & Long Island Sound,Safe Harbor Bridgeport,"10 E Main St, Bridgeport, CT 06608",(203) 330-8600,4.6/5,Large deep-water service and transit hub on CT Shore.,41.175362,-73.181671,exact
+NY Harbor & Long Island Sound,Saybrook Point Marina,"2 Bridge St, Old Saybrook, CT 06475",(860) 395-2000,4.9/5,Resort class facilities at the mouth of the Connecticut River.,41.281188,-72.352138,exact
+NY Harbor & Long Island Sound,Mystic Shipyard,"100 Essex St, Mystic, CT 06355",(860) 536-6588,4.8/5,"Highly historic, ultra-protected deep basin; 1st Choice winner.",41.343747,-71.975567,exact
+Rhode Island to Massachusetts,Newport Yachting Center,"4 Commercial Wharf, Newport, RI 02840",(401) 846-1600,4.8/5,Center of the yachting world. Incredible transient service.,41.485105,-71.315241,exact
+Rhode Island to Massachusetts,Point Judith Marina,"260 Sand Turn Rd, Narragansett, RI 02882",(401) 783-1122,4.6/5,Highly strategic harbor of refuge entrance.,41.3615,-71.4814,town_center
+Rhode Island to Massachusetts,Cuttyhunk Marina / Town Wharf,"1 Broad St, Cuttyhunk, MA 02713",(508) 996-8142,4.7/5,Famous municipal harbor pond island stop entering Buzzards Bay.,41.418,-70.9337,town_center
+Rhode Island to Massachusetts,MacDougalls' Cape Cod Marine,"30 Water St, Falmouth, MA 02540",(508) 548-3146,4.9/5,"Elite, immaculate full-service yard and transient facility.",41.523815,-70.669343,exact
+Rhode Island to Massachusetts,Plymouth Yacht Basin,"18 Water St, Plymouth, MA 02360",(508) 830-4075,4.5/5,Municipal public docks right by historic Plymouth Rock.,41.95527,-70.661743,exact
+Rhode Island to Massachusetts,Constitution Marina,"28 Constitution Rd, Boston, MA 02129",(617) 241-9640,4.8/5,Directly on Boston's Freedom Trail; exceptional pool and views.,42.371773,-71.060126,exact
+Rhode Island to Massachusetts,Hawthorne Cove Marina,"10 White St, Salem, MA 01970",(978) 744-4543,4.6/5,Great deep-water access to Salem's historic downtown.,42.522893,-70.883401,exact
+Rhode Island to Massachusetts,Newburyport City Waterfront Docks,"60 Merrimac St, Newburyport, MA 01950",(978) 462-3746,4.5/5,Public boardwalk floating docks with heavy tidal flow.,42.812077,-70.872894,exact
+Maine Coastline,Safe Harbor Marinas Fore Points,"58 Fore St, Portland, ME 04101",(207) 517-4860,4.9/5,"Brand new, world-class deep-water megayacht slips in Casco Bay.",43.662411,-70.245371,exact
+Maine Coastline,Boothbay Harbor Marina,"14 Union St, Boothbay Harbor, ME 04538",(207) 633-6003,4.8/5,"Heart of the harbor town, famously accommodating to transients.",43.854486,-69.625128,exact
+Maine Coastline,Rockland Public Landing,"1 Harbor Park, Rockland, ME 04841",(207) 594-0312,4.6/5,Municipal facility offering deep water slips right downtown.,44.125,-69.13167,town_center
+Maine Coastline,Dysart's Great Harbor Marina,"11 Main St, Southwest Harbor, ME 04679",(207) 244-5522,4.8/5,Premier Mount Desert Island/Acadia deep-water transient hub.,44.27833,-68.32194,town_center

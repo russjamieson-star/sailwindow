@@ -1,0 +1,22 @@
+Leg,Station_Name,NOAA_Station_ID,State,Lat,Lng,Notes
+Georgia to North Carolina,Fort Pulaski,8670870,GA,32.034695,-80.90303,Savannah River entrance
+Georgia to North Carolina,Charleston (Cooper River Entrance),8665530,SC,32.780834,-79.923615,
+Georgia to North Carolina,Wilmington,8658120,NC,34.2267,-77.9533,Cape Fear River
+Mid-Atlantic & Chesapeake,Sewells Point (Norfolk),8638610,VA,36.94278,-76.32861,Hampton Roads
+Mid-Atlantic & Chesapeake,Annapolis,8575512,MD,38.983883,-76.480034,
+Mid-Atlantic & Chesapeake,Baltimore (Fort McHenry),8574680,MD,39.266693,-76.57831,
+C&D Canal & New Jersey,Reedy Point,8551910,DE,39.558334,-75.571945,Chesapeake & Delaware Canal
+C&D Canal & New Jersey,Cape May,8536110,NJ,38.9683,-74.96,
+C&D Canal & New Jersey,Atlantic City,8534720,NJ,39.356667,-74.41805,
+NY Harbor & Long Island Sound,The Battery (NY Harbor),8518750,NY,40.700554,-74.01417,
+NY Harbor & Long Island Sound,Kings Point,8516945,NY,40.8103,-73.7649,Western LI Sound
+NY Harbor & Long Island Sound,Bridgeport,8467150,CT,41.17582,-73.18397,Central LI Sound
+NY Harbor & Long Island Sound,New London,8461490,CT,41.371666,-72.09556,Eastern LI Sound
+Rhode Island to Massachusetts,Newport,8452660,RI,41.504333,-71.32614,Narragansett Bay
+Rhode Island to Massachusetts,Providence,8454000,RI,41.807167,-71.400665,
+Rhode Island to Massachusetts,Woods Hole,8447930,MA,41.523613,-70.67111,Buzzards Bay / Vineyard Sound
+Rhode Island to Massachusetts,Boston,8443970,MA,42.35389,-71.05028,
+Rhode Island to Massachusetts,Nantucket Island,8449130,MA,41.285,-70.0967,
+Maine Coastline,Portland,8418150,ME,43.658054,-70.24416,Casco Bay
+Maine Coastline,Bar Harbor,8413320,ME,44.392193,-68.20428,Frenchman Bay / MDI
+Maine Coastline,Eastport,8410140,ME,44.90461,-66.98289,Down East / Canadian border

@@ -7,12 +7,12 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#171614">
-<title>SailWindow — Gulf Coast Sailing Conditions</title>
-<meta name="description" content="Live sailing conditions, wind, tide, and best-departure windows for 35 Gulf Coast marinas — Texas to the Florida Keys. Free, no login required.">
-<meta property="og:title" content="SailWindow — Gulf Coast Sailing Conditions">
+<title>SailWindow Atlantic — Atlantic Coast Sailing Conditions</title>
+<meta name="description" content="Live sailing conditions, wind, tide, and best-departure windows for 45 Atlantic Coast marinas — Georgia to Maine. Free, no login required.">
+<meta property="og:title" content="SailWindow Atlantic — Atlantic Coast Sailing Conditions">
 <meta property="og:description" content="Live wind, tide, and sailability scores for your marina, from NWS and NOAA data.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://sailwindow.com/">
+<meta property="og:url" content="https://atlantic.sailwindow.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -328,86 +328,28 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 <body>
 
 <div id="sw-hero-overlay">
-
-<!-- Atlantic Edition "Coming Soon" banner — across the top of the landing page -->
-<section style="
-    max-width: 1280px;
-    margin: 1.5rem auto 0 auto;
-    padding: 0 2rem;
-">
-    <div style="
-        background: linear-gradient(135deg, #0a1e2b, #005a8c);
-        color: white;
-        padding: 1.2rem 2rem;
-        border-radius: 16px;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-        box-shadow: 0 8px 30px rgba(0, 40, 60, 0.2);
-    ">
-        <div style="display: flex; align-items: center; gap: 1rem;">
-            <span style="
-                background: #ffb74d;
-                color: #0a1e2b;
-                padding: 0.2rem 0.8rem;
-                border-radius: 30px;
-                font-weight: 700;
-                font-size: 0.75rem;
-                text-transform: uppercase;
-            ">
-                <i class="fas fa-waves"></i> Coming Soon
-            </span>
-            <div>
-                <strong style="font-size: 1.1rem;">Sailwindow: Atlantic Edition</strong>
-                <span style="opacity: 0.8; font-size: 0.9rem; margin-left: 0.5rem;">
-                    — Georgia to Maine
-                </span>
-            </div>
-        </div>
-        <div style="display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap;">
-            <span style="font-size: 0.9rem; opacity: 0.8;">
-                <i class="fas fa-clock"></i> Be first to know
-            </span>
-            <a href="#atlantic-waitlist" style="
-                background: #ffb74d;
-                color: #0a1e2b;
-                padding: 0.5rem 1.5rem;
-                border-radius: 60px;
-                font-weight: 600;
-                text-decoration: none;
-                transition: all 0.2s;
-                font-size: 0.95rem;
-            ">
-                <i class="fas fa-envelope"></i> Get Notified
-            </a>
-        </div>
-    </div>
-</section>
-
 <section id="sailwindow-hero">
   <div class="hero-container">
 
     <!-- LEFT COLUMN -->
     <div class="hero-left">
       <div class="hero-badge">
-        <i class="fas fa-satellite-dish"></i> NOAA + ECMWF &middot; FL Gulf &amp; Atlantic Coasts
+        <i class="fas fa-satellite-dish"></i> NOAA + ECMWF &middot; Atlantic ICW
         <span class="live-tag">&#x25CF; LIVE</span>
       </div>
       <h1 class="hero-title">
         Your Passage Planner.<br>
-        <span>Bridges, Weather, Docks &amp; Food.</span>
+        <span>Weather, Docks &amp; Food.</span>
       </h1>
       <p class="hero-sub">
-        Real-time NOAA weather, drawbridge intelligence, 80+ marinas,
+        Real-time NOAA weather, 45 marinas,
         restaurant finder, 7-day trends, and a Cruiser&#8217;s Log &mdash;
-        all in one app for the Gulf Intracoastal Waterway.
+        all in one app for the Atlantic Intracoastal Waterway.
       </p>
       <div class="hw-feature-grid">
         <div class="hw-feature-item"><i class="fas fa-water" style="color:#0077be;"></i><span><strong>Window</strong> Go/No-Go</span></div>
-        <div class="hw-feature-item"><i class="fas fa-bridge" style="color:#e67e22;"></i><span><strong>48 Bridges</strong> VHF &middot; Clearance</span></div>
-        <div class="hw-feature-item"><i class="fas fa-anchor" style="color:#0077be;"></i><span><strong>80+ Marinas</strong> + GPS</span></div>
+        <div class="hw-feature-item"><i class="fas fa-bridge" style="color:#e67e22;"></i><span><strong>15 Bridges</strong> GA &ndash; NJ</span></div>
+        <div class="hw-feature-item"><i class="fas fa-anchor" style="color:#0077be;"></i><span><strong>45 Marinas</strong> + GPS</span></div>
         <div class="hw-feature-item"><i class="fas fa-utensils" style="color:#0077be;"></i><span><strong>Dining</strong> 3-mile radius</span></div>
         <div class="hw-feature-item"><i class="fas fa-chart-line" style="color:#0077be;"></i><span><strong>7-Day</strong> Forecast</span></div>
         <div class="hw-feature-item"><i class="fas fa-book" style="color:#d4a017;"></i><span><strong>Log</strong> Cruiser&#8217;s Log</span></div>
@@ -440,14 +382,14 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
       </div>
       <div class="hw-card hw-bridge-card">
         <div class="hw-card-icon"><i class="fas fa-bridge" style="color:#e67e22;"></i></div>
-        <div class="hw-card-title">48 Drawbridges</div>
-        <div class="hw-card-desc">Name &middot; VHF channel &middot; Clearance &middot; Hours.</div>
-        <span class="hw-card-tag"><i class="fas fa-radio"></i> VHF 9 &amp; 13</span>
+        <div class="hw-card-title">15 Drawbridges</div>
+        <div class="hw-card-desc">GA to NJ &middot; VHF &middot; Clearance &middot; Hours.</div>
+        <span class="hw-card-tag"><i class="fas fa-radio"></i> VHF 13 &amp; 16</span>
       </div>
       <div class="hw-card">
         <div class="hw-card-icon" style="color:#0077be;"><i class="fas fa-anchor"></i></div>
-        <div class="hw-card-title">80+ Marinas</div>
-        <div class="hw-card-desc">Port Aransas to Cape Canaveral + GPS.</div>
+        <div class="hw-card-title">45 Marinas</div>
+        <div class="hw-card-desc">Georgia to Maine + GPS.</div>
         <span class="hw-card-tag"><i class="fas fa-location-dot"></i> Pre-loaded</span>
       </div>
       <div class="hw-card">
@@ -479,82 +421,6 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
     </div>
 
   </div>
-</section>
-
-<!-- Atlantic Edition Waitlist Form -->
-<section id="atlantic-waitlist" style="
-    max-width: 600px;
-    margin: 3rem auto;
-    padding: 0 2rem;
-">
-    <div style="
-        background: white;
-        border-radius: 24px;
-        padding: 2.5rem 2rem;
-        box-shadow: 0 12px 40px rgba(0, 40, 60, 0.1);
-        border: 1px solid rgba(0, 119, 190, 0.1);
-        text-align: center;
-    ">
-        <div style="font-size: 3rem; margin-bottom: 0.5rem; color: #0077be;">
-            <i class="fas fa-ship"></i>
-        </div>
-        <h2 style="font-size: 1.8rem; color: #0a1e2b; margin-bottom: 0.5rem;">
-            Sailwindow: Atlantic Edition
-        </h2>
-        <p style="color: #5a7a8a; margin-bottom: 1.5rem; max-width: 400px; margin-left: auto; margin-right: auto;">
-            Georgia to Maine. Every bridge. Every marina. Every meal. Every log.
-            <strong style="color: #0a1e2b;">Be the first to know when we launch.</strong>
-        </p>
-        <p style="color: #0a1e2b; font-size: 0.9rem; margin-bottom: 1.5rem; background: #eef7fb; border-radius: 12px; padding: 0.6rem 1rem; display: inline-block;">
-            <i class="fas fa-tag" style="color: #0077be;"></i> $5.99/mo on its own — or <strong>$10/mo for Gulf + Atlantic together</strong>
-        </p>
-
-        <!-- Waitlist Form -->
-        <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px; margin: 0 auto;">
-            <input type="email" name="email" placeholder="Enter your email address" required style="
-                padding: 0.9rem 1.2rem;
-                border-radius: 12px;
-                border: 2px solid #e8edf0;
-                font-size: 1rem;
-                transition: border 0.2s;
-            ">
-            <button type="submit" style="
-                background: #0077be;
-                color: white;
-                padding: 0.9rem 1.5rem;
-                border-radius: 60px;
-                border: none;
-                font-weight: 600;
-                font-size: 1rem;
-                cursor: pointer;
-                transition: background 0.2s;
-                box-shadow: 0 4px 15px rgba(0, 119, 190, 0.3);
-            ">
-                <i class="fas fa-sailboat"></i> Notify Me When Ready
-            </button>
-        </form>
-
-        <p style="font-size: 0.8rem; color: #5a7a8a; margin-top: 1rem;">
-            <i class="fas fa-shield-alt"></i> No spam. Just one email when we launch.
-        </p>
-
-        <!-- Social Proof (optional) -->
-        <div style="
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 2px dashed rgba(0, 119, 190, 0.1);
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            font-size: 0.85rem;
-            color: #5a7a8a;
-        ">
-            <span><i class="fas fa-check-circle" style="color: #2e7d32;"></i> 45+ Atlantic marinas ready</span>
-            <span><i class="fas fa-check-circle" style="color: #2e7d32;"></i> 15 drawbridges mapped (GA–NJ)</span>
-            <span><i class="fas fa-check-circle" style="color: #2e7d32;"></i> 3-mile dining radius</span>
-        </div>
-    </div>
 </section>
 </div><!-- /#sw-hero-overlay -->
 <div class="shell">
@@ -598,7 +464,7 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
       <div class="loc-left">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         <div>
-          <div class="loc-name" id="loc-name">Tampa — Hooker Point</div>
+          <div class="loc-name" id="loc-name">Annapolis, MD</div>
           <div class="loc-sub" id="loc-sub">NOAA 8726667 · Loading…</div>
           <div class="loc-sub" id="loc-station-lbl" style="display:none;margin-top:2px;font-weight:500;color:var(--primary)">Auto-selected station: <span id="loc-station-name">—</span></div>
         </div>
@@ -718,7 +584,7 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 
     <section>
       <div class="sec-title">Overview</div>
-      <p style="font-size:var(--sm);color:var(--muted)">SailWindow V8.0 — Gulf Coast Edition. Fetches live hourly wind forecasts from <strong style="color:var(--text)">NWS</strong> and tide predictions from <strong style="color:var(--text)">NOAA Tides &amp; Currents</strong>, scores every possible time block against your preferences, and shows the best sailing window for today. Covers <strong style="color:var(--text)">35 verified NOAA stations</strong> from Port Isabel, TX to Key West, FL. No login required — preferences are saved in your browser.</p>
+      <p style="font-size:var(--sm);color:var(--muted)">SailWindow — Atlantic Edition. Fetches live hourly wind forecasts from <strong style="color:var(--text)">NWS</strong> and tide predictions from <strong style="color:var(--text)">NOAA Tides &amp; Currents</strong>, scores every possible time block against your preferences, and shows the best sailing window for today. Covers <strong style="color:var(--text)">21 verified NOAA stations</strong> from Georgia to Maine. No login required — preferences are saved in your browser.</p>
     </section>
 
     <section>
@@ -757,7 +623,7 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 
     <section>
       <div class="sec-title">7-Day Forecast</div>
-      <p style="font-size:var(--sm);color:var(--muted)">Tap <strong style="color:var(--text)">7-Day</strong> in the bottom nav to see a full week of sailability scores and best windows, powered by the <strong style="color:var(--text)">ECMWF IFS model</strong> via Open-Meteo — a high-resolution European forecast model well-suited for Gulf Coast marine conditions.</p>
+      <p style="font-size:var(--sm);color:var(--muted)">Tap <strong style="color:var(--text)">7-Day</strong> in the bottom nav to see a full week of sailability scores and best windows, powered by the <strong style="color:var(--text)">ECMWF IFS model</strong> via Open-Meteo — a high-resolution European forecast model well-suited for Atlantic Coast marine conditions.</p>
     </section>
 
     <section>
@@ -774,10 +640,15 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 
     <section>
       <div class="sec-title">Location &amp; Marina Map</div>
-      <p style="font-size:var(--sm);color:var(--muted)">Tap <strong style="color:var(--text)">Change</strong> on the location bar to use device GPS, pick from <strong style="color:var(--text)">32 Gulf Coast preset stations</strong> (Texas → Louisiana → Mississippi → Alabama → Florida), or open the Marina Map. For unlisted locations use <strong style="color:var(--text)">Preferences → Custom GPS / NOAA Station</strong>.</p>
+      <p style="font-size:var(--sm);color:var(--muted)">Tap <strong style="color:var(--text)">Change</strong> on the location bar to use device GPS, pick from <strong style="color:var(--text)">21 Atlantic Coast preset stations</strong> (Georgia → Carolinas → Chesapeake → Mid-Atlantic → New England → Maine), or open the Marina Map. For unlisted locations use <strong style="color:var(--text)">Preferences → Custom GPS / NOAA Station</strong>.</p>
       <p style="font-size:var(--sm);color:var(--muted)">The <strong style="color:var(--text)">Marina tab</strong> shows a searchable list and interactive map. On phones, tap the 🗺 icon to toggle between the list and the map. Marina data is cached for 24 hours — the map loads instantly on return visits.</p>
     </section>
 
+    <section>
+      <div class="sec-title">Navigation Advisory</div>
+      <p style="font-size:var(--sm);color:var(--muted)">The amber advisory banner at the top of the Marina list covers hurricane-damaged facilities — Panama City, Clearwater, Fort Myers, and others — that are technically listed as open but have suspended transient docking or fueling. Tap the banner to expand the full status by storm. Marina cards for affected facilities show an <strong style="color:var(--text)">⚠ Advisory</strong> badge.</p>
+      <p style="font-size:var(--sm);color:var(--warn)">"Open" can be misleading. Always confirm transient availability by phone before arriving.</p>
+    </section>
 
     <section>
       <div class="sec-title">Cruiser's Log</div>
@@ -787,9 +658,9 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 
     <section>
       <div class="sec-title">Bridge Schedules</div>
-      <p style="font-size:var(--sm);color:var(--muted)">From inside the Cruiser's Log, tap <strong style="color:var(--text)">Schedules</strong> in the top bar to open the ICW Bridge Schedules reference. It covers <strong style="color:var(--text)">34 Florida drawbridges</strong> — 11 on the Gulf ICW (33 CFR 117.287) and 23 on the Atlantic ICW (33 CFR 117.261) — organized by mile marker.</p>
-      <p style="font-size:var(--sm);color:var(--muted);margin-top:var(--sp2)">Filter by waterway (FL Gulf ICW, FL Atlantic ICW, FL Panhandle, TX/LA/AL) or search by name, city, or mile marker. Tap any bridge card to expand its opening schedule and CFR citation. Texas and Gulf Coast bridges are also included for reference.</p>
-      <p style="font-size:var(--sm);color:var(--warn);margin-top:var(--sp2)">Schedules are based on published 33 CFR regulations. Always verify current restrictions with local USCG notices before transiting — special events, maintenance, and emergency orders can override posted times.</p>
+      <p style="font-size:var(--sm);color:var(--muted)">Covers 15 Atlantic ICW drawbridges from Savannah, GA to Atlantic City, NJ (Georgia through New Jersey) — filter, mile marker, VHF channel, closed-clearance, and phone are shown where known. Coverage north of NJ (NY through Maine) hasn't been sourced yet.</p>
+      <p style="font-size:var(--sm);color:var(--muted);margin-top:var(--sp2)">Hail on <strong style="color:var(--text)">VHF 13</strong> (Bridge-to-Bridge) at low power — you're usually right under the tower. Try 16 only if 13 fails. Format: <em>"Sailing Vessel [Name] calling the [Bridge] Bridge at Mile [X], [direction]bound, requesting an opening."</em> The Atlantic ICW's fixed spans are built to a 65 ft baseline clearance at MHW; the movable bridges above drop well below that when closed.</p>
+      <p style="font-size:var(--sm);color:var(--warn);margin-top:var(--sp2)">Always verify current restrictions with local USCG notices before transiting — special events, maintenance, and emergency orders can override posted times.</p>
     </section>
 
     <section>
@@ -807,7 +678,7 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
       <div style="display:flex;flex-direction:column;gap:var(--sp2)">
         <div style="background:var(--surface);border-radius:var(--r-lg);padding:var(--sp3) var(--sp4);border:1px solid var(--divider)"><div style="font-size:var(--sm);font-weight:600;margin-bottom:4px">Data won't load</div><div style="font-size:var(--xs);color:var(--muted)">Check your internet connection. NWS occasionally returns 500 errors — wait a minute and tap Refresh Live Data.</div></div>
         <div style="background:var(--surface);border-radius:var(--r-lg);padding:var(--sp3) var(--sp4);border:1px solid var(--divider)"><div style="font-size:var(--sm);font-weight:600;margin-bottom:4px">Score seems too low</div><div style="font-size:var(--xs);color:var(--muted)">Check your wind range — a narrow range penalises most days. Also verify the correct location is active.</div></div>
-        <div style="background:var(--surface);border-radius:var(--r-lg);padding:var(--sp3) var(--sp4);border:1px solid var(--divider)"><div style="font-size:var(--sm);font-weight:600;margin-bottom:4px">GPS not working</div><div style="font-size:var(--xs);color:var(--muted)">Allow location access in your browser settings. GPS auto-selects the nearest of the 32 built-in NOAA stations — full Gulf Coast coverage from Brownsville, TX to Key West, FL.</div></div>
+        <div style="background:var(--surface);border-radius:var(--r-lg);padding:var(--sp3) var(--sp4);border:1px solid var(--divider)"><div style="font-size:var(--sm);font-weight:600;margin-bottom:4px">GPS not working</div><div style="font-size:var(--xs);color:var(--muted)">Allow location access in your browser settings. GPS auto-selects the nearest of the 21 built-in NOAA stations — full Atlantic Coast coverage from Georgia to Maine.</div></div>
       </div>
     </section>
 
@@ -858,53 +729,38 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
       <div style="display:flex;gap:10px;align-items:center">
         <select id="chooser-marina-select" class="fselect" style="flex:1">
           <option value="">Select a marina…</option>
-          <optgroup label="Florida — Keys &amp; SW">
-            <option value="key-west">Key West</option>
-            <option value="naples">Naples</option>
-            <option value="fort-myers">Fort Myers</option>
+          <optgroup label="Georgia to North Carolina">
+            <option value="fort-pulaski">Fort Pulaski</option>
+            <option value="charleston-cooper-river-entrance">Charleston (Cooper River Entrance)</option>
+            <option value="wilmington">Wilmington</option>
           </optgroup>
-          <optgroup label="Florida — Tampa Bay">
-            <option value="clearwater">Clearwater Beach</option>
-            <option value="st-pete">St. Petersburg</option>
-            <option value="tampa-hooker">Tampa — Hooker Point</option>
-            <option value="tampa-egmont">Tampa — Egmont Key</option>
-            <option value="tampa-gandy">Tampa — Gandy Bridge</option>
+          <optgroup label="Mid-Atlantic &amp; Chesapeake">
+            <option value="sewells-point-norfolk">Sewells Point (Norfolk)</option>
+            <option value="annapolis">Annapolis</option>
+            <option value="baltimore-fort-mchenry">Baltimore (Fort McHenry)</option>
           </optgroup>
-          <optgroup label="Florida — Gulf Coast">
-            <option value="cedar-key">Cedar Key</option>
-            <option value="apalachicola">Apalachicola</option>
+          <optgroup label="C&amp;D Canal &amp; New Jersey">
+            <option value="reedy-point">Reedy Point</option>
+            <option value="cape-may">Cape May</option>
+            <option value="atlantic-city">Atlantic City</option>
           </optgroup>
-          <optgroup label="Florida — Panhandle">
-            <option value="panama-city">Panama City</option>
-            <option value="pensacola">Pensacola</option>
-            <option value="pensacola-beach">Pensacola Beach Pier</option>
+          <optgroup label="NY Harbor &amp; Long Island Sound">
+            <option value="the-battery-ny-harbor">The Battery (NY Harbor)</option>
+            <option value="kings-point">Kings Point</option>
+            <option value="bridgeport">Bridgeport</option>
+            <option value="new-london">New London</option>
           </optgroup>
-          <optgroup label="Alabama">
-            <option value="dauphin-island">Dauphin Island</option>
-            <option value="mobile">Mobile State Docks</option>
+          <optgroup label="Rhode Island to Massachusetts">
+            <option value="newport">Newport</option>
+            <option value="providence">Providence</option>
+            <option value="woods-hole">Woods Hole</option>
+            <option value="boston">Boston</option>
+            <option value="nantucket-island">Nantucket Island</option>
           </optgroup>
-          <optgroup label="Mississippi">
-            <option value="pascagoula">Pascagoula</option>
-            <option value="biloxi">Biloxi</option>
-            <option value="bay-waveland">Bay Waveland</option>
-          </optgroup>
-          <optgroup label="Louisiana">
-            <option value="sw-pass">SW Pass (Mississippi River)</option>
-            <option value="grand-isle">Grand Isle</option>
-            <option value="port-fourchon">Port Fourchon</option>
-            <option value="new-orleans">New Orleans</option>
-            <option value="calcasieu-pass">Calcasieu Pass</option>
-          </optgroup>
-          <optgroup label="Texas">
-            <option value="sabine-pass">Sabine Pass</option>
-            <option value="port-arthur">Port Arthur</option>
-            <option value="galveston">Galveston Pier 21</option>
-            <option value="freeport">Freeport</option>
-            <option value="matagorda">Matagorda City</option>
-            <option value="rockport">Rockport</option>
-            <option value="aransas-pass">Aransas Pass</option>
-            <option value="corpus-christi">Corpus Christi</option>
-            <option value="port-isabel">Port Isabel</option>
+          <optgroup label="Maine Coastline">
+            <option value="portland">Portland</option>
+            <option value="bar-harbor">Bar Harbor</option>
+            <option value="eastport">Eastport</option>
           </optgroup>
         </select>
         <button class="refresh-btn" style="width:auto;min-width:110px;flex-shrink:0" onclick="setMarinaFromChooser()">Set Marina</button>
@@ -1003,66 +859,62 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
             <label class="flbl">Departed From</label>
             <select id="log-departure" class="fselect">
               <option value="">Select marina…</option>
-              <optgroup label="Texas">
-                <option>Port Isabel Marina</option>
-                <option>South Padre Island Marina</option>
-                <option>Aransas Pass Harbor</option>
-                <option>Rockport Harbor</option>
-                <option>Corpus Christi Marina</option>
-                <option>Port O'Connor Marina</option>
-                <option>Matagorda Bay Marina</option>
-                <option>Freeport Municipal Marina</option>
-                <option>Galveston Yacht Basin</option>
-                <option>Kemah Boardwalk Marina</option>
-                <option>Sabine Pass Marina</option>
+              <optgroup label="Georgia to North Carolina">
+                <option>St. Marys Intracoastal Gateway Marina</option>
+                <option>Jekyll Island Marina</option>
+                <option>Kilkenny Marina</option>
+                <option>Isle of Hope Marina</option>
+                <option>Harbour Town Yacht Basin</option>
+                <option>Safe Harbor Beaufort</option>
+                <option>The Marina at Edisto Beach</option>
+                <option>Charleston City Marina</option>
+                <option>Isle of Palms Marina</option>
+                <option>Georgetown Landing Marina</option>
+                <option>Osprey Marina</option>
+                <option>Barefoot Marina</option>
+                <option>Southport Marina</option>
               </optgroup>
-              <optgroup label="Louisiana">
-                <option>Calcasieu Pass Marina</option>
-                <option>Port Fourchon Marina</option>
-                <option>Grand Isle Marina</option>
-                <option>New Orleans Municipal Marina</option>
-                <option>Slidell Municipal Marina</option>
+              <optgroup label="Mid-Atlantic &amp; Chesapeake">
+                <option>Tidewater Yacht Marina</option>
+                <option>Cape Charles Yacht Center</option>
+                <option>Deltaville Marina</option>
+                <option>Chesapeake Boat Basin</option>
+                <option>Somers Cove Marina</option>
+                <option>Zahniser's Yachting Center</option>
+                <option>Herrington Harbour South</option>
+                <option>Annapolis City Dock</option>
               </optgroup>
-              <optgroup label="Mississippi">
-                <option>Bay Waveland Yacht Club</option>
-                <option>Biloxi Small Craft Harbor</option>
-                <option>Pascagoula River Marina</option>
+              <optgroup label="C&amp;D Canal &amp; New Jersey">
+                <option>Chesapeake Inn &amp; Marina</option>
+                <option>Delaware City Marina</option>
+                <option>Utsch's Marina</option>
+                <option>Golden Nugget Farley State Marina</option>
+                <option>Hoffman's Marina</option>
               </optgroup>
-              <optgroup label="Alabama">
-                <option>Dauphin Island Marina</option>
-                <option>Mobile State Docks</option>
-                <option>Fairhope Municipal Pier</option>
+              <optgroup label="NY Harbor &amp; Long Island Sound">
+                <option>Liberty Landing Marina</option>
+                <option>Bayshore Waterfront Park Marina</option>
+                <option>Manhasset Bay Marina</option>
+                <option>Stamford Landing Marina</option>
+                <option>Safe Harbor Bridgeport</option>
+                <option>Saybrook Point Marina</option>
+                <option>Mystic Shipyard</option>
               </optgroup>
-              <optgroup label="Florida Panhandle">
-                <option>Pensacola Beach Marina</option>
-                <option>Palafox Pier (Pensacola)</option>
-                <option>Fort Walton Beach Marina</option>
-                <option>Destin Harbor Marina</option>
-                <option>Panama City Marina</option>
-                <option>St. Andrews Marina (Panama City)</option>
-                <option>Apalachicola Municipal Marina</option>
+              <optgroup label="Rhode Island to Massachusetts">
+                <option>Newport Yachting Center</option>
+                <option>Point Judith Marina</option>
+                <option>Cuttyhunk Marina / Town Wharf</option>
+                <option>MacDougalls' Cape Cod Marine</option>
+                <option>Plymouth Yacht Basin</option>
+                <option>Constitution Marina</option>
+                <option>Hawthorne Cove Marina</option>
+                <option>Newburyport City Waterfront Docks</option>
               </optgroup>
-              <optgroup label="Florida Gulf Coast">
-                <option>Cedar Key Marina</option>
-                <option>Clearwater Beach Marina</option>
-                <option>Dunedin Marina</option>
-                <option>St. Pete Municipal Marina</option>
-                <option>Tampa — Hooker Point</option>
-                <option>Tampa — Gandy Bridge</option>
-                <option>Sarasota Municipal Marina</option>
-                <option>Venice Yacht Club</option>
-                <option>Charlotte Harbor / Punta Gorda</option>
-                <option>Fort Myers City Yacht Basin</option>
-                <option>Fort Myers Beach Marina</option>
-                <option>Naples City Dock</option>
-                <option>Key West Bight Marina</option>
-              </optgroup>
-              <optgroup label="Florida Space Coast / Atlantic ICW">
-                <option>New Smyrna Beach Marina</option>
-                <option>Titusville Municipal Marina</option>
-                <option>Port Canaveral</option>
-                <option>Cocoa Village Marina</option>
-                <option>Melbourne Harbor Marina</option>
+              <optgroup label="Maine Coastline">
+                <option>Safe Harbor Marinas Fore Points</option>
+                <option>Boothbay Harbor Marina</option>
+                <option>Rockland Public Landing</option>
+                <option>Dysart's Great Harbor Marina</option>
               </optgroup>
             </select>
           </div>
@@ -1070,66 +922,62 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
             <label class="flbl">Destination</label>
             <select id="log-destination" class="fselect">
               <option value="">Select marina…</option>
-              <optgroup label="Texas">
-                <option>Port Isabel Marina</option>
-                <option>South Padre Island Marina</option>
-                <option>Aransas Pass Harbor</option>
-                <option>Rockport Harbor</option>
-                <option>Corpus Christi Marina</option>
-                <option>Port O'Connor Marina</option>
-                <option>Matagorda Bay Marina</option>
-                <option>Freeport Municipal Marina</option>
-                <option>Galveston Yacht Basin</option>
-                <option>Kemah Boardwalk Marina</option>
-                <option>Sabine Pass Marina</option>
+              <optgroup label="Georgia to North Carolina">
+                <option>St. Marys Intracoastal Gateway Marina</option>
+                <option>Jekyll Island Marina</option>
+                <option>Kilkenny Marina</option>
+                <option>Isle of Hope Marina</option>
+                <option>Harbour Town Yacht Basin</option>
+                <option>Safe Harbor Beaufort</option>
+                <option>The Marina at Edisto Beach</option>
+                <option>Charleston City Marina</option>
+                <option>Isle of Palms Marina</option>
+                <option>Georgetown Landing Marina</option>
+                <option>Osprey Marina</option>
+                <option>Barefoot Marina</option>
+                <option>Southport Marina</option>
               </optgroup>
-              <optgroup label="Louisiana">
-                <option>Calcasieu Pass Marina</option>
-                <option>Port Fourchon Marina</option>
-                <option>Grand Isle Marina</option>
-                <option>New Orleans Municipal Marina</option>
-                <option>Slidell Municipal Marina</option>
+              <optgroup label="Mid-Atlantic &amp; Chesapeake">
+                <option>Tidewater Yacht Marina</option>
+                <option>Cape Charles Yacht Center</option>
+                <option>Deltaville Marina</option>
+                <option>Chesapeake Boat Basin</option>
+                <option>Somers Cove Marina</option>
+                <option>Zahniser's Yachting Center</option>
+                <option>Herrington Harbour South</option>
+                <option>Annapolis City Dock</option>
               </optgroup>
-              <optgroup label="Mississippi">
-                <option>Bay Waveland Yacht Club</option>
-                <option>Biloxi Small Craft Harbor</option>
-                <option>Pascagoula River Marina</option>
+              <optgroup label="C&amp;D Canal &amp; New Jersey">
+                <option>Chesapeake Inn &amp; Marina</option>
+                <option>Delaware City Marina</option>
+                <option>Utsch's Marina</option>
+                <option>Golden Nugget Farley State Marina</option>
+                <option>Hoffman's Marina</option>
               </optgroup>
-              <optgroup label="Alabama">
-                <option>Dauphin Island Marina</option>
-                <option>Mobile State Docks</option>
-                <option>Fairhope Municipal Pier</option>
+              <optgroup label="NY Harbor &amp; Long Island Sound">
+                <option>Liberty Landing Marina</option>
+                <option>Bayshore Waterfront Park Marina</option>
+                <option>Manhasset Bay Marina</option>
+                <option>Stamford Landing Marina</option>
+                <option>Safe Harbor Bridgeport</option>
+                <option>Saybrook Point Marina</option>
+                <option>Mystic Shipyard</option>
               </optgroup>
-              <optgroup label="Florida Panhandle">
-                <option>Pensacola Beach Marina</option>
-                <option>Palafox Pier (Pensacola)</option>
-                <option>Fort Walton Beach Marina</option>
-                <option>Destin Harbor Marina</option>
-                <option>Panama City Marina</option>
-                <option>St. Andrews Marina (Panama City)</option>
-                <option>Apalachicola Municipal Marina</option>
+              <optgroup label="Rhode Island to Massachusetts">
+                <option>Newport Yachting Center</option>
+                <option>Point Judith Marina</option>
+                <option>Cuttyhunk Marina / Town Wharf</option>
+                <option>MacDougalls' Cape Cod Marine</option>
+                <option>Plymouth Yacht Basin</option>
+                <option>Constitution Marina</option>
+                <option>Hawthorne Cove Marina</option>
+                <option>Newburyport City Waterfront Docks</option>
               </optgroup>
-              <optgroup label="Florida Gulf Coast">
-                <option>Cedar Key Marina</option>
-                <option>Clearwater Beach Marina</option>
-                <option>Dunedin Marina</option>
-                <option>St. Pete Municipal Marina</option>
-                <option>Tampa — Hooker Point</option>
-                <option>Tampa — Gandy Bridge</option>
-                <option>Sarasota Municipal Marina</option>
-                <option>Venice Yacht Club</option>
-                <option>Charlotte Harbor / Punta Gorda</option>
-                <option>Fort Myers City Yacht Basin</option>
-                <option>Fort Myers Beach Marina</option>
-                <option>Naples City Dock</option>
-                <option>Key West Bight Marina</option>
-              </optgroup>
-              <optgroup label="Florida Space Coast / Atlantic ICW">
-                <option>New Smyrna Beach Marina</option>
-                <option>Titusville Municipal Marina</option>
-                <option>Port Canaveral</option>
-                <option>Cocoa Village Marina</option>
-                <option>Melbourne Harbor Marina</option>
+              <optgroup label="Maine Coastline">
+                <option>Safe Harbor Marinas Fore Points</option>
+                <option>Boothbay Harbor Marina</option>
+                <option>Rockland Public Landing</option>
+                <option>Dysart's Great Harbor Marina</option>
               </optgroup>
             </select>
           </div>
@@ -1304,7 +1152,13 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
           <input id="marina-search-input" type="text" placeholder="Search marinas by name or region" style="flex:1;background:var(--offset);border:1px solid var(--border);border-radius:14px;padding:12px 14px;font-size:14px;color:var(--text);outline:none" oninput="buildMarinaCards()">
         </div>
       </div>
-      <!-- Navigation Advisory removed 2026-07-19 at Russ's request -->
+      <!-- Navigation Advisory —
+           TODO(Atlantic Edition): the Gulf app's advisory content here was
+           real, hand-researched hurricane damage/reopening status (Michael,
+           Helene, Milton, Ian) for specific Gulf Coast marinas. None of that
+           applies to the Atlantic coast, and no equivalent Atlantic advisory
+           data has been sourced yet. Hidden rather than left showing stale
+           Gulf storm content to Atlantic users. -->
       <div id="marina-advisory" style="display:none"></div>
       <div id="bridge-block" style="margin:8px 10px 0"></div>
       <div id="marina-results" style="flex:1;overflow:auto;padding:12px;display:flex;flex-direction:column;gap:12px"></div>
@@ -1321,56 +1175,38 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
     <div class="fg">
       <label class="flbl" for="p-loc">Location / Marina</label>
       <select class="fselect" id="p-loc" onchange="toggleCustomFields()">
-        <optgroup label="Florida — Keys &amp; SW">
-          <option value="key-west">Key West (8724580)</option>
-          <option value="naples">Naples (8725110)</option>
-          <option value="fort-myers">Fort Myers (8725520)</option>
+        <optgroup label="Georgia to North Carolina">
+          <option value="fort-pulaski">Fort Pulaski (8670870)</option>
+          <option value="charleston-cooper-river-entrance">Charleston — Cooper River Entrance (8665530)</option>
+          <option value="wilmington">Wilmington (8658120)</option>
         </optgroup>
-        <optgroup label="Florida — Tampa Bay">
-          <option value="clearwater">Clearwater Beach (8726724)</option>
-          <option value="st-pete">St. Petersburg (8726520)</option>
-          <option value="tampa-hooker">Tampa — Hooker Point (8726667)</option>
-          <option value="tampa-egmont">Tampa — Egmont Key (8726347)</option>
-          <option value="tampa-gandy">Tampa — Gandy Bridge (8726607)</option>
+        <optgroup label="Mid-Atlantic &amp; Chesapeake">
+          <option value="sewells-point-norfolk">Sewells Point — Norfolk (8638610)</option>
+          <option value="annapolis">Annapolis (8575512)</option>
+          <option value="baltimore-fort-mchenry">Baltimore — Fort McHenry (8574680)</option>
         </optgroup>
-        <optgroup label="Florida — Gulf Coast">
-          <option value="cedar-key">Cedar Key (8727520)</option>
-          <option value="apalachicola">Apalachicola (8728690)</option>
+        <optgroup label="C&amp;D Canal &amp; New Jersey">
+          <option value="reedy-point">Reedy Point (8551910)</option>
+          <option value="cape-may">Cape May (8536110)</option>
+          <option value="atlantic-city">Atlantic City (8534720)</option>
         </optgroup>
-        <optgroup label="Florida — Panhandle">
-          <option value="panama-city">Panama City (8729108)</option>
-          <option value="rocky-bayou">Niceville — Rocky Bayou (8729479)</option>
-          <option value="niceville">Niceville — Valparaiso (8729501)</option>
-          <option value="destin">Destin — East Pass (8729511)</option>
-          <option value="pensacola">Pensacola (8729840)</option>
-          <option value="pensacola-beach">Pensacola Beach Pier (8729807)</option>
+        <optgroup label="NY Harbor &amp; Long Island Sound">
+          <option value="the-battery-ny-harbor">The Battery — NY Harbor (8518750)</option>
+          <option value="kings-point">Kings Point (8516945)</option>
+          <option value="bridgeport">Bridgeport (8467150)</option>
+          <option value="new-london">New London (8461490)</option>
         </optgroup>
-        <optgroup label="Alabama">
-          <option value="dauphin-island">Dauphin Island (8735180)</option>
-          <option value="mobile">Mobile State Docks (8737048)</option>
+        <optgroup label="Rhode Island to Massachusetts">
+          <option value="newport">Newport (8452660)</option>
+          <option value="providence">Providence (8454000)</option>
+          <option value="woods-hole">Woods Hole (8447930)</option>
+          <option value="boston">Boston (8443970)</option>
+          <option value="nantucket-island">Nantucket Island (8449130)</option>
         </optgroup>
-        <optgroup label="Mississippi">
-          <option value="pascagoula">Pascagoula (8741533)</option>
-          <option value="biloxi">Biloxi (8744117)</option>
-          <option value="bay-waveland">Bay Waveland (8747437)</option>
-        </optgroup>
-        <optgroup label="Louisiana">
-          <option value="sw-pass">SW Pass — Mississippi River (8760922)</option>
-          <option value="grand-isle">Grand Isle (8761724)</option>
-          <option value="port-fourchon">Port Fourchon (8762075)</option>
-          <option value="new-orleans">New Orleans (8761927)</option>
-          <option value="calcasieu-pass">Calcasieu Pass (8768094)</option>
-        </optgroup>
-        <optgroup label="Texas">
-          <option value="sabine-pass">Sabine Pass (8770570)</option>
-          <option value="port-arthur">Port Arthur (8770475)</option>
-          <option value="galveston">Galveston Pier 21 (8771450)</option>
-          <option value="freeport">Freeport (8772447)</option>
-          <option value="matagorda">Matagorda City (8773146)</option>
-          <option value="rockport">Rockport (8774770)</option>
-          <option value="aransas-pass">Aransas Pass (8775241)</option>
-          <option value="corpus-christi">Corpus Christi (8775870)</option>
-          <option value="port-isabel">Port Isabel (8779770)</option>
+        <optgroup label="Maine Coastline">
+          <option value="portland">Portland (8418150)</option>
+          <option value="bar-harbor">Bar Harbor (8413320)</option>
+          <option value="eastport">Eastport (8410140)</option>
         </optgroup>
         <option value="custom">Custom GPS / NOAA Station</option>
         <option value="current">Current Location (boat at sea)</option>
@@ -1423,54 +1259,38 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 const STORAGE_KEY = "sailwindow.preferences.v1";
 
 const LOCATIONS = {
-  // Florida — Keys & Southwest
-  "key-west":        { name:"Key West, FL",                 sub:"NOAA 8724580", lat:24.5557, lon:-81.8079, stationId:"8724580" },
-  "naples":          { name:"Naples, FL",                   sub:"NOAA 8725110", lat:26.1317, lon:-81.8075, stationId:"8725110" },
-  "fort-myers":      { name:"Fort Myers, FL",               sub:"NOAA 8725520", lat:26.6478, lon:-81.8711, stationId:"8725520" },
-  // Florida — Tampa Bay
-  "clearwater":      { name:"Clearwater Beach, FL",         sub:"NOAA 8726724", lat:27.9783, lon:-82.8317, stationId:"8726724" },
-  "st-pete":         { name:"St. Petersburg, FL",           sub:"NOAA 8726520", lat:27.7606, lon:-82.6269, stationId:"8726520" },
-  "tampa-hooker":    { name:"Tampa — Hooker Point",         sub:"NOAA 8726667", lat:27.9060, lon:-82.4167, stationId:"8726667" },
-  "tampa-egmont":    { name:"Tampa — Egmont Key",           sub:"NOAA 8726347", lat:27.6017, lon:-82.7633, stationId:"8726347" },
-  "tampa-gandy":     { name:"Tampa — Gandy Bridge",         sub:"NOAA 8726607", lat:27.8867, lon:-82.5100, stationId:"8726607" },
-  // Florida — Gulf Coast
-  "cedar-key":       { name:"Cedar Key, FL",                sub:"NOAA 8727520", lat:29.1350, lon:-83.0317, stationId:"8727520" },
-  "apalachicola":    { name:"Apalachicola, FL",             sub:"NOAA 8728690", lat:29.7244, lon:-84.9806, stationId:"8728690" },
-  // Florida — Panhandle
-  "panama-city":     { name:"Panama City, FL",              sub:"NOAA 8729108", lat:30.1497, lon:-85.6644, stationId:"8729108" },
-  "rocky-bayou":     { name:"Niceville — Rocky Bayou",      sub:"NOAA 8729479", lat:30.5070, lon:-86.4470, stationId:"8729479" },
-  "niceville":       { name:"Niceville — Valparaiso",       sub:"NOAA 8729501", lat:30.5030, lon:-86.4930, stationId:"8729501" },
-  "destin":          { name:"Destin — East Pass",           sub:"NOAA 8729511", lat:30.3950, lon:-86.5130, stationId:"8729511" },
-  "pensacola":       { name:"Pensacola, FL",                sub:"NOAA 8729840", lat:30.4033, lon:-87.2117, stationId:"8729840" },
-  "pensacola-beach": { name:"Pensacola Beach Pier",         sub:"NOAA 8729807", lat:30.3317, lon:-87.1550, stationId:"8729807" },
-  // Alabama
-  "dauphin-island":  { name:"Dauphin Island, AL",           sub:"NOAA 8735180", lat:30.2500, lon:-88.0750, stationId:"8735180" },
-  "mobile":          { name:"Mobile State Docks, AL",       sub:"NOAA 8737048", lat:30.7046, lon:-88.0396, stationId:"8737048" },
-  // Mississippi
-  "pascagoula":      { name:"Pascagoula, MS",               sub:"NOAA 8741533", lat:30.3678, lon:-88.5631, stationId:"8741533" },
-  "biloxi":          { name:"Biloxi, MS",                   sub:"NOAA 8744117", lat:30.4117, lon:-88.9033, stationId:"8744117" },
-  "bay-waveland":    { name:"Bay Waveland, MS",             sub:"NOAA 8747437", lat:30.3263, lon:-89.3258, stationId:"8747437" },
-  // Louisiana
-  "sw-pass":         { name:"SW Pass, LA",                  sub:"NOAA 8760922", lat:28.9322, lon:-89.4075, stationId:"8760922" },
-  "grand-isle":      { name:"Grand Isle, LA",               sub:"NOAA 8761724", lat:29.2633, lon:-89.9567, stationId:"8761724" },
-  "port-fourchon":   { name:"Port Fourchon, LA",            sub:"NOAA 8762075", lat:29.1142, lon:-90.1993, stationId:"8762075" },
-  "new-orleans":     { name:"New Orleans, LA",              sub:"NOAA 8761927", lat:30.0272, lon:-90.1133, stationId:"8761927" },
-  "calcasieu-pass":  { name:"Calcasieu Pass, LA",           sub:"NOAA 8768094", lat:29.7682, lon:-93.3429, stationId:"8768094" },
-  // Texas
-  "sabine-pass":     { name:"Sabine Pass, TX",              sub:"NOAA 8770570", lat:29.7284, lon:-93.8701, stationId:"8770570" },
-  "port-arthur":     { name:"Port Arthur, TX",              sub:"NOAA 8770475", lat:29.8667, lon:-93.9300, stationId:"8770475" },
-  "galveston":       { name:"Galveston Pier 21, TX",        sub:"NOAA 8771450", lat:29.3100, lon:-94.7933, stationId:"8771450" },
-  "freeport":        { name:"Freeport, TX",                 sub:"NOAA 8772447", lat:28.9433, lon:-95.3025, stationId:"8772447" },
-  "matagorda":       { name:"Matagorda City, TX",           sub:"NOAA 8773146", lat:28.7100, lon:-95.9139, stationId:"8773146" },
-  "rockport":        { name:"Rockport, TX",                 sub:"NOAA 8774770", lat:28.0217, lon:-97.0467, stationId:"8774770" },
-  "aransas-pass":    { name:"Aransas Pass, TX",             sub:"NOAA 8775241", lat:27.8366, lon:-97.0391, stationId:"8775241" },
-  "corpus-christi":  { name:"Corpus Christi, TX",           sub:"NOAA 8775870", lat:27.5800, lon:-97.2167, stationId:"8775870" },
-  "port-isabel":     { name:"Port Isabel, TX",              sub:"NOAA 8779770", lat:26.0612, lon:-97.2155, stationId:"8779770" }
+  // Georgia to North Carolina
+  "fort-pulaski":    { name:"Fort Pulaski, GA",             sub:"NOAA 8670870", lat:32.034695, lon:-80.90303, stationId:"8670870" },
+  "charleston-cooper-river-entrance": { name:"Charleston (Cooper River Entrance), SC", sub:"NOAA 8665530", lat:32.780834, lon:-79.923615, stationId:"8665530" },
+  "wilmington":      { name:"Wilmington, NC",               sub:"NOAA 8658120", lat:34.2267, lon:-77.9533, stationId:"8658120" },
+  // Mid-Atlantic & Chesapeake
+  "sewells-point-norfolk": { name:"Sewells Point (Norfolk), VA", sub:"NOAA 8638610", lat:36.94278, lon:-76.32861, stationId:"8638610" },
+  "annapolis":       { name:"Annapolis, MD",                sub:"NOAA 8575512", lat:38.983883, lon:-76.480034, stationId:"8575512" },
+  "baltimore-fort-mchenry": { name:"Baltimore (Fort McHenry), MD", sub:"NOAA 8574680", lat:39.266693, lon:-76.57831, stationId:"8574680" },
+  // C&D Canal & New Jersey
+  "reedy-point":     { name:"Reedy Point, DE",              sub:"NOAA 8551910", lat:39.558334, lon:-75.571945, stationId:"8551910" },
+  "cape-may":        { name:"Cape May, NJ",                 sub:"NOAA 8536110", lat:38.9683, lon:-74.96, stationId:"8536110" },
+  "atlantic-city":   { name:"Atlantic City, NJ",             sub:"NOAA 8534720", lat:39.356667, lon:-74.41805, stationId:"8534720" },
+  // NY Harbor & Long Island Sound
+  "the-battery-ny-harbor": { name:"The Battery (NY Harbor), NY", sub:"NOAA 8518750", lat:40.700554, lon:-74.01417, stationId:"8518750" },
+  "kings-point":     { name:"Kings Point, NY",              sub:"NOAA 8516945", lat:40.8103, lon:-73.7649, stationId:"8516945" },
+  "bridgeport":      { name:"Bridgeport, CT",               sub:"NOAA 8467150", lat:41.17582, lon:-73.18397, stationId:"8467150" },
+  "new-london":      { name:"New London, CT",               sub:"NOAA 8461490", lat:41.371666, lon:-72.09556, stationId:"8461490" },
+  // Rhode Island to Massachusetts
+  "newport":         { name:"Newport, RI",                  sub:"NOAA 8452660", lat:41.504333, lon:-71.32614, stationId:"8452660" },
+  "providence":      { name:"Providence, RI",               sub:"NOAA 8454000", lat:41.807167, lon:-71.400665, stationId:"8454000" },
+  "woods-hole":      { name:"Woods Hole, MA",                sub:"NOAA 8447930", lat:41.523613, lon:-70.67111, stationId:"8447930" },
+  "boston":          { name:"Boston, MA",                    sub:"NOAA 8443970", lat:42.35389, lon:-71.05028, stationId:"8443970" },
+  "nantucket-island":{ name:"Nantucket Island, MA",           sub:"NOAA 8449130", lat:41.285, lon:-70.0967, stationId:"8449130" },
+  // Maine Coastline
+  "portland":        { name:"Portland, ME",                  sub:"NOAA 8418150", lat:43.658054, lon:-70.24416, stationId:"8418150" },
+  "bar-harbor":      { name:"Bar Harbor, ME",                 sub:"NOAA 8413320", lat:44.392193, lon:-68.20428, stationId:"8413320" },
+  "eastport":        { name:"Eastport, ME",                   sub:"NOAA 8410140", lat:44.90461, lon:-66.98289, stationId:"8410140" }
 };
 
 let prefs = {
-  locKey:"tampa-hooker", windMin:8, windMax:18, gustMax:22, durationHrs:4, tidePref:"any", theme:null,
-  custom:{ enabled:false, name:"My Marina", lat:27.9060, lon:-82.4167, stationId:"8726667" },
+  locKey:"annapolis", windMin:8, windMax:18, gustMax:22, durationHrs:4, tidePref:"any", theme:null,
+  custom:{ enabled:false, name:"My Marina", lat:38.983883, lon:-76.480034, stationId:"8575512" },
   current:{ enabled:false, name:"Current Location", lat:null, lon:null, stationId:"" }
 };
 
@@ -1645,8 +1465,8 @@ function savePrefs(){
 }
 
 function resetPrefs(){
-  prefs = { locKey:"tampa-hooker", windMin:8, windMax:18, gustMax:22, durationHrs:4, tidePref:"any", theme:null,
-    custom:{ enabled:false, name:"My Marina", lat:27.9060, lon:-82.4167, stationId:"8726667" },
+  prefs = { locKey:"annapolis", windMin:8, windMax:18, gustMax:22, durationHrs:4, tidePref:"any", theme:null,
+    custom:{ enabled:false, name:"My Marina", lat:38.983883, lon:-76.480034, stationId:"8575512" },
     current:{ enabled:false, name:"Current Location", lat:null, lon:null, stationId:"" }
   };
   clearSavedPrefs();
@@ -1788,7 +1608,7 @@ const ASHORE_CACHE_KEY = "sailwindow.ashore.v1";
 // SailWindow marina restaurant database — loaded from marina_data.json
 // Cached in localStorage; only re-fetched when SW_DB_VER changes or cache is missing.
 const SW_DB_CACHE_KEY = "sailwindow.marinadb.v1";
-const SW_DB_VER       = "2026-06-29";   // bump this string whenever marina_data.json is redeployed
+const SW_DB_VER       = "2026-07-19-atlantic-v1";   // bump this string whenever marina_data.json is redeployed
 let SW_MARINA_DB = null;
 (async function loadMarinaDB(){
   // 1. Try localStorage first
@@ -1958,33 +1778,43 @@ async function toggleAshore(btn, lat, lon, marinaFuel){
 // (public-domain federal regs; verified 2026-06-12 via eCFR.
 //  Unlisted drawbridges open on signal per §117.5.)
 // ─────────────────────────────────────────────
+// Atlantic ICW drawbridges, GA → NJ, sourced from Russ's
+// atlantic_icw_drawbridges.xls (2026-07-19). No CFR citation was supplied
+// for these — cfr is left null and the render below hides that line rather
+// than fabricate a legal citation. Three fixed spans (Sunset Beach, Surf
+// City, Wilkerson Pass) are included for clearance reference even though
+// they no longer open.
 const DRAWBRIDGES = [
-  { name:"Boca Grande Swing Bridge",      waterway:"Gulf ICW", mile:"34.3",  lat:26.7945, lon:-82.2840, vhf:"09", cfr:"§117.287(a)", phone:"(941) 697-2271",
-    sched:"Opens on signal. Mon–Fri 7a–6p: hour & half-hour only. Weekends/holidays 7a–6p: every quarter-hour. Tender on duty 24 hrs (GIBA)." },
-  { name:"Venice Avenue Bridge",          waterway:"Gulf ICW", mile:"56.6",  lat:27.0995, lon:-82.4445, vhf:"09", cfr:"§117.287(b)",
-    sched:"Opens on signal. Mon–Fri 7a–4:30p: at :10, :30 & :50 only. Closed 4:35–5:35p." },
-  { name:"Hatchett Creek (US 41) Bridge", waterway:"Gulf ICW", mile:"56.9",  lat:27.1040, lon:-82.4395, vhf:"09", cfr:"§117.287(c)",
-    sched:"Opens on signal. Mon–Fri 7a–4:20p: at :00, :20 & :40; closed 4:25–5:25p. Weekends/holidays 7:30a–6p: every quarter-hour." },
-  { name:"Blackburn Point Swing Bridge",  waterway:"Gulf ICW", mile:"63.1",  lat:27.1799, lon:-82.4945, vhf:"09", cfr:"§117.287(d)",
-    sched:"Opens on signal. Mon–Fri 7a–7p: at :00, :20 & :40 only." },
-  { name:"Stickney Point Bridge",         waterway:"Gulf ICW", mile:"68.6",  lat:27.2723, lon:-82.5490, vhf:"09", cfr:"§117.287(e)",
-    sched:"Opens on signal. Daily 6a–7p: hour & half-hour only." },
-  { name:"Siesta Drive Bridge",           waterway:"Gulf ICW", mile:"71.6",  lat:27.3117, lon:-82.5565, vhf:"09", cfr:"§117.287(f)",
-    sched:"Opens on signal. Daily 6a–7p: hour & half-hour only." },
-  { name:"Cortez (SR 684) Bridge",        waterway:"Gulf ICW", mile:"87.4",  lat:27.4685, lon:-82.6860, vhf:"09", cfr:"§117.287(g)",
-    sched:"Opens on signal. Daily 6a–7p: at :15 & :45 only." },
-  { name:"Anna Maria (SR 64) Bridge",     waterway:"Gulf ICW", mile:"89.2",  lat:27.4995, lon:-82.6920, vhf:"09", cfr:"§117.287(h)",
-    sched:"Opens on signal. Daily 6a–7p: at :15 & :45 only." },
-  { name:"Corey Causeway (SR 693) Bridge",waterway:"Gulf ICW", mile:"117.7", lat:27.7479, lon:-82.7453, vhf:"09", cfr:"§117.287(i)",
-    sched:"Opens on signal. Mon–Fri 8a–7p & weekends/holidays 10a–7p: at :00, :20 & :40 only." },
-  { name:"Treasure Island Causeway Bridge",waterway:"Gulf ICW", mile:"119.0", lat:27.7707, lon:-82.7588, vhf:"09", cfr:"§117.287(j)",
-    sched:"Opens on signal. 7a–7p: Mon–Fri at :00, :20 & :40; weekends/holidays at :15 & :45." },
-  { name:"Welch Causeway (SR 699) Bridge",waterway:"Gulf ICW", mile:"122.8", lat:27.7960, lon:-82.7820, vhf:"09", cfr:"§117.287(k)",
-    sched:"Opens on signal. Daily 7a–7p (except federal holidays): hour & half-hour only." },
-  { name:"Tarpon Dock Bascule Bridge",    waterway:"Massalina Bayou, Panama City", mile:"0.0", lat:30.1545, lon:-85.6525, vhf:"09", cfr:"§117.301",
-    sched:"Opens on signal (except the evening of July 4). Opens anytime for a vessel in distress." },
-  { name:"CSX Railroad Bridge",           waterway:"Blackwater River, Milton", mile:"2.8", lat:30.6300, lon:-87.0395, vhf:null, cfr:"§117.271",
-    sched:"Opens on signal. 8p–4a: requires 8 hours' advance notice." }
+  { name:"Causton Bluff (Johnny Mercer) Bridge", waterway:"Atlantic ICW, GA", mile:"579.9", lat:32.0835, lon:-81.0998, clearance:"9", vhf:"13/16", phone:"(912) 651-2135", cfr:null,
+    sched:"Opens on signal; except Monday–Friday 0630–0900 and 1630–1830 when it remains closed for commuter traffic." },
+  { name:"Lady's Island (Woods Memorial) Bridge", waterway:"Atlantic ICW, SC", mile:"536.0", lat:32.431139, lon:-80.673105, clearance:"30", vhf:"13/16", phone:"(843) 525-7411", cfr:null,
+    sched:"Opens on the hour and half-hour 0600–2400. Mon–Fri 0700–0900 and 1600–1800 opens only on the hour." },
+  { name:"Wappoo Creek Bridge", waterway:"Atlantic ICW, SC", mile:"470.8", lat:32.780834, lon:-79.923615, clearance:"33", vhf:"13/16", phone:"(843) 720-3057", cfr:null,
+    sched:"Opens on the hour and half-hour 0600–1830. Mon–Fri 0700–0900 and 1600–1830 closed except for commercial vessels." },
+  { name:"Little River Swing Bridge", waterway:"Atlantic ICW, SC", mile:"347.3", lat:33.8732, lon:-78.6142, clearance:"7", vhf:"13/16", phone:"(843) 249-1413", cfr:null,
+    sched:"Opens on signal on the hour and half-hour. Bottleneck just south of the NC/SC border." },
+  { name:"Sunset Beach Bridge", waterway:"Atlantic ICW, NC (fixed span)", mile:"337.9", lat:33.8845, lon:-78.5045, clearance:"65 (fixed)", vhf:null, phone:null, cfr:null,
+    sched:"Fixed high-rise bridge (65 ft) — the old swing bridge was replaced; no longer opens or restricts ICW traffic." },
+  { name:"Cape Fear Memorial Bridge", waterway:"Atlantic ICW, NC", mile:null, lat:34.2267, lon:-77.9533, clearance:"65", vhf:"13/16", phone:"(910) 341-7662", cfr:null,
+    sched:"Vertical lift bridge. Opens on signal for commercial/recreational traffic; deep-draft path near Wilmington." },
+  { name:"Wrightsville Beach (Heidi Trask) Bridge", waterway:"Atlantic ICW, NC", mile:"283.1", lat:34.2112, lon:-77.7986, clearance:"20", vhf:"13/16", phone:"(910) 256-2886", cfr:null,
+    sched:"Opens on the hour 0700–1900. On signal at all other times." },
+  { name:"Surf City Bridge", waterway:"Atlantic ICW, NC (fixed span)", mile:"260.7", lat:34.4235, lon:-77.5393, clearance:"65 (fixed)", vhf:null, phone:null, cfr:null,
+    sched:"Fixed high-rise bridge (65 ft) — replaced the old swing bridge; no longer a restriction." },
+  { name:"Onslow Beach Swing Bridge", waterway:"Atlantic ICW, NC", mile:"240.7", lat:34.589, lon:-77.3388, clearance:"12", vhf:"13/16", phone:"(910) 450-7411", cfr:null,
+    sched:"Military controlled (Camp Lejeune). Opens on signal on the hour and half-hour for recreational vessels." },
+  { name:"Alligator River Bridge (US 64)", waterway:"Atlantic ICW, NC", mile:"84.2", lat:35.967, lon:-75.9757, clearance:"14", vhf:"13/16", phone:"(252) 796-5511", cfr:null,
+    sched:"Opens on signal except when winds exceed 34 knots. Highly exposed Albemarle Sound approach." },
+  { name:"Wilkerson Pass Bridge", waterway:"Atlantic ICW, NC (fixed span)", mile:"125.9", lat:35.5392, lon:-76.6207, clearance:"65 (fixed)", vhf:null, phone:null, cfr:null,
+    sched:"Fixed bridge, 65 ft clearance — no opening restriction." },
+  { name:"Great Bridge Lock and Drawbridge", waterway:"Atlantic ICW, VA", mile:"12.0", lat:36.71376, lon:-76.23883, clearance:"8", vhf:"13/16", phone:"(757) 547-3311", cfr:null,
+    sched:"Opens on the hour, 24 hours a day. Coordinates directly with the adjacent Army Corps lock system timings." },
+  { name:"Gilmerton Bridge", waterway:"Atlantic ICW, VA", mile:"5.8", lat:36.7425, lon:-76.3425, clearance:"35", vhf:"13/16", phone:"(757) 485-5567", cfr:null,
+    sched:"Vertical lift. Mon–Fri 0630–0830 and 1530–1730 closed. Opens on signal at all other times." },
+  { name:"Cape May Canal Drawbridge", waterway:"Atlantic ICW, NJ", mile:"117.7 (NJ ICW)", lat:38.9683, lon:-74.96, clearance:"55", vhf:"13/16", phone:"(609) 884-3011", cfr:null,
+    sched:"Vertical lift. Essential connection between Delaware Bay and Cape May Harbor. Opens on signal." },
+  { name:"Route 30 (Absecon) Drawbridge", waterway:"Atlantic ICW, NJ", mile:"68.8 (NJ ICW)", lat:39.356667, lon:-74.41805, clearance:"20", vhf:"13/16", phone:"(609) 347-5500", cfr:null,
+    sched:"Opens on the hour and half-hour. Mon–Fri rush hours 0700–0900 and 1600–1800 restricted." }
 ];
 
 function renderBridges(center){
@@ -2005,8 +1835,8 @@ function renderBridges(center){
       <div id="bridge-list" style="display:none;padding:0 12px 10px;font-size:12px;line-height:1.65">
         ${near.map(b => `
           <div style="padding:7px 0;border-top:1px dashed var(--divider)">
-            <strong>${b.name}</strong> <span style="color:var(--muted)">· ${b.waterway}${b.mile ? ' mi ' + b.mile : ''} · ${Math.round(b.dist)} mi away</span><br>
-            ${b.sched}${b.vhf ? ' · hail VHF ' + b.vhf : ''}${b.phone ? ' · <a href="tel:+1' + String(b.phone).replace(/[^0-9]/g,'') + '" style="color:var(--primary);font-weight:600;text-decoration:none">📞 ' + b.phone + '</a>' : ''} <span style="color:var(--muted)">· 33 CFR ${b.cfr}</span>
+            <strong>${b.name}</strong> <span style="color:var(--muted)">· ${b.waterway}${b.mile ? ' mi ' + b.mile : ''} · ${Math.round(b.dist)} mi away${b.clearance ? ' · clearance ' + b.clearance + 'ft' : ''}</span><br>
+            ${b.sched}${b.vhf ? ' · hail VHF ' + b.vhf : ''}${b.phone ? ' · <a href="tel:+1' + String(b.phone).replace(/[^0-9]/g,'') + '" style="color:var(--primary);font-weight:600;text-decoration:none">📞 ' + b.phone + '</a>' : ''}${b.cfr ? ' <span style="color:var(--muted)">· 33 CFR ' + b.cfr + '</span>' : ''}
           </div>`).join('')}
         <div style="margin-top:6px;font-size:10.5px;color:var(--muted)">Most Florida tenders publish no phone — VHF 09 is the official hail · US public vessels &amp; tugs with tows pass anytime · schedules are federal regulations (33 CFR 117); temporary changes go out via Local Notice to Mariners · always hail before approach</div>
       </div>
@@ -2328,49 +2158,33 @@ window.addEventListener("online",  () => { toast("📶 Back online — refreshin
 // ─────────────────────────────────────────────
 function nearestStationId(lat, lon){
   const stations = [
-    // Florida — Keys & Southwest
-    { id:"8724580", name:"Key West, FL",              lat:24.5557, lon:-81.8079 },
-    { id:"8725110", name:"Naples, FL",                lat:26.1317, lon:-81.8075 },
-    { id:"8725520", name:"Fort Myers, FL",            lat:26.6478, lon:-81.8711 },
-    // Florida — Tampa Bay
-    { id:"8726724", name:"Clearwater Beach, FL",      lat:27.9783, lon:-82.8317 },
-    { id:"8726520", name:"St. Petersburg, FL",        lat:27.7606, lon:-82.6269 },
-    { id:"8726667", name:"Tampa — Hooker Point",      lat:27.9060, lon:-82.4167 },
-    { id:"8726347", name:"Tampa — Egmont Key",        lat:27.6017, lon:-82.7633 },
-    { id:"8726607", name:"Tampa — Gandy Bridge",      lat:27.8867, lon:-82.5100 },
-    // Florida — Gulf Coast
-    { id:"8727520", name:"Cedar Key, FL",             lat:29.1350, lon:-83.0317 },
-    { id:"8728690", name:"Apalachicola, FL",          lat:29.7244, lon:-84.9806 },
-    // Florida — Panhandle
-    { id:"8729108", name:"Panama City, FL",           lat:30.1497, lon:-85.6644 },
-    { id:"8729479", name:"Niceville — Rocky Bayou",   lat:30.5070, lon:-86.4470 },
-    { id:"8729501", name:"Niceville — Valparaiso",    lat:30.5030, lon:-86.4930 },
-    { id:"8729511", name:"Destin — East Pass",        lat:30.3950, lon:-86.5130 },
-    { id:"8729840", name:"Pensacola, FL",             lat:30.4033, lon:-87.2117 },
-    { id:"8729807", name:"Pensacola Beach Pier",      lat:30.3317, lon:-87.1550 },
-    // Alabama
-    { id:"8735180", name:"Dauphin Island, AL",        lat:30.2500, lon:-88.0750 },
-    { id:"8737048", name:"Mobile State Docks, AL",    lat:30.7046, lon:-88.0396 },
-    // Mississippi
-    { id:"8741533", name:"Pascagoula, MS",            lat:30.3678, lon:-88.5631 },
-    { id:"8744117", name:"Biloxi, MS",                lat:30.4117, lon:-88.9033 },
-    { id:"8747437", name:"Bay Waveland, MS",          lat:30.3263, lon:-89.3258 },
-    // Louisiana
-    { id:"8760922", name:"SW Pass, LA",               lat:28.9322, lon:-89.4075 },
-    { id:"8761724", name:"Grand Isle, LA",            lat:29.2633, lon:-89.9567 },
-    { id:"8762075", name:"Port Fourchon, LA",         lat:29.1142, lon:-90.1993 },
-    { id:"8761927", name:"New Orleans, LA",           lat:30.0272, lon:-90.1133 },
-    { id:"8768094", name:"Calcasieu Pass, LA",        lat:29.7682, lon:-93.3429 },
-    // Texas
-    { id:"8770570", name:"Sabine Pass, TX",           lat:29.7284, lon:-93.8701 },
-    { id:"8770475", name:"Port Arthur, TX",           lat:29.8667, lon:-93.9300 },
-    { id:"8771450", name:"Galveston Pier 21, TX",     lat:29.3100, lon:-94.7933 },
-    { id:"8772447", name:"Freeport, TX",              lat:28.9433, lon:-95.3025 },
-    { id:"8773146", name:"Matagorda City, TX",        lat:28.7100, lon:-95.9139 },
-    { id:"8774770", name:"Rockport, TX",              lat:28.0217, lon:-97.0467 },
-    { id:"8775241", name:"Aransas Pass, TX",          lat:27.8366, lon:-97.0391 },
-    { id:"8775870", name:"Corpus Christi, TX",        lat:27.5800, lon:-97.2167 },
-    { id:"8779770", name:"Port Isabel, TX",           lat:26.0612, lon:-97.2155 }
+    // Georgia to North Carolina
+    { id:"8670870", name:"Fort Pulaski, GA",              lat:32.034695, lon:-80.90303 },
+    { id:"8665530", name:"Charleston (Cooper River Entrance), SC", lat:32.780834, lon:-79.923615 },
+    { id:"8658120", name:"Wilmington, NC",                lat:34.2267, lon:-77.9533 },
+    // Mid-Atlantic & Chesapeake
+    { id:"8638610", name:"Sewells Point (Norfolk), VA",   lat:36.94278, lon:-76.32861 },
+    { id:"8575512", name:"Annapolis, MD",                 lat:38.983883, lon:-76.480034 },
+    { id:"8574680", name:"Baltimore (Fort McHenry), MD",  lat:39.266693, lon:-76.57831 },
+    // C&D Canal & New Jersey
+    { id:"8551910", name:"Reedy Point, DE",               lat:39.558334, lon:-75.571945 },
+    { id:"8536110", name:"Cape May, NJ",                  lat:38.9683, lon:-74.96 },
+    { id:"8534720", name:"Atlantic City, NJ",             lat:39.356667, lon:-74.41805 },
+    // NY Harbor & Long Island Sound
+    { id:"8518750", name:"The Battery (NY Harbor), NY",   lat:40.700554, lon:-74.01417 },
+    { id:"8516945", name:"Kings Point, NY",               lat:40.8103, lon:-73.7649 },
+    { id:"8467150", name:"Bridgeport, CT",                lat:41.17582, lon:-73.18397 },
+    { id:"8461490", name:"New London, CT",                lat:41.371666, lon:-72.09556 },
+    // Rhode Island to Massachusetts
+    { id:"8452660", name:"Newport, RI",                   lat:41.504333, lon:-71.32614 },
+    { id:"8454000", name:"Providence, RI",                lat:41.807167, lon:-71.400665 },
+    { id:"8447930", name:"Woods Hole, MA",                lat:41.523613, lon:-70.67111 },
+    { id:"8443970", name:"Boston, MA",                    lat:42.35389, lon:-71.05028 },
+    { id:"8449130", name:"Nantucket Island, MA",           lat:41.285, lon:-70.0967 },
+    // Maine Coastline
+    { id:"8418150", name:"Portland, ME",                  lat:43.658054, lon:-70.24416 },
+    { id:"8413320", name:"Bar Harbor, ME",                lat:44.392193, lon:-68.20428 },
+    { id:"8410140", name:"Eastport, ME",                  lat:44.90461, lon:-66.98289 }
   ];
   let best = stations[0], bestD = Infinity;
   for(const s of stations){ const d=Math.hypot(lat-s.lat,lon-s.lon); if(d<bestD){bestD=d; best=s;} }
@@ -2463,58 +2277,16 @@ var marinaCluster = null;
 var marinaLiveCache = [];
 var marinaLiveAt = 0;
 
-const MARINA_META = {
-  // ── Florida — Keys & Southwest ──────────────────────────────────────────
-  "key-west":        { rating:"4.7", reviews:"", hours:"Open · 24 hours",       area:"Key West Bight, FL",                phone:"",               address:"Key West Harbor, Key West, FL 33040" },
-  "naples":          { rating:"4.5", reviews:"", hours:"Open · 7 AM–7 PM",      area:"Naples Bay, FL",                    phone:"(239) 213-7066", address:"880 12th Ave S, Naples, FL 34102" },
-  "fort-myers":      { rating:"4.4", reviews:"", hours:"Call ahead for transient availability", area:"Fort Myers City Yacht Basin, FL", phone:"(239) 321-7080", address:"1300 Lee St, Fort Myers, FL 33901" },
-  // ── Florida — Tampa Bay (existing + two new) ─────────────────────────────
-  "clearwater":      { rating:"4.4", reviews:"", hours:"Call ahead for transient availability", area:"Clearwater Municipal Marina, FL", phone:"(727) 462-6954", address:"25 Causeway Blvd, Clearwater Beach, FL 33767" },
-  "st-pete":         { rating:"4.6", reviews:"", hours:"Open · 24 hours",       area:"St. Petersburg Municipal Marina",   phone:"(727) 893-7329", address:"300 2nd Ave SE, St. Petersburg, FL 33701" },
-  "tampa-hooker":    { rating:"4.6", reviews:"88",  hours:"Closed · Opens 8 AM Mon", area:"Hooker Point, Tampa, FL",      phone:"(813) 905-5131", address:"1402 S 22nd St, Tampa, FL 33605" },
-  "tampa-egmont":    { rating:"4.4", reviews:"61",  hours:"Open · 24 hours",    area:"Egmont Key, Tampa Bay",             phone:"(813) 864-1500", address:"Egmont Key State Park, Tampa, FL" },
-  "tampa-gandy":     { rating:"4.3", reviews:"49",  hours:"Open · 24 hours",    area:"Gandy Bridge, Tampa",               phone:"(813) 839-5980", address:"4830 W Gandy Blvd, Tampa, FL 33611" },
-  // ── Florida — Gulf Coast ──────────────────────────────────────────────────
-  "cedar-key":       { rating:"4.2", reviews:"", hours:"Call ahead",            area:"Cedar Key Marina, FL",              phone:"(352) 543-5132", address:"Cedar Key Marina, Cedar Key, FL 32625" },
-  "apalachicola":    { rating:"4.3", reviews:"", hours:"Call ahead",            area:"Apalachicola Bay, FL",              phone:"(850) 653-9419", address:"132 Water St, Apalachicola, FL 32320" },
-  // ── Florida — Panhandle ───────────────────────────────────────────────────
-  "panama-city":     { rating:"4.4", reviews:"", hours:"Call ahead for transient availability", area:"St. Andrews Bay, Panama City, FL", phone:"", address:"Panama City Downtown Marina, Panama City, FL 32401" },
-  "pensacola":       { rating:"4.7", reviews:"112", hours:"Closed · Opens 9 AM Sat", area:"Pensacola Harbor, FL",         phone:"(850) 436-5050", address:"600 S Barracks St, Pensacola, FL 32502" },
-  "pensacola-beach": { rating:"4.5", reviews:"76",  hours:"Closed · Opens 7 AM Mon", area:"Pensacola Beach, FL",          phone:"(850) 932-0304", address:"655 Pensacola Beach Blvd, Gulf Breeze, FL 32561" },
-  // ── Alabama ───────────────────────────────────────────────────────────────
-  "dauphin-island":  { rating:"4.3", reviews:"", hours:"Call ahead",            area:"Dauphin Island Marina, AL",         phone:"(251) 861-4501", address:"1527 Bienville Blvd, Dauphin Island, AL 36528" },
-  "mobile":          { rating:"4.4", reviews:"", hours:"Open · 8 AM–5 PM",      area:"Mobile Bay Marina, AL",            phone:"(251) 208-7468", address:"301 Water St, Mobile, AL 36602" },
-  // ── Mississippi ───────────────────────────────────────────────────────────
-  "pascagoula":      { rating:"4.1", reviews:"", hours:"Call ahead",            area:"Pascagoula, MS",                   phone:"",               address:"Pascagoula, MS 39567" },
-  "biloxi":          { rating:"4.2", reviews:"", hours:"Call ahead",            area:"Biloxi Small Craft Harbor, MS",    phone:"(228) 435-6395", address:"135 Back Bay Blvd, Biloxi, MS 39530" },
-  "bay-waveland":    { rating:"4.4", reviews:"", hours:"Call ahead",            area:"Bay St. Louis, MS",                phone:"",               address:"Bay St. Louis, MS 39520" },
-  // ── Louisiana ─────────────────────────────────────────────────────────────
-  "sw-pass":         { rating:"",    reviews:"", hours:"Commercial only",       area:"Mississippi River SW Pass, LA",    phone:"",               address:"Pilottown, LA 70040" },
-  "grand-isle":      { rating:"4.1", reviews:"", hours:"Call ahead",            area:"Grand Isle, LA",                   phone:"(985) 787-2202", address:"Grand Isle, LA 70358" },
-  "port-fourchon":   { rating:"3.9", reviews:"", hours:"Primarily commercial",  area:"Port Fourchon, LA",                phone:"(985) 632-6701", address:"17442 LA-3235, Cut Off, LA 70345" },
-  "new-orleans":     { rating:"4.6", reviews:"", hours:"Open · 24 hours",       area:"Lake Pontchartrain, New Orleans",  phone:"(504) 288-2351", address:"Orleans Marina, New Orleans, LA 70124" },
-  "calcasieu-pass":  { rating:"4.0", reviews:"", hours:"Call ahead",            area:"Lake Charles, LA",                 phone:"",               address:"Calcasieu Pass, LA 70607" },
-  // ── Texas ────────────────────────────────────────────────────────────────
-  "sabine-pass":     { rating:"3.8", reviews:"", hours:"Call ahead",            area:"Sabine Pass, TX",                  phone:"",               address:"Sabine Pass, TX 77655" },
-  "port-arthur":     { rating:"3.9", reviews:"", hours:"Call ahead",            area:"Port Arthur, TX",                  phone:"",               address:"Port Arthur, TX 77640" },
-  "galveston":       { rating:"4.5", reviews:"", hours:"Open · 7 AM–7 PM",      area:"Galveston Harbor, TX",             phone:"(409) 763-3556", address:"2100 Harborside Dr (Pier 21), Galveston, TX 77550" },
-  "freeport":        { rating:"4.0", reviews:"", hours:"Call ahead",            area:"Freeport, TX",                     phone:"",               address:"Freeport, TX 77541" },
-  "matagorda":       { rating:"3.9", reviews:"", hours:"Call ahead",            area:"Matagorda Bay, TX",                phone:"",               address:"Matagorda, TX 77457" },
-  "rockport":        { rating:"4.5", reviews:"", hours:"Open · 8 AM–6 PM",      area:"Rockport–Fulton, TX",              phone:"(361) 729-7525", address:"Municipal Marina, Rockport, TX 78382" },
-  "aransas-pass":    { rating:"4.3", reviews:"", hours:"Open · 7 AM–5 PM",      area:"Aransas Pass, TX",                 phone:"(361) 758-5301", address:"Conn Brown Harbor, Aransas Pass, TX 78336" },
-  "corpus-christi":  { rating:"4.6", reviews:"", hours:"Open · 7 AM–7 PM",      area:"Corpus Christi Bay, TX",           phone:"(361) 826-3980", address:"Lawrence St T-Head, Corpus Christi, TX 78401" },
-  "port-isabel":     { rating:"4.4", reviews:"", hours:"Open · 7 AM–5 PM",      area:"Port Isabel, TX",                  phone:"(956) 943-8030", address:"100 Champion Way, Port Isabel, TX 78578" }
-};
+// TODO(Atlantic Edition): no verified rating/hours/phone data has been sourced
+// for the marina at each Atlantic NOAA station point yet (unlike the Gulf
+// list above). Left empty rather than fabricated — buildMarinaCards() already
+// falls back to {} for any id missing from MARINA_META, so cards just show
+// blank rating/hours/phone until this is populated with real data.
+const MARINA_META = {};
 
-const MARINA_PHOTOS = {
-  "tampa-hooker":    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=60",
-  "tampa-egmont":    "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=400&q=60",
-  "tampa-gandy":     "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=60",
-  "pensacola":       "https://images.unsplash.com/photo-1544551763-cedf7c0a1c5d?auto=format&fit=crop&w=400&q=60",
-  "pensacola-beach": "https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=400&q=60"
-};
+const MARINA_PHOTOS = {};
 
-function marinaPhoto(id){ return MARINA_PHOTOS[id] || MARINA_PHOTOS["tampa-hooker"]; }
+function marinaPhoto(id){ return MARINA_PHOTOS[id] || "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=60"; }
 
 function distMiles(lat1, lon1, lat2, lon2){
   const R=3958.8, toRad=d=>d*Math.PI/180, dLat=toRad(lat2-lat1), dLon=toRad(lon2-lon1);
@@ -2652,7 +2424,7 @@ async function buildMarinaCards(){
     const phoneHref = m.meta?.phone ? String(m.meta.phone).replace(/[^0-9+]/g,'') : '';
     const mapsQuery = encodeURIComponent(m.meta?.address || m.name);
     div.innerHTML = `
-      <img class="marina-thumb" src="${marinaPhoto(isLive ? 'tampa-hooker' : m.id)}" alt="${m.name}" loading="lazy">
+      <img class="marina-thumb" src="${marinaPhoto(isLive ? null : m.id)}" alt="${m.name}" loading="lazy">
       <div class="marina-main">
         <div class="marina-title">${m.name}${m.meta?.warn ? ' <span style="font-size:11px;font-weight:700;color:var(--warn);background:var(--warn-hl);padding:1px 6px;border-radius:99px;vertical-align:middle">⚠ Advisory</span>' : ''}</div>
         <div class="marina-meta">
@@ -2954,11 +2726,17 @@ function closeHelp(){
 const TRIAL_DAYS     = 7;
 const TRIAL_KEY      = "sailwindow.trial.start";
 const SUB_KEY        = "sailwindow.subscription";
-const FREE_KEYS      = new Set(["tampa-hooker","tampa-egmont","tampa-gandy","pensacola","pensacola-beach"]);
-// TODO: replace with your live Stripe Payment Links
+// TODO(Atlantic Edition): placeholder free-tier picks (Annapolis + Newport,
+// two flagship sailing hubs) mirroring the Gulf app's Tampa+Pensacola choice.
+// This is a product decision — confirm or change before launch.
+const FREE_KEYS      = new Set(["annapolis","newport"]);
+// TODO: these currently point at the GULF EDITION's Stripe Payment Links, copied
+// during the fork — an Atlantic subscriber would pay into the wrong product.
+// Create separate Atlantic Monthly/Annual Payment Links in Stripe before launch.
 const STRIPE_MONTHLY    = "https://buy.stripe.com/28EeV73mk86kaUuc6Q7Re00";
 const STRIPE_ANNUAL     = "https://buy.stripe.com/4gM8wJf521HW8MmeeY7Re01";
-// TODO: create this Payment Link in Stripe — $10/mo bundle covering both Gulf + Atlantic editions
+// TODO: create this Payment Link in Stripe — $10/mo bundle covering both Gulf + Atlantic editions.
+// Use the SAME link value here as in the Gulf edition's dist/index.html — it's one shared product.
 const STRIPE_BUNDLE      = "#";
 const FEEDBACK_EMAIL    = "feedback@sailwindow.com";
 const MARINA_CACHE_KEY  = "sailwindow.marina.v1";
@@ -3041,7 +2819,7 @@ function openSubscribeModal(mode){
   document.getElementById("sub-headline").textContent = isRestore
     ? "Restore your SailWindow subscription"
     : isUpgrade
-      ? "Upgrade for full Gulf Coast access"
+      ? "Upgrade for full Atlantic Coast access"
       : "Your 7-day free trial has ended";
   document.getElementById("sub-free-option").style.display = isRestore ? "none" : "block";
   document.getElementById("sub-dismiss").style.display    = (isUpgrade || isRestore) ? "block" : "none";
@@ -3077,7 +2855,7 @@ function handleStripeCheckout(){
   window.open(url, "_blank", "noopener");
   document.getElementById("sub-activate").style.display = "block";
   document.getElementById("sub-activate-note").textContent = _selectedPlan === "bundle"
-    ? "Checkout opened in a new tab. Once your payment is complete, come back and tap below — then visit atlantic.sailwindow.com and tap \"Already a subscriber? Restore access\" to activate there too (each edition is a separate site, so it needs to be unlocked once on each)."
+    ? "Checkout opened in a new tab. Once your payment is complete, come back and tap below — then visit sailwindow.com (the Gulf edition) and tap \"Already a subscriber? Restore access\" to activate there too (each edition is a separate site, so it needs to be unlocked once on each)."
     : "Checkout opened in a new tab. Once your payment is complete, come back and tap below.";
 }
 
@@ -3087,9 +2865,9 @@ function activateSubscription(){
   updateTrialBanner();
   updateLockState();
   if(_selectedPlan === "bundle"){
-    toast("✦ Subscription active — all 32 stations unlocked. Visit atlantic.sailwindow.com and activate there too.");
+    toast("✦ Subscription active — all 21 stations unlocked. Visit sailwindow.com and activate there too.");
   } else {
-    toast("✦ Subscription active — all 32 stations unlocked");
+    toast("✦ Subscription active — all 21 stations unlocked");
   }
   loadAll();
 }
@@ -3097,13 +2875,13 @@ function activateSubscription(){
 function chooseFreeMode(){
   closeSubscribeModal();
   if(isLocked(prefs.locKey)){
-    prefs.locKey = "tampa-hooker";
+    prefs.locKey = "annapolis";
     savePrefsToStorage();
     syncPrefsUI();
     loadAll();
   }
   updateLockState();
-  toast("Free access: Tampa Bay & Pensacola stations");
+  toast("Free access: Annapolis & Newport stations");
 }
 
 function updateLockState(){
@@ -3147,19 +2925,19 @@ document.addEventListener("DOMContentLoaded", () => {
     <div style="text-align:center">
       <svg width="40" height="40" viewBox="0 0 32 32" fill="none" style="margin:0 auto var(--sp2)"><circle cx="16" cy="16" r="16" fill="var(--primary)" opacity=".12"/><line x1="16" y1="22" x2="16" y2="8" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"/><path d="M16 8 L24 21 L16 22 Z" fill="var(--primary)" opacity=".85"/><path d="M16 12 L10 21 L16 22 Z" fill="var(--primary)" opacity=".4"/><path d="M7 25.5 Q10 23.5 13 25.5 Q16 27.5 19 25.5 Q22 23.5 25 25.5" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".6"/></svg>
       <div style="font-size:var(--lg);font-weight:700;letter-spacing:-.01em">Sail<span style="color:var(--primary)">Window</span> <span style="font-weight:300;opacity:.45">Pro</span></div>
-      <div id="sub-headline" style="font-size:var(--sm);color:var(--muted);margin-top:var(--sp2)">Full Gulf Coast coverage — all 35 stations</div>
+      <div id="sub-headline" style="font-size:var(--sm);color:var(--muted);margin-top:var(--sp2)">Full Atlantic Coast coverage — all 21 stations</div>
     </div>
 
     <div class="sub-divider"></div>
 
     <!-- Feature list -->
     <div style="display:flex;flex-direction:column;gap:var(--sp2)">
-      <div class="sub-feature"><span class="sub-check">✓</span><span>All 35 Gulf Coast stations — Texas to the Florida Keys</span></div>
+      <div class="sub-feature"><span class="sub-check">✓</span><span>All 21 Atlantic Coast stations — Georgia to Maine</span></div>
       <div class="sub-feature"><span class="sub-check">✓</span><span>7-Day sailing forecast with daily sailability scoring</span></div>
       <div class="sub-feature"><span class="sub-check">✓</span><span>Live marina map with 30-mile proximity search</span></div>
       <div class="sub-feature"><span class="sub-check">✓</span><span>NOAA tide predictions + best sailing window finder</span></div>
       <div class="sub-feature"><span class="sub-check">✓</span><span>Cruiser's Log — share trip notes with the community</span></div>
-      <div class="sub-feature"><span class="sub-check">✓</span><span>ICW Bridge Schedules — 34 Florida drawbridges with CFR times</span></div>
+      <div class="sub-feature"><span class="sub-check">✓</span><span>ICW Bridge Schedules — 15 drawbridges, GA to NJ</span></div>
       <div class="sub-feature"><span class="sub-check">✓</span><span>Referral credits — earn free months by sharing</span></div>
     </div>
 
@@ -3196,7 +2974,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     <!-- Free tier fallback -->
     <div id="sub-free-option" style="text-align:center;display:none">
-      <button onclick="chooseFreeMode()" style="font-size:var(--xs);color:var(--muted);background:none;border:none;cursor:pointer;text-decoration:underline;padding:var(--sp2)">Continue free — Tampa Bay &amp; Pensacola only</button>
+      <button onclick="chooseFreeMode()" style="font-size:var(--xs);color:var(--muted);background:none;border:none;cursor:pointer;text-decoration:underline;padding:var(--sp2)">Continue free — Annapolis &amp; Newport only</button>
     </div>
 
     <!-- Dismiss (only when upgrading mid-trial) -->
