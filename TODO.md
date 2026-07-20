@@ -1,5 +1,5 @@
 # SailWindow — TODO
-_Last updated: 2026-07-20_
+_Last updated: 2026-07-20 — Atlantic Edition fully launched: shared-engine refactor, SEO pages, waitlist backend, and Cloudflare deployment all live and committed._
 
 ## Great Lakes & Mississippi — Stripe pricing (done), app content (not started)
 - [x] **4 new Stripe products + 6 Payment Links created (2026-07-20).** Pricing infrastructure only — no app files exist yet for either edition. Created live in Stripe Dashboard (account: Rj & HRS Marketing LLC, `acct_1TfTvK80XXRgQXiK`):
@@ -47,4 +47,4 @@ _Last updated: 2026-07-20_
 - [x] **Google Drive "SailWindow BU" location resolved (2026-07-20).** It's under russjamieson@gmail.com (the 5TB personal Drive), not sailwindow.com, and not the account synced to this Mac's local `Google Drive` folder — that's why it wasn't found there on 2026-07-19. Backing it up now goes through Claude's Google Drive connector directly (folder ID `1_JT5-Z5WhT5uI_KBFio4NHkJo4Gv-cML`), bypassing the local Mac mount entirely.
 - [ ] GitHub push was blocked by TWO separate stale lock files this session (`index.lock`, then `HEAD.lock`) left behind by an interrupted git process. Confirm the push actually landed after clearing both — check with `git log -1` and `git status`.
 - [x] **Found and cleared a third stale `.git/index.lock` (2026-07-20).** Left over from an earlier interrupted git operation; moved to `_to_delete/` in the repo (safe to delete that folder). Would have blocked any `git add`/`commit`/`push` Russ tried to run until cleared.
-- [ ] **All of this session's work (refactor, Atlantic content, waitlist backend, marina_data.json restore) is still uncommitted locally.** Russ still needs to run `git add` / `git commit` / `git push` from his own Terminal — see the commit instructions given in chat.
+- [x] **All of this session's work committed and pushed (2026-07-20).** Commit `3728506` — "Shared engine refactor, Atlantic SEO pages + sitemap, waitlist backend, marina_data.json restore" (39 files changed). Pushed to `main` on GitHub (`048a262..3728506`). Confirmed clean: `git status` shows only two harmless untracked leftovers (`_to_delete/` — a stale lock file, safe to delete — and `atlantic_marina_data.populated.json`, a raw byproduct already merged into `marina_data.json`).
