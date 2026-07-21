@@ -7,7 +7,12 @@
 //   node scripts/grandfather.js subscribers.json
 //
 // subscribers.json is an array of:
-//   [{ "email": "captain@boat.com", "customerId": "cus_ABC123", "plan": "month" }, ...]
+//   [{ "email": "captain@boat.com", "customerId": "cus_ABC123", "plan": "month",
+//      "editions": ["gulf"] }, ...]
+//
+// "editions" defaults to ["gulf"] if omitted, since every subscriber grandfathered
+// before Atlantic's launch only ever paid for the Gulf edition. Set it explicitly
+// (e.g. ["gulf","atlantic"]) for anyone who should unlock more than one.
 //
 // customerId should be the real Stripe customer ID (found in the Stripe
 // dashboard under Customers) so future webhook events for that customer merge
@@ -37,12 +42,14 @@ async function main() {
       console.warn("Skipping entry with no email:", entry);
       continue;
     }
+    const editions = Array.isArray(entry.editions) && entry.editions.length ? entry.editions : ["gulf"];
     await subscribers.doc(customerId).set(
       {
         stripeCustomerId: customerId,
         email,
         status: "active",
         plan: entry.plan || null,
+        editions,
         currentPeriodEnd: null,
         grandfathered: true,
         updatedAt: Firestore.FieldValue.serverTimestamp(),

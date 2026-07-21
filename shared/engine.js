@@ -37,6 +37,7 @@ const SW_DB_CACHE_KEY   = "sailwindow.marinadb.v1";
 const TRIAL_DAYS        = 7;
 const TRIAL_KEY         = "sailwindow.trial.start";
 const SUB_KEY           = "sailwindow.subscription";
+const EMAIL_KEY         = "sailwindow.customerEmail";
 const FEEDBACK_EMAIL    = "feedback@sailwindow.com";
 const MARINA_CACHE_KEY  = "sailwindow.marina.v1";
 const MARINA_CACHE_TTL  = 24 * 60 * 60 * 1000; // 24 hours
@@ -46,6 +47,9 @@ const FREE_KEYS      = new Set(EDITION_CONFIG.freeKeys);
 const STRIPE_MONTHLY = EDITION_CONFIG.stripeMonthly;
 const STRIPE_ANNUAL  = EDITION_CONFIG.stripeAnnual;
 const STRIPE_BUNDLE  = EDITION_CONFIG.stripeBundle;
+// "#" until subscription-service is deployed and its Cloud Run URL is pasted
+// into each edition's config.*.js (see subscription-service/DEPLOY.md).
+const BACKEND_URL    = EDITION_CONFIG.backendUrl;
 
 function storageAvailable(){
   try{ const k="__sw_test__"; localStorage.setItem(k,"1"); localStorage.removeItem(k); return true; }
@@ -1517,6 +1521,7 @@ function _heroInitApp(){
   updateTrialBanner();
   checkTrialGate();
   loadAll();
+  refreshSubscriptionStatus(); // fire-and-forget; re-locks the app if a subscription lapsed elsewhere
 }
 
 function heroStartTrial(){
@@ -1672,6 +1677,11 @@ function openSubscribeModal(mode){
   document.getElementById("sub-dismiss").style.display    = (isUpgrade || isRestore) ? "block" : "none";
   document.getElementById("sub-activate").style.display   = isRestore ? "block" : "none";
   document.getElementById("subscribe-overlay").style.display = "flex";
+  const emailInput = document.getElementById("sub-email");
+  if(isRestore && emailInput){
+    emailInput.value = (storageAvailable() && localStorage.getItem(EMAIL_KEY)) || "";
+    setTimeout(() => emailInput.focus(), 50);
+  }
 }
 
 function handleStripeCheckout(){
@@ -1699,6 +1709,72 @@ function activateSubscription(){
     toast("✦ Subscription active — all " + EDITION_CONFIG.stationCount + " stations unlocked");
   }
   loadAll();
+}
+
+// Real entitlement check, used by the "I've paid — Activate" button once an
+// email is required. Falls back to the old honor-system activateSubscription()
+// while BACKEND_URL is still unset (subscription-service not deployed yet) so
+// checkout isn't blocked mid-launch — see subscription-service/DEPLOY.md.
+async function verifyAndActivate(email){
+  if(!BACKEND_URL || BACKEND_URL === "#"){ activateSubscription(); return; }
+  email = String(email || "").trim().toLowerCase();
+  if(!email){ toast("Enter the email you used at checkout"); return; }
+
+  const btn = document.getElementById("sub-activate-btn");
+  const originalLabel = btn ? btn.textContent : null;
+  if(btn){ btn.disabled = true; btn.textContent = "Checking…"; }
+
+  try{
+    const res = await fetch(BACKEND_URL + "/subscription-status?email=" + encodeURIComponent(email));
+    if(!res.ok) throw new Error("bad response " + res.status);
+    const data = await res.json();
+    const active = data.status === "active" || data.status === "trialing";
+    const entitled = active && Array.isArray(data.editions) && data.editions.includes(EDITION_CONFIG.edition);
+
+    if(entitled){
+      if(storageAvailable()){
+        localStorage.setItem(SUB_KEY, "active");
+        localStorage.setItem(EMAIL_KEY, email);
+      }
+      closeSubscribeModal();
+      updateTrialBanner();
+      updateLockState();
+      toast("✦ Subscription verified — all " + EDITION_CONFIG.stationCount + " stations unlocked");
+      loadAll();
+    } else if(active){
+      toast("That subscription doesn't include " + EDITION_CONFIG.regionLabel + " yet — choose a plan below to add it.");
+    } else {
+      toast("No active subscription found for that email. Check the address you used at checkout, or contact " + FEEDBACK_EMAIL + ".");
+    }
+  }catch(e){
+    console.warn("subscription-status check failed", e);
+    toast("Couldn't reach the subscription server — try again in a minute.");
+  }finally{
+    if(btn){ btn.disabled = false; btn.textContent = originalLabel; }
+  }
+}
+
+// Best-effort, non-blocking re-check on every load: if a previously-verified
+// subscriber's plan lapsed or changed elsewhere, this brings the local lock
+// state back in sync. No-op until BACKEND_URL is deployed or no email has
+// been verified here before (nothing to silently re-check).
+async function refreshSubscriptionStatus(){
+  if(!storageAvailable()) return;
+  if(!BACKEND_URL || BACKEND_URL === "#") return;
+  const email = localStorage.getItem(EMAIL_KEY);
+  if(!email) return;
+  try{
+    const res = await fetch(BACKEND_URL + "/subscription-status?email=" + encodeURIComponent(email));
+    if(!res.ok) return;
+    const data = await res.json();
+    const active = data.status === "active" || data.status === "trialing";
+    const entitled = active && Array.isArray(data.editions) && data.editions.includes(EDITION_CONFIG.edition);
+    localStorage.setItem(SUB_KEY, entitled ? "active" : "inactive");
+    updateTrialBanner();
+    updateLockState();
+  }catch(e){
+    // Offline or backend unreachable — keep whatever was last verified locally.
+  }
 }
 
 async function buildMarinaCards(){

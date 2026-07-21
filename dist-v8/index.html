@@ -1437,6 +1437,8 @@ const EDITION_CONFIG = {
   stripeMonthly: "https://buy.stripe.com/28EeV73mk86kaUuc6Q7Re00",
   stripeAnnual:  "https://buy.stripe.com/4gM8wJf521HW8MmeeY7Re01",
   stripeBundle:  "https://buy.stripe.com/28E14he0Yaes0fQ3Ak7Re04",
+  // "#" until subscription-service is deployed (see subscription-service/DEPLOY.md)
+  backendUrl: "#",
 
   regionLabel: "Gulf Coast",             // used in "Upgrade for full ___ access"
   stationCount: 32,                      // used in the "all N stations unlocked" toast
@@ -1868,6 +1870,7 @@ document.addEventListener("DOMContentLoaded", () => {
   updateTrialBanner();
   checkTrialGate();
   loadAll();
+  refreshSubscriptionStatus(); // fire-and-forget; re-locks the app if a subscription lapsed elsewhere
 });
 </script>
 
@@ -1923,7 +1926,8 @@ document.addEventListener("DOMContentLoaded", () => {
     <!-- Post-checkout activation (revealed after checkout opens) -->
     <div id="sub-activate" style="display:none;text-align:center;margin-top:var(--sp3)">
       <p id="sub-activate-note" style="font-size:var(--xs);color:var(--muted);margin-bottom:var(--sp2)">Checkout opened in a new tab. Once your payment is complete, come back and tap below.</p>
-      <button class="save-btn" style="background:var(--success)" onclick="activateSubscription()">I've paid — Activate ✓</button>
+      <input id="sub-email" type="email" class="finput" placeholder="Email used at checkout" style="margin-bottom:var(--sp2)">
+      <button id="sub-activate-btn" class="save-btn" style="background:var(--success)" onclick="verifyAndActivate(document.getElementById('sub-email').value)">I've paid — Activate ✓</button>
     </div>
 
     <!-- Free tier fallback -->

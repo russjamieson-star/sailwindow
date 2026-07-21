@@ -5,9 +5,11 @@ const { Firestore } = require("@google-cloud/firestore");
 const PORT = process.env.PORT || 8080;
 const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
 const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET;
-const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || "https://sailwindow.com,https://www.sailwindow.com")
-  .split(",")
-  .map(s => s.trim());
+// Matches sailwindow.com and any subdomain (atlantic., greatlakes., mississippi., ...)
+// over https, so a new edition subdomain never needs a redeploy of this allowlist.
+const ALLOWED_ORIGIN_PATTERN = process.env.ALLOWED_ORIGIN_PATTERN
+  ? new RegExp(process.env.ALLOWED_ORIGIN_PATTERN)
+  : /^https:\/\/([a-z0-9-]+\.)*sailwindow\.com$/;
 
 if (!STRIPE_SECRET_KEY) throw new Error("Missing STRIPE_SECRET_KEY env var");
 if (!STRIPE_WEBHOOK_SECRET) throw new Error("Missing STRIPE_WEBHOOK_SECRET env var");
@@ -20,8 +22,19 @@ const app = express();
 
 function withCors(req, res) {
   const origin = req.headers.origin;
-  if (ALLOWED_ORIGINS.includes(origin)) res.set("Access-Control-Allow-Origin", origin);
+  if (origin && ALLOWED_ORIGIN_PATTERN.test(origin)) res.set("Access-Control-Allow-Origin", origin);
   res.set("Vary", "Origin");
+}
+
+// Which edition(s) a subscription unlocks is read from the Stripe Price's own
+// metadata (key "editions", comma-separated, e.g. "gulf" or "gulf,atlantic")
+// rather than hardcoded here — so adding/rewiring an edition or bundle is a
+// Stripe Dashboard edit, not a code deploy. See DEPLOY.md for the one-time
+// step of tagging each existing Price.
+function editionsFromSubscription(subscription) {
+  const price = subscription.items?.data?.[0]?.price;
+  const raw = price?.metadata?.editions || "";
+  return raw.split(",").map(s => s.trim()).filter(Boolean);
 }
 
 app.get("/", (req, res) => res.status(200).send("ok"));
@@ -40,6 +53,7 @@ app.get("/subscription-status", async (req, res) => {
   return res.json({
     status: sub.status,
     plan: sub.plan || null,
+    editions: sub.editions || [],
     currentPeriodEnd: sub.currentPeriodEnd || null,
   });
 });
@@ -82,6 +96,7 @@ async function handleStripeEvent(event) {
         email,
         status: subscription.status,
         plan: planFromSubscription(subscription),
+        editions: editionsFromSubscription(subscription),
         currentPeriodEnd: subscription.current_period_end,
       });
       break;
@@ -93,6 +108,7 @@ async function handleStripeEvent(event) {
       await upsertSubscriber(invoice.customer, {
         status: subscription.status,
         plan: planFromSubscription(subscription),
+        editions: editionsFromSubscription(subscription),
         currentPeriodEnd: subscription.current_period_end,
       });
       break;
@@ -100,9 +116,13 @@ async function handleStripeEvent(event) {
     case "customer.subscription.updated":
     case "customer.subscription.deleted": {
       const subscription = event.data.object;
+      // On cancellation this still records which editions the (now-inactive)
+      // plan covered; the client gates on `status`, not on editions being
+      // empty, so a lapsed subscriber correctly loses access either way.
       await upsertSubscriber(subscription.customer, {
         status: subscription.status,
         plan: planFromSubscription(subscription),
+        editions: editionsFromSubscription(subscription),
         currentPeriodEnd: subscription.current_period_end,
       });
       break;

@@ -11,6 +11,8 @@ const EDITION_CONFIG = {
   stripeMonthly: "https://buy.stripe.com/28EeV73mk86kaUuc6Q7Re00",
   stripeAnnual:  "https://buy.stripe.com/4gM8wJf521HW8MmeeY7Re01",
   stripeBundle:  "https://buy.stripe.com/28E14he0Yaes0fQ3Ak7Re04",
+  // "#" until subscription-service is deployed (see subscription-service/DEPLOY.md)
+  backendUrl: "#",
 
   regionLabel: "Gulf Coast",             // used in "Upgrade for full ___ access"
   stationCount: 32,                      // used in the "all N stations unlocked" toast
