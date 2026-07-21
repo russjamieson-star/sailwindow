@@ -1406,7 +1406,7 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 // ─────────────────────────────────────────────────────────────────
 const EDITION_CONFIG = {
   edition: "atlantic",
-  dbVersion: "2026-07-19-atlantic-v1",   // bump whenever marina_data.json is redeployed
+  dbVersion: "2026-07-21-atlantic-v2",   // bump whenever marina_data.json is redeployed
   freeKeys: ["annapolis","newport"],     // placeholder, unconfirmed by Russ — see TODO.md
   stripeMonthly: "https://buy.stripe.com/28E8wJbSQ5Yce6G2wg7Re02",
   stripeAnnual:  "https://buy.stripe.com/00wdR36ywfyM0fQ5Is7Re03",
@@ -1748,12 +1748,36 @@ var marinaCluster = null;
 var marinaLiveCache = [];
 var marinaLiveAt = 0;
 
-// TODO(Atlantic Edition): no verified rating/hours/phone data has been sourced
-// for the marina at each Atlantic NOAA station point yet (unlike the Gulf
-// list above). Left empty rather than fabricated — buildMarinaCards() already
-// falls back to {} for any id missing from MARINA_META, so cards just show
-// blank rating/hours/phone until this is populated with real data.
-const MARINA_META = {};
+// Sourced from Atlantic Marinas/atlantic_marinas_geocoded.csv (2026-07-19 geocoding pass),
+// plus a follow-up web research pass (2026-07-21) for the 5 stations that CSV didn't cover
+// (baltimore-fort-mchenry, wilmington, providence, nantucket-island, eastport) — addresses
+// and phone numbers below are cross-checked against 2+ independent sources (official marina
+// site, Waterway Guide, marinas.com, or municipal .gov page) each. None of those 5 had a
+// verifiable numeric star rating from those sources, so `rating` is left blank rather than
+// guessed — buildMarinaCards() already handles a missing rating gracefully.
+const MARINA_META = {
+  "fort-pulaski":                    { rating:"4.8", reviews:"", hours:"", area:"Savannah, GA",         phone:"(912) 354-8187", address:"50 W Bluff Drive, Savannah, GA 31406" },
+  "baltimore-fort-mchenry":          { rating:"",    reviews:"", hours:"", area:"Baltimore, MD",         phone:"(410) 837-5339", address:"400 Key Highway, Baltimore, MD 21230" },
+  "wilmington":                      { rating:"",    reviews:"", hours:"", area:"Wilmington, NC",        phone:"(910) 341-7852", address:"Downtown Riverwalk, N Water St, Wilmington, NC 28401" },
+  "providence":                      { rating:"",    reviews:"", hours:"", area:"Providence, RI",        phone:"(401) 369-7547", address:"17 Bridge St, Providence, RI 02903" },
+  "nantucket-island":                { rating:"",    reviews:"", hours:"", area:"Nantucket, MA",         phone:"(508) 325-1350", address:"1 Swains Wharf, Nantucket, MA 02554" },
+  "eastport":                        { rating:"",    reviews:"", hours:"", area:"Eastport, ME",          phone:"(207) 853-4614", address:"1 Breakwater Road, Eastport, ME 04631" },
+  "charleston-cooper-river-entrance":{ rating:"4.8", reviews:"", hours:"", area:"Charleston, SC",        phone:"(843) 723-5098", address:"17 Lockwood Dr, Charleston, SC 29401" },
+  "sewells-point-norfolk":           { rating:"4.8", reviews:"", hours:"", area:"Portsmouth, VA",         phone:"(757) 393-2525", address:"10 Crawford Pkwy, Portsmouth, VA 23704" },
+  "annapolis":                       { rating:"4.7", reviews:"", hours:"", area:"Annapolis, MD",          phone:"(410) 263-7973", address:"1 Dock St, Annapolis, MD 21401" },
+  "reedy-point":                     { rating:"4.7", reviews:"", hours:"", area:"Delaware City, DE",      phone:"(302) 834-4531", address:"302 Canal St, Delaware City, DE 19706" },
+  "cape-may":                        { rating:"4.8", reviews:"", hours:"", area:"Cape May, NJ",           phone:"(609) 884-2051", address:"1121 NJ-109, Cape May, NJ 08204" },
+  "atlantic-city":                   { rating:"4.5", reviews:"", hours:"", area:"Atlantic City, NJ",      phone:"(609) 441-8450", address:"600 Huron Ave, Atlantic City, NJ 08401" },
+  "the-battery-ny-harbor":           { rating:"4.8", reviews:"", hours:"", area:"Jersey City, NJ",        phone:"(201) 985-8000", address:"80 Audrey Zapp Dr, Jersey City, NJ 07305" },
+  "kings-point":                     { rating:"4.6", reviews:"", hours:"", area:"Port Washington, NY",    phone:"(516) 883-8411", address:"10 Matinecock Ave, Port Washington, NY 11050" },
+  "bridgeport":                      { rating:"4.6", reviews:"", hours:"", area:"Bridgeport, CT",         phone:"(203) 330-8600", address:"10 E Main St, Bridgeport, CT 06608" },
+  "new-london":                      { rating:"4.8", reviews:"", hours:"", area:"Mystic, CT",             phone:"(860) 536-6588", address:"100 Essex St, Mystic, CT 06355" },
+  "newport":                         { rating:"4.8", reviews:"", hours:"", area:"Newport, RI",            phone:"(401) 846-1600", address:"4 Commercial Wharf, Newport, RI 02840" },
+  "woods-hole":                      { rating:"4.9", reviews:"", hours:"", area:"Falmouth, MA",           phone:"(508) 548-3146", address:"30 Water St, Falmouth, MA 02540" },
+  "boston":                          { rating:"4.8", reviews:"", hours:"", area:"Boston, MA",             phone:"(617) 241-9640", address:"28 Constitution Rd, Boston, MA 02129" },
+  "portland":                        { rating:"4.9", reviews:"", hours:"", area:"Portland, ME",           phone:"(207) 517-4860", address:"58 Fore St, Portland, ME 04101" },
+  "bar-harbor":                      { rating:"4.8", reviews:"", hours:"", area:"Southwest Harbor, ME",   phone:"(207) 244-5522", address:"11 Main St, Southwest Harbor, ME 04679" }
+};
 
 const MARINA_PHOTOS = {};
 
