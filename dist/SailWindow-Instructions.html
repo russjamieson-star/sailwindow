@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SailWindow — User Guide & Documentation</title>
-<meta name="description" content="Learn how to use SailWindow: sailability scoring, wind forecasts, tide predictions, marina mapping, fuel & food ashore, drawbridge schedules, and live Gulf Coast sailing conditions.">
-<meta property="og:title" content="SailWindow — User Guide">
-<meta property="og:description" content="Complete guide to SailWindow's sailing conditions dashboard and features.">
+<title>Ask Captain Jim — User Guide & Documentation</title>
+<meta name="description" content="Learn how to use Ask Captain Jim: sailability scoring, wind forecasts, tide predictions, marina mapping, fuel & food ashore, drawbridge schedules, and live Gulf Coast sailing conditions.">
+<meta property="og:title" content="Ask Captain Jim — User Guide">
+<meta property="og:description" content="Complete guide to Ask Captain Jim's sailing conditions dashboard and features.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sailwindow.com/SailWindow-Instructions">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -152,7 +152,7 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
       <path d="M16 12 L10 21 L16 22 Z" fill="var(--primary)" opacity=".4"/>
       <path d="M7 25.5 Q10 23.5 13 25.5 Q16 27.5 19 25.5 Q22 23.5 25 25.5" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".6"/>
     </svg>
-    <span class="logo-word">Sail<span>Window</span> <span style="font-weight:300;opacity:.5">V6</span></span>
+    <span class="logo-word">Ask Captain <span>Jim</span> <span style="font-weight:300;opacity:.5">V6</span></span>
   </a>
   <div class="top-actions">
     <button class="icon-btn" id="theme-btn" aria-label="Toggle theme" onclick="toggleTheme()">
@@ -169,7 +169,7 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
 
   <div class="hero">
     <div class="hero-label">User Guide</div>
-    <h1>SailWindow V6 · Gulf Coast Edition</h1>
+    <h1>Ask Captain Jim V6 · Gulf Coast Edition</h1>
     <p class="hero-sub">A live sailing conditions dashboard covering the entire Gulf Coast — from the Texas border to the Florida Keys — with real-time wind forecasts, tide predictions, a 7-day outlook, marina mapping, fuel &amp; food ashore, drawbridge opening schedules, and a Navigation Advisory for hurricane-affected facilities.</p>
   </div>
 
@@ -199,7 +199,7 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
   <section class="section" id="s1">
     <div class="section-num">01</div>
     <h2>Overview</h2>
-    <p>SailWindow is a single-page web app that runs entirely in your browser — no app store, no install. Each time you open it or tap <strong>Refresh Live Data</strong>, it fetches two live data sources:</p>
+    <p>Ask Captain Jim is a single-page web app that runs entirely in your browser — no app store, no install. Each time you open it or tap <strong>Refresh Live Data</strong>, it fetches two live data sources:</p>
     <ul>
       <li><strong>NWS (National Weather Service)</strong> — hourly wind speed, gust speed, wind direction, and precipitation probability for the next 24 hours, from <code>api.weather.gov</code>.</li>
       <li><strong>NOAA Tides &amp; Currents</strong> — hourly tide height predictions and high/low tide events for today at your chosen station, from <code>api.tidesandcurrents.noaa.gov</code>.</li>
@@ -244,7 +244,7 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
   <section class="section" id="s3">
     <div class="section-num">03</div>
     <h2>Best Sailing Window</h2>
-    <p>SailWindow scans every daylight departure time (7 AM – 6 PM) in the next 24 hours of forecast that fits your <strong>Trip Duration</strong> preference, scores each block, and surfaces the best one. The departure and return times shown are the start and end of that block — if you check in the evening, the best window may fall tomorrow morning.</p>
+    <p>Ask Captain Jim scans every daylight departure time (7 AM – 6 PM) in the next 24 hours of forecast that fits your <strong>Trip Duration</strong> preference, scores each block, and surfaces the best one. The departure and return times shown are the start and end of that block — if you check in the evening, the best window may fall tomorrow morning.</p>
     <p>The window is also highlighted as a <strong>green shaded band</strong> on both the Wind and Tide charts so you can see at a glance how conditions look across the day.</p>
     <div class="tip"><span class="tip-icon">ℹ</span><div>If the best window still scores below 5, the badge shows "Marginal" or "No-Go" — this means no truly good block exists today, but the app still shows you the least-bad option.</div></div>
   </section>
@@ -375,7 +375,7 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
       <li>Pick a different marina or GPS location for the day and your Home Dock stays saved — jump back to it anytime with one tap.</li>
       <li>To update it later (e.g. you move slips), tap <strong>Update Home Dock</strong> in the same dialog while standing at the new spot.</li>
     </ul>
-    <div class="tip"><span class="tip-icon">ℹ</span><div><strong>Private to your device.</strong> Your Home Dock is saved only in your own browser's local storage — SailWindow has no accounts or servers, so it's never visible to other sailors, never shared, and never leaves your phone or computer.</div></div>
+    <div class="tip"><span class="tip-icon">ℹ</span><div><strong>Private to your device.</strong> Your Home Dock is saved only in your own browser's local storage — Ask Captain Jim has no accounts or servers, so it's never visible to other sailors, never shared, and never leaves your phone or computer.</div></div>
 
     <h3>All 35 Gulf Coast Stations</h3>
     <table class="score-table">
@@ -467,7 +467,7 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
     <div class="tip"><span class="tip-icon">ℹ</span><div>Ashore data comes from OpenStreetMap and is cached for 24 hours per marina. Distances are straight-line — verify before you tie up.</div></div>
 
     <h3>Featured Partner Listings</h3>
-    <p>Some Ashore panels include a <strong>★ featured listing</strong> from a local dock-and-dine partner with an offer for SailWindow crews. Real partner offers say exactly how to redeem (show the screen or say the code word). Listings marked <em>"Example listing"</em> show how the spot works — that space is open.</p>
+    <p>Some Ashore panels include a <strong>★ featured listing</strong> from a local dock-and-dine partner with an offer for Ask Captain Jim crews. Real partner offers say exactly how to redeem (show the screen or say the code word). Listings marked <em>"Example listing"</em> show how the spot works — that space is open.</p>
     <div class="tip"><span class="tip-icon">ℹ</span><div>Run a waterfront restaurant? The featured spot near your dock is available — email <strong>marketing@sailwindow.com</strong>.</div></div>
 
     <h3>Drawbridges Nearby</h3>
@@ -540,10 +540,10 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
       <div class="mini-card">
         <div class="icon">💬</div>
         <div class="label">App feedback</div>
-        <p style="font-size:.8rem;color:var(--muted);margin-top:.4rem">Feature requests, bugs, or general comments about SailWindow.</p>
+        <p style="font-size:.8rem;color:var(--muted);margin-top:.4rem">Feature requests, bugs, or general comments about Ask Captain Jim.</p>
       </div>
     </div>
-    <p>Select a category, fill in the marina name and details, and tap <strong>Send Report →</strong>. Your email app opens with the report pre-filled and addressed to the SailWindow team. An optional email field lets us follow up if we need to verify the report.</p>
+    <p>Select a category, fill in the marina name and details, and tap <strong>Send Report →</strong>. Your email app opens with the report pre-filled and addressed to the Ask Captain Jim team. An optional email field lets us follow up if we need to verify the report.</p>
   </section>
 
   <!-- ─── 14. Subscription & Trial ─── -->
@@ -553,10 +553,10 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
     <div class="new-box"><span class="new-icon">✦</span><div>New in V5.</div></div>
 
     <h3>7-Day Free Trial</h3>
-    <p>When you first open SailWindow, a <strong>7-day free trial</strong> begins automatically — no credit card required. A countdown banner at the top of the screen shows how many days remain. You have full access to all 60 Gulf &amp; Atlantic Coast stations during the trial.</p>
+    <p>When you first open Ask Captain Jim, a <strong>7-day free trial</strong> begins automatically — no credit card required. A countdown banner at the top of the screen shows how many days remain. You have full access to all 60 Gulf &amp; Atlantic Coast stations during the trial.</p>
 
     <h3>Free Tier (after trial)</h3>
-    <p>After the trial ends, SailWindow remains free with access to <strong>5 Tampa Bay &amp; Pensacola stations</strong>:</p>
+    <p>After the trial ends, Ask Captain Jim remains free with access to <strong>5 Tampa Bay &amp; Pensacola stations</strong>:</p>
     <ul>
       <li>Tampa — Hooker Point</li>
       <li>Tampa — Egmont Key</li>
@@ -567,7 +567,7 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
     <p>Locked stations are marked with 🔒 in the location dropdown and on marina cards. The 7-Day forecast, Custom Location, and GPS location also require an active trial or subscription.</p>
 
     <h3>Paid Subscription</h3>
-    <p>A subscription unlocks all 60 Gulf &amp; Atlantic Coast stations plus every future expansion. Plans are <strong>$5.99/month</strong> or <strong>$49/year</strong> (save 32%). Tap <strong>Upgrade →</strong> in the trial banner or select a plan in the subscribe screen — checkout opens in a new tab via Stripe. When your payment is complete, return to SailWindow and tap <strong>I've paid — Activate ✓</strong> to unlock everything.</p>
+    <p>A subscription unlocks all 60 Gulf &amp; Atlantic Coast stations plus every future expansion. Plans are <strong>$5.99/month</strong> or <strong>$49/year</strong> (save 32%). Tap <strong>Upgrade →</strong> in the trial banner or select a plan in the subscribe screen — checkout opens in a new tab via Stripe. When your payment is complete, return to Ask Captain Jim and tap <strong>I've paid — Activate ✓</strong> to unlock everything.</p>
 
     <div class="tip"><span class="tip-icon">ℹ</span><div>Subscriptions are managed through Stripe. To cancel or update your billing, use the Customer Portal linked in your confirmation email.</div></div>
   </section>
@@ -669,7 +669,7 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
     <p style="margin-bottom:.75rem">Data provided by <strong>NWS api.weather.gov</strong>, <strong>NOAA Tides &amp; Currents</strong>, and <strong>ECMWF via Open-Meteo</strong>. For use as a planning aid only — always check official forecasts before sailing.</p>
     <a href="SailWindow-V5.html" class="back-link">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-      Back to SailWindow
+      Back to Ask Captain Jim
     </a>
   </div>
 

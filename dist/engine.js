@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────────────────
-// SailWindow shared engine — scoring, tide/weather fetch, marina cards,
+// Ask Captain Jim shared engine — scoring, tide/weather fetch, marina cards,
 // subscribe modal, trial/entitlement system, Stripe checkout.
 //
 // Extracted 2026-07-20 from dist/index.html (Gulf), after a full function-
@@ -1221,8 +1221,8 @@ function submitFeedback(e){
   const email   = document.getElementById('fb-email').value.trim();
   if(!details){ toast("Please add some details before sending."); return; }
   const labels  = { back:"Marina Back Online", closed:"Marina Closed/Damaged", info:"Wrong Info", app:"App Feedback" };
-  const subject = encodeURIComponent(`[SailWindow] ${labels[_fbCat]}${marina ? ' — '+marina : ''}`);
-  const body    = encodeURIComponent(`Type: ${labels[_fbCat]}\n${marina?'Marina: '+marina+'\n':''}Details: ${details}\n${email?'Contact: '+email+'\n':''}\n— Sent from SailWindow`);
+  const subject = encodeURIComponent(`[Ask Captain Jim] ${labels[_fbCat]}${marina ? ' — '+marina : ''}`);
+  const body    = encodeURIComponent(`Type: ${labels[_fbCat]}\n${marina?'Marina: '+marina+'\n':''}Details: ${details}\n${email?'Contact: '+email+'\n':''}\n— Sent from Ask Captain Jim`);
   window.open(`mailto:${FEEDBACK_EMAIL}?subject=${subject}&body=${body}`, '_blank');
   document.getElementById('feedback-form').style.display = 'none';
   document.getElementById('fb-confirm').style.display = '';
@@ -1584,7 +1584,7 @@ async function toggleAshore(btn, lat, lon, marinaFuel){
   else if(fuelRoad.length)  html += `<div>⛽ Nearest fuel is a road station: ${escHtml(fuelRoad[0].name || 'unnamed')} · ${fmtAshoreDist(fuelRoad[0].dist)}</div>`;
   else                      html += `<div>⛽ No fuel mapped nearby — call ahead.</div>`;
 
-  // ── Restaurants from SailWindow Google database ──
+  // ── Restaurants from Ask Captain Jim Google database ──
   const swData = getSwRestaurants(lat, lon);
 
   // Partner restaurants (agreed discount) — featured at top
@@ -1613,7 +1613,7 @@ async function toggleAshore(btn, lat, lon, marinaFuel){
     }).join('');
     if(swData.restaurants.length > 8) html += `<div style="font-size:11px;color:var(--muted);padding-top:4px">+ ${swData.restaurants.length - 8} more nearby</div>`;
     if(!swData.partners.length){
-      html += `<div style="margin-top:6px;font-size:10.5px;color:var(--muted)">Restaurant owner? List your discount for SailWindow crews: <a href="mailto:marketing@sailwindow.com" style="color:var(--primary)">marketing@sailwindow.com</a></div>`;
+      html += `<div style="margin-top:6px;font-size:10.5px;color:var(--muted)">Restaurant owner? List your discount for Ask Captain Jim crews: <a href="mailto:marketing@sailwindow.com" style="color:var(--primary)">marketing@sailwindow.com</a></div>`;
     }
   } else {
     // Fall back to OpenStreetMap food if our DB has nothing for this area
@@ -1669,7 +1669,7 @@ function openSubscribeModal(mode){
   const isUpgrade = mode === "upgrade";
   const isRestore = mode === "restore";
   document.getElementById("sub-headline").textContent = isRestore
-    ? "Restore your SailWindow subscription"
+    ? "Restore your Ask Captain Jim subscription"
     : isUpgrade
       ? "Upgrade for full " + EDITION_CONFIG.regionLabel + " access"
       : "Your 7-day free trial has ended";
