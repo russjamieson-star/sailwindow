@@ -87,7 +87,7 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 .reasons{display:flex;flex-wrap:wrap;gap:var(--sp2)}.rtag{font-size:var(--xs);color:var(--muted);background:var(--dynamic);padding:var(--sp1) var(--sp3);border-radius:var(--r-full);border:1px solid var(--divider)}
 .sec-title{font-size:var(--xs);font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:var(--sp3)}
 .gonogo{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp3)}.gocell{background:var(--surface);border-radius:var(--r-xl);padding:var(--sp4);border:1px solid oklch(from var(--text) l c h/.07);box-shadow:var(--sh-sm)}
-.cell-icon{font-size:1.25rem;margin-bottom:var(--sp2)}.cell-lbl{font-size:var(--xs);color:var(--muted);margin-bottom:var(--sp1)}.cell-val{font-size:var(--sm);font-weight:600;font-variant-numeric:tabular-nums lining-nums}
+.cell-icon{width:30px;height:30px;border-radius:var(--r-full);display:flex;align-items:center;justify-content:center;margin-bottom:var(--sp2)}.cell-icon svg{width:58%;height:58%}.cell-icon.ci-primary{background:var(--primary-hl);color:var(--primary)}.cell-icon.ci-warn{background:var(--warn-hl);color:var(--warn)}.cell-icon.ci-error{background:var(--error-hl);color:var(--error)}.cell-lbl{font-size:var(--xs);color:var(--muted);margin-bottom:var(--sp1)}.cell-val{font-size:var(--sm);font-weight:600;font-variant-numeric:tabular-nums lining-nums}
 .cstatus{display:inline-flex;align-items:center;gap:4px;font-size:var(--xs);font-weight:600;padding:2px var(--sp2);border-radius:var(--r-full);margin-top:var(--sp2)}
 .s-ideal{background:var(--success-hl);color:var(--success)}.s-moderate{background:var(--gold-hl);color:var(--gold)}.s-fav{background:var(--primary-hl);color:var(--primary)}.s-low{background:var(--success-hl);color:var(--success)}.s-high{background:var(--error-hl);color:var(--error)}.s-neutral{background:var(--dynamic);color:var(--muted)}
 .chart-card{background:var(--surface);border-radius:var(--r-xl);border:1px solid oklch(from var(--text) l c h/.06);box-shadow:var(--sh-sm);overflow:hidden}
@@ -263,55 +263,59 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 .bridge-toggle{font-size:10px;color:var(--primary);font-weight:600;margin-top:var(--sp2)}
 .bridge-waterway-badge{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--primary);background:var(--primary-hl);padding:2px 7px;border-radius:var(--r-full);white-space:nowrap}
 
-/* ─── Hero Overlay (Light — ICW Passage Planner) ───────────────────────── */
-#sw-hero-overlay{position:fixed;inset:0;z-index:600;overflow-y:auto;display:none;font-family:'Segoe UI',Roboto,system-ui,-apple-system,sans-serif;color:#1a2e3b}
-#sw-hero-overlay #sailwindow-hero{background:linear-gradient(135deg,#f0f7fc 0%,#d4e9ff 100%);padding:3rem 2rem 2rem;min-height:100vh}
+/* ─── Hero Overlay (theme-aware — ICW Passage Planner) ───────────────────────── */
+#sw-hero-overlay{position:fixed;inset:0;z-index:600;overflow-y:auto;display:none;font-family:'Segoe UI',Roboto,system-ui,-apple-system,sans-serif;color:var(--text);background:var(--bg)}
+#sw-hero-overlay #sailwindow-hero{background:linear-gradient(135deg,var(--bg) 0%,var(--offset) 55%,var(--primary-hl) 100%);padding:3rem 2rem 2rem;min-height:100vh}
 #sw-hero-overlay .hero-container{max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:2.5rem}
 #sw-hero-overlay .hero-left{flex:1 1 45%;min-width:280px}
-#sw-hero-overlay .hero-badge{display:inline-block;background:#005a8c;color:white;padding:.3rem 1.2rem;border-radius:30px;font-size:.8rem;font-weight:600;letter-spacing:.5px;margin-bottom:1.2rem}
-#sw-hero-overlay .live-tag{background:#2e7d32;padding:.1rem .6rem;border-radius:30px;font-size:.65rem;margin-left:.5rem}
-#sw-hero-overlay .hero-title{font-size:clamp(2.5rem,6vw,4rem);font-weight:700;line-height:1.1;margin-bottom:1.2rem;color:#0a1e2b}
-#sw-hero-overlay .hero-title span{color:#0077be;border-bottom:4px solid #ffb74d}
-#sw-hero-overlay .hero-sub{font-size:1.2rem;line-height:1.6;color:#2c4a5e;margin-bottom:1.8rem;max-width:550px}
-#sw-hero-overlay .hw-feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem 1.5rem;margin-bottom:1.5rem}
-#sw-hero-overlay .hw-feature-item{display:flex;align-items:center;gap:.6rem;font-size:.95rem;color:#1a3b4f}
-#sw-hero-overlay .hw-feature-item i{width:20px;font-size:1rem;text-align:center}
+#sw-hero-overlay .hero-brand{display:flex;align-items:center;gap:.9rem;margin-bottom:1.3rem}
+#sw-hero-overlay .hero-logo-img{width:68px;height:68px;border-radius:50%;object-fit:cover;border:2px solid var(--divider);flex-shrink:0}
+#sw-hero-overlay .hero-wordmark{font-size:1.4rem;font-weight:800;letter-spacing:-.02em;color:var(--text)}
+#sw-hero-overlay .hero-wordmark span{color:var(--primary)}
+#sw-hero-overlay .hero-badge{display:inline-block;background:var(--primary);color:var(--inverse);padding:.3rem 1.2rem;border-radius:30px;font-size:.8rem;font-weight:600;letter-spacing:.5px;margin-bottom:1.2rem}
+#sw-hero-overlay .live-tag{background:var(--success);color:var(--inverse);padding:.1rem .6rem;border-radius:30px;font-size:.65rem;margin-left:.5rem}
+#sw-hero-overlay .hero-title{font-size:clamp(2.5rem,6vw,4rem);font-weight:700;line-height:1.1;margin-bottom:1.2rem;color:var(--text)}
+#sw-hero-overlay .hero-title span{color:var(--primary);border-bottom:4px solid var(--gold)}
+#sw-hero-overlay .hero-sub{font-size:1.2rem;line-height:1.6;color:var(--muted);margin-bottom:1.8rem;max-width:550px}
+#sw-hero-overlay .hw-feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem 1.5rem;margin-bottom:1.5rem}
+#sw-hero-overlay .hw-feature-item{display:flex;align-items:center;gap:.6rem;font-size:.95rem;color:var(--text)}
+#sw-hero-overlay .hwi{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:var(--r-full)}
+#sw-hero-overlay .hwi svg{width:58%;height:58%}
+#sw-hero-overlay .hwi-sm{width:28px;height:28px}
+#sw-hero-overlay .hwi-lg{width:42px;height:42px;border-radius:var(--r-lg);margin-bottom:.4rem}
+#sw-hero-overlay .hwi.c-primary{background:var(--primary-hl);color:var(--primary)}
+#sw-hero-overlay .hwi.c-warn{background:var(--warn-hl);color:var(--warn)}
+#sw-hero-overlay .hwi.c-gold{background:var(--gold-hl);color:var(--gold)}
 #sw-hero-overlay .hero-ctas{display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.5rem;max-width:420px}
-#sw-hero-overlay .btn-hero-primary{display:block;background:#0a1e2b;color:white;padding:1rem 2rem;border-radius:60px;font-weight:700;font-size:1.05rem;text-align:center;box-shadow:0 8px 25px rgba(10,30,43,.35);transition:all .2s ease;border:none;cursor:pointer;width:100%;font-family:inherit}
-#sw-hero-overlay .btn-hero-primary:hover{background:#005a8c;transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,119,190,.45)}
-#sw-hero-overlay .btn-hero-outline{display:block;background:transparent;color:#0077be;padding:.85rem 2rem;border-radius:60px;border:2px solid #0077be;font-weight:600;font-size:1rem;text-align:center;transition:all .2s;cursor:pointer;width:100%;font-family:inherit}
-#sw-hero-overlay .btn-hero-outline:hover{background:#0077be;color:white}
-#sw-hero-overlay .btn-hero-restore{background:none;border:none;color:#5a7a8a;font-size:.85rem;cursor:pointer;text-decoration:underline;font-family:inherit;padding:.25rem 0;width:100%;text-align:center}
-#sw-hero-overlay .hw-trust-badges{display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:1.8rem;padding-top:1.5rem;border-top:2px solid rgba(0,119,190,.15)}
-#sw-hero-overlay .hw-trust-badge{display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:#2c4a5e}
-#sw-hero-overlay .hw-trust-badge i{color:#0077be}
-#sw-hero-overlay .hw-founder-story{margin-top:1.2rem;padding:.8rem 1.2rem;background:rgba(255,215,0,.08);border-radius:16px;border-left:4px solid #ffb74d;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
-#sw-hero-overlay .hw-founder-avatar{width:44px;height:44px;border-radius:50%;background:#005a8c;color:white;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
-#sw-hero-overlay .hw-founder-text{font-size:.9rem;color:#1a3b4f}
-#sw-hero-overlay .hw-verified{background:#2e7d32;color:white;padding:.15rem .8rem;border-radius:30px;font-size:.65rem;font-weight:600;margin-left:auto;white-space:nowrap}
+#sw-hero-overlay .btn-hero-primary{display:block;background:var(--primary);color:var(--inverse);padding:1rem 2rem;border-radius:60px;font-weight:700;font-size:1.05rem;text-align:center;box-shadow:var(--sh-lg);transition:all .2s ease;border:none;cursor:pointer;width:100%;font-family:inherit}
+#sw-hero-overlay .btn-hero-primary:hover{background:var(--primary-h);transform:translateY(-3px)}
+#sw-hero-overlay .btn-hero-outline{display:block;background:transparent;color:var(--primary);padding:.85rem 2rem;border-radius:60px;border:2px solid var(--primary);font-weight:600;font-size:1rem;text-align:center;transition:all .2s;cursor:pointer;width:100%;font-family:inherit}
+#sw-hero-overlay .btn-hero-outline:hover{background:var(--primary);color:var(--inverse)}
+#sw-hero-overlay .btn-hero-restore{background:none;border:none;color:var(--muted);font-size:.85rem;cursor:pointer;text-decoration:underline;font-family:inherit;padding:.25rem 0;width:100%;text-align:center}
+#sw-hero-overlay .hw-trust-badges{display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:1.8rem;padding-top:1.5rem;border-top:2px solid var(--divider)}
+#sw-hero-overlay .hw-trust-badge{display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:var(--muted)}
+#sw-hero-overlay .hw-trust-badge i{color:var(--primary)}
 #sw-hero-overlay .hero-right{flex:1 1 45%;min-width:280px;display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-#sw-hero-overlay .hw-card{background:rgba(255,255,255,.7);backdrop-filter:blur(8px);border-radius:20px;padding:1.2rem 1rem;border:1px solid rgba(255,255,255,.6);box-shadow:0 8px 25px rgba(0,40,60,.08);transition:transform .2s ease,box-shadow .2s ease}
-#sw-hero-overlay .hw-card:hover{transform:translateY(-4px);box-shadow:0 12px 35px rgba(0,40,60,.15)}
-#sw-hero-overlay .hw-card-icon{font-size:1.6rem;margin-bottom:.3rem}
-#sw-hero-overlay .hw-card-title{font-weight:700;font-size:1rem;color:#0a1e2b}
-#sw-hero-overlay .hw-card-desc{font-size:.8rem;color:#5a7a8a;line-height:1.4}
-#sw-hero-overlay .hw-card-tag{margin-top:.5rem;font-size:.65rem;text-transform:uppercase;letter-spacing:.5px;font-weight:600;color:#0077be;background:#e3f0fa;padding:.15rem .7rem;border-radius:30px;display:inline-block}
-#sw-hero-overlay .hw-card.hw-bridge-card{background:rgba(230,126,34,.06);border-color:rgba(230,126,34,.2)}
-#sw-hero-overlay .hw-card.hw-bridge-card .hw-card-tag{background:#fdebd0;color:#e67e22}
-#sw-hero-overlay .hw-card.hw-log-card{background:rgba(255,183,77,.08);border-color:rgba(255,183,77,.2)}
-#sw-hero-overlay .hw-card.hw-log-card .hw-card-tag{background:#fdebd0;color:#d4a017}
-#sw-hero-overlay .hw-pricing-bar{grid-column:1/-1;margin-top:.3rem;padding-top:1rem;border-top:2px dashed rgba(0,119,190,.15);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
-#sw-hero-overlay .hw-price-big{font-weight:700;font-size:1.4rem;color:#0077be}
-#sw-hero-overlay .hw-price-big span{font-size:.9rem;font-weight:400;color:#5a7a8a}
-#sw-hero-overlay .hw-trial-tag{background:#2e7d32;color:white;padding:.1rem .6rem;border-radius:30px;font-size:.65rem;margin-left:.5rem}
+#sw-hero-overlay .hw-card{background:var(--surface);border-radius:20px;padding:1.2rem 1rem;border:1px solid var(--divider);box-shadow:var(--sh-sm);transition:transform .2s ease,box-shadow .2s ease}
+#sw-hero-overlay .hw-card:hover{transform:translateY(-4px);box-shadow:var(--sh-md)}
+#sw-hero-overlay .hw-card-title{font-weight:700;font-size:1rem;color:var(--text)}
+#sw-hero-overlay .hw-card-desc{font-size:.8rem;color:var(--muted);line-height:1.4}
+#sw-hero-overlay .hw-card-tag{margin-top:.5rem;font-size:.65rem;text-transform:uppercase;letter-spacing:.5px;font-weight:600;color:var(--primary);background:var(--primary-hl);padding:.15rem .7rem;border-radius:30px;display:inline-block}
+#sw-hero-overlay .hw-card.hw-bridge-card{background:var(--warn-hl);border-color:var(--warn)}
+#sw-hero-overlay .hw-card.hw-bridge-card .hw-card-tag{background:var(--surface);color:var(--warn)}
+#sw-hero-overlay .hw-card.hw-log-card{background:var(--gold-hl);border-color:var(--gold)}
+#sw-hero-overlay .hw-card.hw-log-card .hw-card-tag{background:var(--surface);color:var(--gold)}
+#sw-hero-overlay .hw-pricing-bar{grid-column:1/-1;margin-top:.3rem;padding-top:1rem;border-top:2px dashed var(--divider);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+#sw-hero-overlay .hw-price-big{font-weight:700;font-size:1.4rem;color:var(--primary)}
+#sw-hero-overlay .hw-price-big span{font-size:.9rem;font-weight:400;color:var(--muted)}
+#sw-hero-overlay .hw-trial-tag{background:var(--success);color:var(--inverse);padding:.1rem .6rem;border-radius:30px;font-size:.65rem;margin-left:.5rem}
 @media(max-width:900px){
   #sw-hero-overlay .hero-container{flex-direction:column;text-align:center}
+  #sw-hero-overlay .hero-brand{justify-content:center}
   #sw-hero-overlay .hero-sub{margin-left:auto;margin-right:auto}
   #sw-hero-overlay .hw-feature-grid{max-width:400px;margin-left:auto;margin-right:auto}
   #sw-hero-overlay .hw-feature-item{justify-content:center}
   #sw-hero-overlay .hw-trust-badges{justify-content:center}
-  #sw-hero-overlay .hw-founder-story{justify-content:center;text-align:center}
-  #sw-hero-overlay .hw-verified{margin-left:0}
   #sw-hero-overlay .hero-right{width:100%}
   #sw-hero-overlay .hero-ctas{margin-left:auto;margin-right:auto}
   #sw-hero-overlay .hw-pricing-bar{flex-direction:column;text-align:center}
@@ -358,7 +362,7 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
                 <i class="fas fa-check-circle"></i> Live Now
             </span>
             <div>
-                <strong style="font-size: 1.1rem;">Sailwindow: Atlantic Edition</strong>
+                <strong style="font-size: 1.1rem;">Ask Captain Jim: Atlantic Edition</strong>
                 <span style="opacity: 0.8; font-size: 0.9rem; margin-left: 0.5rem;">
                     — Georgia to Maine
                 </span>
@@ -386,6 +390,10 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 
     <!-- LEFT COLUMN -->
     <div class="hero-left">
+      <div class="hero-brand">
+        <img class="hero-logo-img" src="captain-jim-logo.png" alt="Captain Jim" onerror="this.style.display='none'">
+        <span class="hero-wordmark">Ask <span>Captain Jim</span></span>
+      </div>
       <div class="hero-badge">
         <i class="fas fa-satellite-dish"></i> NOAA + ECMWF &middot; FL Gulf &amp; Atlantic Coasts
         <span class="live-tag">&#x25CF; LIVE</span>
@@ -400,16 +408,16 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
         all in one app for the Gulf Intracoastal Waterway.
       </p>
       <div class="hw-feature-grid">
-        <div class="hw-feature-item"><i class="fas fa-water" style="color:#0077be;"></i><span><strong>Window</strong> Go/No-Go</span></div>
-        <div class="hw-feature-item"><i class="fas fa-bridge" style="color:#e67e22;"></i><span><strong>48 Bridges</strong> VHF &middot; Clearance</span></div>
-        <div class="hw-feature-item"><i class="fas fa-anchor" style="color:#0077be;"></i><span><strong>80+ Marinas</strong> + GPS</span></div>
-        <div class="hw-feature-item"><i class="fas fa-utensils" style="color:#0077be;"></i><span><strong>Dining</strong> 3-mile radius</span></div>
-        <div class="hw-feature-item"><i class="fas fa-chart-line" style="color:#0077be;"></i><span><strong>7-Day</strong> Forecast</span></div>
-        <div class="hw-feature-item"><i class="fas fa-book" style="color:#d4a017;"></i><span><strong>Log</strong> Cruiser&#8217;s Log</span></div>
+        <div class="hw-feature-item"><span class="hwi hwi-sm c-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg></span><span><strong>Window</strong> Go/No-Go</span></div>
+        <div class="hw-feature-item"><span class="hwi hwi-sm c-warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17h20"/><path d="M4 17V10M20 17V10"/><path d="M4 10c2.5-4 13.5-4 16 0"/><path d="M8 17v-4M12 17v-5M16 17v-4"/></svg></span><span><strong>48 Bridges</strong> VHF &middot; Clearance</span></div>
+        <div class="hw-feature-item"><span class="hwi hwi-sm c-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.2"/><line x1="12" y1="7.2" x2="12" y2="21"/><line x1="8" y1="10" x2="16" y2="10"/><path d="M4 14a8 8 0 0 0 16 0"/></svg></span><span><strong>80+ Marinas</strong> + GPS</span></div>
+        <div class="hw-feature-item"><span class="hwi hwi-sm c-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2v6M8 2v6M5 8a3 3 0 0 0 3 3v11"/><path d="M17 2c0 4-2 6-2 6v14"/></svg></span><span><strong>Dining</strong> 3-mile radius</span></div>
+        <div class="hw-feature-item"><span class="hwi hwi-sm c-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></span><span><strong>7-Day</strong> Forecast</span></div>
+        <div class="hw-feature-item"><span class="hwi hwi-sm c-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span><span><strong>Cruiser&#8217;s</strong> Log</span></div>
       </div>
       <div class="hero-ctas">
-        <button class="btn-hero-primary" onclick="heroStartTrial()"><i class="fas fa-rocket"></i> Check Your Window &mdash; Free for 7 Days &rarr;</button>
-        <button class="btn-hero-outline" onclick="heroSubscribe()">Subscribe Now</button>
+        <button class="btn-hero-primary" onclick="heroStartTrial()"><i class="fas fa-rocket"></i> Sailing Window? Ask Captain Jim &rarr;</button>
+        <button class="btn-hero-outline" onclick="heroSubscribe()">Subscribe Now &mdash; Free for 7 Days</button>
         <button class="btn-hero-restore" onclick="heroRestoreAccess()">Already a subscriber? Restore access &rarr;</button>
       </div>
       <div class="hw-trust-badges">
@@ -418,47 +426,42 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
         <span class="hw-trust-badge"><i class="fas fa-globe"></i><span><strong>Cloudflare</strong> Fast</span></span>
         <span class="hw-trust-badge"><i class="fas fa-robot"></i><span>Built with <strong>Claude</strong></span></span>
       </div>
-      <div class="hw-founder-story">
-        <div class="hw-founder-avatar"><i class="fas fa-microphone"></i></div>
-        <div class="hw-founder-text"><strong>Built by a former CNN correspondent</strong><br>73 years old &middot; 3 weeks with Claude &middot; Live on the ICW</div>
-        <span class="hw-verified"><i class="fas fa-check-circle"></i> Verified human</span>
-      </div>
     </div>
 
     <!-- RIGHT COLUMN (feature cards) -->
     <div class="hero-right">
       <div class="hw-card">
-        <div class="hw-card-icon" style="color:#0077be;"><i class="fas fa-check-circle"></i></div>
+        <div class="hwi hwi-lg c-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg></div>
         <div class="hw-card-title">Sailing Window</div>
         <div class="hw-card-desc">Instant Go/No-Go for AM, noon, or evening.</div>
         <span class="hw-card-tag"><i class="fas fa-clock"></i> NOAA-powered</span>
       </div>
       <div class="hw-card hw-bridge-card">
-        <div class="hw-card-icon"><i class="fas fa-bridge" style="color:#e67e22;"></i></div>
+        <div class="hwi hwi-lg c-warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17h20"/><path d="M4 17V10M20 17V10"/><path d="M4 10c2.5-4 13.5-4 16 0"/><path d="M8 17v-4M12 17v-5M16 17v-4"/></svg></div>
         <div class="hw-card-title">48 Drawbridges</div>
         <div class="hw-card-desc">Name &middot; VHF channel &middot; Clearance &middot; Hours.</div>
         <span class="hw-card-tag"><i class="fas fa-radio"></i> VHF 9 &amp; 13</span>
       </div>
       <div class="hw-card">
-        <div class="hw-card-icon" style="color:#0077be;"><i class="fas fa-anchor"></i></div>
+        <div class="hwi hwi-lg c-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.2"/><line x1="12" y1="7.2" x2="12" y2="21"/><line x1="8" y1="10" x2="16" y2="10"/><path d="M4 14a8 8 0 0 0 16 0"/></svg></div>
         <div class="hw-card-title">80+ Marinas</div>
         <div class="hw-card-desc">Port Aransas to Cape Canaveral + GPS.</div>
         <span class="hw-card-tag"><i class="fas fa-location-dot"></i> Pre-loaded</span>
       </div>
       <div class="hw-card">
-        <div class="hw-card-icon" style="color:#0077be;"><i class="fas fa-utensils"></i></div>
+        <div class="hwi hwi-lg c-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2v6M8 2v6M5 8a3 3 0 0 0 3 3v11"/><path d="M17 2c0 4-2 6-2 6v14"/></svg></div>
         <div class="hw-card-title">Dining Nearby</div>
         <div class="hw-card-desc">Restaurants within 3 miles of any marina.</div>
         <span class="hw-card-tag"><i class="fas fa-walking"></i> Walking distance</span>
       </div>
       <div class="hw-card">
-        <div class="hw-card-icon" style="color:#0077be;"><i class="fas fa-chart-line"></i></div>
+        <div class="hwi hwi-lg c-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></div>
         <div class="hw-card-title">7-Day Forecast</div>
         <div class="hw-card-desc">Spot weather patterns before you commit.</div>
         <span class="hw-card-tag"><i class="fas fa-calendar-alt"></i> NOAA trends</span>
       </div>
       <div class="hw-card hw-log-card">
-        <div class="hw-card-icon"><i class="fas fa-book-open" style="color:#d4a017;"></i></div>
+        <div class="hwi hwi-lg c-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
         <div class="hw-card-title">Cruiser&#8217;s Log</div>
         <div class="hw-card-desc">Log trips, rate marinas, share bridge tips.</div>
         <span class="hw-card-tag"><i class="fas fa-pen"></i> Community</span>
@@ -466,7 +469,7 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
       <div class="hw-pricing-bar">
         <span>
           <span class="hw-price-big">$5.99 <span>/ month</span></span>
-          <span style="color:#5a7a8a;margin-left:.5rem;">or $49/year &middot; $10/mo for Gulf + Atlantic bundled</span>
+          <span style="color:var(--muted);margin-left:.5rem;">or $49/year &middot; $10/mo for Gulf + Atlantic bundled</span>
           <span class="hw-trial-tag"><i class="fas fa-gift"></i> 7-day trial</span>
         </span>
         <button class="btn-hero-outline" style="width:auto;padding:.4rem 1.2rem;font-size:.85rem;" onclick="heroSubscribe()">Subscribe</button>
@@ -569,13 +572,7 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 <div class="shell">
   <header class="topbar">
     <a href="javascript:void(0)" class="logo" aria-label="Ask Captain Jim" onclick="return false;">
-      <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
-        <circle cx="16" cy="16" r="16" fill="var(--primary)" opacity=".12"/>
-        <line x1="16" y1="22" x2="16" y2="8" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M16 8 L24 21 L16 22 Z" fill="var(--primary)" opacity=".85"/>
-        <path d="M16 12 L10 21 L16 22 Z" fill="var(--primary)" opacity=".4"/>
-        <path d="M7 25.5 Q10 23.5 13 25.5 Q16 27.5 19 25.5 Q22 23.5 25 25.5" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".6"/>
-      </svg>
+      <img src="captain-jim-logo.png" alt="" width="30" height="30" style="border-radius:50%;object-fit:cover;flex-shrink:0;border:1px solid var(--divider)" onerror="this.style.display='none'">
       <span class="logo-word">Ask Captain <span>Jim</span> <span style="font-weight:300;opacity:.5">V8</span></span>
     </a>
     <div class="bar-actions">
@@ -637,10 +634,10 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
     <div>
       <div class="sec-title">Conditions — Best Window</div>
       <div class="gonogo" id="gonogo">
-        <div class="gocell"><div class="cell-icon">💨</div><div class="cell-lbl">Wind</div><div class="cell-val" id="c-wind">—</div><span class="cstatus s-neutral" id="cs-wind">Loading</span></div>
-        <div class="gocell"><div class="cell-icon">⚡</div><div class="cell-lbl">Gusts</div><div class="cell-val" id="c-gust">—</div><span class="cstatus s-neutral" id="cs-gust">Loading</span></div>
-        <div class="gocell"><div class="cell-icon">🌊</div><div class="cell-lbl">Tide</div><div class="cell-val" id="c-tide">—</div><span class="cstatus s-neutral" id="cs-tide">Loading</span></div>
-        <div class="gocell"><div class="cell-icon">⛈</div><div class="cell-lbl">Storm Risk</div><div class="cell-val" id="c-storm">—</div><span class="cstatus s-neutral" id="cs-storm">Loading</span></div>
+        <div class="gocell"><div class="cell-icon ci-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 16h15a3 3 0 1 1-3 3"/><path d="M3 12h8"/></svg></div><div class="cell-lbl">Wind</div><div class="cell-val" id="c-wind">—</div><span class="cstatus s-neutral" id="cs-wind">Loading</span></div>
+        <div class="gocell"><div class="cell-icon ci-warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div><div class="cell-lbl">Gusts</div><div class="cell-val" id="c-gust">—</div><span class="cstatus s-neutral" id="cs-gust">Loading</span></div>
+        <div class="gocell"><div class="cell-icon ci-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10c1.6-1.7 3.2-1.7 4.8 0s3.2 1.7 4.8 0 3.2-1.7 4.8 0 3.2 1.7 4.8 0"/><path d="M2 15c1.6-1.7 3.2-1.7 4.8 0s3.2 1.7 4.8 0 3.2-1.7 4.8 0 3.2 1.7 4.8 0"/></svg></div><div class="cell-lbl">Tide</div><div class="cell-val" id="c-tide">—</div><span class="cstatus s-neutral" id="cs-tide">Loading</span></div>
+        <div class="gocell"><div class="cell-icon ci-error"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 12.5a4.5 4.5 0 0 0-8.9-1A4 4 0 0 0 6 19h11a3.5 3.5 0 0 0 .5-6.5z"/><path d="M12 19l-1.5 3M15 19l-1.5 3"/></svg></div><div class="cell-lbl">Storm Risk</div><div class="cell-val" id="c-storm">—</div><span class="cstatus s-neutral" id="cs-storm">Loading</span></div>
       </div>
     </div>
     <div class="chart-card">
