@@ -268,9 +268,9 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 #sw-hero-overlay #sailwindow-hero{background:linear-gradient(135deg,var(--bg) 0%,var(--offset) 55%,var(--primary-hl) 100%);padding:3rem 2rem 2rem;min-height:100vh}
 #sw-hero-overlay .hero-container{max-width:1280px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:2.5rem}
 #sw-hero-overlay .hero-left{flex:1 1 45%;min-width:280px}
-#sw-hero-overlay .hero-brand{display:flex;align-items:center;gap:.9rem;margin-bottom:1.3rem}
-#sw-hero-overlay .hero-logo-img{width:68px;height:68px;border-radius:50%;object-fit:cover;border:2px solid var(--divider);flex-shrink:0}
-#sw-hero-overlay .hero-wordmark{font-size:1.4rem;font-weight:800;letter-spacing:-.02em;color:var(--text)}
+#sw-hero-overlay .hero-brand{display:flex;align-items:center;gap:1.3rem;margin-bottom:1.6rem}
+#sw-hero-overlay .hero-logo-img{width:112px;height:112px;border-radius:50%;object-fit:cover;border:3px solid var(--divider);flex-shrink:0}
+#sw-hero-overlay .hero-wordmark{font-size:3.4rem;font-weight:900;letter-spacing:-.02em;color:var(--text);line-height:1}
 #sw-hero-overlay .hero-wordmark span{color:var(--primary)}
 #sw-hero-overlay .hero-badge{display:inline-block;background:var(--primary);color:var(--inverse);padding:.3rem 1.2rem;border-radius:30px;font-size:.8rem;font-weight:600;letter-spacing:.5px;margin-bottom:1.2rem}
 #sw-hero-overlay .live-tag{background:var(--success);color:var(--inverse);padding:.1rem .6rem;border-radius:30px;font-size:.65rem;margin-left:.5rem}
@@ -287,8 +287,8 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 #sw-hero-overlay .hwi.c-warn{background:var(--warn-hl);color:var(--warn)}
 #sw-hero-overlay .hwi.c-gold{background:var(--gold-hl);color:var(--gold)}
 #sw-hero-overlay .hero-ctas{display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.5rem;max-width:420px}
-#sw-hero-overlay .btn-hero-primary{display:block;background:var(--primary);color:var(--inverse);padding:1rem 2rem;border-radius:60px;font-weight:700;font-size:1.05rem;text-align:center;box-shadow:var(--sh-lg);transition:all .2s ease;border:none;cursor:pointer;width:100%;font-family:inherit}
-#sw-hero-overlay .btn-hero-primary:hover{background:var(--primary-h);transform:translateY(-3px)}
+#sw-hero-overlay .btn-hero-primary{display:block;background:#f26a3d;color:#ffffff;padding:1rem 2rem;border-radius:60px;font-weight:700;font-size:1.05rem;text-align:center;box-shadow:0 10px 26px rgba(242,106,61,.35);transition:all .2s ease;border:none;cursor:pointer;width:100%;font-family:inherit}
+#sw-hero-overlay .btn-hero-primary:hover{background:#d9532a;transform:translateY(-3px)}
 #sw-hero-overlay .btn-hero-outline{display:block;background:transparent;color:var(--primary);padding:.85rem 2rem;border-radius:60px;border:2px solid var(--primary);font-weight:600;font-size:1rem;text-align:center;transition:all .2s;cursor:pointer;width:100%;font-family:inherit}
 #sw-hero-overlay .btn-hero-outline:hover{background:var(--primary);color:var(--inverse)}
 #sw-hero-overlay .btn-hero-restore{background:none;border:none;color:var(--muted);font-size:.85rem;cursor:pointer;text-decoration:underline;font-family:inherit;padding:.25rem 0;width:100%;text-align:center}
@@ -301,10 +301,6 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 #sw-hero-overlay .hw-card-title{font-weight:700;font-size:1rem;color:var(--text)}
 #sw-hero-overlay .hw-card-desc{font-size:.8rem;color:var(--muted);line-height:1.4}
 #sw-hero-overlay .hw-card-tag{margin-top:.5rem;font-size:.65rem;text-transform:uppercase;letter-spacing:.5px;font-weight:600;color:var(--primary);background:var(--primary-hl);padding:.15rem .7rem;border-radius:30px;display:inline-block}
-#sw-hero-overlay .hw-card.hw-bridge-card{background:var(--warn-hl);border-color:var(--warn)}
-#sw-hero-overlay .hw-card.hw-bridge-card .hw-card-tag{background:var(--surface);color:var(--warn)}
-#sw-hero-overlay .hw-card.hw-log-card{background:var(--gold-hl);border-color:var(--gold)}
-#sw-hero-overlay .hw-card.hw-log-card .hw-card-tag{background:var(--surface);color:var(--gold)}
 #sw-hero-overlay .hw-pricing-bar{grid-column:1/-1;margin-top:.3rem;padding-top:1rem;border-top:2px dashed var(--divider);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
 #sw-hero-overlay .hw-price-big{font-weight:700;font-size:1.4rem;color:var(--primary)}
 #sw-hero-overlay .hw-price-big span{font-size:.9rem;font-weight:400;color:var(--muted)}
@@ -416,7 +412,7 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
         <div class="hw-feature-item"><span class="hwi hwi-sm c-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span><span><strong>Cruiser&#8217;s</strong> Log</span></div>
       </div>
       <div class="hero-ctas">
-        <button class="btn-hero-primary" onclick="heroStartTrial()"><i class="fas fa-rocket"></i> Sailing Window? Ask Captain Jim &rarr;</button>
+        <button class="btn-hero-primary" onclick="heroStartTrial()"><i class="fas fa-rocket"></i> Sailing Today? Ask Captain Jim &rarr;</button>
         <button class="btn-hero-outline" onclick="heroSubscribe()">Subscribe Now &mdash; Free for 7 Days</button>
         <button class="btn-hero-restore" onclick="heroRestoreAccess()">Already a subscriber? Restore access &rarr;</button>
       </div>
@@ -436,8 +432,8 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
         <div class="hw-card-desc">Instant Go/No-Go for AM, noon, or evening.</div>
         <span class="hw-card-tag"><i class="fas fa-clock"></i> NOAA-powered</span>
       </div>
-      <div class="hw-card hw-bridge-card">
-        <div class="hwi hwi-lg c-warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17h20"/><path d="M4 17V10M20 17V10"/><path d="M4 10c2.5-4 13.5-4 16 0"/><path d="M8 17v-4M12 17v-5M16 17v-4"/></svg></div>
+      <div class="hw-card">
+        <div class="hwi hwi-lg c-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17h20"/><path d="M4 17V10M20 17V10"/><path d="M4 10c2.5-4 13.5-4 16 0"/><path d="M8 17v-4M12 17v-5M16 17v-4"/></svg></div>
         <div class="hw-card-title">48 Drawbridges</div>
         <div class="hw-card-desc">Name &middot; VHF channel &middot; Clearance &middot; Hours.</div>
         <span class="hw-card-tag"><i class="fas fa-radio"></i> VHF 9 &amp; 13</span>
@@ -460,8 +456,8 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
         <div class="hw-card-desc">Spot weather patterns before you commit.</div>
         <span class="hw-card-tag"><i class="fas fa-calendar-alt"></i> NOAA trends</span>
       </div>
-      <div class="hw-card hw-log-card">
-        <div class="hwi hwi-lg c-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+      <div class="hw-card">
+        <div class="hwi hwi-lg c-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
         <div class="hw-card-title">Cruiser&#8217;s Log</div>
         <div class="hw-card-desc">Log trips, rate marinas, share bridge tips.</div>
         <span class="hw-card-tag"><i class="fas fa-pen"></i> Community</span>
@@ -479,92 +475,49 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
   </div>
 </section>
 
-<!-- Atlantic Edition Waitlist Form -->
-<!-- Coming Next — waitlist for future editions. Edition-parameterized: adding
-     another future edition later is copy one of the two column blocks below,
-     swap the edition slug in the id="" attributes and submitWaitlist(...) call. -->
-<section id="coming-next-waitlist" style="
-    max-width: 900px;
-    margin: 3rem auto;
-    padding: 0 2rem;
-">
+<!-- Coming Next -->
+<section style="max-width:900px;margin:3rem auto 0 auto;padding:0 2rem;text-align:center;">
+    <h2 style="font-size:1.7rem;font-weight:800;color:#000000;letter-spacing:-.01em;">Coming Next + Great Lakes Edition + Mississippi Edition</h2>
+</section>
+
+<!-- The Backstory -->
+<section style="max-width:820px;margin:2.5rem auto 3.5rem auto;padding:0 2rem;">
     <div style="
         background: white;
         border-radius: 24px;
-        padding: 2.5rem 2rem;
+        padding: 2.75rem 2.5rem;
         box-shadow: 0 12px 40px rgba(0, 40, 60, 0.1);
         border: 1px solid rgba(0, 119, 190, 0.1);
-        text-align: center;
+        text-align: left;
     ">
-        <h2 style="font-size: 1.8rem; color: #0a1e2b; margin-bottom: 0.5rem;">Coming Next</h2>
-        <p style="color: #5a7a8a; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
-            More Ask Captain Jim editions are in the works. Be the first to know when they launch.
+        <h2 style="font-size:1.9rem;color:#0a1e2b;margin-bottom:1.3rem;font-weight:800;">The Backstory</h2>
+
+        <p style="color:#3a4a52;font-size:1rem;line-height:1.75;margin-bottom:1.1rem;">
+            Four longtime friends have sailed the Gulf with boat owner Captain Jim for decades.
         </p>
-        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+        <p style="color:#3a4a52;font-size:1rem;line-height:1.75;margin-bottom:1.1rem;">
+            Together, they built careers in television journalism and documentary production. All four are Emmy winners. One is also a Peabody recipient, and their documentary work earned Telly Awards. Along the way, they covered wars, hurricanes, fires, riots, elections, the World Series, and the Olympic Games&mdash;traveling the world to tell important stories.
+        </p>
+        <p style="color:#3a4a52;font-size:1rem;line-height:1.75;margin-bottom:1.1rem;">
+            They have told a lot of stories&mdash;and they still have plenty of stories to tell.
+        </p>
+        <p style="color:#3a4a52;font-size:1rem;line-height:1.75;margin-bottom:1.6rem;">
+            Russ, the crew&#8217;s cook &mdash; designed the app and named it for his friend Jim, the captain who always brought them home safely. Without Russ, the menu was usually reduced to &ldquo;beanie weenies.&rdquo;
+        </p>
 
-            <!-- Great Lakes -->
-            <div style="flex: 1 1 300px; max-width: 360px;">
-                <div style="font-size: 1.8rem; color: #0077be; margin-bottom: 0.4rem;"><i class="fas fa-water"></i></div>
-                <h3 style="font-size: 1.15rem; color: #0a1e2b; margin-bottom: 0.4rem;">Great Lakes Edition</h3>
-                <p style="color: #5a7a8a; font-size: 0.85rem; margin-bottom: 1rem;">Lake levels, ice season &amp; lock-based chokepoints.</p>
-                <form id="waitlist-form-greatlakes" onsubmit="submitWaitlist(event,'greatlakes')" style="display: flex; flex-direction: column; gap: 0.75rem; max-width: 320px; margin: 0 auto;">
-                    <input type="email" name="email" placeholder="Enter your email address" required style="
-                        padding: 0.8rem 1.1rem;
-                        border-radius: 12px;
-                        border: 2px solid #e8edf0;
-                        font-size: 0.95rem;
-                    ">
-                    <button type="submit" style="
-                        background: #0077be;
-                        color: white;
-                        padding: 0.8rem 1.4rem;
-                        border-radius: 60px;
-                        border: none;
-                        font-weight: 600;
-                        font-size: 0.95rem;
-                        cursor: pointer;
-                    ">
-                        <i class="fas fa-envelope"></i> Notify Me
-                    </button>
-                </form>
-                <div id="waitlist-success-greatlakes" style="display:none; padding: 0.7rem 1rem; background: #eaf6ec; color: #1e7d32; border-radius: 12px; font-weight: 600; margin-top: 0.6rem; font-size: 0.9rem;">
-                    <i class="fas fa-check-circle"></i> You're on the list!
-                </div>
-            </div>
+        <h3 style="font-size:1.2rem;color:#0a1e2b;font-weight:800;margin-bottom:1rem;">Powered by Data. Guided by Judgment.</h3>
+        <p style="color:#3a4a52;font-size:1rem;line-height:1.75;margin-bottom:1.1rem;">
+            Ask Captain Jim is grounded in official marine-weather data and science. But weather can be unpredictable, local conditions can change quickly, and sailing always carries risk.
+        </p>
+        <p style="color:#3a4a52;font-size:1rem;line-height:1.75;margin-bottom:1.6rem;">
+            Use the app as one source of information&mdash;not as a substitute for experience, judgment, or official marine warnings.
+        </p>
 
-            <!-- Mississippi -->
-            <div style="flex: 1 1 300px; max-width: 360px;">
-                <div style="font-size: 1.8rem; color: #0077be; margin-bottom: 0.4rem;"><i class="fas fa-water"></i></div>
-                <h3 style="font-size: 1.15rem; color: #0a1e2b; margin-bottom: 0.4rem;">Mississippi Edition</h3>
-                <p style="color: #5a7a8a; font-size: 0.85rem; margin-bottom: 1rem;">River stage gauges, locks &amp; dams, barge traffic.</p>
-                <form id="waitlist-form-mississippi" onsubmit="submitWaitlist(event,'mississippi')" style="display: flex; flex-direction: column; gap: 0.75rem; max-width: 320px; margin: 0 auto;">
-                    <input type="email" name="email" placeholder="Enter your email address" required style="
-                        padding: 0.8rem 1.1rem;
-                        border-radius: 12px;
-                        border: 2px solid #e8edf0;
-                        font-size: 0.95rem;
-                    ">
-                    <button type="submit" style="
-                        background: #0077be;
-                        color: white;
-                        padding: 0.8rem 1.4rem;
-                        border-radius: 60px;
-                        border: none;
-                        font-weight: 600;
-                        font-size: 0.95rem;
-                        cursor: pointer;
-                    ">
-                        <i class="fas fa-envelope"></i> Notify Me
-                    </button>
-                </form>
-                <div id="waitlist-success-mississippi" style="display:none; padding: 0.7rem 1rem; background: #eaf6ec; color: #1e7d32; border-radius: 12px; font-weight: 600; margin-top: 0.6rem; font-size: 0.9rem;">
-                    <i class="fas fa-check-circle"></i> You're on the list!
-                </div>
-            </div>
-
-        </div>
-        <p style="font-size: 0.8rem; color: #5a7a8a; margin-top: 1.5rem;">
-            <i class="fas fa-shield-alt"></i> No spam. Just one email when we launch.
+        <p style="color:#0a1e2b;font-size:1.05rem;line-height:1.7;font-weight:700;margin-bottom:.3rem;">
+            Make wise decisions. You can always say no.
+        </p>
+        <p style="color:#0a1e2b;font-size:1.05rem;line-height:1.7;font-weight:700;">
+            Sail safely.
         </p>
     </div>
 </section>
