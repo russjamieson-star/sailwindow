@@ -1,0 +1,36 @@
+# SailWindow Morning Brief — Thursday, September 10, 2026
+Prepared around 7:05 a.m. EDT / 6:05 a.m. CDT.
+
+Coffee read: Tampa/Charlotte Harbor look promising for a gentle morning sail; Corpus Christi offers the stronger afternoon breeze. Across the northern Gulf, check the radar before assuming early is better. Most other areas favor a short, flexible outing.
+
+These are regional planning windows inferred from NWS forecast periods, not verified hourly clear-weather slots. Times below are local.
+
+| Region | Plain-English outlook and best window |
+|---|---|
+| Corpus Christi / Upper Laguna Madre | Best breeze opportunity: south near 5 kt early, then SE 10–15 kt, gusts 20, in the afternoon; chop increases. Morning suits a gentle outing if showers stay away; afternoon suits crews comfortable with gusts. Aransas-area bays stay lighter, near 5 kt. [NWS Corpus Christi](https://forecast.weather.gov/product.php?site=CRP&issuedby=CRP&product=CWF), Sept. 10, 1:51 a.m. CDT. |
+| Lower Texas / South Padre | Provisional: Wednesday's Thursday forecast brings SE 10–15 kt late afternoon on Laguna Madre, with moderate chop and a slight late storm chance. Refresh before choosing that window; today's issuance was not retrieved. [NWS Brownsville](https://forecast.weather.gov/product.php?site=BRO&issuedby=BRO&product=CWF), Sept. 9, 2:15 a.m. CDT. |
+| Galveston / Matagorda | Gentle south 5–10 kt, smooth bays, nearshore seas around 2 ft. Consider late morning into afternoon after morning showers clear; thunder remains possible. Forecast retrieved is from last evening. [NWS Houston/Galveston](https://forecast.weather.gov/product.php?site=HGX&issuedby=HGX&product=CWF), Sept. 9, 6:24 p.m. CDT. |
+| Louisiana / Mississippi Sound | Conditional, storm-led day. Mississippi Sound E becoming SE 5–10 kt, waves around 2 ft; showers most likely this morning. A late-morning/early-afternoon gap may work, but Pontchartrain storms become likely late. No dependable corridor-wide window. [NWS New Orleans](https://forecast.weather.gov/product.php?site=LIX&issuedby=LIX&product=CWF), Sept. 10, 5:37 a.m. CDT. |
+| Mobile / Pensacola | Gentle E 5–10 kt becoming southerly, waves 1 ft or less. Morning is the relative opportunity before afternoon showers/storms become likely, provided radar and waterspout checks are clear. [NWS Mobile](https://forecast.weather.gov/product.php?site=MOB&issuedby=MOB&product=CWF), Sept. 10, 3:02 a.m. CDT. |
+| Panama City / Apalachicola / Big Bend | Light-air outlook, lower confidence: Wednesday's Thursday marine period gives south near 5 kt and waves 1 ft or less, with storm chances. Today's NWS surf outlook also describes gentle southerly flow. No firm sailing window without a fresh marine-zone check. [Marine forecast](https://forecast.weather.gov/product.php?site=TAE&issuedby=TAE&product=CWF) and [NWS Tallahassee marine page](https://www.weather.gov/tae/marine). |
+| Tampa / Charlotte Harbor / SW Florida | Best gentle morning option: 5–10 kt and light chop; winds turn onshore later. Aim for a morning outing, returning before afternoon convection. Tampa storms increase late; Charlotte Harbor has afternoon storms. Naples-area waters also have 5–10 kt and seas below 2 ft, but no clearly storm-free period. [NWS Tampa](https://forecast.weather.gov/product.php?site=TBW&issuedby=TBW&product=CWF), 3:07 a.m. EDT; [NWS Miami](https://forecast.weather.gov/product.php?site=MFL&issuedby=MFL&product=CWF), 4:06 a.m. EDT, both Sept. 10. |
+| Keys / Florida Bay | E–SE near 10 kt, light bay chop; showers likely with thunder possible. Choose a verified daylight rain gap rather than a fixed departure time. Regional breezes tend to lull by day and peak evening/overnight. [NWS Key West](https://forecast.weather.gov/product.php?site=KEY&issuedby=KEY&product=CWF), Sept. 10, 4:38 a.m. EDT. |
+| Miami / Biscayne Bay | Bay SE 5–10 kt and light chop, with showers/storms possible. Offshore Miami has stronger morning wind, 10–15 kt easing to 5–10 afternoon, and 2–3 ft seas. Morning offers more offshore wind; the bay has no distinct forecast wind peak. Choose a radar-clear interval. [NWS Miami](https://forecast.weather.gov/product.php?site=MFL&issuedby=MFL&product=CWF). |
+
+**Watch-outs and tides**
+
+- Northern Gulf thunderstorms can bring sharp gusts, lightning and waterspouts; New Orleans specifically flags an early-to-midmorning peak, and Mobile flags early-morning waterspouts. Florida storms can also produce erratic winds and rougher waves than the baseline forecast. Keep the return route short and recheck warnings/radar before casting off.
+- Tropical status has a retrieval caveat: the search-indexed NHC outlook stamped 2 a.m. EDT Sept. 10 says no formation expected for seven days, but opening that URL returned an older August bulletin. Treat the seven-day status as unconfirmed; check the [live NHC outlook](https://www.nhc.noaa.gov/gtwo.php?basin=atlc&fdays=7) before departure. Do not carry forward the old August disturbance probabilities.
+- One verified tide: Panama City high tide **10:59 a.m. CDT today**, in the Sept. 10 [NWS surf forecast](https://www.weather.gov/tae/marine). This is a station tide-height time, not a prediction of slack current at a pass. NOAA station/API requests failed for other exact times; check your local station and inlet-current predictions.
+- The Keys bulletin's Gulf Stream position is dated Sept. 2. Refresh it for offshore planning.
+
+**Five social post ideas**
+
+1. “Your lunch break could be your wind window.” A Corpus Christi morning-versus-afternoon card: 5 kt versus 10–15 kt/gusts 20. CTA: check your local wind and return conditions at SailWindow.
+2. “Pick your crew's kind of sailing.” Compare Tampa's gentle morning with Corpus's gustier afternoon. Ask followers which they prefer; keep the storm caveat on the graphic.
+3. “A tide time is only half the navigation story.” Use today's Panama City 10:59 high as the hook; explain why chart depth, local water level and pass current deserve separate checks. Background: [ASA 105 coastal navigation](https://americansailing.com/learn-to-sail/certifications/asa-105-coastal-navigation/).
+4. “Your next sailing weekend already has a starting line.” Preview Big Mouth Regatta at Pensacola Beach YC, Sept. 12, and Pink Ribbon Regatta, Sept. 13, listed by the [Gulf Yachting Association](https://www.gya.org/documents/schedule/). Link organizer details and refresh weekend forecasts before posting.
+5. “What does a Gulf sailing day feel like from a small boat?” Use the RS Aero class's historical [Corpus Christi wave-surfing video feature](https://www.rsaerosailing.org/index.asp?fid=4&p=forum&tid=7838) as topic inspiration for an original reel about boat size and comfort. Label historical footage clearly; its conditions are not today's forecast. Pair with [Cruising World's coastal-navigation perspective](https://www.cruisingworld.com/sailing/editors-letter-coastal-navigation/) and [OffshoreBlue's GICW guide](https://www.offshoreblue.com/cruise/gicw-intro.php) for route-planning follow-ups.
+
+The supplied YouTube results page could not be retrieved; the RS Aero topic was found through web indexing, not by watching the video. Supplied route, destination, marina and ICW resources were checked as evergreen background only; no berth availability, channel depth or current conditions are inferred from them.
+
