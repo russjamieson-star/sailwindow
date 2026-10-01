@@ -34,9 +34,13 @@ Russ's stated plan (2026-07-20): after finishing Atlantic Edition (GA→ME), bui
 cd /Users/howardshellabarge/Desktop/SailWindow
 npx wrangler pages deploy dist --project-name=sailwindow --branch main
 ```
-Live at: **sailwindow.com** (Cloudflare Pages)
+Live at: **askcaptainjim.com** and **sailwindow.com** (Cloudflare Pages) — the brand moved to Ask Captain Jim over trademark concerns; both domains (and their `www.`) serve the identical `dist/` build (verified byte-for-byte 2026-09-30). The rebrand was done at the Cloudflare domain level, not in code, so there is no separate askcaptainjim codebase — `dist/` serves both. Still unconfirmed whether askcaptainjim.com is a second custom domain on the `sailwindow` Pages project or a separate project; see TODO.md "askcaptainjim.com domain" for that and the remaining follow-ups (SEO URLs, backend origin allowlist, Atlantic subdomain).
 
-Atlantic Edition has no Cloudflare Pages project or subdomain yet — `dist-atlantic/` only exists locally. Deploying it (new Pages project + `atlantic.sailwindow.com` DNS) is an open item.
+Atlantic Edition is deployed (since 2026-07-20) to Pages project `sailwindow-atlantic`, live at **atlantic.sailwindow.com**:
+```
+npx wrangler pages deploy dist-atlantic --project-name=sailwindow-atlantic --branch main
+```
+As of 2026-09-30 the live Atlantic site is a version behind local `dist-atlantic/` (see TODO.md).
 
 ## Backup
 Standing rule: treat `~/Desktop/SailWindow` as the only place edits happen. At the end of any session with code changes, back up to both of the following.

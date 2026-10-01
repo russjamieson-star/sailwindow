@@ -6,6 +6,12 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "8898"],
       "port": 8898
+    },
+    {
+      "name": "sailwindow-prototypes",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8899", "--directory", "/Users/howardshellabarge/Desktop/SailWindow/prototypes"],
+      "port": 8899
     }
   ]
 }
