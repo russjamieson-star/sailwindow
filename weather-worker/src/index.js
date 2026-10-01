@@ -11,6 +11,7 @@
 // Routes (query strings are passed through to Open-Meteo after validation):
 //   GET /forecast?latitude=..&longitude=..&hourly=..   -> customer-api.open-meteo.com/v1/forecast
 //   GET /marine?latitude=..&longitude=..&hourly=..     -> customer-marine-api.open-meteo.com/v1/marine
+//   GET /places/nearby, /places/search                -> Google Places marinas (see below)
 
 const UPSTREAM = {
   "/forecast": "https://customer-api.open-meteo.com/v1/forecast",
@@ -62,6 +63,66 @@ function validate(params){
   return null;
 }
 
+// ---- Marinas from Google Places (API "New") ----
+//   GET /places/nearby?lat=..&lon=..   -> up to 20 marinas within ~25 mi, nearest first
+//   GET /places/search?q=..&lat=..&lon=.. -> text search ("Pier One"), marinas ranked first, biased to lat/lon
+// The key lives in the Worker secret GOOGLE_PLACES_KEY. Results are NOT cached here: Google's
+// terms don't allow storing Places content (names, phones, ratings), unlike weather data.
+const PLACES_FIELDS = [
+  "places.id", "places.displayName", "places.location", "places.formattedAddress",
+  "places.nationalPhoneNumber", "places.rating", "places.userRatingCount",
+  "places.websiteUri", "places.googleMapsUri", "places.types",
+].join(",");
+const NEARBY_RADIUS_M = 40000;
+
+function coord(v, lo, hi){
+  if(v == null || String(v).trim() === '') return null;   // Number('') would be 0
+  const n = Number(v); return Number.isFinite(n) && n >= lo && n <= hi ? n : null;
+}
+
+async function places(url, env, origin){
+  if(!env.GOOGLE_PLACES_KEY) return json(500, { error: true, reason: "GOOGLE_PLACES_KEY secret is not set" }, origin);
+  const lat = coord(url.searchParams.get("lat"), -90, 90), lon = coord(url.searchParams.get("lon"), -180, 180);
+  if(lat === null || lon === null) return json(400, { error: true, reason: "lat and lon are required" }, origin);
+  const center = { latitude: lat, longitude: lon };
+
+  let endpoint, body;
+  if(url.pathname === "/places/nearby"){
+    endpoint = "https://places.googleapis.com/v1/places:searchNearby";
+    body = { includedTypes: ["marina"], maxResultCount: 20, rankPreference: "DISTANCE",
+             locationRestriction: { circle: { center, radius: NEARBY_RADIUS_M } } };
+  } else if(url.pathname === "/places/search"){
+    const q = (url.searchParams.get("q") || "").trim();
+    if(q.length < 2 || q.length > 80) return json(400, { error: true, reason: "q must be 2–80 characters" }, origin);
+    endpoint = "https://places.googleapis.com/v1/places:searchText";
+    body = { textQuery: q, includedType: "marina", maxResultCount: 10,
+             locationBias: { circle: { center, radius: 50000 } } };
+  } else {
+    return json(404, { error: true, reason: "Use /places/nearby or /places/search" }, origin);
+  }
+
+  const up = await fetch(endpoint, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "X-Goog-Api-Key": env.GOOGLE_PLACES_KEY, "X-Goog-FieldMask": PLACES_FIELDS },
+    body: JSON.stringify(body),
+  });
+  const data = await up.json().catch(() => ({}));
+  if(!up.ok) return json(up.status, { error: true, reason: data.error?.message || `Places ${up.status}` }, origin);
+
+  const out = (data.places || []).map(p => ({
+    id: p.id,
+    name: p.displayName?.text || "Marina",
+    lat: p.location?.latitude, lon: p.location?.longitude,
+    address: p.formattedAddress || "",
+    phone: p.nationalPhoneNumber || "",
+    rating: p.rating ?? null, reviews: p.userRatingCount ?? null,
+    website: p.websiteUri || "", mapsUrl: p.googleMapsUri || "",
+    isMarina: (p.types || []).includes("marina"),
+  })).filter(p => p.lat != null && p.lon != null);
+  return new Response(JSON.stringify(out), {
+    status: 200, headers: { "Content-Type": "application/json", "Cache-Control": "no-store", ...corsHeaders(origin) } });
+}
+
 export default {
   async fetch(request, env, ctx){
     const origin = request.headers.get("Origin");
@@ -72,6 +133,7 @@ export default {
     if(request.method !== "GET") return json(405, { error: true, reason: "GET only" }, origin);
 
     const url = new URL(request.url);
+    if(url.pathname.startsWith("/places/")) return places(url, env, origin);
     const upstream = UPSTREAM[url.pathname];
     if(!upstream) return json(404, { error: true, reason: "Use /forecast or /marine" }, origin);
     if(!env.OPEN_METEO_KEY) return json(500, { error: true, reason: "OPEN_METEO_KEY secret is not set" }, origin);

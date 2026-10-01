@@ -1,4 +1,5 @@
-// Ask Captain Jim — Marina map discoverability (TEST ADD-ON, loaded only by wind-test.html).
+// Ask Captain Jim — Marina map discoverability. Loaded after the engine by index.html, the
+// /locations/ pages and wind-test.html.
 //
 // Russ, 2026-09-30: "it's not intuitive that tapping on [a marker] activates a popup."
 // Four changes, layered on the existing marina map without changing engine.js:
@@ -8,8 +9,8 @@
 //   3. Cluster circles restyled in brand teal with a bold white count, so they read as tappable.
 //   4. A one-time hint chip ("Tap a pin for phone, directions & hours") that disappears the first
 //      time a popup opens and stays gone on that device.
-// When approved, fold this into loadMarinaMarkers()/initMarinaMap() in shared/engine.js and drop
-// this file.
+// Kept as a separate add-on (rather than edited into engine.js) because the 60 /locations/ pages
+// inline their own copy of the engine; one file serves them all.
 (function(){
   const HINT_KEY = 'acj.marinaHintSeen';
   const LABEL_MIN_ZOOM = 9;

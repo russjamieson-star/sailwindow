@@ -4,3 +4,6 @@ compatibility_date = "2026-09-01"
 
 # The Open-Meteo commercial key is a secret, not a var — set it once with:
 #   npx wrangler secret put OPEN_METEO_KEY
+
+# Google Places key for /places/* (marina lookup):
+#   npx wrangler secret put GOOGLE_PLACES_KEY
