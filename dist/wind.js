@@ -228,8 +228,10 @@
     L.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}@2x.png?key=${CARTO_KEY}`,
       { subdomains: 'abcd', maxZoom: 14, tileSize: 512, zoomOffset: -1, pane: 'wlabels' }).addTo(map);
 
-    const pane = map.getPane('wind');
-    washCv = L.DomUtil.create('canvas', '', pane); flowCv = L.DomUtil.create('canvas', '', pane);
+    // Streaks get their own pane above the wash and shoreline: the wash pane multiplies, which
+    // would cancel out the white streak cores if they shared it.
+    map.createPane('wflow'); map.getPane('wflow').style.zIndex = 480; map.getPane('wflow').style.pointerEvents = 'none';
+    washCv = L.DomUtil.create('canvas', '', map.getPane('wind')); flowCv = L.DomUtil.create('canvas', '', map.getPane('wflow'));
     wctx = washCv.getContext('2d'); fctx = flowCv.getContext('2d');
 
     map.on('zoomstart', () => { animating = false; washCv.style.display = flowCv.style.display = 'none'; });
@@ -340,7 +342,7 @@
     const sctx = small.getContext('2d'), img = sctx.createImageData(cols, rows);
     const u = new Float32Array(cols * rows), v = new Float32Array(cols * rows);
     const bands = layer === 'waves' ? WAVE_BANDS : layer === 'gust' ? gustBands() : windBands();
-    const speedScale = 0.06;   // knots -> px/frame
+    const speedScale = 0.08;   // knots -> px/frame
     for(let r = 0; r < rows; r++) for(let c = 0; c < cols; c++){
       const ll = map.containerPointToLatLng([c * CELL, r * CELL]), sm = sample(ll.lat, ll.lng), i = r * cols + c;
       if(!sm) continue;
@@ -357,12 +359,13 @@
     wctx.drawImage(small, 0, 0, cols * CELL, rows * CELL);
     field = { cols, rows, u, v };
     fctx.clearRect(0, 0, sz.x, sz.y);
-    const n = Math.round(sz.x * sz.y / 900);
+    const n = Math.round(sz.x * sz.y / 1300);   // fewer, bolder streaks read better than many faint ones
     particles = Array.from({ length: n }, () => newParticle(sz));
     updateReadout();
   }
 
-  const newParticle = sz => ({ x: Math.random() * sz.x, y: Math.random() * sz.y, age: Math.floor(Math.random() * 80) });
+  const TRAIL = 22;   // positions kept per streak; streak length = speed x TRAIL frames
+  const newParticle = sz => ({ x: Math.random() * sz.x, y: Math.random() * sz.y, age: Math.floor(Math.random() * 80), trail: [] });
 
   function fieldAt(x, y){
     const c = x / CELL, r = y / CELL, c0 = Math.floor(c), r0 = Math.floor(r);
@@ -376,18 +379,24 @@
     rafId = null;
     if(field && animating){
       const sz = map.getSize();
-      // fade previous trails instead of clearing — that's what turns dots into streaks
-      fctx.globalCompositeOperation = 'destination-in';
-      fctx.fillStyle = 'rgba(0,0,0,0.94)'; fctx.fillRect(0, 0, sz.x, sz.y);
-      fctx.globalCompositeOperation = 'source-over';
-      fctx.strokeStyle = 'rgba(255,255,255,0.85)'; fctx.lineWidth = 1.5; fctx.beginPath();
+      // Each particle keeps its last TRAIL positions and is redrawn as one polyline every frame:
+      // dark outline first, white core on top, so streaks read in bright daylight on the pale map
+      // and over the darker colours alike. (Fading the previous frame instead chopped trails into dashes.)
+      fctx.clearRect(0, 0, sz.x, sz.y);
+      const outline = new Path2D();
       for(const p of particles){
         const vel = fieldAt(p.x, p.y);
-        if(!vel || ++p.age > 90){ Object.assign(p, newParticle(sz), { age: 0 }); continue; }
-        const nx = p.x + vel[0], ny = p.y + vel[1];
-        fctx.moveTo(p.x, p.y); fctx.lineTo(nx, ny); p.x = nx; p.y = ny;
+        if(!vel || ++p.age > 110){ Object.assign(p, newParticle(sz)); continue; }
+        p.x += vel[0]; p.y += vel[1];
+        p.trail.push(p.x, p.y);
+        if(p.trail.length > TRAIL * 2) p.trail.splice(0, 2);
+        if(p.trail.length < 4) continue;
+        outline.moveTo(p.trail[0], p.trail[1]);
+        for(let k = 2; k < p.trail.length; k += 2) outline.lineTo(p.trail[k], p.trail[k + 1]);
       }
-      fctx.stroke();
+      fctx.lineCap = 'round'; fctx.lineJoin = 'round';
+      fctx.strokeStyle = 'rgba(11,42,63,0.7)'; fctx.lineWidth = 4.2; fctx.stroke(outline);
+      fctx.strokeStyle = '#ffffff';            fctx.lineWidth = 2.2; fctx.stroke(outline);
     }
     if(isOpen()) rafId = requestAnimationFrame(frame);   // stop entirely while the tab is closed (battery)
   }
