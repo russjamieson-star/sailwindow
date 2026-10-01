@@ -46,6 +46,8 @@
     .acj-gtag{font-size:11px;font-weight:700;color:var(--primary);background:var(--primary-hl);padding:1px 7px;border-radius:99px;vertical-align:middle}`;
   document.head.appendChild(css);
 
+  // The /locations/ pages carry an older inline engine without EDITION_CONFIG, so don't assume it.
+  const thumb = () => { try{ return marinaPhoto(typeof EDITION_CONFIG !== 'undefined' ? EDITION_CONFIG.defaultLocKey : ''); }catch(_){ return ''; } };
   const mapsLink = q => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
   const input = () => document.getElementById('marina-search-input');
   const results = () => document.getElementById('marina-results');
@@ -90,7 +92,7 @@
       card.className = 'marina-card';
       card.onclick = () => selectMarinaFromCard(m.id, m);
       card.innerHTML = `
-        <img class="marina-thumb" src="${marinaPhoto(EDITION_CONFIG.defaultLocKey)}" alt="" loading="lazy">
+        <img class="marina-thumb" src="${thumb()}" alt="" loading="lazy">
         <div class="marina-main">
           <div class="marina-title">${esc(p.name)} <span class="acj-gtag">Google</span></div>
           <div class="marina-meta">

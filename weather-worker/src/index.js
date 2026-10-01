@@ -71,7 +71,7 @@ function validate(params){
 const PLACES_FIELDS = [
   "places.id", "places.displayName", "places.location", "places.formattedAddress",
   "places.nationalPhoneNumber", "places.rating", "places.userRatingCount",
-  "places.websiteUri", "places.googleMapsUri", "places.types",
+  "places.websiteUri", "places.googleMapsUri", "places.types", "places.primaryType",
 ].join(",");
 const NEARBY_RADIUS_M = 40000;
 
@@ -118,7 +118,11 @@ async function places(url, env, origin){
     rating: p.rating ?? null, reviews: p.userRatingCount ?? null,
     website: p.websiteUri || "", mapsUrl: p.googleMapsUri || "",
     isMarina: (p.types || []).includes("marina"),
-  })).filter(p => p.lat != null && p.lon != null);
+    primaryType: p.primaryType || "",
+  })).filter(p => p.lat != null && p.lon != null)
+     // Google also tags charters, sailing schools, repair shops and rentals as "marina"; for the
+     // nearby list keep only places whose MAIN type is marina. Name searches keep everything.
+     .filter(p => url.pathname !== "/places/nearby" || p.primaryType === "marina");
   return new Response(JSON.stringify(out), {
     status: 200, headers: { "Content-Type": "application/json", "Cache-Control": "no-store", ...corsHeaders(origin) } });
 }

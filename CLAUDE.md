@@ -108,6 +108,9 @@ Each edition is its own subscription, plus combined bundles:
 - `FREE_KEYS`: placeholder `["annapolis","newport"]` — unconfirmed, see TODO.md
 - No hurricane advisory content (not applicable to this coast) — `#marina-advisory` hidden with an explanatory TODO comment in the code
 
+## Weather & marina proxy Worker (added 2026-09-30)
+`weather-worker/` → Cloudflare Worker `askcaptainjim-weather` at https://askcaptainjim-weather.russjamieson.workers.dev (Russ's main Cloudflare account). Holds two secrets, never in files or chat: `OPEN_METEO_KEY` (commercial Open-Meteo plan, key lives at dashboard.open-meteo.com) and `GOOGLE_PLACES_KEY` (Google Cloud, restricted to Places API (New)). Routes: `/forecast`, `/marine` (Open-Meteo, cached 30 min at the edge) and `/places/nearby`, `/places/search` (Google Places marinas, never cached per Google's terms). Deploy: `cd weather-worker && npx wrangler deploy`; rotate a key with `npx wrangler secret put <NAME>`. Front-end add-ons loaded after the engine: `dist/marina-hints.js`, `dist/marina-places.js` (live), `dist/wind.js` (Wind tab, test page `wind-test.html` only). Script tags carry `?v=` numbers — bump them on every change, because `.js` files are browser-cached for 4 h.
+
 ## Cruiser's Log
 - Backend: Google Apps Script (Code.gs) + Google Sheets, project "Cruiser Log" in Drive (script ID `1XghG2VZPZ5cf9Hjt4Z9Wz3k4cPgTrCb_iPVHvum4fsLcUYACT-i_ckRe`), backing sheet "SailWindow — Cruiser's Log" (`11zeOQiF5ndDh2UOIexk88BZAiS-AZyeZou822JrRvYc`).
 - **Moderation gate:** every submission is written with `Approved = false`. `doGet()` only returns rows where Approved is checked TRUE in the Sheet — nothing shows in the app's community feed until someone manually approves it there.
