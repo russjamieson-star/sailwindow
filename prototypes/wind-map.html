@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SailWindow Wind Map — prototype</title>
-<!-- PROTOTYPE ONLY. Uses Open-Meteo's free (non-commercial) API. A paid Open-Meteo
-     plan is required before this ships to paying subscribers. -->
+<!-- PROTOTYPE. Weather comes through the askcaptainjim-weather Worker (weather-worker/),
+     which holds the commercial Open-Meteo key and caches responses for 30 min. -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -117,6 +117,8 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Oc
   { maxZoom:13, pane:'labels' }).addTo(map);
 
 // ---- Forecast grid: snapped to a fixed lattice so panning reuses cached points ----
+// Commercial Open-Meteo via our Worker: keeps the API key server-side and shares a cache.
+const WEATHER_PROXY = 'https://askcaptainjim-weather.russjamieson.workers.dev';
 const HOURS = 72;
 const cache = new Map();        // "lat,lon" -> { s:[], g:[], d:[] }   (knots, degrees-from)
 const waveCache = new Map();    // "lat,lon" -> { h:[] } feet, or null for land points
@@ -144,8 +146,8 @@ function buildGrid(){
 async function fetchBatch(points, marine){
   const lat = points.map(p=>p[0]).join(','), lon = points.map(p=>p[1]).join(',');
   const url = marine
-    ? `https://marine-api.open-meteo.com/v1/marine?latitude=${lat}&longitude=${lon}&hourly=wave_height&length_unit=imperial&timeformat=unixtime&forecast_hours=${HOURS}`
-    : `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=wind_speed_10m,wind_direction_10m,wind_gusts_10m&wind_speed_unit=kn&timeformat=unixtime&forecast_hours=${HOURS}`;
+    ? `${WEATHER_PROXY}/marine?latitude=${lat}&longitude=${lon}&hourly=wave_height&length_unit=imperial&timeformat=unixtime&forecast_hours=${HOURS}`
+    : `${WEATHER_PROXY}/forecast?latitude=${lat}&longitude=${lon}&hourly=wind_speed_10m,wind_direction_10m,wind_gusts_10m&wind_speed_unit=kn&timeformat=unixtime&forecast_hours=${HOURS}`;
   const res = await fetch(url);
   if(!res.ok) throw new Error((marine?'Marine':'Forecast')+' API '+res.status);
   const j = await res.json();

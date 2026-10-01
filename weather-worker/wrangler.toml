@@ -1,0 +1,6 @@
+name = "askcaptainjim-weather"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+
+# The Open-Meteo commercial key is a secret, not a var — set it once with:
+#   npx wrangler secret put OPEN_METEO_KEY
