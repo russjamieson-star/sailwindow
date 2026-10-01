@@ -858,7 +858,7 @@ function initMarinaMap(){
   const mapEl = document.getElementById("marina-map");
   if(marinaMap){ marinaMap.invalidateSize(); return; }
   marinaMap = L.map(mapEl);
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=cb1_45my_1_ff44d8b19b638cff8f00a23c", { maxZoom:19, attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>', subdomains:'abcd' }).addTo(marinaMap);
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=" + (location.hostname === "askcaptainjim.com" ? "cb1_45my_1_ff44d8b19b638cff8f00a23c" : "cb1_45my_2_7112bc2671dbd23dcf751bc0"), { maxZoom:19, attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>', subdomains:'abcd' }).addTo(marinaMap);
   marinaCluster = L.markerClusterGroup({ spiderfyOnMaxZoom:true, showCoverageOnHover:true, zoomToBoundsOnClick:true });
   marinaMap.addLayer(marinaCluster);
   loadMarinaMarkers();
