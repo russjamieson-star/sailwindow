@@ -69,4 +69,12 @@ create FRIEND-MARJORIE FRIENDS-100 1   # Marjorie (FL) — single-use
 create FRIENDS-DEMO    FRIENDS-100     # Unlimited demo code for testing
 # (FRIEND-FL-1 / FRIEND-FL-2 retired 2026-06-12, deactivated in dashboard)
 
+# == Ambassador offer, 2026-10-01 (created in the dashboard; listed here as the record) ==
+# Coupon AMBASSADOR-4MO = 100% off for 4 months (repeating).
+#   AMB-DL-SAINT     AMBASSADOR-4MO  1 use   # DL Saint
+#   AMB-DAVID-SAINT  AMBASSADOR-4MO  1 use   # David Saint
+#   DLSAINT20        CLUB-MEMBER-20  unlimited, first-time customers only   # DL's friends
+#   DAVIDSAINT20     CLUB-MEMBER-20  unlimited, first-time customers only   # David's friends
+# Note: the restricted key needs "Promotion codes: Read + Write" for this script to run again.
+
 exit $FAILED
