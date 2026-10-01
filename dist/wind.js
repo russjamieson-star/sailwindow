@@ -72,29 +72,30 @@
         color:#fff;box-shadow:0 6px 24px rgba(0,0,0,.25);max-width:calc(100% - 24px)}
       #wind-view .wbar.top{top:12px}
       #wind-view .wbar.bottom{bottom:calc(26px + env(safe-area-inset-bottom))}   /* clears the map credits line */
-      #wind-view .wbar button,#wind-view .wbar select{font:inherit;font-size:14px;color:#fff;background:transparent;border:0;border-radius:999px;padding:8px 13px;cursor:pointer;white-space:nowrap}
+      #wind-view .wbar button,#wind-view .wbar select{font:inherit;font-size:16px;font-weight:600;color:#fff;background:transparent;border:0;border-radius:999px;padding:8px 13px;cursor:pointer;white-space:nowrap}
       #wind-view .wbar button.on{background:#fff;color:#0f2233;font-weight:600}
       #wind-view .wbar select{background:rgba(255,255,255,.12);appearance:none;-webkit-appearance:none}
       #wind-view .wbar select option{color:#000}
-      #wind-view .wround{width:36px;height:36px;padding:0!important;display:grid;place-items:center;background:rgba(255,255,255,.14)!important}
-      #wind-time{min-width:96px;text-align:center;font-weight:600;font-size:15px}
+      #wind-view .wround{width:42px;height:42px;font-size:22px!important;padding:0!important;display:grid;place-items:center;background:rgba(255,255,255,.14)!important}
+      #wind-time{min-width:104px;text-align:center;font-weight:700;font-size:18px}
       #wind-scrub{width:150px;accent-color:#f26a3d}
-      #wind-legend{position:absolute;left:12px;bottom:calc(88px + env(safe-area-inset-bottom));z-index:1000;background:rgba(15,34,51,.84);color:#fff;border-radius:12px;padding:9px 11px;font-size:12px;line-height:1.55}
-      #wind-legend i{display:inline-block;width:14px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle}
-      #wind-status{position:absolute;top:62px;left:50%;transform:translateX(-50%);z-index:1000;background:rgba(15,34,51,.84);color:#fff;font-size:12px;padding:6px 12px;border-radius:999px;display:none;white-space:nowrap}
+      #wind-legend{position:absolute;left:12px;bottom:calc(96px + env(safe-area-inset-bottom));z-index:1000;background:rgba(15,34,51,.84);color:#fff;border-radius:12px;padding:10px 12px;font-size:14px;line-height:1.6}
+      #wind-legend i{display:inline-block;width:16px;height:12px;border-radius:2px;margin-right:6px;vertical-align:middle}
+      #wind-status{position:absolute;top:62px;left:50%;transform:translateX(-50%);z-index:1000;background:rgba(15,34,51,.84);color:#fff;font-size:14px;padding:7px 14px;border-radius:999px;display:none;white-space:nowrap}
       #wind-view .wpill-wrap{display:flex;gap:6px;width:max-content;transform:translate(var(--wpx,-50%),calc(-100% - 16px))}
-      #wind-view .wpill{background:#0f2233;color:#fff;border-radius:16px;padding:7px 13px;display:flex;align-items:center;gap:9px;box-shadow:0 4px 16px rgba(0,0,0,.35);white-space:nowrap;border:1.5px solid rgba(255,255,255,.85)}
-      #wind-view .wpill .big{font-size:25px;font-weight:800;line-height:1}
-      #wind-view .wpill .sub{font-size:12px;line-height:1.25;opacity:.9}
+      #wind-view .wpill{background:#0f2233;color:#fff;border-radius:18px;padding:8px 14px;display:flex;align-items:center;gap:9px;box-shadow:0 4px 16px rgba(0,0,0,.35);white-space:nowrap;border:1.5px solid rgba(255,255,255,.85)}
+      #wind-view .wpill .big{font-size:30px;font-weight:800;line-height:1}
+      #wind-view .wpill .sub{font-size:14px;line-height:1.25;opacity:.95}
       #wind-view .wpin{width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid #0f2233;transform:translate(-50%,-50%)}
       @media (max-width:560px){
         #wind-view .leaflet-control-zoom{display:none}   /* pinch to zoom; the top bar covers these on phones */
-        #wind-scrub{width:70px}
-        #wind-view .wbar button,#wind-view .wbar select{padding:7px 10px;font-size:13px}
-        #wind-time{min-width:78px;font-size:14px}
-        #wind-legend{font-size:11px;padding:7px 9px}
+        #wind-scrub{width:56px}
+        #wind-view .wbar button,#wind-view .wbar select{padding:8px 11px;font-size:15px}
+        #wind-time{min-width:84px;font-size:17px}
+        #wind-legend{font-size:13px;padding:8px 10px}
       }`;
     document.head.appendChild(css);
+
 
     const view = document.getElementById('wind-view');
     const wrap = document.createElement('div');
@@ -135,6 +136,75 @@
     document.getElementById('wind-play').onclick = togglePlay;
   }
 
+  // Traces the shoreline from CARTO's own base tiles, in plain canvas code so it behaves the same in
+  // every browser (Safari's SVG-filter support on HTML is unreliable). Voyager water is (213,232,235);
+  // land and parks have blue <= red, so "blue exceeds red by 10+" is a clean water test. Any land
+  // pixel touching water becomes part of the line; everything else is transparent.
+  // Binary morphology helpers for the shoreline tracer (separable square kernel, radius k).
+  function morph(m, W, H, k, keepIfAll){
+    const tmp = new Uint8Array(W * H), out = new Uint8Array(W * H);
+    for(let y = 0; y < H; y++) for(let x = 0; x < W; x++){
+      let v = keepIfAll ? 1 : 0;
+      for(let dx = -k; dx <= k; dx++){
+        const xx = Math.min(W - 1, Math.max(0, x + dx)), b = m[y * W + xx];
+        if(keepIfAll ? !b : b){ v = keepIfAll ? 0 : 1; break; }
+      }
+      tmp[y * W + x] = v;
+    }
+    for(let y = 0; y < H; y++) for(let x = 0; x < W; x++){
+      let v = keepIfAll ? 1 : 0;
+      for(let dy = -k; dy <= k; dy++){
+        const yy = Math.min(H - 1, Math.max(0, y + dy)), b = tmp[yy * W + x];
+        if(keepIfAll ? !b : b){ v = keepIfAll ? 0 : 1; break; }
+      }
+      out[y * W + x] = v;
+    }
+    return out;
+  }
+  const shrink = (m, W, H, k) => morph(m, W, H, k, true);
+  const grow   = (m, W, H, k) => morph(m, W, H, k, false);
+
+  const CoastLayer = L.GridLayer.extend({
+    createTile(coords, done){
+      const size = this.getTileSize(), dpr = Math.min(2, Math.ceil(window.devicePixelRatio || 1));
+      const cv = document.createElement('canvas');
+      cv.width = size.x * dpr; cv.height = size.y * dpr;
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = () => {
+        const W = cv.width, H = cv.height, ctx = cv.getContext('2d');
+        ctx.drawImage(img, 0, 0, W, H);
+        let px;
+        try{ px = ctx.getImageData(0, 0, W, H); }catch(e){ ctx.clearRect(0, 0, W, H); done(null, cv); return; }
+        const d = px.data;
+        let water = new Uint8Array(W * H);
+        for(let i = 0, p = 0; p < water.length; i += 4, p++) water[p] = d[i + 2] - d[i] >= 10 ? 1 : 0;
+        // Drop creeks and small streams (water narrower than ~5 CSS px) so the outline shows coasts,
+        // bays, sounds and big rivers without cluttering the land: erode the mask, then grow it back.
+        const k = 2 * dpr;
+        water = grow(shrink(water, W, H, k), W, H, k);
+        const r = dpr > 1 ? 2 : 1;   // line width in canvas pixels (about 1 CSS px either way)
+        for(let y = 0; y < H; y++) for(let x = 0; x < W; x++){
+          const p = y * W + x, i = p * 4;
+          let edge = false;
+          if(!water[p]){
+            for(let dy = -r; dy <= r && !edge; dy++) for(let dx = -r; dx <= r; dx++){
+              const yy = y + dy, xx = x + dx;
+              if(yy >= 0 && yy < H && xx >= 0 && xx < W && water[yy * W + xx]){ edge = true; break; }
+            }
+          }
+          if(edge){ d[i] = 11; d[i + 1] = 42; d[i + 2] = 63; d[i + 3] = 235; } else d[i + 3] = 0;
+        }
+        ctx.putImageData(px, 0, 0);
+        done(null, cv);
+      };
+      img.onerror = () => done(null, cv);
+      const sub = 'abcd'[(coords.x + coords.y) % 4];
+      img.src = `https://${sub}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/${coords.z}/${coords.x}/${coords.y}${dpr > 1 ? '@2x' : ''}.png?key=${CARTO_KEY}`;
+      return cv;
+    }
+  });
+
   function initMap(){
     const c = activeSearchCenter();
     map = L.map('wind-map', { zoomControl: false, attributionControl: true }).setView([c.lat, c.lon], 9);
@@ -145,9 +215,18 @@
     L.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png?key=${CARTO_KEY}`,
       { subdomains: 'abcd', maxZoom: 14, attribution: attrib }).addTo(map);
     map.createPane('wind');   map.getPane('wind').style.zIndex = 450;   map.getPane('wind').classList.add('leaflet-wind-pane');
+    // Blend the wash into the map (multiply) instead of painting over it, so land and water stay distinct.
+    map.getPane('wind').style.mixBlendMode = 'multiply';
+
+    // Shoreline: a crisp dark line traced along every coast, bay and river, drawn above the wash.
+    map.createPane('wcoast'); map.getPane('wcoast').style.zIndex = 470; map.getPane('wcoast').style.pointerEvents = 'none';
+    new CoastLayer({ pane: 'wcoast', maxZoom: 14 }).addTo(map);
+
+    // Labels at double size: request the zoom-below @2x tile and show it at 512 px, which doubles the
+    // text size while keeping it sharp (and halves label density, which also helps readability).
     map.createPane('wlabels'); map.getPane('wlabels').style.zIndex = 500; map.getPane('wlabels').style.pointerEvents = 'none';
-    L.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png?key=${CARTO_KEY}`,
-      { subdomains: 'abcd', maxZoom: 14, pane: 'wlabels' }).addTo(map);
+    L.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}@2x.png?key=${CARTO_KEY}`,
+      { subdomains: 'abcd', maxZoom: 14, tileSize: 512, zoomOffset: -1, pane: 'wlabels' }).addTo(map);
 
     const pane = map.getPane('wind');
     washCv = L.DomUtil.create('canvas', '', pane); flowCv = L.DomUtil.create('canvas', '', pane);
@@ -249,7 +328,7 @@
       cv.width = sz.x * dpr; cv.height = sz.y * dpr; cv.style.width = sz.x + 'px'; cv.style.height = sz.y + 'px';
       cv.style.position = 'absolute'; cv.getContext('2d').setTransform(dpr, 0, 0, dpr, 0, 0);
     }
-    washCv.style.opacity = .62;
+    washCv.style.opacity = .8;
   }
 
   function redraw(){
@@ -338,7 +417,7 @@
     el.innerHTML =
       `<div class="wpill"><span style="display:inline-block;transform:rotate(${fromDeg + 180}deg)">&#x25B2;</span>
          <span class="big">${Math.round(sm.s)}</span><span class="sub">kt ${CARD[Math.round(fromDeg / 22.5) % 16]}<br>gust ${Math.round(sm.g)}</span></div>` +
-      (wave != null ? `<div class="wpill"><span class="big" style="font-size:19px">${wave.toFixed(1)} ft</span><span class="sub">waves</span></div>` : '');
+      (wave != null ? `<div class="wpill"><span class="big" style="font-size:23px">${wave.toFixed(1)} ft</span><span class="sub">waves</span></div>` : '');
     // Centre the readout over the pin, but slide it sideways so it never runs off screen.
     const x = map.latLngToContainerPoint(ll).x, w = el.offsetWidth, W = map.getSize().x, pad = 8;
     const left = Math.max(pad, Math.min(W - w - pad, x - w / 2));
