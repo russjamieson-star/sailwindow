@@ -4,14 +4,48 @@
     {
       "name": "sailwindow-desktop-static",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8898"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8898"
+      ],
       "port": 8898
     },
     {
       "name": "sailwindow-prototypes",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8899", "--directory", "/Users/howardshellabarge/Desktop/SailWindow/prototypes"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8899",
+        "--directory",
+        "/Users/howardshellabarge/Desktop/SailWindow/prototypes"
+      ],
       "port": 8899
+    },
+    {
+      "name": "gulf-dist",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8901",
+        "--directory",
+        "/Users/howardshellabarge/Desktop/SailWindow/dist"
+      ],
+      "port": 8901
+    },
+    {
+      "name": "atlantic-dist",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8902",
+        "--directory",
+        "/Users/howardshellabarge/Desktop/SailWindow/dist-atlantic"
+      ],
+      "port": 8902
     }
   ]
 }
