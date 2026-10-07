@@ -265,14 +265,23 @@
   async function fetchBatch(points, marine){
     const lat = points.map(p => p[0]).join(','), lon = points.map(p => p[1]).join(',');
     const url = marine
-      ? `${WEATHER_PROXY}/marine?latitude=${lat}&longitude=${lon}&hourly=wave_height&length_unit=imperial&timeformat=unixtime&forecast_hours=${HOURS}`
+      ? `${WEATHER_PROXY}/marine?latitude=${lat}&longitude=${lon}&hourly=wave_height,wave_period&length_unit=imperial&timeformat=unixtime&forecast_hours=${HOURS}`
       : `${WEATHER_PROXY}/forecast?latitude=${lat}&longitude=${lon}&hourly=wind_speed_10m,wind_direction_10m,wind_gusts_10m&wind_speed_unit=kn&timeformat=unixtime&forecast_hours=${HOURS}`;
     const res = await fetch(url);
     if(!res.ok) throw new Error((marine ? 'Waves' : 'Wind') + ' ' + res.status);
     const j = await res.json();
     return Array.isArray(j) ? j : [j];
   }
-  const hasWaves = r => r.hourly && r.hourly.wave_height.some(v => v != null) ? { h: r.hourly.wave_height } : null;
+  const hasWaves = r => r.hourly && r.hourly.wave_height.some(v => v != null) ? { h: r.hourly.wave_height, p: r.hourly.wave_period || [] } : null;
+  // Period matters as much as height, especially to catamarans: 3 ft every 4 s is a short, steep chop
+  // that slams a bridgedeck; 3 ft every 9 s is a gentle swell. Steepness below is a plain-language hint,
+  // not a safety rating.
+  function waveFeel(h, p){
+    if(p == null) return 'waves';
+    if(h >= 2 && p < 5) return `every ${Math.round(p)} s · short, steep chop`;
+    if(p < 6) return `every ${Math.round(p)} s · choppy`;
+    return `every ${Math.round(p)} s · longer swell`;
+  }
 
   async function ensureData(){
     const need = [], needWave = [];
@@ -423,10 +432,11 @@
     if(!sm){ el.innerHTML = '<div class="wpill"><span class="sub">No forecast here</span></div>'; return; }
     const fromDeg = (Math.atan2(-sm.u, -sm.v) * 180 / Math.PI + 360) % 360;
     const wc = waveCache.get(pinMarker._waveKey), wave = sm.onLand ? null : wc && wc.h[hourIdx];
+    const period = wave != null ? wc.p[hourIdx] : null;
     el.innerHTML =
       `<div class="wpill"><span style="display:inline-block;transform:rotate(${fromDeg + 180}deg)">&#x25B2;</span>
          <span class="big">${Math.round(sm.s)}</span><span class="sub">kt ${CARD[Math.round(fromDeg / 22.5) % 16]}<br>gust ${Math.round(sm.g)}</span></div>` +
-      (wave != null ? `<div class="wpill"><span class="big" style="font-size:23px">${wave.toFixed(1)} ft</span><span class="sub">waves</span></div>` : '');
+      (wave != null ? `<div class="wpill"><span class="big" style="font-size:23px">${wave.toFixed(1)} ft</span><span class="sub">${waveFeel(wave, period)}</span></div>` : '');
     // Centre the readout over the pin, but slide it sideways so it never runs off screen.
     const x = map.latLngToContainerPoint(ll).x, w = el.offsetWidth, W = map.getSize().x, pad = 8;
     const left = Math.max(pad, Math.min(W - w - pad, x - w / 2));

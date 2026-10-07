@@ -152,7 +152,7 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
       <path d="M16 12 L10 21 L16 22 Z" fill="var(--primary)" opacity=".4"/>
       <path d="M7 25.5 Q10 23.5 13 25.5 Q16 27.5 19 25.5 Q22 23.5 25 25.5" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".6"/>
     </svg>
-    <span class="logo-word">Ask Captain <span>Jim</span> <span style="font-weight:300;opacity:.5">V6</span></span>
+    <span class="logo-word">Ask Captain <span>Jim</span> <span style="font-weight:300;opacity:.5">V8</span></span>
   </a>
   <div class="top-actions">
     <button class="icon-btn" id="theme-btn" aria-label="Toggle theme" onclick="toggleTheme()">
@@ -169,8 +169,8 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
 
   <div class="hero">
     <div class="hero-label">User Guide</div>
-    <h1>Ask Captain Jim V6 · Gulf Coast Edition</h1>
-    <p class="hero-sub">A live sailing conditions dashboard covering the entire Gulf Coast — from the Texas border to the Florida Keys — with real-time wind forecasts, tide predictions, a 7-day outlook, marina mapping, fuel &amp; food ashore, drawbridge opening schedules, and a Navigation Advisory for hurricane-affected facilities.</p>
+    <h1>Ask Captain Jim V8 · Gulf Coast Edition</h1>
+    <p class="hero-sub">A live sailing conditions dashboard covering the entire Gulf Coast — from Port Isabel, Texas to Key West — with real-time wind forecasts, tide predictions, a 7-day outlook, marina mapping, fuel &amp; food ashore, drawbridge opening schedules, and a Cruiser's Log shared by sailors along the route.</p>
   </div>
 
   <div class="toc">
@@ -186,12 +186,13 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
       <li><a href="#s8">Sailing Preferences</a></li>
       <li><a href="#s9">Changing Location</a></li>
       <li><a href="#s10">Marina Map View</a></li>
-      <li><a href="#s11">Navigation Advisory</a></li>
-      <li><a href="#s12">Custom Location</a></li>
-      <li><a href="#s13">Feedback Tab</a></li>
-      <li><a href="#s14">Subscription &amp; Free Trial</a></li>
-      <li><a href="#s15">Scoring Algorithm</a></li>
-      <li><a href="#s16">Tips &amp; Troubleshooting</a></li>
+      <li><a href="#s11">Cruiser's Log</a></li>
+      <li><a href="#s12">Bridge Schedules</a></li>
+      <li><a href="#s13">Custom Location</a></li>
+      <li><a href="#s14">Feedback Tab</a></li>
+      <li><a href="#s15">Subscription &amp; Free Trial</a></li>
+      <li><a href="#s16">Scoring Algorithm</a></li>
+      <li><a href="#s17">Tips &amp; Troubleshooting</a></li>
     </ol>
   </div>
 
@@ -204,9 +205,9 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
       <li><strong>NWS (National Weather Service)</strong> — hourly wind speed, gust speed, wind direction, and precipitation probability for the next 24 hours, from <code>api.weather.gov</code>.</li>
       <li><strong>NOAA Tides &amp; Currents</strong> — hourly tide height predictions and high/low tide events for today at your chosen station, from <code>api.tidesandcurrents.noaa.gov</code>.</li>
     </ul>
-    <p>V6 covers the entire Gulf Coast with <strong>35 verified NOAA stations</strong> spanning Texas, Louisiana, Mississippi, Alabama, and Florida. It runs those datasets through a scoring model calibrated to your preferences and presents everything on one clean screen.</p>
-    <div class="new-box"><span class="new-icon">✦</span><div><strong>New in V6:</strong> three Choctawhatchee Bay stations (Niceville — Rocky Bayou, Niceville — Valparaiso, and Destin — East Pass), the <strong>⛽🍴 Ashore</strong> button showing fuel &amp; food near every marina, a <strong>🌉 Drawbridges</strong> panel with Coast Guard opening schedules, and smart connection nudges for marina Wi-Fi or onboard Starlink.</div></div>
-    <div class="tip"><span class="tip-icon">ℹ</span><div>No account or login is required for the free tier. Your preferences are saved locally in your browser. Marina map data is cached for 24 hours so the map loads instantly on return visits.</div></div>
+    <p>It covers the entire Gulf Coast with <strong>35 verified NOAA stations</strong> spanning Texas, Louisiana, Mississippi, Alabama, and Florida. It runs those datasets through a scoring model calibrated to your preferences and presents everything on one clean screen.</p>
+    <div class="new-box"><span class="new-icon">✦</span><div><strong>Also in the app:</strong> a 7-day outlook, a marina map with fuel docks and dining ashore, nearby drawbridges with Coast Guard opening schedules, a full ICW <strong>Bridge Schedules</strong> reference (48 bridges), and the <strong>Cruiser's Log</strong>, where sailors share trip reports, bridge waits and marina ratings.</div></div>
+    <div class="tip"><span class="tip-icon">ℹ</span><div>No account or login is required. Your preferences are saved locally in your browser.</div></div>
   </section>
 
   <!-- ─── 2. Sailability Score ─── -->
@@ -325,7 +326,6 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
   <section class="section" id="s7">
     <div class="section-num">07</div>
     <h2>7-Day Forecast</h2>
-    <div class="new-box"><span class="new-icon">✦</span><div>New in V5 — powered by the ECMWF IFS model via Open-Meteo.</div></div>
     <p>Tap <strong>7-Day</strong> in the bottom navigation to open the full-screen 7-day outlook. Each day card shows:</p>
     <ul>
       <li>Day sailability score (0–10) with quality badge</li>
@@ -342,9 +342,9 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
   <section class="section" id="s8">
     <div class="section-num">08</div>
     <h2>Sailing Preferences</h2>
-    <p>Tap the <strong>⚙</strong> gear icon or the preferences row at the bottom of the dashboard to open the <strong>Preferences modal</strong>. You can set:</p>
+    <p>Open <strong>Sailing Preferences</strong> at the bottom of the dashboard and tap <strong>Edit</strong> on any row to open the <strong>Preferences sheet</strong>. You can set:</p>
     <ul>
-      <li><strong>Location / Marina</strong> — choose from 60 Gulf &amp; Atlantic Coast preset stations, your saved <strong>Home Dock</strong>, a custom GPS location, or "Current Location" to use your device's GPS. Stations are grouped by state in the dropdown.</li>
+      <li><strong>Location / Marina</strong> — choose from the 35 Gulf Coast stations (grouped by region, Florida Keys → Texas), <strong>Custom GPS / NOAA Station</strong>, or <strong>Current Location (boat at sea)</strong> to use your device's GPS.</li>
       <li><strong>Wind Min / Max (kt)</strong> — your ideal sustained wind range. Hours inside this band are rewarded; hours outside are penalized.</li>
       <li><strong>Max Gust (kt)</strong> — any hour with gusts above this value is scored 0 (automatic no-go).</li>
       <li><strong>Duration (hrs)</strong> — how long your sail will be (1–12 hrs in half-hour steps). Determines the width of the window the app searches for.</li>
@@ -361,21 +361,21 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
     <p>The <strong>location bar</strong> at the top shows your active marina and NOAA station. Tap <strong>Change</strong> to open the quick-chooser:</p>
     <div class="card">
       <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:.5rem">
-        <li>🏠 <strong>Sail from Home Dock</strong> — once you've saved a Home Dock, this one-tap button appears at the top so you can check conditions there from anywhere, any day.</li>
-        <li>🛰 <strong>Use GPS Location</strong> — your device's position auto-selects the nearest NOAA station from all 54 built-in stations and immediately loads data.</li>
-        <li>📍 <strong>Select a station dropdown</strong> — 54 preset stations grouped by state (Texas → Louisiana → Mississippi → Alabama → Florida).</li>
+        <li>🏠 <strong>Your Home Dock</strong> — once you've saved a Home Dock, a one-tap button with its name appears at the top so you can check conditions there from anywhere, any day.</li>
+        <li>🛰 <strong>Use GPS Location</strong> — your device's position auto-selects the nearest of the 35 built-in NOAA stations and immediately loads data.</li>
+        <li>📍 <strong>Select a marina</strong> — 32 Gulf Coast marinas grouped by region (Florida Keys &amp; SW → Tampa Bay → Gulf Coast → Panhandle → Alabama → Mississippi → Louisiana → Texas). Tap <strong>Set Marina</strong>.</li>
         <li>🗺 <strong>Open Map</strong> — opens the full Marina map view to browse and select by pin.</li>
       </ul>
     </div>
 
     <h3>Home Dock</h3>
-    <p>Save your own dock as a permanent location, separate from live GPS and separate from whatever you pick for the day. Open <strong>Change → Set current spot as Home Dock</strong> while standing at your dock, give it a name, and it's saved for good — not just for today.</p>
+    <p>Save your own dock as a permanent location, separate from live GPS and separate from whatever you pick for the day. While at your dock (or with your dock selected), open <strong>Change</strong> and tap <strong>🏠 Save current location as Home Dock</strong> at the bottom of the dialog. It's saved for good — not just for today.</p>
     <ul>
-      <li>Once saved, a <strong>🏠 Sail from [Name]</strong> button appears at the top of the Change Location dialog for instant one-tap access — no need to be physically at the dock or re-request GPS.</li>
+      <li>Once saved, a <strong>🏠</strong> button with your dock's name appears at the top of the Change Location dialog for instant one-tap access — no need to be physically at the dock or re-request GPS.</li>
       <li>Pick a different marina or GPS location for the day and your Home Dock stays saved — jump back to it anytime with one tap.</li>
-      <li>To update it later (e.g. you move slips), tap <strong>Update Home Dock</strong> in the same dialog while standing at the new spot.</li>
+      <li>To change it later (e.g. you move slips), save again from the new spot.</li>
     </ul>
-    <div class="tip"><span class="tip-icon">ℹ</span><div><strong>Private to your device.</strong> Your Home Dock is saved only in your own browser's local storage — Ask Captain Jim has no accounts or servers, so it's never visible to other sailors, never shared, and never leaves your phone or computer.</div></div>
+    <div class="tip"><span class="tip-icon">ℹ</span><div><strong>Private to your device.</strong> Your Home Dock is saved only in your own browser's local storage — it's never visible to other sailors, never shared, and never leaves your phone or computer.</div></div>
 
     <h3>All 35 Gulf Coast Stations</h3>
     <table class="score-table">
@@ -395,9 +395,9 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
         <tr><td>Cedar Key, FL</td><td style="color:var(--muted);font-family:var(--mono)">8727520</td></tr>
         <tr><td>Apalachicola, FL</td><td style="color:var(--muted);font-family:var(--mono)">8728690</td></tr>
         <tr><td>Panama City, FL</td><td style="color:var(--muted);font-family:var(--mono)">8729108</td></tr>
-        <tr><td>Niceville — Rocky Bayou <span style="color:var(--primary);font-size:.7rem;font-weight:700">NEW</span></td><td style="color:var(--muted);font-family:var(--mono)">8729479</td></tr>
-        <tr><td>Niceville — Valparaiso <span style="color:var(--primary);font-size:.7rem;font-weight:700">NEW</span></td><td style="color:var(--muted);font-family:var(--mono)">8729501</td></tr>
-        <tr><td>Destin — East Pass <span style="color:var(--primary);font-size:.7rem;font-weight:700">NEW</span></td><td style="color:var(--muted);font-family:var(--mono)">8729511</td></tr>
+        <tr><td>Niceville — Rocky Bayou</td><td style="color:var(--muted);font-family:var(--mono)">8729479</td></tr>
+        <tr><td>Niceville — Valparaiso</td><td style="color:var(--muted);font-family:var(--mono)">8729501</td></tr>
+        <tr><td>Destin — East Pass</td><td style="color:var(--muted);font-family:var(--mono)">8729511</td></tr>
         <tr><td>Pensacola, FL</td><td style="color:var(--muted);font-family:var(--mono)">8729840</td></tr>
         <tr><td>Pensacola Beach Pier</td><td style="color:var(--muted);font-family:var(--mono)">8729807</td></tr>
         <tr><td colspan="2" style="font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;color:var(--primary);padding-top:.9rem">Alabama</td></tr>
@@ -441,38 +441,35 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
 
     <h3>Marina List</h3>
     <ul>
-      <li>Shows all 35 built-in stations <em>plus</em> nearby marinas pulled live from OpenStreetMap within a 30-mile radius, sorted by distance.</li>
-      <li>Every card has an <strong>⛽🍴 Ashore</strong> button — fuel and food within walking distance (see below).</li>
-      <li>Use the <strong>search bar</strong> to filter by marina name or region.</li>
+      <li>Shows the built-in Gulf Coast marinas <em>plus</em> marinas near you found live through Google (within about 25 miles), sorted by distance.</li>
+      <li>Every card has an <strong>⛽🍴 Ashore</strong> button — fuel and food near the dock (see below).</li>
+      <li>Use the <strong>search bar</strong> to filter by marina name or region. If nothing in the list matches, tap <strong>Search Google</strong> (or press Return) to look the marina up, or open the search in Google Maps.</li>
       <li>Each card shows name, star rating, distance, address (tappable → Google Maps), phone (tappable → dials), and operating hours.</li>
-      <li>Cards with a <span style="background:var(--warn-hl);color:var(--warn);font-size:.75rem;font-weight:700;padding:2px 7px;border-radius:9999px;display:inline-block">⚠ Advisory</span> badge indicate facilities with hurricane damage or construction — see the <a href="#s11">Navigation Advisory</a> section.</li>
       <li>Tap <strong>Set Active</strong> to make a marina the active location and reload weather/tide data for it.</li>
       <li>Tap <strong>Focus Map</strong> to pan the map to that marina.</li>
     </ul>
 
     <h3>Map Panel</h3>
     <ul>
-      <li>An interactive map (OpenStreetMap) shows all marinas as pins that cluster at lower zoom levels.</li>
+      <li>An interactive map (OpenStreetMap) opens on your active marina and shows marinas as pins that cluster at lower zoom levels. Zoom in and each pin shows the marina's name.</li>
       <li>Tap a pin to see a pop-up with address, phone, hours, and a "Set Active" button.</li>
       <li>Use the GPS icon in the top bar to snap your current position onto the map.</li>
     </ul>
 
     <h3>Fuel &amp; Food Ashore</h3>
-    <div class="new-box"><span class="new-icon">✦</span><div>New in V6 — because the two things every crew wants to know before the dock are fuel and food.</div></div>
-    <p>Every marina card has an <strong>⛽🍴 Ashore</strong> button. Tap it and the card expands with what's within walking distance of that dock:</p>
+    <p>The two things every crew wants to know before the dock are fuel and food. Every marina card has an <strong>⛽🍴 Ashore</strong> button. Tap it and the card expands with what's near that dock:</p>
     <ul>
       <li><strong>Fuel first</strong> — a marine fuel dock if one is mapped, the marina's own fuel listing, or the nearest road gas station as an honest fallback. If nothing is mapped, the app says so plainly: call ahead.</li>
-      <li><strong>Eat ashore</strong> — the five nearest restaurants, bars, and cafés within about ¾ mile, with cuisine and distance. Many boats don't have a galley; this is for crews who tie up hungry.</li>
+      <li><strong>Dining nearby</strong> — up to eight rated restaurants near the marina, with phone and menu/website links where we have them. Where we don't, the app shows the nearest restaurants, bars and cafés from OpenStreetMap with cuisine and distance. Many boats don't have a galley; this is for crews who tie up hungry.</li>
     </ul>
-    <div class="tip"><span class="tip-icon">ℹ</span><div>Ashore data comes from OpenStreetMap and is cached for 24 hours per marina. Distances are straight-line — verify before you tie up.</div></div>
+    <div class="tip"><span class="tip-icon">ℹ</span><div>Distances are straight-line — verify before you tie up.</div></div>
 
     <h3>Featured Partner Listings</h3>
     <p>Some Ashore panels include a <strong>★ featured listing</strong> from a local dock-and-dine partner with an offer for Ask Captain Jim crews. Real partner offers say exactly how to redeem (show the screen or say the code word). Listings marked <em>"Example listing"</em> show how the spot works — that space is open.</p>
     <div class="tip"><span class="tip-icon">ℹ</span><div>Run a waterfront restaurant? The featured spot near your dock is available — email <strong>marketing@sailwindow.com</strong>.</div></div>
 
     <h3>Drawbridges Nearby</h3>
-    <div class="new-box"><span class="new-icon">✦</span><div>New in V6 — opening schedules straight from the Coast Guard's drawbridge regulations (33 CFR Part 117).</div></div>
-    <p>A collapsible <strong>🌉 Drawbridges nearby</strong> panel sits above the marina list, showing every drawbridge within 60 miles of your active location, nearest first. Each entry gives:</p>
+    <p>Opening schedules come straight from the Coast Guard's drawbridge regulations (33 CFR Part 117). A collapsible <strong>🌉 Drawbridges nearby</strong> panel sits above the marina list, showing up to eight drawbridges within 60 miles of your active location, nearest first. Each entry gives:</p>
     <ul>
       <li>The bridge name, waterway, and Gulf ICW mile marker.</li>
       <li>Its opening schedule in plain English — e.g. <em>"Daily 6a–7p: at :15 &amp; :45 only."</em></li>
@@ -481,29 +478,46 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
     <p>If your stretch has no drawbridges — like the entire Panhandle GIWW — the panel says that too, so you can stop wondering.</p>
     <div class="warn-box"><span class="warn-icon">⚠</span><div>Schedules are the standing federal regulations. Temporary changes (construction, malfunctions) are announced via the Coast Guard's Local Notice to Mariners — always hail the tender on VHF before approach. US public vessels and tugs with tows pass at any time.</div></div>
 
-    <div class="tip"><span class="tip-icon">ℹ</span><div>Marina location data from OpenStreetMap is cached in your browser for 24 hours. On your first visit to a new area it fetches live; on return visits the map loads instantly without any network call.</div></div>
-    <div class="warn-box"><span class="warn-icon">⚠</span><div>Live marinas discovered via OpenStreetMap may not have a NOAA station ID. If you set one as active, tide data is estimated from the nearest built-in station. Use <strong>Custom Location</strong> in preferences to assign a specific station ID.</div></div>
+    <p>For the full list of 48 drawbridges from Texas to Florida's Atlantic coast, see <a href="#s12">Bridge Schedules</a>.</p>
+    <div class="warn-box"><span class="warn-icon">⚠</span><div>Marinas found live through Google don't have a NOAA station ID. If you set one as active, tide data is estimated from the nearest built-in station. Use <strong>Custom Location</strong> in preferences to assign a specific station ID.</div></div>
   </section>
 
-  <!-- ─── 11. Navigation Advisory ─── -->
+  <!-- ─── 11. Cruiser's Log ─── -->
   <section class="section" id="s11">
     <div class="section-num">11</div>
-    <h2>Navigation Advisory</h2>
-    <div class="new-box"><span class="new-icon">✦</span><div>New in V5 — crowd-sourced and staff-verified hurricane damage status.</div></div>
-    <p>A collapsible <strong>Navigation Advisory</strong> banner appears at the top of the Marina list. It covers facilities that are technically listed as "open" but have suspended transient docking, fueling, or shore power due to hurricane damage or ongoing reconstruction.</p>
-    <p>Tap the banner to expand the full advisory. It is organized by storm event:</p>
+    <h2>Cruiser's Log</h2>
+    <p>Tap <strong>Log</strong> in the bottom navigation to open the Cruiser's Log — trip reports from sailors, for sailors. Fill in what's useful:</p>
     <ul>
-      <li><strong>Panhandle — Hurricane Michael:</strong> Panama City Downtown Marina remains non-operational; Tyndall AFB Marina has been fully rebuilt; Mexico Beach Marina is fully open.</li>
-      <li><strong>West Coast &amp; Tampa Bay — Helene &amp; Milton:</strong> Clearwater Beach Marina, Dunedin Marina, and Safety Harbor Marina &amp; Pier are under reconstruction through 2026.</li>
-      <li><strong>Southwest Florida — Hurricane Ian:</strong> Fort Myers/Fort Myers Beach — large corporate-backed marinas have rebuilt; smaller operators may still be limited. Call ahead.</li>
+      <li><strong>Trip date, boat name, departure and destination.</strong></li>
+      <li><strong>Bridges</strong> you passed — tap each one from the list.</li>
+      <li><strong>Categories</strong> (check all that apply): ⚓ Docking / Marina, 🍽️ Restaurants / Ashore, ⚠️ Hazards &amp; Cautions, 📝 General.</li>
+      <li><strong>Longest bridge wait</strong> — from "No wait" to "Over 1 hour" or "Bridge closed / restricted."</li>
+      <li><strong>Marina rating</strong> — 1 to 5 stars for the destination marina.</li>
+      <li><strong>How was it?</strong> — 👍 Good Stuff or 👎 Bad Stuff.</li>
+      <li><strong>Trip notes</strong> — conditions, bridge tips, anchorages, anything useful for fellow cruisers.</li>
     </ul>
-    <div class="warn-box"><span class="warn-icon">⚠</span><div><strong>"Open" can be misleading.</strong> Many marinas are operational for monthly slip holders but have suspended all transient docking, high-capacity fueling, or shore-power hookups. Always confirm transient availability by phone before arriving.</div></div>
-    <p>Marina cards for affected facilities display an <span style="background:var(--warn-hl);color:var(--warn);font-size:.75rem;font-weight:700;padding:2px 7px;border-radius:9999px;display:inline-block">⚠ Advisory</span> pill badge and show current status in the hours field.</p>
+    <p>Tap <strong>Log This Trip →</strong> to share it. <strong>Recent Crew Logs</strong>, below the form, shows entries from other sailors grouped by marina, then by category, newest first.</p>
+    <div class="tip"><span class="tip-icon">ℹ</span><div>New entries are reviewed before they appear in Recent Crew Logs, so yours may take a little while to show up.</div></div>
   </section>
 
-  <!-- ─── 12. Custom Location ─── -->
+  <!-- ─── 12. Bridge Schedules ─── -->
   <section class="section" id="s12">
     <div class="section-num">12</div>
+    <h2>Bridge Schedules</h2>
+    <p>From inside the Cruiser's Log, tap <strong>Schedules</strong> in the top bar to open the ICW Bridge Schedules reference. It covers <strong>48 drawbridges</strong>:</p>
+    <ul>
+      <li><strong>11</strong> on the Florida Gulf ICW (33 CFR 117.287)</li>
+      <li><strong>23</strong> on the Florida Atlantic ICW (33 CFR 117.261)</li>
+      <li><strong>4</strong> in the Florida Panhandle</li>
+      <li><strong>10</strong> in Texas, Louisiana, Mississippi and Alabama</li>
+    </ul>
+    <p>Filter by waterway (<strong>FL Gulf ICW</strong>, <strong>FL Atlantic ICW</strong>, <strong>FL Panhandle</strong>, <strong>TX / LA / AL</strong>) or search by name, city, or mile marker. Tap any bridge card to expand its opening schedule and regulation citation.</p>
+    <div class="warn-box"><span class="warn-icon">⚠</span><div>Schedules are based on published 33 CFR regulations. Always verify current restrictions with local Coast Guard notices before transiting — special events, maintenance, and emergency orders can override posted times.</div></div>
+  </section>
+
+  <!-- ─── 13. Custom Location ─── -->
+  <section class="section" id="s13">
+    <div class="section-num">13</div>
     <h2>Custom Location</h2>
     <p>For marinas not in the built-in list, open <strong>Sailing Preferences → Location → Custom GPS / NOAA Station</strong>.</p>
     <ul>
@@ -515,12 +529,11 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
     <div class="tip"><span class="tip-icon">ℹ</span><div>To find your NOAA station ID: visit tidesandcurrents.noaa.gov, search for the nearest water body, open the station detail page, and copy the 7-digit ID from the URL or page header.</div></div>
   </section>
 
-  <!-- ─── 13. Feedback Tab ─── -->
-  <section class="section" id="s13">
-    <div class="section-num">13</div>
+  <!-- ─── 14. Feedback Tab ─── -->
+  <section class="section" id="s14">
+    <div class="section-num">14</div>
     <h2>Feedback Tab</h2>
-    <div class="new-box"><span class="new-icon">✦</span><div>New in V5 — help keep marina data current for every sailor on the Gulf Coast.</div></div>
-    <p>Tap <strong>Feedback</strong> in the bottom navigation (the speech bubble icon) to open the feedback form. You can report:</p>
+    <p>Help keep marina data current for every sailor on the Gulf Coast. Tap <strong>Feedback</strong> in the bottom navigation (the speech bubble icon) to open the feedback form. You can report:</p>
     <div class="card-grid">
       <div class="mini-card">
         <div class="icon">✅</div>
@@ -530,7 +543,7 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
       <div class="mini-card">
         <div class="icon">⚠️</div>
         <div class="label">Marina closed</div>
-        <p style="font-size:.8rem;color:var(--muted);margin-top:.4rem">Flag a marina that has newly closed or sustained damage not yet reflected in the advisory.</p>
+        <p style="font-size:.8rem;color:var(--muted);margin-top:.4rem">Flag a marina that has newly closed or has damage the app doesn't show yet.</p>
       </div>
       <div class="mini-card">
         <div class="icon">📋</div>
@@ -546,14 +559,12 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
     <p>Select a category, fill in the marina name and details, and tap <strong>Send Report →</strong>. Your email app opens with the report pre-filled and addressed to the Ask Captain Jim team. An optional email field lets us follow up if we need to verify the report.</p>
   </section>
 
-  <!-- ─── 14. Subscription & Trial ─── -->
-  <section class="section" id="s14">
-    <div class="section-num">14</div>
+  <!-- ─── 15. Subscription & Trial ─── -->
+  <section class="section" id="s15">
+    <div class="section-num">15</div>
     <h2>Subscription &amp; Free Trial</h2>
-    <div class="new-box"><span class="new-icon">✦</span><div>New in V5.</div></div>
-
     <h3>7-Day Free Trial</h3>
-    <p>When you first open Ask Captain Jim, a <strong>7-day free trial</strong> begins automatically — no credit card required. A countdown banner at the top of the screen shows how many days remain. You have full access to all 60 Gulf &amp; Atlantic Coast stations during the trial.</p>
+    <p>When you first open Ask Captain Jim, a <strong>7-day free trial</strong> begins automatically — no credit card required. A countdown banner at the top of the screen shows how many days remain. You have full access to all 35 Gulf Coast stations and every feature during the trial.</p>
 
     <h3>Free Tier (after trial)</h3>
     <p>After the trial ends, Ask Captain Jim remains free with access to <strong>5 Tampa Bay &amp; Pensacola stations</strong>:</p>
@@ -564,17 +575,18 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
       <li>Pensacola</li>
       <li>Pensacola Beach Pier</li>
     </ul>
-    <p>Locked stations are marked with 🔒 in the location dropdown and on marina cards. The 7-Day forecast, Custom Location, and GPS location also require an active trial or subscription.</p>
+    <p>Locked stations are marked with 🔒 in the location dropdown and on marina cards. The 7-Day forecast, the Cruiser's Log, the Feedback tab, Custom Location, and GPS location also require an active trial or subscription.</p>
 
     <h3>Paid Subscription</h3>
-    <p>A subscription unlocks all 60 Gulf &amp; Atlantic Coast stations plus every future expansion. Plans are <strong>$5.99/month</strong> or <strong>$49/year</strong> (save 32%). Tap <strong>Upgrade →</strong> in the trial banner or select a plan in the subscribe screen — checkout opens in a new tab via Stripe. When your payment is complete, return to Ask Captain Jim and tap <strong>I've paid — Activate ✓</strong> to unlock everything.</p>
+    <p>A subscription unlocks all 35 Gulf Coast stations and every feature. Plans are <strong>$5.99/month</strong> or <strong>$49/year</strong> (save 32%), or <strong>$10/month</strong> for the Gulf + Atlantic bundle — both editions on one subscription. Tap <strong>Upgrade →</strong> in the trial banner, pick a plan and tap <strong>Start Subscription →</strong> — checkout opens in a new tab via Stripe. When your payment is complete, return to Ask Captain Jim, enter the email you used at checkout, and tap <strong>I've paid — Activate ✓</strong> to unlock everything.</p>
+    <p>Already subscribed on another phone or computer? On the welcome screen, tap <strong>Already a subscriber? Restore access →</strong>.</p>
 
     <div class="tip"><span class="tip-icon">ℹ</span><div>Subscriptions are managed through Stripe. To cancel or update your billing, use the Customer Portal linked in your confirmation email.</div></div>
   </section>
 
-  <!-- ─── 15. Scoring ─── -->
-  <section class="section" id="s15">
-    <div class="section-num">15</div>
+  <!-- ─── 16. Scoring ─── -->
+  <section class="section" id="s16">
+    <div class="section-num">16</div>
     <h2>Scoring Algorithm</h2>
     <p>Each hourly period is scored on a 0–10 scale, then the best consecutive block matching your trip duration is selected.</p>
 
@@ -604,9 +616,9 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
     <p>For each candidate departure time, the app averages hourly scores across the full duration and also considers the minimum score in that block (70/30 weighted blend). This guards against windows that look good on average but contain one dangerously bad hour.</p>
   </section>
 
-  <!-- ─── 16. Tips ─── -->
-  <section class="section" id="s16">
-    <div class="section-num">16</div>
+  <!-- ─── 17. Tips ─── -->
+  <section class="section" id="s17">
+    <div class="section-num">17</div>
     <h2>Tips &amp; Troubleshooting</h2>
 
     <h3>Data won't load</h3>
@@ -620,7 +632,7 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
     <h3>GPS location not working</h3>
     <ul>
       <li>Your browser must have location permissions granted. Check your browser or phone settings and allow location access, then try again.</li>
-      <li>GPS auto-selects the nearest of the 35 built-in NOAA stations — coverage spans the full Gulf Coast from Brownsville, TX to Key West, FL.</li>
+      <li>GPS auto-selects the nearest of the 35 built-in NOAA stations — coverage spans the full Gulf Coast from Port Isabel, TX to Key West, FL.</li>
     </ul>
 
     <h3>Score seems unexpectedly low</h3>
@@ -634,7 +646,7 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
     <p>Tap the <strong>↻ Refresh</strong> button at the bottom of the main screen, or the circular arrow icon in the top bar. NWS updates its hourly forecast grids roughly every hour. Weather data is always fetched live; marina map data is cached for 24 hours.</p>
 
     <h3>Dark / Light mode</h3>
-    <p>Tap the moon/sun icon in the top-right corner to toggle between dark and light themes. Your preference is saved automatically. Note: the Navigation Advisory uses high-contrast colors in both modes for legibility in bright sunlight.</p>
+    <p>Tap the moon/sun icon in the top-right corner to toggle between dark and light themes. Your preference is saved automatically.</p>
 
     <h3>Navigation tabs</h3>
     <div class="nav-mock">
@@ -654,20 +666,26 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         Feedback
       </div>
+      <div class="nav-mock-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        Log
+      </div>
     </div>
     <ul>
       <li><strong>Today</strong> — the main dashboard with live score, best window, and charts.</li>
       <li><strong>7-Day</strong> — ECMWF-powered 7-day sailability outlook.</li>
       <li><strong>Marina</strong> — full-screen marina list and interactive map.</li>
       <li><strong>Feedback</strong> — report marina status changes, corrections, or app feedback.</li>
+      <li><strong>Log</strong> — the Cruiser's Log, Recent Crew Logs, and the Bridge Schedules reference.</li>
     </ul>
+    <p>The <strong>Help</strong> button in the top bar opens a short in-app guide; this page is the full version.</p>
   </section>
 
   <hr>
 
   <div class="footer">
     <p style="margin-bottom:.75rem">Data provided by <strong>NWS api.weather.gov</strong>, <strong>NOAA Tides &amp; Currents</strong>, and <strong>ECMWF via Open-Meteo</strong>. For use as a planning aid only — always check official forecasts before sailing.</p>
-    <a href="SailWindow-V5.html" class="back-link">
+    <a href="/" class="back-link">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
       Back to Ask Captain Jim
     </a>

@@ -24,7 +24,7 @@ Russ's stated plan (2026-07-20): after finishing Atlantic Edition (GA→ME), bui
 
 ## Key Files
 - `dist/index.html` — Gulf edition production build (primary)
-- `dist-v8/index.html` — mirrors dist/index.html (keep in sync)
+- `dist-v8/index.html` — **not** a mirror of `dist/` (despite older notes): a frozen snapshot last changed 2026-07-27; `dist/` has moved on a lot since (hero redesign, rebrand, Help/guide updates). Never copy `dist/` over it without asking — found out 2026-10-07 when a blind copy had to be reverted.
 - `dist-atlantic/index.html` — Atlantic edition fork (local only, not yet deployed)
 - `inject_light_hero.py` — hero replacement injection script
 - `dist-v6/index.html` — older Gulf V6 build (separate)
