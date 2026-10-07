@@ -1,0 +1,14 @@
+[
+  {
+    "image": "sailor-rigging",
+    "out": "promo-rigging-sailing-today.png",
+    "headline": "Sailing today?",
+    "subline": "Ask Captain Jim for your best window: wind, tides, bridges & docks."
+  },
+  {
+    "image": "sailor-coffee",
+    "out": "promo-coffee-check-window.png",
+    "headline": "Coffee first.",
+    "subline": "Then check your sailing window."
+  }
+]
