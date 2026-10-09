@@ -5,7 +5,8 @@ cards.json is a list of objects:
   {"template": "on-the-water", "out": "2026-10-07-fish-worlds.png",
    "tag": "PENSACOLA BAY", "headline": "...", "dateline": "Sat–Sun Oct 10–11",
    "what": "...", "why": "...", "todo": "...", "source": "Sail Florida"}
-Text shrinks until it fits the content box. Templates live in templates/, output goes to out/.
+Text shrinks until it fits the content box. Templates live in templates/ (.webp, .png or .jpg),
+output goes to out/. Templates: on-the-water, marina-watch, route-open, icw-alert-closed, icw-alert-restricted.
 """
 import json, os, sys
 from PIL import Image, ImageDraw, ImageFont
@@ -16,6 +17,8 @@ BOLD, DEMI, MEDIUM, REGULAR = 0, 2, 5, 7
 TEAL, ORANGE, WHITE, MUTED = (79, 179, 196), (242, 140, 56), (238, 242, 245), (170, 184, 194)
 BOX = (56, 376, 1196, 1072)  # inside edge of the template's rounded content box
 PAD = 46
+# Templates with a status badge across the top of the box: text starts below the badge.
+BADGE_BOTTOM = {"route-open": 450, "icw-alert-closed": 484, "icw-alert-restricted": 512}
 
 
 def font(style, size):
@@ -65,9 +68,13 @@ def layout(draw, card, scale, width):
 
 
 def render(card):
-    im = Image.open(os.path.join(HERE, "templates", card["template"] + ".webp")).convert("RGB")
+    src = next(os.path.join(HERE, "templates", card["template"] + ext) for ext in (".webp", ".png", ".jpg")
+               if os.path.exists(os.path.join(HERE, "templates", card["template"] + ext)))
+    im = Image.open(src).convert("RGB")
     draw = ImageDraw.Draw(im)
     x0, y0, x1, y1 = BOX
+    if card["template"] in BADGE_BOTTOM:
+        y0 = BADGE_BOTTOM[card["template"]] - PAD + 24   # keep a clear gap under the badge
     width, height = x1 - x0 - 2 * PAD, y1 - y0 - 2 * PAD
     scale = 1.0
     while True:

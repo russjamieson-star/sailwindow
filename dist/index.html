@@ -1352,17 +1352,32 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
         <input class="finput" type="text" id="p-station" value="8726667" placeholder="8726667">
       </div>
     </div>
-    <div class="frow">
-      <div class="fg"><label class="flbl" for="p-wmin">Wind Min (kt)</label><input class="finput" type="number" id="p-wmin" value="8" min="0" max="30"></div>
-      <div class="fg"><label class="flbl" for="p-wmax">Wind Max (kt)</label><input class="finput" type="number" id="p-wmax" value="18" min="0" max="35"></div>
+    <!-- Sliders + segmented tide control (2026-10-08). Inputs keep their old ids so savePrefs()/openModal() are unchanged; sky-icons.js wires the readouts. -->
+    <div class="fg sl-ctl">
+      <div class="sl-h"><label class="flbl" for="p-wmin">Wind Range</label><output id="sl-wout">8–18 kt</output></div>
+      <div class="sl-dual">
+        <input type="range" id="p-wmin" value="8" min="0" max="35" step="1" aria-label="Lowest wind you want, in knots">
+        <input type="range" id="p-wmax" value="18" min="0" max="35" step="1" aria-label="Highest wind you want, in knots">
+      </div>
+      <div class="sl-scale"><span>0</span><span>10</span><span>20</span><span>30 kt</span></div>
     </div>
-    <div class="frow">
-      <div class="fg"><label class="flbl" for="p-gust">Max Gust (kt)</label><input class="finput" type="number" id="p-gust" value="22" min="0" max="40"></div>
-      <div class="fg"><label class="flbl" for="p-dur">Duration (hrs)</label><input class="finput" type="number" id="p-dur" value="4" min="1" max="12" step="0.5"></div>
+    <div class="fg sl-ctl">
+      <div class="sl-h"><label class="flbl" for="p-gust">Max Gusts</label><output id="sl-gout">22 kt</output></div>
+      <input type="range" id="p-gust" value="22" min="0" max="40" step="1">
+      <div class="sl-scale"><span>Any hour gusting above this is a No-Go</span></div>
+    </div>
+    <div class="fg sl-ctl">
+      <div class="sl-h"><label class="flbl" for="p-dur">Trip Duration</label><output id="sl-dout">4 hrs</output></div>
+      <input type="range" id="p-dur" value="4" min="1" max="12" step="0.5">
     </div>
     <div class="fg">
-      <label class="flbl" for="p-tide">Tide Preference</label>
-      <select class="fselect" id="p-tide">
+      <span class="flbl" id="sl-tide-lbl">Tide Preference</span>
+      <div class="sl-seg" role="radiogroup" aria-labelledby="sl-tide-lbl">
+        <input type="radio" name="sl-tide" id="sl-t-any" value="any" checked><label for="sl-t-any">Any</label>
+        <input type="radio" name="sl-tide" id="sl-t-in" value="incoming"><label for="sl-t-in">Incoming</label>
+        <input type="radio" name="sl-tide" id="sl-t-out" value="outgoing"><label for="sl-t-out">Outgoing</label>
+      </div>
+      <select class="fselect sl-hidden" id="p-tide" tabindex="-1" aria-hidden="true">
         <option value="any">Any / No preference</option>
         <option value="incoming">Incoming (flood)</option>
         <option value="outgoing">Outgoing (ebb)</option>
@@ -1453,6 +1468,7 @@ const EDITION_CONFIG = {
 </script>
 <script src="/engine.js?v=20260930"></script>
 <script src="/marina-hints.js?v=3"></script>
+<script src="/sky-icons.js?v=3"></script>
 <script src="/marina-places.js?v=2"></script>
 <script>
 // ─────────────────────────────────────────────
