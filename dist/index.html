@@ -174,8 +174,10 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 .trial-sub-btn{font-size:var(--xs);font-weight:700;padding:3px 11px;border-radius:var(--r-full);border:1.5px solid currentColor;background:transparent;color:inherit;cursor:pointer;white-space:nowrap;transition:opacity var(--tr)}
 .trial-sub-btn:hover{opacity:.75}
 /* ── Subscribe / paywall overlay ─────────────────────────── */
-#subscribe-overlay{position:fixed;inset:0;z-index:400;background:oklch(0 0 0/.72);display:none;align-items:center;justify-content:center;padding:var(--sp4)}
-.sub-card{background:var(--surface);border-radius:var(--r-2xl);padding:var(--sp8) var(--sp6);max-width:420px;width:100%;display:flex;flex-direction:column;gap:var(--sp4);box-shadow:var(--sh-lg);max-height:90dvh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+#subscribe-overlay{position:fixed;inset:0;z-index:400;background:oklch(0 0 0/.82);display:none;align-items:center;justify-content:center;padding:var(--sp4);overscroll-behavior:contain}
+/* freeze the app behind the subscribe box (2026-10-09: it scrolled underneath) */
+html:has(#subscribe-overlay[style*="flex"]),html:has(#subscribe-overlay[style*="flex"]) body{overflow:hidden}
+.sub-card{background:var(--surface);border-radius:var(--r-2xl);padding:var(--sp8) var(--sp6);max-width:420px;width:100%;display:flex;flex-direction:column;gap:var(--sp4);box-shadow:var(--sh-lg);max-height:90dvh;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
 .sub-feature{display:flex;align-items:flex-start;gap:var(--sp3);font-size:var(--sm);color:var(--muted)}
 .sub-check{color:var(--success);font-weight:700;flex-shrink:0;margin-top:1px}
 .price-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp3)}
@@ -327,59 +329,7 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
 
 <div id="sw-hero-overlay">
 
-<!-- Live Editions bar — cross-links to other live SailWindow editions -->
-<section style="
-    max-width: 1280px;
-    margin: 1.5rem auto 0 auto;
-    padding: 0 2rem;
-">
-    <div style="
-        background: linear-gradient(135deg, #0a1e2b, #005a8c);
-        color: white;
-        padding: 1.2rem 2rem;
-        border-radius: 16px;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-        box-shadow: 0 8px 30px rgba(0, 40, 60, 0.2);
-    ">
-        <div style="display: flex; align-items: center; gap: 1rem;">
-            <span style="
-                background: #2e7d32;
-                color: white;
-                padding: 0.2rem 0.8rem;
-                border-radius: 30px;
-                font-weight: 700;
-                font-size: 0.75rem;
-                text-transform: uppercase;
-            ">
-                <i class="fas fa-check-circle"></i> Live Now
-            </span>
-            <div>
-                <strong style="font-size: 1.1rem;">Ask Captain Jim: Atlantic Edition</strong>
-                <span style="opacity: 0.8; font-size: 0.9rem; margin-left: 0.5rem;">
-                    — Georgia to Maine
-                </span>
-            </div>
-        </div>
-        <div style="display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap;">
-            <a href="https://atlantic.sailwindow.com" target="_blank" rel="noopener" style="
-                background: #ffb74d;
-                color: #0a1e2b;
-                padding: 0.5rem 1.5rem;
-                border-radius: 60px;
-                font-weight: 600;
-                text-decoration: none;
-                transition: all 0.2s;
-                font-size: 0.95rem;
-            ">
-                <i class="fas fa-arrow-right"></i> Visit Atlantic Edition
-            </a>
-        </div>
-    </div>
-</section>
+<!-- Atlantic Edition "Live Now" bar removed 2026-10-09 at Russ's request (Atlantic edition on hold); restore from git history if it returns. -->
 
 <section id="sailwindow-hero">
   <div class="hero-container">
@@ -465,7 +415,7 @@ button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
       <div class="hw-pricing-bar">
         <span>
           <span class="hw-price-big">$5.99 <span>/ month</span></span>
-          <span style="color:var(--muted);margin-left:.5rem;">or $49/year &middot; $10/mo for Gulf + Atlantic bundled</span>
+          <span style="color:var(--muted);margin-left:.5rem;">or $49/year</span>
           <span class="hw-trial-tag"><i class="fas fa-gift"></i> 7-day trial</span>
         </span>
         <button class="btn-hero-outline" style="width:auto;padding:.4rem 1.2rem;font-size:.85rem;" onclick="heroSubscribe()">Subscribe</button>
@@ -1861,11 +1811,10 @@ document.addEventListener("DOMContentLoaded", () => {
     <div style="display:flex;flex-direction:column;gap:var(--sp2)">
       <div class="sub-feature"><span class="sub-check">✓</span><span>All 35 Gulf Coast stations — Texas to the Florida Keys</span></div>
       <div class="sub-feature"><span class="sub-check">✓</span><span>7-Day sailing forecast with daily sailability scoring</span></div>
-      <div class="sub-feature"><span class="sub-check">✓</span><span>Live marina map with 30-mile proximity search</span></div>
+      <div class="sub-feature"><span class="sub-check">✓</span><span>Marina map with nearby marinas, fuel docks and dining</span></div>
       <div class="sub-feature"><span class="sub-check">✓</span><span>NOAA tide predictions + best sailing window finder</span></div>
       <div class="sub-feature"><span class="sub-check">✓</span><span>Cruiser's Log — share trip notes with the community</span></div>
-      <div class="sub-feature"><span class="sub-check">✓</span><span>ICW Bridge Schedules — 34 Florida drawbridges with CFR times</span></div>
-      <div class="sub-feature"><span class="sub-check">✓</span><span>Referral credits — earn free months by sharing</span></div>
+      <div class="sub-feature"><span class="sub-check">✓</span><span>ICW Bridge Schedules — 48 drawbridges with CFR times</span></div>
     </div>
 
     <div class="sub-divider"></div>
@@ -1883,8 +1832,9 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     </div>
 
-    <!-- Bundle: both editions -->
-    <div class="price-card" id="price-bundle" onclick="selectPlan('bundle')" style="margin-top:var(--sp3);position:relative">
+    <!-- Bundle: both editions. HIDDEN 2026-10-09 at Russ's request until the Atlantic Edition is re-deployed:
+         to bring it back, delete "display:none;" below (and restore the hero price-bar mention). Element kept because selectPlan() looks it up. -->
+    <div class="price-card" id="price-bundle" onclick="selectPlan('bundle')" style="display:none;margin-top:var(--sp3);position:relative">
       <div style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--gold);color:#0a1e2b;font-size:.65rem;font-weight:700;padding:.15rem .7rem;border-radius:var(--r-full);letter-spacing:.03em;text-transform:uppercase;white-space:nowrap">Best Value</div>
       <div class="price-amount">$10<span style="font-size:.45em;font-weight:400;opacity:.7">/month</span></div>
       <div class="price-per">Gulf + Atlantic editions, one subscription</div>
@@ -1912,7 +1862,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     <!-- Existing member note -->
     <div style="text-align:center;margin-top:var(--sp3);padding-top:var(--sp3);border-top:1px solid var(--divider)">
-      <p style="font-size:var(--xs);color:var(--muted);line-height:1.5">Current members: tap <strong style="color:var(--text)">Subscribe</strong> and enter your registration email address to restore access.</p>
+      <button type="button" onclick="openSubscribeModal('restore')" style="font-size:var(--xs);color:var(--primary);background:none;border:none;cursor:pointer;padding:var(--sp1);font-family:inherit;text-decoration:underline">Already a subscriber? Restore access →</button>
     </div>
 
   </div>
