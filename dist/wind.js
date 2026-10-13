@@ -22,16 +22,21 @@
 
   // Anchors are [value, rgb, label]. Built from prefs each time so changing
   // Preferences on the Today tab is reflected the next time the map is drawn.
+  // Same hard cutoff the score uses for this boat type (26 kt mono/cat, 24 tri, 20 beach cat).
+  const hardWind = () => (typeof boatProfile === 'function' && boatProfile().hardWind) || 26;
+  const isMultihull = () => !!prefs.boatType && prefs.boatType !== 'mono';
+
   function windBands(){
-    const lo = Math.max(4, +prefs.windMin || 8), hi = Math.min(26, Math.max(lo + 1, +prefs.windMax || 18));
+    const hard = hardWind();
+    const lo = Math.max(4, Math.min(hard - 2, +prefs.windMin || 8)), hi = Math.min(hard - 1, Math.max(lo + 1, +prefs.windMax || 18));
     const bands = [[0, PURPLE, 'Under 4 kt — too light'], [4, BLUE, `4–${lo} kt — light`], [lo, GREEN, `${lo}–${hi} kt — your range`]];
-    if(26 - hi > 4){
-      const mid = Math.round((hi + 26) / 2);
-      bands.push([hi, YELLOW, `${hi}–${mid} kt — fresh`], [mid, ORANGE, `${mid}–26 kt — strong`]);
+    if(hard - hi > 4){
+      const mid = Math.round((hi + hard) / 2);
+      bands.push([hi, YELLOW, `${hi}–${mid} kt — fresh`], [mid, ORANGE, `${mid}–${hard} kt — strong`]);
     } else {
-      bands.push([hi, ORANGE, `${hi}–26 kt — strong`]);
+      bands.push([hi, ORANGE, `${hi}–${hard} kt — strong`]);
     }
-    bands.push([26, RED, 'Over 26 kt — no-go']);
+    bands.push([hard, RED, `Over ${hard} kt — no-go`]);
     return bands;
   }
   function gustBands(){
@@ -39,6 +44,18 @@
     return [[0, GREEN, `Under ${g - 3} kt`], [g - 3, YELLOW, `${g - 3}–${g} kt — near your limit`], [g, RED, `Over ${g} kt — over your limit`]];
   }
   const WAVE_BANDS = [[0, BLUE, 'Under 1 ft'], [1, GREEN, '1–2 ft'], [2, YELLOW, '2–4 ft'], [4, ORANGE, '4–6 ft'], [6, RED, 'Over 6 ft']];
+  // Multihulls: colour by how the sea will feel under a bridgedeck, not height alone.
+  // chopLevel() puts height on the same 0–4 steps as WAVE_BANDS (1, 2, 4, 6 ft), then adds a
+  // step when waves of 1.5 ft+ come close together (under 5 s) and half a step under 6 s,
+  // the same thresholds waveFeel() uses. Starting numbers, to be tuned with Windcraft's guidance.
+  const CHOP_BANDS = [[0, BLUE, 'Under 1 ft — flat'], [1, GREEN, '1–2 ft — easy'], [2, YELLOW, '2–4 ft, or choppy'],
+                      [3, ORANGE, 'Short, steep chop — bridgedeck slam'], [4, RED, 'Over 6 ft, or steep 4 ft+']];
+  function chopLevel(h, p){
+    const base = h < 1 ? h : h < 2 ? 1 + (h - 1) : h < 4 ? 2 + (h - 2) / 2 : h < 6 ? 3 + (h - 4) / 2 : 4;
+    const steep = h >= 1.5 && p != null ? (p < 5 ? 1 : p < 6 ? .5 : 0) : 0;
+    return Math.min(4.5, base + steep);
+  }
+  const waveBands = () => isMultihull() ? CHOP_BANDS : WAVE_BANDS;
 
   function colorFor(v, bands){
     for(let i = bands.length - 1; i >= 0; i--){
@@ -79,8 +96,13 @@
       #wind-view .wround{width:42px;height:42px;font-size:22px!important;padding:0!important;display:grid;place-items:center;background:rgba(255,255,255,.14)!important}
       #wind-time{min-width:104px;text-align:center;font-weight:700;font-size:18px}
       #wind-scrub{width:150px;accent-color:#f26a3d}
-      #wind-legend{position:absolute;left:12px;bottom:calc(96px + env(safe-area-inset-bottom));z-index:1000;background:rgba(15,34,51,.84);color:#fff;border-radius:12px;padding:10px 12px;font-size:14px;line-height:1.6}
-      #wind-legend i{display:inline-block;width:16px;height:12px;border-radius:2px;margin-right:6px;vertical-align:middle}
+      #wind-legend{position:absolute;left:12px;bottom:calc(96px + env(safe-area-inset-bottom));z-index:1000;background:rgba(15,34,51,.84);color:#fff;border-radius:12px;padding:12px 14px;font-size:16px;line-height:1.7;max-width:calc(100% - 24px);box-sizing:border-box}
+      #wind-legend strong{font-size:17px}
+      #wind-legend{cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}
+      #wind-legend .wl-chev{display:inline-block;margin-left:8px;font-size:13px;opacity:.75;transition:transform .2s}
+      #wind-legend.collapsed .wl-body{display:none}
+      #wind-legend.collapsed .wl-chev{transform:rotate(180deg)}
+      #wind-legend i{display:inline-block;width:20px;height:15px;border-radius:3px;margin-right:8px;vertical-align:middle}
       #wind-status{position:absolute;top:62px;left:50%;transform:translateX(-50%);z-index:1000;background:rgba(15,34,51,.84);color:#fff;font-size:14px;padding:7px 14px;border-radius:999px;display:none;white-space:nowrap}
       #wind-view .wpill-wrap{display:flex;gap:6px;width:max-content;transform:translate(var(--wpx,-50%),calc(-100% - 16px))}
       #wind-view .wpill{background:#0f2233;color:#fff;border-radius:18px;padding:8px 14px;display:flex;align-items:center;gap:9px;box-shadow:0 4px 16px rgba(0,0,0,.35);white-space:nowrap;border:1.5px solid rgba(255,255,255,.85)}
@@ -92,7 +114,7 @@
         #wind-scrub{width:56px}
         #wind-view .wbar button,#wind-view .wbar select{padding:8px 11px;font-size:15px}
         #wind-time{min-width:84px;font-size:17px}
-        #wind-legend{font-size:13px;padding:8px 10px}
+        #wind-legend{font-size:16px;padding:10px 12px}
       }`;
     document.head.appendChild(css);
 
@@ -109,7 +131,7 @@
         <select id="wind-jump" aria-label="Jump to area"><option value="">Jump to…</option></select>
       </div>
       <div id="wind-status"></div>
-      <div id="wind-legend"></div>
+      <div id="wind-legend" role="button" tabindex="0" aria-expanded="true" title="Tap to hide or show the colour key"></div>
       <div class="wbar bottom">
         <button class="wround" id="wind-prev" aria-label="Previous hour">&#8249;</button>
         <div id="wind-time">Now</div>
@@ -134,6 +156,9 @@
     document.getElementById('wind-next').onclick = () => setHour(hourIdx + 1);
     document.getElementById('wind-scrub').oninput = e => setHour(+e.target.value);
     document.getElementById('wind-play').onclick = togglePlay;
+    const legend = document.getElementById('wind-legend');
+    legend.onclick = toggleLegend;
+    legend.onkeydown = e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggleLegend(); } };
   }
 
   // Traces the shoreline from CARTO's own base tiles, in plain canvas code so it behaves the same in
@@ -316,7 +341,7 @@
     const fy = (lat - lats[0]) / step, fx = (lon - lons[0]) / step;
     const y0 = Math.max(0, Math.min(lats.length - 2, Math.floor(fy))), x0 = Math.max(0, Math.min(lons.length - 2, Math.floor(fx)));
     const ty = Math.max(0, Math.min(1, fy - y0)), tx = Math.max(0, Math.min(1, fx - x0));
-    let s = 0, g = 0, u = 0, v = 0, w = 0, wWeight = 0, total = 0, land = 0;
+    let s = 0, g = 0, u = 0, v = 0, w = 0, wp = 0, wpWeight = 0, wWeight = 0, total = 0, land = 0;
     for(const [dy, dx, wt] of [[0, 0, (1 - ty) * (1 - tx)], [0, 1, (1 - ty) * tx], [1, 0, ty * (1 - tx)], [1, 1, ty * tx]]){
       const la = lats[y0 + dy], lo = lons[x0 + dx], c = cache.get(key(la, lo));
       if(!c || c.s[hourIdx] == null) continue;
@@ -325,11 +350,12 @@
       u += -sp * Math.sin(dir) * wt; v += -sp * Math.cos(dir) * wt;
       // the marine model is coarse and smears offshore seas inland, so only water cells count
       const wc = waveCache.get(key(la, lo));
-      if(!c.land && wc && wc.h[hourIdx] != null){ w += wc.h[hourIdx] * wt; wWeight += wt; }
+      if(!c.land && wc && wc.h[hourIdx] != null){ w += wc.h[hourIdx] * wt; wWeight += wt;
+        if(wc.p[hourIdx] != null){ wp += wc.p[hourIdx] * wt; wpWeight += wt; } }
     }
     if(!total) return null;
     const onLand = land / total > 0.5;
-    return { s: s / total, g: g / total, u: u / total, v: v / total, w: wWeight && !onLand ? w / wWeight : null, onLand };
+    return { s: s / total, g: g / total, u: u / total, v: v / total, w: wWeight && !onLand ? w / wWeight : null, wp: wpWeight ? wp / wpWeight : null, onLand };
   }
 
   // ---- Drawing ----
@@ -350,12 +376,12 @@
     const small = document.createElement('canvas'); small.width = cols; small.height = rows;
     const sctx = small.getContext('2d'), img = sctx.createImageData(cols, rows);
     const u = new Float32Array(cols * rows), v = new Float32Array(cols * rows);
-    const bands = layer === 'waves' ? WAVE_BANDS : layer === 'gust' ? gustBands() : windBands();
+    const bands = layer === 'waves' ? waveBands() : layer === 'gust' ? gustBands() : windBands();
     const speedScale = 0.08;   // knots -> px/frame
     for(let r = 0; r < rows; r++) for(let c = 0; c < cols; c++){
       const ll = map.containerPointToLatLng([c * CELL, r * CELL]), sm = sample(ll.lat, ll.lng), i = r * cols + c;
       if(!sm) continue;
-      const val = layer === 'gust' ? sm.g : layer === 'waves' ? sm.w : sm.s;
+      const val = layer === 'gust' ? sm.g : layer === 'waves' ? (sm.w != null && isMultihull() ? chopLevel(sm.w, sm.wp) : sm.w) : sm.s;
       if(val != null){
         const col = colorFor(val, bands);
         img.data[i * 4] = col[0]; img.data[i * 4 + 1] = col[1]; img.data[i * 4 + 2] = col[2]; img.data[i * 4 + 3] = 255;
@@ -465,10 +491,26 @@
   }
 
   function renderLegend(){
-    const bands = layer === 'waves' ? WAVE_BANDS : layer === 'gust' ? gustBands() : windBands();
+    const bands = layer === 'waves' ? waveBands() : layer === 'gust' ? gustBands() : windBands();
+    const waveTitle = isMultihull() ? `Sea state for a ${boatProfile().label.toLowerCase()}` : 'Wave height';
     document.getElementById('wind-legend').innerHTML =
-      `<strong>${layer === 'waves' ? 'Wave height' : layer === 'gust' ? 'Gusts' : 'Wind'}</strong><br>` +
-      bands.map(b => `<i style="background:rgb(${b[1].join(',')})"></i>${b[2]}`).join('<br>');
+      `<strong>${layer === 'waves' ? waveTitle : layer === 'gust' ? 'Gusts' : 'Wind'}</strong><span class="wl-chev">&#9660;</span>` +
+      `<div class="wl-body">` + bands.map(b => `<i style="background:rgb(${b[1].join(',')})"></i>${b[2]}`).join('<br>') + `</div>`;
+    setLegendCollapsed(legendCollapsed);
+  }
+  // Tap the key to fold it down to its title, so it stops covering the map. Remembered per device.
+  let legendCollapsed = false;
+  try{ legendCollapsed = localStorage.getItem('acj.windLegendCollapsed') === '1'; }catch(_){}
+  function setLegendCollapsed(on){
+    legendCollapsed = on;
+    const el = document.getElementById('wind-legend');
+    if(!el) return;
+    el.classList.toggle('collapsed', on);
+    el.setAttribute('aria-expanded', String(!on));
+  }
+  function toggleLegend(){
+    setLegendCollapsed(!legendCollapsed);
+    try{ localStorage.setItem('acj.windLegendCollapsed', legendCollapsed ? '1' : '0'); }catch(_){}
   }
   const showStatus = t => { const s = document.getElementById('wind-status'); s.textContent = t; s.style.display = 'block'; };
   const hideStatus = () => { document.getElementById('wind-status').style.display = 'none'; };
