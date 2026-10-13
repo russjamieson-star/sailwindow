@@ -9,6 +9,6 @@ compatibility_date = "2026-09-01"
 #   npx wrangler secret put GOOGLE_PLACES_KEY
 
 # Captain's Brief feed: the Apps Script web app URL (daily-brief/brief-Code.gs). Not a secret —
-# the script only ever returns approved rows. Empty until Russ deploys the script.
+# the script only ever returns approved rows. Deployed by Russ 2026-10-13 (Apps Script project "Captains Brief").
 [vars]
-BRIEF_SCRIPT_URL = ""
+BRIEF_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz4vsL-cECU25Emt1iBXV0wUNSAxpjWy7IwNNlIn4JRbwcHIhTqRP7lipK19jvaQyk-/exec"
