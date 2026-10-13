@@ -8,3 +8,6 @@ subscription-service/node_modules/
 Photos videos/VID_20210317_111705.mp4
 Photos videos/FL_Sail2017_TRAVIS_20170401_1313.MP4
 Best for SailWindow/Tier2_Gallery/VID_20210317_111705.mp4
+
+# Security-check logs written by the mypowers plugin on each commit (not app code)
+vault/
