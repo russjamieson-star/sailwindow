@@ -116,6 +116,35 @@ function showBanner(msg, type="info"){ const b=document.getElementById("banner")
 
 function hideBanner(){ document.getElementById("banner").className="banner"; }
 
+// Weak-signal pop-up: a web page can't change the phone's network, so this
+// walks the boater through switching to Starlink / marina Wi-Fi themselves.
+// Shown at most once per session so it never nags on every refresh.
+function showSignalHelp(){
+  try{ if(sessionStorage.getItem("acj.signalHelpShown")) return; sessionStorage.setItem("acj.signalHelpShown","1"); }catch(e){}
+  if(document.getElementById("signal-help")) return;
+  const o=document.createElement("div");
+  o.id="signal-help";
+  o.setAttribute("role","dialog"); o.setAttribute("aria-modal","true"); o.setAttribute("aria-labelledby","signal-help-title");
+  o.style.cssText="position:fixed;inset:0;z-index:700;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;padding:16px";
+  o.innerHTML=`<div style="background:var(--surface,#fff);color:var(--text,#111);border-radius:var(--r-lg,14px);max-width:360px;width:100%;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.25)">
+    <div id="signal-help-title" style="font-size:1.1rem;font-weight:700;margin-bottom:8px">📶 Weak signal</div>
+    <div style="font-size:.9rem;color:var(--muted,#555);margin-bottom:12px">Your connection is struggling. If you have Starlink aboard or marina Wi-Fi nearby, switch to it for fresh forecasts:</div>
+    <ol style="font-size:.9rem;margin:0 0 16px 20px;padding:0;line-height:1.5">
+      <li>Open your phone's <strong>Settings → Wi-Fi</strong></li>
+      <li>Tap your <strong>Starlink</strong> network (or the marina's)</li>
+      <li>Come back here and tap <strong>Refresh</strong></li>
+    </ol>
+    <div style="display:flex;gap:8px;justify-content:flex-end">
+      <button type="button" id="signal-help-close" style="padding:10px 14px;border-radius:999px;border:1px solid var(--divider,#ccc);background:transparent;color:inherit;font-weight:600;cursor:pointer;white-space:nowrap">Not now</button>
+      <button type="button" id="signal-help-refresh" style="padding:10px 14px;border-radius:999px;border:0;background:var(--primary,#0a7);color:#fff;font-weight:600;cursor:pointer">I've switched — Refresh</button>
+    </div></div>`;
+  document.body.appendChild(o);
+  const close=()=>o.remove();
+  o.addEventListener("click",e=>{ if(e.target===o) close(); });
+  document.getElementById("signal-help-close").onclick=close;
+  document.getElementById("signal-help-refresh").onclick=()=>{ close(); loadAll(); };
+}
+
 function setLoading(on){
   const s1=document.getElementById("mini-spin"), s2=document.getElementById("refresh-spin"), btn=document.getElementById("refresh-btn");
   if(on){ s1.classList.add("spinning"); s2.classList.add("spinning"); btn.disabled=true; }
@@ -598,7 +627,7 @@ async function loadAll(){
     openSubscribeModal('locked'); return;
   }
   setLoading(true); hideBanner(); showBanner("Fetching live NWS + NOAA data…", "info");
-  const slowTimer = setTimeout(() => showBanner("📶 Slow connection — if you're at a marina or have Starlink aboard, hop on the Wi-Fi for fresher data…", "info"), 8000);
+  const slowTimer = setTimeout(() => showBanner("📶 Slow connection — if you're at a marina or have Starlink aboard, hop on the Wi-Fi for fresher data…", "info") || showSignalHelp(), 8000);
   let loc;
   if(prefs.locKey === "custom"){
     loc = { name:prefs.custom?.name||"My Marina", sub:"NOAA "+(prefs.custom?.stationId||"—"), lat:Number(prefs.custom?.lat), lon:Number(prefs.custom?.lon), stationId:String(prefs.custom?.stationId||"") };
@@ -662,6 +691,7 @@ async function loadAll(){
     showBanner(navigator.onLine === false
       ? "📶 You're offline — showing last loaded data. Marina Wi-Fi or your boat's Starlink will get you fresh forecasts; tap Refresh once connected."
       : "⚠ " + err.message + " — weak signal? Marina Wi-Fi or onboard Starlink usually loads faster. Tap Refresh to retry.", "warn");
+    showSignalHelp();
     if(!lastHourlyData.length){
       document.getElementById("score-num").innerHTML = '—<span class="denom">/10</span>';
       document.getElementById("q-lbl").textContent   = "Data unavailable";

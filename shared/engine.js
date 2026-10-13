@@ -116,6 +116,35 @@ function showBanner(msg, type="info"){ const b=document.getElementById("banner")
 
 function hideBanner(){ document.getElementById("banner").className="banner"; }
 
+// Weak-signal pop-up: a web page can't change the phone's network, so this
+// walks the boater through switching to Starlink / marina Wi-Fi themselves.
+// Shown at most once per session so it never nags on every refresh.
+function showSignalHelp(){
+  try{ if(sessionStorage.getItem("acj.signalHelpShown")) return; sessionStorage.setItem("acj.signalHelpShown","1"); }catch(e){}
+  if(document.getElementById("signal-help")) return;
+  const o=document.createElement("div");
+  o.id="signal-help";
+  o.setAttribute("role","dialog"); o.setAttribute("aria-modal","true"); o.setAttribute("aria-labelledby","signal-help-title");
+  o.style.cssText="position:fixed;inset:0;z-index:700;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;padding:16px";
+  o.innerHTML=`<div style="background:var(--surface,#fff);color:var(--text,#111);border-radius:var(--r-lg,14px);max-width:360px;width:100%;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.25)">
+    <div id="signal-help-title" style="font-size:1.1rem;font-weight:700;margin-bottom:8px">📶 Weak signal</div>
+    <div style="font-size:.9rem;color:var(--muted,#555);margin-bottom:12px">Your connection is struggling. If you have Starlink aboard or marina Wi-Fi nearby, switch to it for fresh forecasts:</div>
+    <ol style="font-size:.9rem;margin:0 0 16px 20px;padding:0;line-height:1.5">
+      <li>Open your phone's <strong>Settings → Wi-Fi</strong></li>
+      <li>Tap your <strong>Starlink</strong> network (or the marina's)</li>
+      <li>Come back here and tap <strong>Refresh</strong></li>
+    </ol>
+    <div style="display:flex;gap:8px;justify-content:flex-end">
+      <button type="button" id="signal-help-close" style="padding:10px 14px;border-radius:999px;border:1px solid var(--divider,#ccc);background:transparent;color:inherit;font-weight:600;cursor:pointer;white-space:nowrap">Not now</button>
+      <button type="button" id="signal-help-refresh" style="padding:10px 14px;border-radius:999px;border:0;background:var(--primary,#0a7);color:#fff;font-weight:600;cursor:pointer">I've switched — Refresh</button>
+    </div></div>`;
+  document.body.appendChild(o);
+  const close=()=>o.remove();
+  o.addEventListener("click",e=>{ if(e.target===o) close(); });
+  document.getElementById("signal-help-close").onclick=close;
+  document.getElementById("signal-help-refresh").onclick=()=>{ close(); loadAll(); };
+}
+
 function setLoading(on){
   const s1=document.getElementById("mini-spin"), s2=document.getElementById("refresh-spin"), btn=document.getElementById("refresh-btn");
   if(on){ s1.classList.add("spinning"); s2.classList.add("spinning"); btn.disabled=true; }
@@ -139,6 +168,7 @@ function openModal(){
   document.getElementById("p-gust").value = prefs.gustMax;
   document.getElementById("p-dur").value  = prefs.durationHrs;
   document.getElementById("p-tide").value = prefs.tidePref;
+  setBoatTypeUI(prefs.boatType);
   document.getElementById("p-cname").value   = prefs.custom?.name || "My Marina";
   document.getElementById("p-lat").value     = prefs.custom?.lat ?? 27.9060;
   document.getElementById("p-lon").value     = prefs.custom?.lon ?? -82.4167;
@@ -176,6 +206,7 @@ function syncPrefsUI(){
   document.getElementById("p-gust").value    = prefs.gustMax;
   document.getElementById("p-dur").value     = prefs.durationHrs;
   document.getElementById("p-tide").value    = prefs.tidePref;
+  setBoatTypeUI(prefs.boatType);
   document.getElementById("p-cname").value   = prefs.custom?.name || "My Marina";
   document.getElementById("p-lat").value     = prefs.custom?.lat ?? 27.9060;
   document.getElementById("p-lon").value     = prefs.custom?.lon ?? -82.4167;
@@ -186,6 +217,8 @@ function syncPrefsUI(){
   document.getElementById("pv-dur").textContent  = prefs.durationHrs + " hrs";
   const sel = document.getElementById("p-tide");
   document.getElementById("pv-tide").textContent = sel.options[sel.selectedIndex].text;
+  const pvBoat = document.getElementById("pv-boat");
+  if(pvBoat) pvBoat.textContent = boatProfile().label;
 }
 
 function savePrefs(){
@@ -195,6 +228,8 @@ function savePrefs(){
   prefs.gustMax     = +document.getElementById("p-gust").value;
   prefs.durationHrs = +document.getElementById("p-dur").value;
   prefs.tidePref    = document.getElementById("p-tide").value;
+  const boat = document.querySelector('input[name="p-boat"]:checked');
+  if(boat) prefs.boatType = boat.value;
   if(prefs.locKey === "custom"){
     prefs.custom = {
       enabled:true,
@@ -379,17 +414,45 @@ function marinaHasFuelTag(tags){
 
 function fmtAshoreDist(mi){ return mi < 0.1 ? Math.round(mi*5280) + ' ft' : mi.toFixed(1) + ' mi'; }
 
+// Boat type (2026-10-11): multihulls don't heel to warn of a gust, so the gap between steady
+// wind and gusts counts for more. "mono" reproduces the original scoring exactly. The cat/tri/beach
+// numbers are placeholders until Windcraft Multihulls supplies its new-owner handover limits.
+const BOAT_PROFILES = {
+  mono:  { label:"Monohull",  gustStart:7, gustRate:.4, gustCap:2.5, hardWind:26 },
+  cat:   { label:"Catamaran", gustStart:5, gustRate:.6, gustCap:3.5, hardWind:26 },
+  tri:   { label:"Trimaran",  gustStart:5, gustRate:.6, gustCap:3.5, hardWind:24 },
+  beach: { label:"Beach Cat", gustStart:4, gustRate:.8, gustCap:4,   hardWind:20, suggest:{ windMin:6, windMax:15, gustMax:18 } }
+};
+function boatProfile(){ return BOAT_PROFILES[prefs.boatType] || BOAT_PROFILES.mono; }
+
+function setBoatTypeUI(type){
+  const r = document.querySelector(`input[name="p-boat"][value="${type}"]`) || document.querySelector('input[name="p-boat"][value="mono"]');
+  if(r) r.checked = true;
+}
+
+// Picking Beach Cat moves the sliders to gentler limits; the user can still adjust them before saving.
+function onBoatTypeChange(type){
+  const sug = BOAT_PROFILES[type]?.suggest;
+  if(!sug) return;
+  [["p-wmin",sug.windMin],["p-wmax",sug.windMax],["p-gust",sug.gustMax]].forEach(([id,v]) => {
+    const el = document.getElementById(id);
+    if(el){ el.value = v; el.dispatchEvent(new Event("input")); }
+  });
+  toast("Suggested beach-cat limits set. Adjust if you like.");
+}
+
 function scorePeriod(period, tideFt, prevTideFt){
   const wind=parseWindKts(period.windSpeed), gust=parseWindKts(period.windGust||"")||wind,
         precip=period.probabilityOfPrecipitation?.value ?? 0,
         fc=(period.shortForecast||"").toLowerCase(),
         isThunder=/thunder|severe|tropical/i.test(fc);
-  if(wind < 4 || wind > 26 || gust > prefs.gustMax || precip >= 70 || isThunder) return 0;
+  const bp = boatProfile();
+  if(wind < 4 || wind > bp.hardWind || gust > prefs.gustMax || precip >= 70 || isThunder) return 0;
   let s = 10;
   if(wind < prefs.windMin) s -= (prefs.windMin - wind) * .5;
   else if(wind > prefs.windMax) s -= (wind - prefs.windMax) * .6;
   const gustSpread = gust - wind;
-  if(gustSpread > 7) s -= Math.min(2.5, (gustSpread - 7) * .4);
+  if(gustSpread > bp.gustStart) s -= Math.min(bp.gustCap, (gustSpread - bp.gustStart) * bp.gustRate);
   if(gust > prefs.gustMax - 3) s -= 1.5;
   s -= Math.min(3, precip / 25);
   if(prefs.tidePref !== "any" && prevTideFt !== null && tideFt !== null){
@@ -468,6 +531,11 @@ function buildReasons(slice){
   else reasons.push(`Wind above preferred range (${minW}–${maxW} kt)`);
   if(maxG<=prefs.gustMax) reasons.push(`Gusts ${maxG} kt — below your ${prefs.gustMax} kt limit ✓`);
   else reasons.push(`Gusts ${maxG} kt — near your ${prefs.gustMax} kt limit ⚠`);
+  const bp = boatProfile();
+  if(bp !== BOAT_PROFILES.mono){
+    const maxSpread = Math.max(...gusts.map((g,i)=>g-winds[i]));
+    if(maxSpread > bp.gustStart) reasons.push(`Gusty for a ${bp.label.toLowerCase()}: ${maxSpread} kt gust spread ⚠`);
+  }
   if(avgP<=20) reasons.push(`Rain chance ${avgP}% — very low ✓`);
   else if(avgP<=40) reasons.push(`Rain chance ${avgP}% — light`);
   else reasons.push(`Rain chance ${avgP}% — elevated ⚠`);
@@ -598,7 +666,7 @@ async function loadAll(){
     openSubscribeModal('locked'); return;
   }
   setLoading(true); hideBanner(); showBanner("Fetching live NWS + NOAA data…", "info");
-  const slowTimer = setTimeout(() => showBanner("📶 Slow connection — if you're at a marina or have Starlink aboard, hop on the Wi-Fi for fresher data…", "info"), 8000);
+  const slowTimer = setTimeout(() => showBanner("📶 Slow connection — if you're at a marina or have Starlink aboard, hop on the Wi-Fi for fresher data…", "info") || showSignalHelp(), 8000);
   let loc;
   if(prefs.locKey === "custom"){
     loc = { name:prefs.custom?.name||"My Marina", sub:"NOAA "+(prefs.custom?.stationId||"—"), lat:Number(prefs.custom?.lat), lon:Number(prefs.custom?.lon), stationId:String(prefs.custom?.stationId||"") };
@@ -662,6 +730,7 @@ async function loadAll(){
     showBanner(navigator.onLine === false
       ? "📶 You're offline — showing last loaded data. Marina Wi-Fi or your boat's Starlink will get you fresh forecasts; tap Refresh once connected."
       : "⚠ " + err.message + " — weak signal? Marina Wi-Fi or onboard Starlink usually loads faster. Tap Refresh to retry.", "warn");
+    showSignalHelp();
     if(!lastHourlyData.length){
       document.getElementById("score-num").innerHTML = '—<span class="denom">/10</span>';
       document.getElementById("q-lbl").textContent   = "Data unavailable";
@@ -1642,7 +1711,7 @@ function nearestStationId(lat, lon){
 function marinaPhoto(id){ return MARINA_PHOTOS[id] || EDITION_CONFIG.defaultMarinaPhotoFallback; }
 
 function resetPrefs(){
-  prefs = { locKey:EDITION_CONFIG.defaultLocKey, windMin:8, windMax:18, gustMax:22, durationHrs:4, tidePref:"any", theme:null,
+  prefs = { locKey:EDITION_CONFIG.defaultLocKey, windMin:8, windMax:18, gustMax:22, durationHrs:4, tidePref:"any", boatType:"mono", theme:null,
     custom:{ enabled:false, name:"My Marina", lat:EDITION_CONFIG.defaultCustomMarina.lat, lon:EDITION_CONFIG.defaultCustomMarina.lon, stationId:EDITION_CONFIG.defaultCustomMarina.stationId },
     current:{ enabled:false, name:"Current Location", lat:null, lon:null, stationId:"" }
   };

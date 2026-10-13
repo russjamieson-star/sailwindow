@@ -582,6 +582,7 @@ html:has(#subscribe-overlay[style*="flex"]),html:has(#subscribe-overlay[style*="
         <svg class="prefs-arrow" id="prefs-arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
       </div>
       <div class="prefs-body" id="prefs-body">
+        <div class="pref-row"><span class="pref-lbl">Boat Type</span><span class="pref-val" id="pv-boat">Monohull</span><button class="pref-edit" onclick="openModal()">Edit</button></div>
         <div class="pref-row"><span class="pref-lbl">Wind Range</span><span class="pref-val" id="pv-wind">8–18 kt</span><button class="pref-edit" onclick="openModal()">Edit</button></div>
         <div class="pref-row"><span class="pref-lbl">Max Gusts</span><span class="pref-val" id="pv-gust">22 kt</span><button class="pref-edit" onclick="openModal()">Edit</button></div>
         <div class="pref-row"><span class="pref-lbl">Trip Duration</span><span class="pref-val" id="pv-dur">4 hrs</span><button class="pref-edit" onclick="openModal()">Edit</button></div>
@@ -674,6 +675,7 @@ html:has(#subscribe-overlay[style*="flex"]),html:has(#subscribe-overlay[style*="
       <div class="sec-title">Sailing Preferences</div>
       <p style="font-size:var(--sm);color:var(--muted)">Open the settings sheet to adjust:</p>
       <div style="display:flex;flex-direction:column;gap:var(--sp2);margin-top:var(--sp2)">
+        <div style="font-size:var(--sm);padding:var(--sp3);background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--divider)"><strong>Boat Type</strong> <span style="color:var(--muted)">— Mono, Cat, Tri or Beach Cat. Multihulls don't heel to warn you of a gust, so for them a big gap between steady wind and gusts lowers the score more. Beach Cat also suggests gentler wind limits.</span></div>
         <div style="font-size:var(--sm);padding:var(--sp3);background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--divider)"><strong>Wind Min / Max (kt)</strong> <span style="color:var(--muted)">— ideal sustained range. Hours outside it are penalised.</span></div>
         <div style="font-size:var(--sm);padding:var(--sp3);background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--divider)"><strong>Max Gust (kt)</strong> <span style="color:var(--muted)">— any hour above this scores 0 (automatic no-go).</span></div>
         <div style="font-size:var(--sm);padding:var(--sp3);background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--divider)"><strong>Duration (hrs)</strong> <span style="color:var(--muted)">— length of your sail (1–12 hrs, in half-hour steps). Sets the window width searched.</span></div>
@@ -717,6 +719,7 @@ html:has(#subscribe-overlay[style*="flex"]),html:has(#subscribe-overlay[style*="
         <div style="background:var(--surface);border-radius:var(--r-lg);padding:var(--sp3) var(--sp4);border:1px solid var(--divider)"><div style="font-size:var(--sm);font-weight:600;margin-bottom:4px">Data won't load</div><div style="font-size:var(--xs);color:var(--muted)">Check your internet connection. NWS occasionally returns 500 errors — wait a minute and tap Refresh Live Data.</div></div>
         <div style="background:var(--surface);border-radius:var(--r-lg);padding:var(--sp3) var(--sp4);border:1px solid var(--divider)"><div style="font-size:var(--sm);font-weight:600;margin-bottom:4px">Score seems too low</div><div style="font-size:var(--xs);color:var(--muted)">Check your wind range — a narrow range penalises most days. Also verify the correct location is active.</div></div>
         <div style="background:var(--surface);border-radius:var(--r-lg);padding:var(--sp3) var(--sp4);border:1px solid var(--divider)"><div style="font-size:var(--sm);font-weight:600;margin-bottom:4px">GPS not working</div><div style="font-size:var(--xs);color:var(--muted)">Allow location access in your browser settings. GPS auto-selects the nearest of the 35 built-in NOAA stations — full Gulf Coast coverage from Port Isabel, TX to Key West, FL.</div></div>
+        <div style="background:var(--surface);border-radius:var(--r-lg);padding:var(--sp3) var(--sp4);border:1px solid var(--divider)"><div style="font-size:var(--sm);font-weight:600;margin-bottom:4px">Using Starlink underway?</div><div style="font-size:var(--xs);color:var(--muted)">Starlink Roam plans work while you're moving, within 12 nautical miles of shore. Farther out, Starlink switches to <strong>Ocean Mode</strong>, which is billed per GB on top of your plan. Check current rates in your Starlink app before an offshore passage. Ask Captain Jim uses very little data, but streaming video aboard adds up fast.</div></div>
       </div>
     </section>
 
@@ -1302,6 +1305,15 @@ html:has(#subscribe-overlay[style*="flex"]),html:has(#subscribe-overlay[style*="
         <input class="finput" type="text" id="p-station" value="8726667" placeholder="8726667">
       </div>
     </div>
+    <div class="fg">
+      <span class="flbl" id="p-boat-lbl">Boat Type</span>
+      <div class="sl-seg" style="grid-template-columns:repeat(4,1fr)" role="radiogroup" aria-labelledby="p-boat-lbl">
+        <input type="radio" name="p-boat" id="p-boat-mono" value="mono" checked onchange="onBoatTypeChange(this.value)"><label for="p-boat-mono">Mono</label>
+        <input type="radio" name="p-boat" id="p-boat-cat" value="cat" onchange="onBoatTypeChange(this.value)"><label for="p-boat-cat">Cat</label>
+        <input type="radio" name="p-boat" id="p-boat-tri" value="tri" onchange="onBoatTypeChange(this.value)"><label for="p-boat-tri">Tri</label>
+        <input type="radio" name="p-boat" id="p-boat-beach" value="beach" onchange="onBoatTypeChange(this.value)"><label for="p-boat-beach" style="white-space:nowrap;padding-left:2px;padding-right:2px">Beach Cat</label>
+      </div>
+    </div>
     <!-- Sliders + segmented tide control (2026-10-08). Inputs keep their old ids so savePrefs()/openModal() are unchanged; sky-icons.js wires the readouts. -->
     <div class="fg sl-ctl">
       <div class="sl-h"><label class="flbl" for="p-wmin">Wind Range</label><output id="sl-wout">8–18 kt</output></div>
@@ -1416,7 +1428,7 @@ const EDITION_CONFIG = {
   ]
 };
 </script>
-<script src="/engine.js?v=20260930"></script>
+<script src="/engine.js?v=20261013"></script>
 <script src="/marina-hints.js?v=3"></script>
 <script src="/sky-icons.js?v=3"></script>
 <script src="/marina-places.js?v=2"></script>
@@ -1472,7 +1484,7 @@ const LOCATIONS = {
 };
 
 let prefs = {
-  locKey:"tampa-hooker", windMin:8, windMax:18, gustMax:22, durationHrs:4, tidePref:"any", theme:null,
+  locKey:"tampa-hooker", windMin:8, windMax:18, gustMax:22, durationHrs:4, tidePref:"any", boatType:"mono", theme:null,
   custom:{ enabled:false, name:"My Marina", lat:27.9060, lon:-82.4167, stationId:"8726667" },
   current:{ enabled:false, name:"Current Location", lat:null, lon:null, stationId:"" }
 };
