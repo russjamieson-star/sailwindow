@@ -315,9 +315,9 @@
   // not a safety rating.
   function waveFeel(h, p){
     if(p == null) return 'waves';
-    if(h >= 2 && p < 5) return `every ${Math.round(p)} s · short, steep chop`;
-    if(p < 6) return `every ${Math.round(p)} s · choppy`;
-    return `every ${Math.round(p)} s · longer swell`;
+    if(h >= 2 && p < 5) return `every ${Math.round(p)} s<br>short, steep chop`;
+    if(p < 6) return `every ${Math.round(p)} s<br>choppy`;
+    return `every ${Math.round(p)} s<br>longer swell`;
   }
 
   async function ensureData(){
@@ -476,7 +476,11 @@
          <span class="big">${Math.round(sm.s)}</span><span class="sub">kt ${CARD[Math.round(fromDeg / 22.5) % 16]}<br>gust ${Math.round(sm.g)}</span></div>` +
       (wave != null ? `<div class="wpill"><span class="big" style="font-size:23px">${wave.toFixed(1)} ft</span><span class="sub">${waveFeel(wave, period)}</span></div>` : '');
     // Centre the readout over the pin, but slide it sideways so it never runs off screen.
-    const x = map.latLngToContainerPoint(ll).x, w = el.offsetWidth, W = map.getSize().x, pad = 8;
+    // On a narrow phone the wind and wave pills can't sit side by side, so stack them.
+    const W = map.getSize().x, pad = 8;
+    el.style.flexDirection = 'row'; el.style.alignItems = '';
+    if(el.offsetWidth > W - 2 * pad){ el.style.flexDirection = 'column'; el.style.alignItems = 'center'; }
+    const x = map.latLngToContainerPoint(ll).x, w = el.offsetWidth;
     const left = Math.max(pad, Math.min(W - w - pad, x - w / 2));
     el.style.setProperty('--wpx', (left - x) + 'px');
   }

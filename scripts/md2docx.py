@@ -4,7 +4,9 @@
 Usage:  python3 scripts/md2docx.py path/to/file.md [output.docx]
 
 Handles what our notes use: # headings, **bold**, *italic*, `code`, links,
-numbered and bulleted lists, | tables |, and --- dividers (skipped).
+numbered and bulleted lists, | tables |, --- dividers (skipped), and images:
+a line of only ![caption](path) shows the picture centred with its caption;
+2–3 images on one line sit side by side. Paths are relative to the .md file.
 Needs:  pip3 install markdown python-docx   (installed 2026-10-01)
 
 Pandoc would do this too, but Homebrew stopped shipping ready-made builds for
@@ -19,8 +21,10 @@ from docx import Document
 from docx.enum.text import WD_COLOR_INDEX  # noqa: F401  (kept for future styling)
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
-from docx.shared import Pt, RGBColor
+from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.shared import Inches, Pt, RGBColor
 
+IMAGE = re.compile(r'!\[([^\]]*)\]\(([^)]+)\)')
 INLINE = re.compile(r'(\*\*.+?\*\*|`[^`]+`|\*[^*]+\*|https?://[^\s)]+)')
 
 
@@ -65,6 +69,25 @@ def add_inline_run(paragraph, text, bold=False):
             add_hyperlink(paragraph, piece)
         else:
             paragraph.add_run(piece).bold = bold
+
+
+def add_picture(cell_or_doc, path, caption, width):
+    para = cell_or_doc.add_paragraph() if not hasattr(cell_or_doc, "paragraphs") or cell_or_doc.paragraphs[0].text or cell_or_doc.paragraphs[0].runs else cell_or_doc.paragraphs[0]
+    para.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    para.add_run().add_picture(str(path), width=Inches(width))
+    if caption:
+        cap = cell_or_doc.add_paragraph(); cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        run = cap.add_run(caption); run.italic = True; run.font.size = Pt(9); run.font.color.rgb = RGBColor(0x55, 0x55, 0x55)
+
+
+def add_images(doc, images, base):
+    if len(images) == 1:
+        add_picture(doc, base / images[0][1], images[0][0], 2.0)
+        return
+    table = doc.add_table(rows=1, cols=len(images))
+    width = 6.3 / len(images) - 0.2
+    for cell, (caption, path) in zip(table.rows[0].cells, images):
+        add_picture(cell, base / path, caption, min(2.15, width))
 
 
 def restart_numbering(doc, paragraph):
@@ -113,8 +136,11 @@ def convert(src: Path, dst: Path):
                     para = table.cell(r, c).paragraphs[0]
                     add_inline(para, f"**{value}**" if r == 0 else value)
             continue
+        images = IMAGE.findall(line)
         heading = re.match(r"^(#{1,3}) (.*)", line)
-        if heading:
+        if images and not IMAGE.sub("", line).strip():
+            add_images(doc, images, src.parent)
+        elif heading:
             doc.add_heading(heading.group(2).replace("**", ""), level=len(heading.group(1)))
         elif line.strip() == "---":
             pass
