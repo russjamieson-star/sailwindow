@@ -108,7 +108,7 @@ Prompted by Tommy Clark (Pensacola Regatta Chair, Windcraft Multihull Sales): sa
 ## Captain's Brief in the app — planned 2026-10-11 (after Boat Type Phase 1)
 Agreed placement: (1) headline strip under the score card on Today — top 1–2 active items within ~50 mi, Safety first, collapses to "All clear near you"; (2) full Brief as a bottom-nav tab **replacing Feedback** (Feedback moves into Help/settings); (3) later, "Brief items nearby" on each marina page, like Drawbridges nearby.
 - [x] **Decided 2026-10-11 (Russ):** Feedback moves out of the bottom nav, Brief takes its tab. Headlines on Today are free; the full Brief tab is subscriber-only.
-- [ ] **Approved column** in the Daily Brief sheet (like Cruiser's Log) — nothing shows in the app until Russ checks it.
+- [x] **Approved column** in the Daily Brief sheet (like Cruiser's Log) — nothing shows in the app until Russ checks it. Russ approved the existing items 2026-10-13 (Barataria Waterway left unchecked). The app must also hide items past their End Date.
 - [ ] **Worker route** to serve approved, unexpired items (sheet already has Lat/Lng, Start/End Date, Priority).
 - [ ] Build the Today strip + Brief tab.
 

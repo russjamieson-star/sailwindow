@@ -230,6 +230,18 @@
     }
   });
 
+  // Open on the boater's chosen location at a "where am I" scale: about 50 mi of coast
+  // across (Pensacola to Navarre). fitBounds picks the zoom for the screen, so a phone
+  // gets the same stretch of coast as a laptop. Re-centres only when the location changes,
+  // so someone who panned away and comes back to the tab keeps their view.
+  let homeKey = null;
+  function goHomeIfMoved(){
+    const c = activeSearchCenter(), k = c.lat.toFixed(3) + ',' + c.lon.toFixed(3);
+    if(k === homeKey) return;
+    homeKey = k;
+    map.fitBounds([[c.lat - 0.2, c.lon - 0.43], [c.lat + 0.2, c.lon + 0.43]], { maxZoom: 10, animate: false });
+  }
+
   function initMap(){
     const c = activeSearchCenter();
     map = L.map('wind-map', { zoomControl: false, attributionControl: true }).setView([c.lat, c.lon], 9);
@@ -524,7 +536,7 @@
     document.getElementById('nav-wind').classList.add('active');
     if(!map){ injectUI(); initMap(); }
     renderLegend();   // prefs may have changed since last time
-    setTimeout(() => { map.invalidateSize(); map.fire('moveend'); }, 50);
+    setTimeout(() => { map.invalidateSize(); goHomeIfMoved(); map.fire('moveend'); }, 50);
     if(!rafId) rafId = requestAnimationFrame(frame);
   };
 
