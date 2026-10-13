@@ -377,7 +377,7 @@
     const sctx = small.getContext('2d'), img = sctx.createImageData(cols, rows);
     const u = new Float32Array(cols * rows), v = new Float32Array(cols * rows);
     const bands = layer === 'waves' ? waveBands() : layer === 'gust' ? gustBands() : windBands();
-    const speedScale = 0.08;   // knots -> px/frame
+    const speedScale = 0.1;    // knots -> px/frame
     for(let r = 0; r < rows; r++) for(let c = 0; c < cols; c++){
       const ll = map.containerPointToLatLng([c * CELL, r * CELL]), sm = sample(ll.lat, ll.lng), i = r * cols + c;
       if(!sm) continue;
@@ -394,13 +394,13 @@
     wctx.drawImage(small, 0, 0, cols * CELL, rows * CELL);
     field = { cols, rows, u, v };
     fctx.clearRect(0, 0, sz.x, sz.y);
-    const n = Math.round(sz.x * sz.y / 1300);   // fewer, bolder streaks read better than many faint ones
+    const n = Math.round(sz.x * sz.y / 1600);   // fewer, bolder streaks read better than many faint ones
     particles = Array.from({ length: n }, () => newParticle(sz));
     updateReadout();
   }
 
-  const TRAIL = 22;   // positions kept per streak; streak length = speed x TRAIL frames
-  const newParticle = sz => ({ x: Math.random() * sz.x, y: Math.random() * sz.y, age: Math.floor(Math.random() * 80), trail: [] });
+  const TRAIL = 45;   // positions kept per streak; streak length = speed x TRAIL frames
+  const newParticle = sz => ({ x: Math.random() * sz.x, y: Math.random() * sz.y, age: Math.floor(Math.random() * 120), trail: [] });
 
   function fieldAt(x, y){
     const c = x / CELL, r = y / CELL, c0 = Math.floor(c), r0 = Math.floor(r);
@@ -421,7 +421,7 @@
       const outline = new Path2D();
       for(const p of particles){
         const vel = fieldAt(p.x, p.y);
-        if(!vel || ++p.age > 110){ Object.assign(p, newParticle(sz)); continue; }
+        if(!vel || ++p.age > 180){ Object.assign(p, newParticle(sz)); continue; }
         p.x += vel[0]; p.y += vel[1];
         p.trail.push(p.x, p.y);
         if(p.trail.length > TRAIL * 2) p.trail.splice(0, 2);
