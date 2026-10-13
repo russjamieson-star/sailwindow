@@ -97,7 +97,8 @@ Prompted by Tommy Clark (Pensacola Regatta Chair, Windcraft Multihull Sales): sa
 - [ ] **Proposed 2026-10-11, awaiting Russ's OK:** show the boat type as a tappable "⛵ Catamaran ›" line inside the location card (opens the prefs sheet), instead of moving the whole Sailing Preferences card above the score — that would push the score below the fold on phones.
 - [ ] **Replace placeholder numbers** in `BOAT_PROFILES` with Windcraft's new-owner reef/limit guidance (reply to Tommy drafted 2026-10-11).
 - [x] **Wind Map follows boat type (2026-10-13, `wind.js?v=8`, test page only).** Wind colours use the boat's hard cutoff (24 kt tri, 20 kt beach cat). For multihulls the Waves layer becomes "Sea state for a catamaran": `chopLevel()` adds a step for waves 1.5 ft+ under 5 s apart, half a step under 6 s, so steep chop shows orange where a monohull sees yellow. Starting thresholds; tune with Windcraft.
-- [ ] **Phase 2 — chop.** The score ignores waves entirely today (only `wind.js` fetches them). Feed Open-Meteo wave height/period (Worker `/marine`) into `scorePeriod`; penalize short steep chop (≥2 ft, period <~5 s), heavily for cats. Improves monohull scores too.
+- [x] **Phase 2 — chop, done for Today (2026-10-13, `engine.js?v=20261014`).** `fetchWaves()` pulls 48 h of wave height/period from the Worker `/marine`; `wavePenalty()` in `scorePeriod`: nothing under 2 ft, rising with height, +1 for steep chop (1.5 ft+ under 5 s), ×`waveMult` (mono 1, cat 1.5, tri 1.3, beach 2), beach cat no-go at 4 ft. "Seas … ft every … s" reason tag. Example at a base 8.5: 3 ft @4 s → mono 6.9 / cat 6.1 / tri 6.4 / beach 5.3; 3 ft @9 s → 7.9 / 7.6 / 7.7 / 7.3. Waves are for the nearest open water (sheltered bays may be calmer; said in Help). **Still open:** 7-Day uses its own scoring (`score7Days`) with no waves; tune numbers with Windcraft.
+- [ ] (old note) **Phase 2 — chop.** The score ignores waves entirely today (only `wind.js` fetches them). Feed Open-Meteo wave height/period (Worker `/marine`) into `scorePeriod`; penalize short steep chop (≥2 ft, period <~5 s), heavily for cats. Improves monohull scores too.
 - [ ] **Phase 3 — cat-friendly marinas.** Per-marina field: multihull slips yes/no/limited, max beam ft, surcharge note, source. "Cat-friendly" filter; unverified marinas show "multihull access unconfirmed", never a guess. Ask Windcraft for their list first.
 
 ## Weak-signal pop-up + Starlink Help note — live 2026-10-13
@@ -105,12 +106,21 @@ Prompted by Tommy Clark (Pensacola Regatta Chair, Windcraft Multihull Sales): sa
 - [x] Help → Troubleshooting "Using Starlink underway?" (Roam works in motion within 12 nm; beyond that, Ocean Mode is billed per GB), in the app and the full guide.
 - [ ] Atlantic has both changes locally but is **not deployed** (live Atlantic is already a version behind).
 
+## Wind Map in the main app — live 2026-10-13
+- [x] Wind tab in the main bottom nav (Today · 7-Day · Wind · Marina · Brief · Log), Help section added. `dist/wind-test.html` is now stale (no Boat Type selector) — point people to askcaptainjim.com, not /wind-test; consider deleting the test page.
+- [ ] Wind Map seas tag has no Meteocons icon in `sky-icons.js` (cosmetic).
+
+## Windcraft / Tommy Clark — 2026-10-13
+- [x] Reply drafted in Gmail (thread "Ask Captain Jim: a few quick questions…"), pointing to askcaptainjim.com. Russ reviews, attaches `docs/Ask-Captain-Jim-Info-Sheet.docx`, sends.
+- [ ] Free access for Windcraft customers was offered — there's no coupon system yet; access would be granted by hand.
+
 ## Captain's Brief in the app — planned 2026-10-11 (after Boat Type Phase 1)
 Agreed placement: (1) headline strip under the score card on Today — top 1–2 active items within ~50 mi, Safety first, collapses to "All clear near you"; (2) full Brief as a bottom-nav tab **replacing Feedback** (Feedback moves into Help/settings); (3) later, "Brief items nearby" on each marina page, like Drawbridges nearby.
 - [x] **Decided 2026-10-11 (Russ):** Feedback moves out of the bottom nav, Brief takes its tab. Headlines on Today are free; the full Brief tab is subscriber-only.
 - [x] **Approved column** in the Daily Brief sheet (like Cruiser's Log) — nothing shows in the app until Russ checks it. Russ approved the existing items 2026-10-13 (Barataria Waterway left unchecked). The app must also hide items past their End Date.
-- [ ] **Worker route** to serve approved, unexpired items (sheet already has Lat/Lng, Start/End Date, Priority).
-- [ ] Build the Today strip + Brief tab.
+- [x] **Worker route `/brief` live (2026-10-13)**, reading the Apps Script web app at `BRIEF_SCRIPT_URL` (`weather-worker/wrangler.toml` `[vars]`, cached 15 min). Returns 503 "not set up yet" until the URL is filled in.
+- [ ] **RUSS (manual, ~3 min): deploy `daily-brief/brief-Code.gs`** as an Apps Script Web App (steps at the top of the file: Execute as Me, access Anyone), then give Claude the /exec URL → set `BRIEF_SCRIPT_URL`, `npx wrangler deploy`. Until then the Today strip stays hidden and the Brief tab says "isn't available right now".
+- [x] **Today strip + Brief tab built and live (2026-10-13)**, `dist/brief.js?v=1`. Strip: top 2 items within 50 mi that are on now or start within 7 days, Safety → Plan Ahead → Fun, else "All clear near you". Tab: Near you (100 mi) / Whole Gulf, grouped by priority, Captain's note + Source link. Locked only when the trial has expired (same as Wind) — Russ had said "subscriber-only"; trial users see it, confirm that's wanted. Feedback moved into Help ("Send Feedback" button). Tested with real sheet items via the offline cache; not yet with the live feed.
 
 ## Gulf Edition — open items
 - [x] **`marina_data.json` restored to live production (2026-07-20).** It existed in the older `dist-v6/` build (806 restaurants across 92 marinas) but was missing from the current live `dist/` and `dist-v8/` — the "Ashore" restaurant panel had nothing to show. Copied the same 92-marina/806-restaurant file into `dist/marina_data.json` and `dist-v8/marina_data.json` (schema-checked: 0 issues, matches the same `{name, address, phone, website, rating, google_maps, partner, discount_offer}` shape used for Atlantic). Bumped `EDITION_CONFIG.dbVersion` "2026-06-29" → "2026-07-20" in both dist files so any stale localStorage cache re-fetches. Verified in a real headless-browser load: `getSwRestaurants()` returns 92 marinas loaded, Kemah Boardwalk Marina correctly returns 20 restaurants (first: Eculent), zero console errors, zero 404s.

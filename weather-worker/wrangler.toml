@@ -7,3 +7,8 @@ compatibility_date = "2026-09-01"
 
 # Google Places key for /places/* (marina lookup):
 #   npx wrangler secret put GOOGLE_PLACES_KEY
+
+# Captain's Brief feed: the Apps Script web app URL (daily-brief/brief-Code.gs). Not a secret —
+# the script only ever returns approved rows. Empty until Russ deploys the script.
+[vars]
+BRIEF_SCRIPT_URL = ""

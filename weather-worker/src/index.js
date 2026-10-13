@@ -12,6 +12,7 @@
 //   GET /forecast?latitude=..&longitude=..&hourly=..   -> customer-api.open-meteo.com/v1/forecast
 //   GET /marine?latitude=..&longitude=..&hourly=..     -> customer-marine-api.open-meteo.com/v1/marine
 //   GET /places/nearby, /places/search                -> Google Places marinas (see below)
+//   GET /brief                                         -> approved Captain's Brief items (see below)
 
 const UPSTREAM = {
   "/forecast": "https://customer-api.open-meteo.com/v1/forecast",
@@ -127,6 +128,29 @@ async function places(url, env, origin){
     status: 200, headers: { "Content-Type": "application/json", "Cache-Control": "no-store", ...corsHeaders(origin) } });
 }
 
+// ---- Captain's Brief ----
+// The Daily Brief sheet is private. A small Apps Script web app (daily-brief/brief-Code.gs)
+// returns only approved, unexpired rows; its /exec URL is the BRIEF_SCRIPT_URL var in
+// wrangler.toml. Cached 15 min so every app load doesn't wake Apps Script.
+const BRIEF_CACHE_SECONDS = 15 * 60;
+async function brief(env, ctx, origin){
+  if(!env.BRIEF_SCRIPT_URL) return json(503, { error: true, reason: "Captain's Brief feed is not set up yet" }, origin);
+  const cacheKey = new Request("https://cache.askcaptainjim.internal/brief");
+  let res = await caches.default.match(cacheKey);
+  if(!res){
+    const up = await fetch(env.BRIEF_SCRIPT_URL, { redirect: "follow" });
+    const body = await up.text();
+    let ok = up.ok;
+    try{ ok = ok && Array.isArray(JSON.parse(body).items); }catch(_){ ok = false; }   // Apps Script errors come back as HTML
+    if(!ok) return json(502, { error: true, reason: "Brief feed unavailable" }, origin);
+    res = new Response(body, { status: 200, headers: { "Content-Type": "application/json", "Cache-Control": `public, max-age=${BRIEF_CACHE_SECONDS}` } });
+    ctx.waitUntil(caches.default.put(cacheKey, res.clone()));
+  }
+  const out = new Response(res.body, res);
+  for(const [k, v] of Object.entries(corsHeaders(origin))) out.headers.set(k, v);
+  return out;
+}
+
 export default {
   async fetch(request, env, ctx){
     const origin = request.headers.get("Origin");
@@ -138,6 +162,7 @@ export default {
 
     const url = new URL(request.url);
     if(url.pathname.startsWith("/places/")) return places(url, env, origin);
+    if(url.pathname === "/brief") return brief(env, ctx, origin);
     const upstream = UPSTREAM[url.pathname];
     if(!upstream) return json(404, { error: true, reason: "Use /forecast or /marine" }, origin);
     if(!env.OPEN_METEO_KEY) return json(500, { error: true, reason: "OPEN_METEO_KEY secret is not set" }, origin);

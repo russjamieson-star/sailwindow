@@ -418,11 +418,31 @@ function fmtAshoreDist(mi){ return mi < 0.1 ? Math.round(mi*5280) + ' ft' : mi.t
 // wind and gusts counts for more. "mono" reproduces the original scoring exactly. The cat/tri/beach
 // numbers are placeholders until Windcraft Multihulls supplies its new-owner handover limits.
 const BOAT_PROFILES = {
-  mono:  { label:"Monohull",  gustStart:7, gustRate:.4, gustCap:2.5, hardWind:26 },
-  cat:   { label:"Catamaran", gustStart:5, gustRate:.6, gustCap:3.5, hardWind:26 },
-  tri:   { label:"Trimaran",  gustStart:5, gustRate:.6, gustCap:3.5, hardWind:24 },
-  beach: { label:"Beach Cat", gustStart:4, gustRate:.8, gustCap:4,   hardWind:20, suggest:{ windMin:6, windMax:15, gustMax:18 } }
+  mono:  { label:"Monohull",  gustStart:7, gustRate:.4, gustCap:2.5, hardWind:26, waveMult:1 },
+  cat:   { label:"Catamaran", gustStart:5, gustRate:.6, gustCap:3.5, hardWind:26, waveMult:1.5 },
+  tri:   { label:"Trimaran",  gustStart:5, gustRate:.6, gustCap:3.5, hardWind:24, waveMult:1.3 },
+  beach: { label:"Beach Cat", gustStart:4, gustRate:.8, gustCap:4,   hardWind:20, waveMult:2, waveNoGo:4, suggest:{ windMin:6, windMax:15, gustMax:18 } }
 };
+
+// ---- Sea state (Open-Meteo marine model, via the weather Worker) ----
+// Waves are for the nearest open water the model covers, so a sheltered bay can be calmer
+// than this says; the reason tag and Help say so. Starting numbers, to tune with Windcraft.
+let waveByHour = {};   // epoch hour -> { h: feet, p: seconds }
+async function fetchWaves(lat, lon){
+  const url = `https://askcaptainjim-weather.russjamieson.workers.dev/marine?latitude=${lat.toFixed(4)}&longitude=${lon.toFixed(4)}&hourly=wave_height,wave_period&length_unit=imperial&timeformat=unixtime&forecast_hours=48`;
+  const r = await fetch(url); if(!r.ok) throw new Error("marine " + r.status);
+  const d = await r.json(), out = {}, t = d.hourly?.time || [];
+  t.forEach((sec, i) => { const h = d.hourly.wave_height[i]; if(h != null) out[Math.floor(sec / 3600)] = { h, p: d.hourly.wave_period?.[i] ?? null }; });
+  return out;
+}
+function waveAt(iso){ return waveByHour[Math.floor(new Date(iso).getTime() / 3600000)] || null; }
+// Height on its own costs little until 2 ft; short, steep chop (1.5 ft+ under 5 s apart, same
+// test as the Wind Map) adds a point, and the boat type scales the total (cats pound most).
+function wavePenalty(w, bp){
+  const h = w.h, base = h < 2 ? 0 : h < 4 ? (h - 2) * .6 : h < 6 ? 1.2 + (h - 4) * .9 : 3 + (h - 6);
+  const steep = h >= 1.5 && w.p != null ? (w.p < 5 ? 1 : w.p < 6 ? .5 : 0) : 0;
+  return Math.min(4, (base + steep) * bp.waveMult);
+}
 function boatProfile(){ return BOAT_PROFILES[prefs.boatType] || BOAT_PROFILES.mono; }
 
 function setBoatTypeUI(type){
@@ -448,7 +468,10 @@ function scorePeriod(period, tideFt, prevTideFt){
         isThunder=/thunder|severe|tropical/i.test(fc);
   const bp = boatProfile();
   if(wind < 4 || wind > bp.hardWind || gust > prefs.gustMax || precip >= 70 || isThunder) return 0;
+  const wave = waveAt(period.startTime);
+  if(wave && bp.waveNoGo && wave.h >= bp.waveNoGo) return 0;
   let s = 10;
+  if(wave) s -= wavePenalty(wave, bp);
   if(wind < prefs.windMin) s -= (prefs.windMin - wind) * .5;
   else if(wind > prefs.windMax) s -= (wind - prefs.windMax) * .6;
   const gustSpread = gust - wind;
@@ -535,6 +558,15 @@ function buildReasons(slice){
   if(bp !== BOAT_PROFILES.mono){
     const maxSpread = Math.max(...gusts.map((g,i)=>g-winds[i]));
     if(maxSpread > bp.gustStart) reasons.push(`Gusty for a ${bp.label.toLowerCase()}: ${maxSpread} kt gust spread ⚠`);
+  }
+  const waves = slice.map(p => waveAt(p.startTime)).filter(Boolean);
+  if(waves.length){
+    const top = waves.reduce((a, b) => b.h > a.h ? b : a), ft = top.h.toFixed(1), sec = top.p != null ? ` every ${Math.round(top.p)} s` : "";
+    const steep = top.h >= 1.5 && top.p != null && top.p < 5, boat = bp === BOAT_PROFILES.mono ? "" : ` for a ${bp.label.toLowerCase()}`;
+    if(steep) reasons.push(`Seas ${ft} ft${sec} — short, steep chop${boat} ⚠`);
+    else if(top.h >= 4) reasons.push(`Seas ${ft} ft${sec} — rough${boat} ⚠`);
+    else if(top.h >= 2) reasons.push(`Seas ${ft} ft${sec} — moderate`);
+    else reasons.push(`Seas ${ft} ft${sec} — calm ✓`);
   }
   if(avgP<=20) reasons.push(`Rain chance ${avgP}% — very low ✓`);
   else if(avgP<=40) reasons.push(`Rain chance ${avgP}% — light`);
@@ -685,6 +717,7 @@ async function loadAll(){
       prefs.current.stationName = nearest.name;
       savePrefsToStorage();
     }
+    const wavesP = fetchWaves(loc.lat, loc.lon).catch(e => { console.warn('Waves unavailable:', e.message); return {}; });
     const [nwsPeriods, tideArr, hiloArr] = await Promise.all([
       fetchNWS(loc.lat, loc.lon).catch(async e=>{
         console.warn('NWS failed, using Open-Meteo backup:', e.message);
@@ -694,6 +727,7 @@ async function loadAll(){
       fetchTideHiLo(loc.stationId)
     ]);
     clearTimeout(slowTimer);
+    waveByHour = await wavesP;
     lastHourlyData = nwsPeriods; lastTideData = tideArr;
     const tideMap = buildTideMap(nwsPeriods.slice(0,24), tideArr);
     const win = findBestWindow(nwsPeriods.slice(0,24), tideMap);
@@ -1259,7 +1293,7 @@ function openFeedbackView(){
   if(trialStatus().state === 'expired'){ openSubscribeModal('locked'); return; }
   document.getElementById('feedback-view').style.display = 'flex';
   document.querySelectorAll('.nav-item').forEach(el=>el.classList.remove('active'));
-  document.getElementById('nav-feedback').classList.add('active');
+  document.getElementById('nav-feedback')?.classList.add('active');
   resetFeedbackForm();
 }
 

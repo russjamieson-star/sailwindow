@@ -534,6 +534,7 @@ html:has(#subscribe-overlay[style*="flex"]),html:has(#subscribe-overlay[style*="
       </div>
       <div class="reasons" id="reasons"><span class="rtag">Fetching NWS + NOAA data…</span></div>
     </div>
+    <div id="brief-strip" style="display:none" aria-live="polite"></div>
     <div>
       <div class="sec-title">Conditions — Best Window</div>
       <div class="gonogo" id="gonogo">
@@ -604,8 +605,9 @@ html:has(#subscribe-overlay[style*="flex"]),html:has(#subscribe-overlay[style*="
   <nav class="bot-nav" aria-label="Navigation">
     <a href="javascript:void(0)" class="nav-item active" data-tab="today" aria-current="page" onclick="close7DayView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>Today</a>
     <a href="javascript:void(0)" class="nav-item" id="nav-7day" onclick="open7DayView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>7-Day</a>
+    <a href="javascript:void(0)" class="nav-item" id="nav-wind" onclick="openWindView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.59 4.59A2 2 0 1 1 11 8H2"/><path d="M12.59 19.41A2 2 0 1 0 14 16H2"/><path d="M17.73 7.73A2.5 2.5 0 1 1 19.5 12H2"/></svg>Wind</a>
     <a href="#" class="nav-item" onclick="openMarinaView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>Marina</a>
-    <a href="javascript:void(0)" class="nav-item" id="nav-feedback" onclick="openFeedbackView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Feedback</a>
+    <a href="javascript:void(0)" class="nav-item" id="nav-brief" onclick="openBriefView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h13a2 2 0 0 1 2 2v13a1 1 0 0 0 2 0V8"/><path d="M4 4v14a2 2 0 0 0 2 2h14"/><line x1="8" y1="9" x2="15" y2="9"/><line x1="8" y1="13" x2="15" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/></svg>Brief</a>
     <a href="javascript:void(0)" class="nav-item" id="nav-log" onclick="openLogView()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>Log</a>
   </nav>
 </div>
@@ -675,7 +677,7 @@ html:has(#subscribe-overlay[style*="flex"]),html:has(#subscribe-overlay[style*="
       <div class="sec-title">Sailing Preferences</div>
       <p style="font-size:var(--sm);color:var(--muted)">Open the settings sheet to adjust:</p>
       <div style="display:flex;flex-direction:column;gap:var(--sp2);margin-top:var(--sp2)">
-        <div style="font-size:var(--sm);padding:var(--sp3);background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--divider)"><strong>Boat Type</strong> <span style="color:var(--muted)">— Mono, Cat, Tri or Beach Cat. Multihulls don't heel to warn you of a gust, so for them a big gap between steady wind and gusts lowers the score more. Beach Cat also suggests gentler wind limits.</span></div>
+        <div style="font-size:var(--sm);padding:var(--sp3);background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--divider)"><strong>Boat Type</strong> <span style="color:var(--muted)">— Mono, Cat, Tri or Beach Cat. Multihulls don't heel to warn you of a gust, so for them a big gap between steady wind and gusts lowers the score more. Beach Cat also suggests gentler wind limits. Boat Type also sets how much choppy seas lower the score, and the Wind Map colours.</span></div>
         <div style="font-size:var(--sm);padding:var(--sp3);background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--divider)"><strong>Wind Min / Max (kt)</strong> <span style="color:var(--muted)">— ideal sustained range. Hours outside it are penalised.</span></div>
         <div style="font-size:var(--sm);padding:var(--sp3);background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--divider)"><strong>Max Gust (kt)</strong> <span style="color:var(--muted)">— any hour above this scores 0 (automatic no-go).</span></div>
         <div style="font-size:var(--sm);padding:var(--sp3);background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--divider)"><strong>Duration (hrs)</strong> <span style="color:var(--muted)">— length of your sail (1–12 hrs, in half-hour steps). Sets the window width searched.</span></div>
@@ -704,13 +706,25 @@ html:has(#subscribe-overlay[style*="flex"]),html:has(#subscribe-overlay[style*="
     </section>
 
     <section>
+      <div class="sec-title">Wind Map</div>
+      <p style="font-size:var(--sm);color:var(--muted)">Tap <strong style="color:var(--text)">Wind</strong> in the bottom nav for three days of wind, gusts and waves across the coast. It opens on your chosen location. Switch layers with <strong style="color:var(--text)">Wind / Gusts / Waves</strong>, press ▶ to play the next 72 hours, or drag the slider to an hour. Moving streaks show the wind; longer streaks mean stronger wind.</p>
+      <p style="font-size:var(--sm);color:var(--muted);margin-top:var(--sp2)">Colours follow <em>your</em> Sailing Preferences and Boat Type: green is your range, red is over your limit. For a cat, tri or beach cat the Waves layer shows <strong style="color:var(--text)">sea state</strong>, flagging short, steep chop that slams a bridgedeck. Tap any spot on the water for exact wind, gusts, wave height and how often the waves come. Tap the colour key to fold it away.</p>
+    </section>
+
+    <section>
+      <div class="sec-title">Captain's Brief</div>
+      <p style="font-size:var(--sm);color:var(--muted)">News that affects boaters: bridge and channel work, rule changes, marina deals, boat shows and festivals, checked by hand before it appears. The Today screen shows the top items within 50 mi, Safety first. Tap <strong style="color:var(--text)">Brief</strong> in the bottom nav for everything near you, or the whole Gulf. Always confirm Safety items with the current USCG Local Notice to Mariners.</p>
+    </section>
+
+    <section>
       <div class="sec-title">Feedback</div>
-      <p style="font-size:var(--sm);color:var(--muted)">Tap <strong style="color:var(--text)">Feedback</strong> in the bottom nav to report a marina that has reopened, newly closed, has wrong contact info, or to share app ideas. Select a category, add details, and tap Send — your email app opens with the report pre-filled.</p>
+      <p style="font-size:var(--sm);color:var(--muted)">Tap <strong style="color:var(--text)">Send Feedback</strong> below to report a marina that has reopened, newly closed, has wrong contact info, or to share app ideas. Select a category, add details, and tap Send — your email app opens with the report pre-filled.</p>
+      <button type="button" class="refresh-btn" style="display:inline-flex;width:auto;padding:var(--sp3) var(--sp6);margin-top:var(--sp3)" onclick="closeHelp();openFeedbackView()">Send Feedback</button>
     </section>
 
     <section>
       <div class="sec-title">How the Score is Calculated</div>
-      <p style="font-size:var(--sm);color:var(--muted)">Each hour starts at 10. <strong style="color:var(--text)">Hard disqualifiers</strong> drop it to 0: wind below 4 kt or above 26 kt, gusts over your max, rain ≥ 70%, or thunderstorms in the forecast. Otherwise points are deducted for wind outside your preferred range, gusty spread, rain probability, and mismatched tide direction. The best block is selected using a 70/30 blend of average and minimum score, so one dangerous hour can't hide inside an otherwise good window.</p>
+      <p style="font-size:var(--sm);color:var(--muted)">Each hour starts at 10. <strong style="color:var(--text)">Hard disqualifiers</strong> drop it to 0: wind below 4 kt or above 26 kt, gusts over your max, rain ≥ 70%, or thunderstorms in the forecast. Otherwise points are deducted for wind outside your preferred range, gusty spread, choppy seas (more for multihulls, and a beach cat is a no-go in 4 ft seas), rain probability, and mismatched tide direction. Wave data is for the nearest open water, so a sheltered bay may be calmer. The best block is selected using a 70/30 blend of average and minimum score, so one dangerous hour can't hide inside an otherwise good window.</p>
     </section>
 
     <section>
@@ -731,6 +745,39 @@ html:has(#subscribe-overlay[style*="flex"]),html:has(#subscribe-overlay[style*="
     </div>
 
   </div>
+</div>
+
+<!-- Wind Map tab (contents built by /wind.js) -->
+<div id="wind-view" style="position:fixed;inset:0;z-index:150;background:var(--bg);display:none;flex-direction:column">
+  <div class="topbar">
+    <div class="logo" onclick="closeWindView()" style="cursor:pointer">
+      <span class="logo-word">← <span>Wind</span> Map</span>
+    </div>
+    <div class="bar-actions">
+      <button class="icon-btn" onclick="closeWindView()" aria-label="Close wind map">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Captain's Brief tab (contents built by /brief.js) -->
+<div id="brief-view" style="position:fixed;inset:0;z-index:150;background:var(--bg);display:none;flex-direction:column">
+  <div class="topbar">
+    <div class="logo" onclick="closeBriefView()" style="cursor:pointer">
+      <span class="logo-word">← <span>Captain's</span> Brief</span>
+    </div>
+    <div class="bar-actions">
+      <button class="icon-btn" onclick="closeBriefView()" aria-label="Close Captain's Brief">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="brief-scope" role="group" aria-label="Which items to show">
+    <button type="button" data-scope="near" class="on" onclick="setBriefScope('near')" id="brief-loc">Near you</button>
+    <button type="button" data-scope="all" onclick="setBriefScope('all')">Whole Gulf</button>
+  </div>
+  <div id="brief-body"></div>
 </div>
 
 <!-- 7-Day Forecast overlay -->
@@ -1428,10 +1475,12 @@ const EDITION_CONFIG = {
   ]
 };
 </script>
-<script src="/engine.js?v=20261013"></script>
+<script src="/engine.js?v=20261014"></script>
 <script src="/marina-hints.js?v=3"></script>
 <script src="/sky-icons.js?v=3"></script>
 <script src="/marina-places.js?v=2"></script>
+<script src="/wind.js?v=12"></script>
+<script src="/brief.js?v=1"></script>
 <script>
 // ─────────────────────────────────────────────
 // CONSTANTS & STATE
