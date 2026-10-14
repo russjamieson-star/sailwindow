@@ -1,0 +1,35 @@
+[
+  {
+    "template": "icw-alert-restricted",
+    "out": "2026-10-14-isaias-panhandle.png",
+    "tag": "Florida Panhandle",
+    "headline": "After Isaias: Panhandle waters still in recovery",
+    "dateline": "Since Oct 9 · Pensacola to Port St. Joe · GIWW miles 167–376",
+    "what": "Isaias came ashore near Destin as a Category 2. The Coast Guard put Pensacola, Destin, Panama City, Port St. Joe and GIWW miles 167–376 in recovery status, restricting boats 65 ft and over.",
+    "why": "Channels are still being surveyed, marks may be off station and debris is in the water. Destin Marina took heavy damage.",
+    "todo": "Check navcen.uscg.gov/port-status or call Sector Mobile at 251-266-5888 before you go. Daylight only, with a bow lookout.",
+    "source": "U.S. Coast Guard via Baird Maritime"
+  },
+  {
+    "template": "route-open",
+    "out": "2026-10-14-mobile-ports-open.png",
+    "tag": "Mobile Bay & Mississippi Sound",
+    "headline": "Mobile, Gulfport, Pascagoula ports back open",
+    "dateline": "Mobile normal Oct 10 · Pensacola & Panama City open Oct 12",
+    "what": "Mobile returned to normal port condition at 4pm Saturday. The Coast Guard now lists Gulfport, Mobile, Pascagoula, Pensacola and Panama City as open.",
+    "why": "The big harbors west of Destin are usable again, a good place to stage while the eastern Panhandle recovers.",
+    "todo": "Read Coast Guard MSIB 136-26 for leftover limits, and call your marina first. Power and fuel may still be spotty.",
+    "source": "USCG NavCen port status"
+  },
+  {
+    "template": "on-the-water",
+    "out": "2026-10-14-pcb-seafood-festival.png",
+    "tag": "Grand Lagoon, Panama City Beach, FL",
+    "headline": "PCB Seafood Festival is back on, this weekend",
+    "dateline": "Fri–Sun, Oct 16–18 · Capt. Anderson's Marina",
+    "what": "Moved from last weekend because of Isaias. Fri 5–9pm, Sat and Sun 11am–9pm. Free admission.",
+    "why": "A waterfront festival right on Grand Lagoon, with fireworks over the lagoon Saturday at 9pm.",
+    "todo": "Coming by boat? Call ahead for a slip. Panama City saw about 5.5 ft of surge, so some docks may be short on power.",
+    "source": "pcbseafoodfestival.org"
+  }
+]
