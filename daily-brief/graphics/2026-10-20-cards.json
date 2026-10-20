@@ -1,0 +1,35 @@
+[
+  {
+    "template": "icw-alert-closed",
+    "out": "2026-10-20-leland-bowman-lock.png",
+    "tag": "GIWW · Intracoastal City, LA",
+    "headline": "Leland Bowman Lock closed – log in the gate",
+    "dateline": "Since 2am Tue Oct 20 · no reopening time yet",
+    "what": "A log is keeping the gates from working. Crews were on site trying to clear it, with 22 tows already waiting early Tuesday.",
+    "why": "It's the main GIWW lock between Morgan City and the Calcasieu. Even after it reopens, expect a long line.",
+    "todo": "Call the lock before you head that way, and wait at Intracoastal City or Delcambre instead of idling at the lock.",
+    "source": "American Commercial Barge Line river report"
+  },
+  {
+    "template": "icw-alert-closed",
+    "out": "2026-10-20-berwick-bay-bridge.png",
+    "tag": "GIWW · Morgan City, LA",
+    "headline": "Morgan City rail bridge closing for repairs",
+    "dateline": "8am Wed Oct 21 – midnight Thu Oct 22 · again Nov 4–5",
+    "what": "The BNSF railroad bridge over Berwick Bay is listed as closed for repairs during these two windows.",
+    "why": "The GIWW crosses Berwick Bay right here. Sailboats and taller boats that need the lift span may have to wait.",
+    "todo": "Need the span raised? Cross before 8am Wednesday or after Thursday night, and call the bridge tender on VHF first.",
+    "source": "American Commercial Barge Line river report"
+  },
+  {
+    "template": "icw-alert-restricted",
+    "out": "2026-10-20-calcasieu-lock.png",
+    "tag": "GIWW · Lake Charles, LA",
+    "headline": "Calcasieu Lock: weekday daytime closures",
+    "dateline": "Mon–Fri 7am–7pm · through about Oct 30",
+    "what": "North chamber wall repairs close the lock on weekdays during the day. The work now runs to about Oct 30, not Sept 18.",
+    "why": "Show up on a weekday morning and you'll wait until evening behind the commercial queue.",
+    "todo": "Time your arrival for after 7pm or for the weekend, and call the lock ahead to check the queue.",
+    "source": "American Commercial Barge Line river report"
+  }
+]
