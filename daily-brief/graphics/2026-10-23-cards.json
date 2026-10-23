@@ -1,0 +1,35 @@
+[
+  {
+    "template": "icw-alert-closed",
+    "out": "2026-10-23-harvey-lock.png",
+    "tag": "GIWW · Harvey, LA",
+    "headline": "Harvey Lock closed again – low river",
+    "dateline": "Since Oct 22 · no reopening time yet",
+    "what": "Harvey Lock shut again Oct 22 because of reverse head from the low Mississippi. The Corps has given no reopening estimate.",
+    "why": "Everything moving between the river and the GIWW west of New Orleans now squeezes through Algiers Lock.",
+    "todo": "Route via Algiers Lock, expect waits behind tows, and hail the lock on VHF before you commit.",
+    "source": "American Commercial Barge Line river report"
+  },
+  {
+    "template": "icw-alert-restricted",
+    "out": "2026-10-23-ne-florida-gale-watch.png",
+    "tag": "Atlantic coast · Fernandina to Jupiter, FL",
+    "headline": "Gale watch for Florida's Atlantic coast",
+    "dateline": "Sat afternoon Oct 24 – Mon evening Oct 26",
+    "what": "NE winds 25–35 kt, gusts to 40, seas 10–15 ft possible off Fernandina–Flagler; gale watches run south to Jupiter Inlet.",
+    "why": "No outside hops between inlets this weekend, and NE swell will make the inlets dangerous. Higher tides cut fixed-bridge clearance.",
+    "todo": "Stay inside on the ICW, double your lines, and recheck weather.gov Saturday morning – a watch can become a warning.",
+    "source": "National Weather Service Jacksonville & Melbourne"
+  },
+  {
+    "template": "on-the-water",
+    "out": "2026-10-23-bwyc-melges15.png",
+    "tag": "Bay St. Louis, MS",
+    "headline": "Melges 15 Gulf Coast Championship",
+    "dateline": "Sat–Sun Oct 24–25 · Bay-Waveland Yacht Club",
+    "what": "Bay-Waveland Yacht Club hosts two days of Melges 15 one-design dinghy racing on the Mississippi Sound.",
+    "why": "Quick, close racing near shore off Bay St. Louis – easy to watch if you're in the harbor this weekend.",
+    "todo": "Watch from the harbor or beach and give the course room. Club: 228-467-4592. A small craft advisory starts Saturday.",
+    "source": "Regatta Network"
+  }
+]
