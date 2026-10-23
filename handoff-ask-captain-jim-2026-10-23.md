@@ -50,6 +50,7 @@ You are continuing work from a previous chat. That chat is gone; this file is th
 |---|---|
 | Rewards = points you collect and cash in (Kroger / fuel points / airline miles style) | Russ's call: boaters already know the model |
 | Fuel feature = show price + date reported + distance to the next fuel dock along the route; captain decides | Russ's call: keep it simple |
+| Reporting = snap a photo of the pump or price board; AI reads the price, and the photo plus live location is the proof | Russ: many marina pumps are mechanical, so a photo is easiest |
 | Fuel prices and transient-slip availability go together ("fuel & a slip tonight") | Russ: a fuel stop becomes the overnight stay |
 | Fuel prices + subscriber rewards is a "plus feature" worth doing someday | Russ's call |
 | AIS lock-traffic idea saved for later (after the engine consolidation) | Russ said "yes, please" to saving it |
