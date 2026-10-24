@@ -1,0 +1,24 @@
+[
+  {
+    "template": "icw-alert-restricted",
+    "out": "2026-10-24-fl-atlantic-gale-warning.png",
+    "tag": "Atlantic coast · Fernandina to Jupiter, FL",
+    "headline": "Gale WARNING now up for Florida's Atlantic coast",
+    "dateline": "Through 8pm EDT Mon Oct 26",
+    "what": "Yesterday's watch is now a warning: NE winds 25–35 kt, gusts to 40, seas 8–15 ft from Fernandina to Jupiter Inlet. Gale watch south to Ocean Reef from Sunday.",
+    "why": "A multi-day northeaster makes every Atlantic inlet dangerous for sailboats, and the open ICW stretches will be gusty and rough.",
+    "todo": "No outside passages or inlet runs. Stay inside, take short ICW hops, double your lines and add chafe gear.",
+    "source": "National Weather Service Jacksonville, Melbourne & Miami"
+  },
+  {
+    "template": "icw-alert-restricted",
+    "out": "2026-10-24-miami-marine-stadium-zone.png",
+    "tag": "Biscayne Bay · Virginia Key, Miami",
+    "headline": "Miami Marine Stadium basin closed for races",
+    "dateline": "Daily 10am–11:59pm · through Sun Oct 25",
+    "what": "A Coast Guard safety zone covers all of Miami Marine Stadium Harbor for the Luminsea Miami Shootout powerboat races.",
+    "why": "The Marine Stadium basin off the Rickenbacker Causeway is off-limits to boats through Sunday night unless the Coast Guard says otherwise.",
+    "todo": "Anchor elsewhere until Monday. To request entry: VHF 16 or (833) 642-7271.",
+    "source": "U.S. Coast Guard, Federal Register"
+  }
+]
