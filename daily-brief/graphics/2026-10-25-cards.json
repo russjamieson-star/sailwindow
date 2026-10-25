@@ -1,0 +1,35 @@
+[
+  {
+    "template": "icw-alert-restricted",
+    "out": "2026-10-25-fl-gale-extended.png",
+    "tag": "Atlantic coast · Fernandina to Ocean Reef, FL",
+    "headline": "Gale warning stretched to Miami – through Tuesday",
+    "dateline": "Into Tue Oct 27 – early Wed Oct 28 by zone",
+    "what": "NE winds 25–35 kt, gusts to 40, seas up to 15 ft. The warning now reaches Jupiter to Ocean Reef and Biscayne Bay from 8pm Sunday.",
+    "why": "Every Atlantic inlet from Fernandina to the upper Keys stays dangerous for sailboats until midweek, and Biscayne Bay will be rough and gusty.",
+    "todo": "No inlet runs or outside passages before Wednesday. Snug in by Sunday evening: extra lines, chafe gear.",
+    "source": "National Weather Service Jacksonville, Melbourne & Miami"
+  },
+  {
+    "template": "icw-alert-closed",
+    "out": "2026-10-25-okeechobee-locks-closure.png",
+    "tag": "Okeechobee Waterway · Caloosahatchee River, FL",
+    "headline": "Cross-Florida route to close Jan 4 – Apr 30",
+    "dateline": "Franklin Lock Jan 4–Mar 1 · Ortona Lock Mar 1–Apr 30, 2027",
+    "what": "W.P. Franklin and Ortona locks close in turn for major maintenance. While one is shut, the other passes local traffic only.",
+    "why": "For about four months of snowbird season, boats can't cross between Fort Myers and Stuart.",
+    "todo": "Cross before Jan 4 or plan to go around via the Keys. Franklin Lock: 863-662-9908.",
+    "source": "Notice to Navigation via Lake Okeechobee News"
+  },
+  {
+    "template": "on-the-water",
+    "out": "2026-10-25-jimmy-buffett-race.png",
+    "tag": "St. Johns River · Jacksonville, FL",
+    "headline": "The Jimmy Buffett Race at the Rudder Club",
+    "dateline": "Sat Nov 7 · Rudder Club of Jacksonville",
+    "what": "A river race of about 20 nautical miles open to all boats, plus a Cheeseburger in Paradise raft-up and sandbar party north of the club dock.",
+    "why": "An easy way for cruisers to join a race – no PHRF rating? The club can give you a provisional one.",
+    "todo": "Register on Regatta Network. Questions: Ken Kessler, 904-917-7245.",
+    "source": "Regatta Network"
+  }
+]
