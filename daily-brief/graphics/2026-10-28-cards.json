@@ -1,0 +1,18 @@
+[
+ {"template": "route-open", "out": "2026-10-28-fl-gale-over.png",
+  "tag": "FLORIDA'S ATLANTIC COAST",
+  "headline": "Gale warning over for Florida's east coast",
+  "dateline": "Ended 2am Wed Oct 28 · Fernandina Beach to Biscayne Bay",
+  "what": "The gale warning that ran since Oct 24 has ended. No gale, storm or tropical warnings are up today for any Gulf or Florida coastal waters.",
+  "why": "Small craft advisories still run into Thursday and Friday in places, and coastal flood warnings are up along parts of the coast.",
+  "todo": "Check your zone's marine forecast before heading out – and with high water, check bridge clearance boards.",
+  "source": "National Weather Service"},
+ {"template": "on-the-water", "out": "2026-10-28-hirams-haul.png",
+  "tag": "INDIAN RIVER · MELBOURNE",
+  "headline": "Hiram's Haul: beach cats race the Indian River",
+  "dateline": "Sat–Sun Oct 31 – Nov 1 · Melbourne, FL",
+  "what": "The 28th Hiram's Haul sends beach cats and small multihulls (14–22 ft) 30 miles south down the Indian River on Saturday and back on Sunday.",
+  "why": "Fast catamarans on the Atlantic ICW all Halloween weekend, with a costume party at Capt. Hiram's Sand Bar on Saturday night.",
+  "todo": "Give the fleet room on the ICW. Start is POW/MIA Park just north of the Pineda Causeway. Info: 407-473-4180.",
+  "source": "Regatta Network"}
+]
