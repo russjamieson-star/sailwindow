@@ -322,12 +322,19 @@ html:has(#subscribe-overlay[style*="flex"]),html:has(#subscribe-overlay[style*="
   #sw-hero-overlay .hw-feature-grid{grid-template-columns:1fr}
   #sw-hero-overlay .hero-right{grid-template-columns:1fr}
 }
+#sw-hero-overlay #hero-review-bar{display:none;position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--divider);padding:.6rem 1rem;align-items:center;gap:.7rem}
+#sw-hero-overlay.review #hero-review-bar{display:flex}
+#sw-hero-overlay #hero-review-bar button{white-space:nowrap;flex-shrink:0;font-size:.9rem;font-weight:600;color:var(--primary);background:var(--primary-hl);border:none;border-radius:999px;padding:.45rem 1rem;cursor:pointer;font-family:inherit}
+#sw-hero-overlay #hero-review-bar span{font-size:.8rem;color:var(--muted)}
+#sw-hero-overlay.review .btn-hero-restore{display:none}
+#sw-hero-overlay.review.has-sub .btn-hero-outline,#sw-hero-overlay.review.has-sub .hw-pricing-bar{display:none}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
 
 <div id="sw-hero-overlay">
+<div id="hero-review-bar"><button type="button" onclick="closeHeroReview()">&larr; Back to the app</button><span>Welcome page &middot; everything Ask Captain Jim offers</span></div>
 
 <!-- Atlantic Edition "Live Now" bar removed 2026-10-09 at Russ's request (Atlantic edition on hold); restore from git history if it returns. -->
 
@@ -488,7 +495,7 @@ html:has(#subscribe-overlay[style*="flex"]),html:has(#subscribe-overlay[style*="
 </div><!-- /#sw-hero-overlay -->
 <div class="shell">
   <header class="topbar">
-    <a href="javascript:void(0)" class="logo" aria-label="Ask Captain Jim" onclick="return false;">
+    <a href="javascript:void(0)" class="logo" aria-label="Ask Captain Jim — view the welcome page" title="Welcome page" onclick="openHeroReview();return false;">
       <img src="captain-jim-logo.png" alt="" width="30" height="30" style="border-radius:50%;object-fit:cover;flex-shrink:0;border:1px solid var(--divider)" onerror="this.style.display='none'">
       <span class="logo-word">Ask Captain <span>Jim</span> <span style="font-weight:300;opacity:.5">V8</span></span>
     </a>
@@ -641,6 +648,12 @@ html:has(#subscribe-overlay[style*="flex"]),html:has(#subscribe-overlay[style*="
     </div>
   </div>
   <div id="help-body" style="flex:1;overflow-y:auto;padding:var(--sp5) var(--sp4) var(--sp12);display:flex;flex-direction:column;gap:var(--sp6);max-width:600px;width:100%;margin:0 auto">
+
+    <section>
+      <div class="sec-title">About Ask Captain Jim</div>
+      <p style="font-size:var(--sm);color:var(--muted)">See everything the app offers, and the story behind it, on the welcome page. You can also reach it any time by tapping the Ask Captain Jim logo at the top.</p>
+      <button type="button" class="refresh-btn" style="display:inline-flex;width:auto;padding:var(--sp3) var(--sp6);margin-top:var(--sp3)" onclick="openHeroReview()">View the Welcome Page</button>
+    </section>
 
     <section>
       <div class="sec-title">Overview</div>
@@ -2103,6 +2116,36 @@ function renderBridgeSchedules(){
 
 // Close on Escape
 document.addEventListener('keydown', e => { if(e.key==='Escape') closePartnerModal(); });
+</script>
+<script>
+// Welcome page (the landing page) can be reopened from inside the app: logo tap, or Help > View the Welcome Page.
+// In this "review" mode the hero's buttons never touch the trial clock — they just close it (Subscribe also opens the upgrade sheet for non-subscribers).
+(function(){
+  const overlay = () => document.getElementById('sw-hero-overlay');
+  const subscribed = () => { try { return localStorage.getItem('sailwindow.subscription') === 'active'; } catch(e){ return false; } };
+  const isReview = () => { const o = overlay(); return !!o && o.classList.contains('review') && o.style.display === 'block'; };
+  window.openHeroReview = function(){
+    const o = overlay(); if(!o) return;
+    try { if(typeof closeHelp === 'function') closeHelp(); } catch(e){}
+    o.classList.add('review'); o.classList.toggle('has-sub', subscribed());
+    o.style.display = 'block'; o.scrollTop = 0; document.body.style.overflow = 'hidden';
+  };
+  window.closeHeroReview = function(){
+    const o = overlay(); if(!o) return;
+    o.classList.remove('review', 'has-sub'); o.style.display = 'none'; document.body.style.overflow = '';
+  };
+  const wrap = (name, after) => {
+    const orig = window[name]; if(typeof orig !== 'function') return;
+    window[name] = function(){
+      if(isReview()){ window.closeHeroReview(); if(after) after(); return; }
+      return orig.apply(this, arguments);
+    };
+  };
+  wrap('heroStartTrial');
+  wrap('heroRestoreAccess');
+  wrap('heroSubscribe', () => { if(!subscribed()) setTimeout(() => openSubscribeModal('upgrade'), 300); });
+  document.addEventListener('keydown', e => { if(e.key === 'Escape' && isReview()) window.closeHeroReview(); });
+})();
 </script>
 </body>
 </html>
