@@ -38,6 +38,7 @@ const TRIAL_DAYS        = 7;
 const TRIAL_KEY         = "sailwindow.trial.start";
 const SUB_KEY           = "sailwindow.subscription";
 const EMAIL_KEY         = "sailwindow.customerEmail";
+const SIGNUP_EMAIL_KEY  = "sailwindow.signupEmail";   // trial signup; kept apart from EMAIL_KEY, which drives the subscription re-check
 const FEEDBACK_EMAIL    = "feedback@sailwindow.com";
 const MARINA_CACHE_KEY  = "sailwindow.marina.v1";
 const MARINA_CACHE_TTL  = 24 * 60 * 60 * 1000; // 24 hours
@@ -1631,13 +1632,49 @@ function _heroInitApp(){
   refreshSubscriptionStatus(); // fire-and-forget; re-locks the app if a subscription lapsed elsewhere
 }
 
+// Saves a signup email to the shared "SailWindow — Waitlist" Sheet
+// (waitlist-Code.gs), tagged in its Source column ("trial", "subscriber").
+// Fire-and-forget, same transport as submitWaitlist(). No-op for an edition
+// whose config has no signupScriptUrl.
+function recordSignupEmail(email, source){
+  const url = EDITION_CONFIG.signupScriptUrl;
+  if(!url || url === "#" || !email) return;
+  fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify({ edition: EDITION_CONFIG.edition, email: email, source: source + " · " + location.hostname }),
+    mode: "no-cors"
+  }).catch(() => {});
+}
+
+function isEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+// Required email on the hero before a trial starts. Returns false (and
+// prompts) if it's missing or malformed; true if saved, or if this edition's
+// hero has no email field.
+function takeHeroEmail(){
+  const input = document.getElementById('hero-email');
+  if(!input) return true;
+  const email = input.value.trim().toLowerCase();
+  if(!isEmail(email)){
+    toast("Enter your email to start your free trial");
+    input.focus();
+    return false;
+  }
+  if(storageAvailable()) localStorage.setItem(SIGNUP_EMAIL_KEY, email);
+  recordSignupEmail(email, "trial");
+  return true;
+}
+
 function heroStartTrial(){
+  if(!takeHeroEmail()) return;
   if(storageAvailable()) localStorage.setItem('sailwindow.trial.start', String(Date.now()));
   hideHero();
   _heroInitApp();
 }
 
 function heroSubscribe(){
+  if(!takeHeroEmail()) return;
   // Start trial clock so app is usable, then open subscribe modal
   if(storageAvailable()) localStorage.setItem('sailwindow.trial.start', String(Date.now()));
   hideHero();
@@ -1786,7 +1823,7 @@ function openSubscribeModal(mode){
   document.getElementById("subscribe-overlay").style.display = "flex";
   const emailInput = document.getElementById("sub-email");
   if(isRestore && emailInput){
-    emailInput.value = (storageAvailable() && localStorage.getItem(EMAIL_KEY)) || "";
+    emailInput.value = (storageAvailable() && (localStorage.getItem(EMAIL_KEY) || localStorage.getItem(SIGNUP_EMAIL_KEY))) || "";
     setTimeout(() => emailInput.focus(), 50);
   }
 }
@@ -1823,9 +1860,13 @@ function activateSubscription(){
 // while BACKEND_URL is still unset (subscription-service not deployed yet) so
 // checkout isn't blocked mid-launch — see subscription-service/DEPLOY.md.
 async function verifyAndActivate(email){
-  if(!BACKEND_URL || BACKEND_URL === "#"){ activateSubscription(); return; }
   email = String(email || "").trim().toLowerCase();
-  if(!email){ toast("Enter the email you used at checkout"); return; }
+  if(!isEmail(email)){ toast("Enter the email you used at checkout"); return; }
+  if(!BACKEND_URL || BACKEND_URL === "#"){
+    recordSignupEmail(email, "subscriber (unverified)");
+    activateSubscription();
+    return;
+  }
 
   const btn = document.getElementById("sub-activate-btn");
   const originalLabel = btn ? btn.textContent : null;
@@ -1839,6 +1880,7 @@ async function verifyAndActivate(email){
     const entitled = active && Array.isArray(data.editions) && data.editions.includes(EDITION_CONFIG.edition);
 
     if(entitled){
+      recordSignupEmail(email, "subscriber");
       if(storageAvailable()){
         localStorage.setItem(SUB_KEY, "active");
         localStorage.setItem(EMAIL_KEY, email);
