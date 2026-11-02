@@ -22,14 +22,17 @@
 
   // Anchors are [value, rgb, label]. Built from prefs each time so changing
   // Preferences on the Today tab is reflected the next time the map is drawn.
-  // Same hard cutoff the score uses for this boat type (26 kt mono/cat, 24 tri, 20 beach cat).
+  // Same hard cutoff the score uses for this boat type (26 kt mono/cat, 24 tri, 20 beach cat, 25 power cat).
   const hardWind = () => (typeof boatProfile === 'function' && boatProfile().hardWind) || 26;
   const isMultihull = () => !!prefs.boatType && prefs.boatType !== 'mono';
 
   function windBands(){
     const hard = hardWind();
     const lo = Math.max(4, Math.min(hard - 2, +prefs.windMin || 8)), hi = Math.min(hard - 1, Math.max(lo + 1, +prefs.windMax || 18));
-    const bands = [[0, PURPLE, 'Under 4 kt — too light'], [4, BLUE, `4–${lo} kt — light`], [lo, GREEN, `${lo}–${hi} kt — your range`]];
+    // Power Cat: calm is good, so the green range starts at 0 kt (no "too light" bands).
+    const isPower = typeof boatProfile === 'function' && boatProfile().power;
+    const bands = isPower ? [[0, GREEN, `0–${hi} kt — your range`]]
+      : [[0, PURPLE, 'Under 4 kt — too light'], [4, BLUE, `4–${lo} kt — light`], [lo, GREEN, `${lo}–${hi} kt — your range`]];
     if(hard - hi > 4){
       const mid = Math.round((hi + hard) / 2);
       bands.push([hi, YELLOW, `${hi}–${mid} kt — fresh`], [mid, ORANGE, `${mid}–${hard} kt — strong`]);

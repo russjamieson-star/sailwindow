@@ -417,11 +417,15 @@ function fmtAshoreDist(mi){ return mi < 0.1 ? Math.round(mi*5280) + ' ft' : mi.t
 // Boat type (2026-10-11): multihulls don't heel to warn of a gust, so the gap between steady
 // wind and gusts counts for more. "mono" reproduces the original scoring exactly. The cat/tri/beach
 // numbers are placeholders until Windcraft Multihulls supplies its new-owner handover limits.
+// Power Cat (2026-11-02, Russ, for the Lakewood multihull rendezvous): no sails, so flat calm is a
+// good day, not a no-go: "power" skips the under-4-kt cutoff, and gust spread matters less.
+// The bridgedeck still slams in short chop, so waves count as for a sailing cat.
 const BOAT_PROFILES = {
   mono:  { label:"Monohull",  gustStart:7, gustRate:.4, gustCap:2.5, hardWind:26, waveMult:1 },
   cat:   { label:"Catamaran", gustStart:5, gustRate:.6, gustCap:3.5, hardWind:26, waveMult:1.5 },
   tri:   { label:"Trimaran",  gustStart:5, gustRate:.6, gustCap:3.5, hardWind:24, waveMult:1.3 },
-  beach: { label:"Beach Cat", gustStart:4, gustRate:.8, gustCap:4,   hardWind:20, waveMult:2, waveNoGo:4, suggest:{ windMin:6, windMax:15, gustMax:18 } }
+  beach: { label:"Beach Cat", gustStart:4, gustRate:.8, gustCap:4,   hardWind:20, waveMult:2, waveNoGo:4, suggest:{ windMin:6, windMax:15, gustMax:18 } },
+  power: { label:"Power Cat", gustStart:8, gustRate:.3, gustCap:2,   hardWind:25, waveMult:1.5, power:true, suggest:{ windMin:0, windMax:15, gustMax:22 } }
 };
 
 // ---- Sea state (Open-Meteo marine model, via the weather Worker) ----
@@ -450,7 +454,7 @@ function setBoatTypeUI(type){
   if(r) r.checked = true;
 }
 
-// Picking Beach Cat moves the sliders to gentler limits; the user can still adjust them before saving.
+// Picking Beach Cat or Power Cat moves the sliders to suggested limits; the user can still adjust them before saving.
 function onBoatTypeChange(type){
   const sug = BOAT_PROFILES[type]?.suggest;
   if(!sug) return;
@@ -458,7 +462,7 @@ function onBoatTypeChange(type){
     const el = document.getElementById(id);
     if(el){ el.value = v; el.dispatchEvent(new Event("input")); }
   });
-  toast("Suggested beach-cat limits set. Adjust if you like.");
+  toast(`Suggested ${BOAT_PROFILES[type].label.toLowerCase()} limits set. Adjust if you like.`);
 }
 
 function scorePeriod(period, tideFt, prevTideFt){
@@ -467,7 +471,7 @@ function scorePeriod(period, tideFt, prevTideFt){
         fc=(period.shortForecast||"").toLowerCase(),
         isThunder=/thunder|severe|tropical/i.test(fc);
   const bp = boatProfile();
-  if(wind < 4 || wind > bp.hardWind || gust > prefs.gustMax || precip >= 70 || isThunder) return 0;
+  if((wind < 4 && !bp.power) || wind > bp.hardWind || gust > prefs.gustMax || precip >= 70 || isThunder) return 0;
   const wave = waveAt(period.startTime);
   if(wave && bp.waveNoGo && wave.h >= bp.waveNoGo) return 0;
   let s = 10;

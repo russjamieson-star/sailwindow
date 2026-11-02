@@ -705,7 +705,7 @@ html:has(#subscribe-overlay[style*="flex"]),html:has(#subscribe-overlay[style*="
       <div class="sec-title">Sailing Preferences</div>
       <p style="font-size:var(--sm);color:var(--muted)">Open the settings sheet to adjust:</p>
       <div style="display:flex;flex-direction:column;gap:var(--sp2);margin-top:var(--sp2)">
-        <div style="font-size:var(--sm);padding:var(--sp3);background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--divider)"><strong>Boat Type</strong> <span style="color:var(--muted)">— Mono, Cat, Tri or Beach Cat. Multihulls don't heel to warn you of a gust, so for them a big gap between steady wind and gusts lowers the score more. Beach Cat also suggests gentler wind limits. Boat Type also sets how much choppy seas lower the score, and the Wind Map colours.</span></div>
+        <div style="font-size:var(--sm);padding:var(--sp3);background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--divider)"><strong>Boat Type</strong> <span style="color:var(--muted)">— Mono, Cat, Tri, Beach Cat or Power Cat. Multihulls don't heel to warn you of a gust, so for them a big gap between steady wind and gusts lowers the score more. Beach Cat also suggests gentler wind limits. Power Cat treats flat calm as a good day (no light-wind penalty) and suggests 0–15 kt. Boat Type also sets how much choppy seas lower the score, and the Wind Map colours.</span></div>
         <div style="font-size:var(--sm);padding:var(--sp3);background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--divider)"><strong>Wind Min / Max (kt)</strong> <span style="color:var(--muted)">— ideal sustained range. Hours outside it are penalised.</span></div>
         <div style="font-size:var(--sm);padding:var(--sp3);background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--divider)"><strong>Max Gust (kt)</strong> <span style="color:var(--muted)">— any hour above this scores 0 (automatic no-go).</span></div>
         <div style="font-size:var(--sm);padding:var(--sp3);background:var(--surface);border-radius:var(--r-lg);border:1px solid var(--divider)"><strong>Duration (hrs)</strong> <span style="color:var(--muted)">— length of your sail (1–12 hrs, in half-hour steps). Sets the window width searched.</span></div>
@@ -736,7 +736,7 @@ html:has(#subscribe-overlay[style*="flex"]),html:has(#subscribe-overlay[style*="
     <section>
       <div class="sec-title">Wind Map</div>
       <p style="font-size:var(--sm);color:var(--muted)">Tap <strong style="color:var(--text)">Wind</strong> in the bottom nav for three days of wind, gusts and waves across the coast. It opens on your chosen location. Switch layers with <strong style="color:var(--text)">Wind / Gusts / Waves</strong>, press ▶ to play the next 72 hours, or drag the slider to an hour. Moving streaks show the wind; longer streaks mean stronger wind.</p>
-      <p style="font-size:var(--sm);color:var(--muted);margin-top:var(--sp2)">Colours follow <em>your</em> Sailing Preferences and Boat Type: green is your range, red is over your limit. For a cat, tri or beach cat the Waves layer shows <strong style="color:var(--text)">sea state</strong>, flagging short, steep chop that slams a bridgedeck. Tap any spot on the water for exact wind, gusts, wave height and how often the waves come. Tap the colour key to fold it away.</p>
+      <p style="font-size:var(--sm);color:var(--muted);margin-top:var(--sp2)">Colours follow <em>your</em> Sailing Preferences and Boat Type: green is your range, red is over your limit. For a cat, tri, beach cat or power cat the Waves layer shows <strong style="color:var(--text)">sea state</strong>, flagging short, steep chop that slams a bridgedeck. Tap any spot on the water for exact wind, gusts, wave height and how often the waves come. Tap the colour key to fold it away.</p>
     </section>
 
     <section>
@@ -752,7 +752,7 @@ html:has(#subscribe-overlay[style*="flex"]),html:has(#subscribe-overlay[style*="
 
     <section>
       <div class="sec-title">How the Score is Calculated</div>
-      <p style="font-size:var(--sm);color:var(--muted)">Each hour starts at 10. <strong style="color:var(--text)">Hard disqualifiers</strong> drop it to 0: wind below 4 kt or above 26 kt, gusts over your max, rain ≥ 70%, or thunderstorms in the forecast. Otherwise points are deducted for wind outside your preferred range, gusty spread, choppy seas (more for multihulls, and a beach cat is a no-go in 4 ft seas), rain probability, and mismatched tide direction. Wave data is for the nearest open water, so a sheltered bay may be calmer. The best block is selected using a 70/30 blend of average and minimum score, so one dangerous hour can't hide inside an otherwise good window.</p>
+      <p style="font-size:var(--sm);color:var(--muted)">Each hour starts at 10. <strong style="color:var(--text)">Hard disqualifiers</strong> drop it to 0: wind below 4 kt (except for a Power Cat) or above 26 kt, gusts over your max, rain ≥ 70%, or thunderstorms in the forecast. Otherwise points are deducted for wind outside your preferred range, gusty spread, choppy seas (more for multihulls, and a beach cat is a no-go in 4 ft seas), rain probability, and mismatched tide direction. Wave data is for the nearest open water, so a sheltered bay may be calmer. The best block is selected using a 70/30 blend of average and minimum score, so one dangerous hour can't hide inside an otherwise good window.</p>
     </section>
 
     <section>
@@ -1383,12 +1383,14 @@ html:has(#subscribe-overlay[style*="flex"]),html:has(#subscribe-overlay[style*="
       </div>
     </div>
     <div class="fg">
+      <style>#p-boat-seg label{display:flex;align-items:center;justify-content:center;line-height:1.15;padding-left:2px;padding-right:2px}</style>
       <span class="flbl" id="p-boat-lbl">Boat Type</span>
-      <div class="sl-seg" style="grid-template-columns:repeat(4,1fr)" role="radiogroup" aria-labelledby="p-boat-lbl">
+      <div class="sl-seg" id="p-boat-seg" style="grid-template-columns:repeat(5,minmax(0,1fr))" role="radiogroup" aria-labelledby="p-boat-lbl">
         <input type="radio" name="p-boat" id="p-boat-mono" value="mono" checked onchange="onBoatTypeChange(this.value)"><label for="p-boat-mono">Mono</label>
         <input type="radio" name="p-boat" id="p-boat-cat" value="cat" onchange="onBoatTypeChange(this.value)"><label for="p-boat-cat">Cat</label>
         <input type="radio" name="p-boat" id="p-boat-tri" value="tri" onchange="onBoatTypeChange(this.value)"><label for="p-boat-tri">Tri</label>
-        <input type="radio" name="p-boat" id="p-boat-beach" value="beach" onchange="onBoatTypeChange(this.value)"><label for="p-boat-beach" style="white-space:nowrap;padding-left:2px;padding-right:2px">Beach Cat</label>
+        <input type="radio" name="p-boat" id="p-boat-beach" value="beach" onchange="onBoatTypeChange(this.value)"><label for="p-boat-beach">Beach Cat</label>
+        <input type="radio" name="p-boat" id="p-boat-power" value="power" onchange="onBoatTypeChange(this.value)"><label for="p-boat-power">Power Cat</label>
       </div>
     </div>
     <!-- Sliders + segmented tide control (2026-10-08). Inputs keep their old ids so savePrefs()/openModal() are unchanged; sky-icons.js wires the readouts. -->
@@ -1505,11 +1507,11 @@ const EDITION_CONFIG = {
   ]
 };
 </script>
-<script src="/engine.js?v=20261014"></script>
+<script src="/engine.js?v=20261102"></script>
 <script src="/marina-hints.js?v=3"></script>
 <script src="/sky-icons.js?v=3"></script>
 <script src="/marina-places.js?v=2"></script>
-<script src="/wind.js?v=13"></script>
+<script src="/wind.js?v=14"></script>
 <script src="/brief.js?v=1"></script>
 <script>
 // ─────────────────────────────────────────────
