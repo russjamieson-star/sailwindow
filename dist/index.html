@@ -885,6 +885,7 @@ html:has(#subscribe-overlay[style*="flex"]),html:has(#subscribe-overlay[style*="
           <optgroup label="Texas">
             <option value="sabine-pass">Sabine Pass</option>
             <option value="port-arthur">Port Arthur</option>
+            <option value="lakewood-yc">Lakewood Yacht Club (Seabrook)</option>
             <option value="galveston">Galveston Pier 21</option>
             <option value="freeport">Freeport</option>
             <option value="matagorda">Matagorda City</option>
@@ -1351,6 +1352,7 @@ html:has(#subscribe-overlay[style*="flex"]),html:has(#subscribe-overlay[style*="
         <optgroup label="Texas">
           <option value="sabine-pass">Sabine Pass (8770570)</option>
           <option value="port-arthur">Port Arthur (8770475)</option>
+          <option value="lakewood-yc">Lakewood Yacht Club, Seabrook (8770933)</option>
           <option value="galveston">Galveston Pier 21 (8771450)</option>
           <option value="freeport">Freeport (8772447)</option>
           <option value="matagorda">Matagorda City (8773146)</option>
@@ -1551,8 +1553,9 @@ const LOCATIONS = {
   // Texas
   "sabine-pass":     { name:"Sabine Pass, TX",              sub:"NOAA 8770570", lat:29.7284, lon:-93.8701, stationId:"8770570" },
   "port-arthur":     { name:"Port Arthur, TX",              sub:"NOAA 8770475", lat:29.8667, lon:-93.9300, stationId:"8770475" },
+  "lakewood-yc":     { name:"Lakewood Yacht Club, Seabrook, TX", sub:"NOAA 8770933 · Clear Lake", lat:29.5589, lon:-95.0308, stationId:"8770933" },
   "galveston":       { name:"Galveston Pier 21, TX",        sub:"NOAA 8771450", lat:29.3100, lon:-94.7933, stationId:"8771450" },
-  "freeport":        { name:"Freeport, TX",                 sub:"NOAA 8772447", lat:28.9433, lon:-95.3025, stationId:"8772447" },
+  "freeport":        { name:"Freeport, TX",                sub:"NOAA 8772447", lat:28.9433, lon:-95.3025, stationId:"8772447" },
   "matagorda":       { name:"Matagorda City, TX",           sub:"NOAA 8773146", lat:28.7100, lon:-95.9139, stationId:"8773146" },
   "rockport":        { name:"Rockport, TX",                 sub:"NOAA 8774770", lat:28.0217, lon:-97.0467, stationId:"8774770" },
   "aransas-pass":    { name:"Aransas Pass, TX",             sub:"NOAA 8775241", lat:27.8366, lon:-97.0391, stationId:"8775241" },
@@ -1794,7 +1797,8 @@ const MARINA_META = {
   // ── Texas ────────────────────────────────────────────────────────────────
   "sabine-pass":     { rating:"3.8", reviews:"", hours:"Call ahead",            area:"Sabine Pass, TX",                  phone:"",               address:"Sabine Pass, TX 77655" },
   "port-arthur":     { rating:"3.9", reviews:"", hours:"Call ahead",            area:"Port Arthur, TX",                  phone:"",               address:"Port Arthur, TX 77640" },
-  "galveston":       { rating:"4.5", reviews:"", hours:"Open · 7 AM–7 PM",      area:"Galveston Harbor, TX",             phone:"(409) 763-3556", address:"2100 Harborside Dr (Pier 21), Galveston, TX 77550" },
+  "lakewood-yc":     { rating:"",    reviews:"", hours:"Private yacht club · call ahead", area:"Clear Lake, Seabrook, TX",   phone:"(281) 474-2511", address:"2322 Lakewood Yacht Club Dr, Seabrook, TX 77586" },
+  "galveston":       { rating:"4.5", reviews:"", hours:"Open · 7 AM–7 PM",     area:"Galveston Harbor, TX",             phone:"(409) 763-3556", address:"2100 Harborside Dr (Pier 21), Galveston, TX 77550" },
   "freeport":        { rating:"4.0", reviews:"", hours:"Call ahead",            area:"Freeport, TX",                     phone:"",               address:"Freeport, TX 77541" },
   "matagorda":       { rating:"3.9", reviews:"", hours:"Call ahead",            area:"Matagorda Bay, TX",                phone:"",               address:"Matagorda, TX 77457" },
   "rockport":        { rating:"4.5", reviews:"", hours:"Open · 8 AM–6 PM",      area:"Rockport–Fulton, TX",              phone:"(361) 729-7525", address:"Municipal Marina, Rockport, TX 78382" },
