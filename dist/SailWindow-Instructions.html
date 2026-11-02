@@ -352,7 +352,7 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
       <li><strong>Tap the water</strong> — tap any spot for exact wind, gusts, wave height and how often the waves come.</li>
       <li><strong>Colour key</strong> — tap it to fold it away.</li>
     </ul>
-    <p>Colours follow <em>your</em> Sailing Preferences and Boat Type: green is your range, red is over your limit. For a cat, tri or beach cat the Waves layer shows <strong>sea state</strong>, flagging short, steep chop that slams a bridgedeck.</p>
+    <p>Colours follow <em>your</em> Sailing Preferences and Boat Type: green is your range, red is over your limit. For a cat, tri, beach cat or power cat the Waves layer shows <strong>sea state</strong>, flagging short, steep chop that slams a bridgedeck.</p>
     <div class="tip"><span class="tip-icon">ℹ</span><div>The Wind Map needs an active free trial or subscription. Wave data is for the nearest open water the model covers, so a sheltered bay may be calmer than the map shows.</div></div>
   </section>
 
@@ -376,7 +376,7 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
     <p>Open <strong>Sailing Preferences</strong> at the bottom of the dashboard and tap <strong>Edit</strong> on any row to open the <strong>Preferences sheet</strong>. You can set:</p>
     <ul>
       <li><strong>Location / Marina</strong> — choose from the 35 Gulf Coast stations (grouped by region, Florida Keys → Texas), <strong>Custom GPS / NOAA Station</strong>, or <strong>Current Location (boat at sea)</strong> to use your device's GPS.</li>
-      <li><strong>Boat Type</strong> — Mono, Cat, Tri or Beach Cat. Multihulls don't heel to warn you of a gust, so for them a big gap between steady wind and gusts lowers the score more. Beach Cat also suggests gentler wind limits (you can still adjust them). Boat Type also sets how much choppy seas lower the score, and the colours on the <a href="#s8">Wind Map</a>.</li>
+      <li><strong>Boat Type</strong> — Mono, Cat, Tri, Beach Cat or Power Cat. Multihulls don't heel to warn you of a gust, so for them a big gap between steady wind and gusts lowers the score more. Beach Cat also suggests gentler wind limits (you can still adjust them). Power Cat treats flat calm as a good day, with no light-wind penalty, and suggests 0&ndash;15 kt with gusts to 22 kt; on the Wind Map its green range starts at 0 kt. Boat Type also sets how much choppy seas lower the score, and the colours on the <a href="#s8">Wind Map</a>.</li>
       <li><strong>Wind Min / Max (kt)</strong> — your ideal sustained wind range. Hours inside this band are rewarded; hours outside are penalized.</li>
       <li><strong>Max Gust (kt)</strong> — any hour with gusts above this value is scored 0 (automatic no-go).</li>
       <li><strong>Duration (hrs)</strong> — how long your sail will be (1–12 hrs in half-hour steps). Determines the width of the window the app searches for.</li>
@@ -624,7 +624,7 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
 
     <h3>Hard disqualifiers — score becomes 0</h3>
     <ul>
-      <li>Wind below 4 kt or above 26 kt (above 24 kt for a trimaran, 20 kt for a beach cat)</li>
+      <li>Wind below 4 kt (not for a Power Cat) or above 26 kt (above 24 kt for a trimaran, 25 kt for a power cat, 20 kt for a beach cat)</li>
       <li>Gusts above your <strong>Max Gust</strong> preference</li>
       <li>Precipitation probability ≥ 70%</li>
       <li>Forecast text contains "thunder," "severe," or "tropical"</li>
@@ -637,7 +637,7 @@ hr{border:none;border-top:1px solid var(--divider);margin:2rem 0}
         <tr><td>Wind below preferred minimum</td><td style="color:var(--muted)">−0.5 per kt short</td></tr>
         <tr><td>Wind above preferred maximum</td><td style="color:var(--muted)">−0.6 per kt over</td></tr>
         <tr><td>Gust spread &gt; 7 kt over sustained (monohull)</td><td style="color:var(--muted)">Up to −2.5 pts</td></tr>
-        <tr><td>Gust spread, multihulls: &gt; 5 kt (cat, tri) or &gt; 4 kt (beach cat)</td><td style="color:var(--muted)">Up to −3.5 pts (cat, tri) or −4 pts (beach cat)</td></tr>
+        <tr><td>Gust spread, multihulls: &gt; 5 kt (cat, tri), &gt; 4 kt (beach cat) or &gt; 8 kt (power cat)</td><td style="color:var(--muted)">Up to −3.5 pts (cat, tri), −4 pts (beach cat) or −2 pts (power cat)</td></tr>
         <tr><td>Choppy seas: waves over about 2 ft, more for short, steep chop</td><td style="color:var(--muted)">Rises with wave height; heavier for multihulls. A beach cat is a no-go at 4 ft</td></tr>
         <tr><td>Gusts within 3 kt of your max limit</td><td style="color:var(--muted)">−1.5 pts</td></tr>
         <tr><td>Precipitation probability</td><td style="color:var(--muted)">−1 pt per 25% chance (max −2.8 just under the 70% no-go)</td></tr>
